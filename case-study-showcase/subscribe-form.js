@@ -1,8 +1,9 @@
 // subscribe-form.js — closed:in newsletter form enhancer
 // Intercepts any <form action="...beehiiv.com/subscribe..."> on the page,
 // submits to /api/subscribe (Beehiiv proxy), and shows an inline success state
-// instead of opening a new tab. Falls back gracefully to the original Beehiiv
-// URL if the API call fails (so signups never get fully lost).
+// instead of opening a new tab. If the proxy is unavailable (not configured,
+// upstream down, network error) it hands the signup to Beehiiv's hosted page
+// in the same tab, so a signup never dead-ends on an error message.
 
 (function () {
   'use strict';
@@ -67,12 +68,19 @@
   }
 
   function fallback(form, email) {
-    // Last-resort: open Beehiiv subscribe URL in new tab with email pre-filled.
+    // The proxy could not take the signup. Navigate the SAME tab to Beehiiv's
+    // hosted subscribe page with the email prefilled. Same-tab navigation is
+    // never popup-blocked (window.open after an async fetch is, on Safari and
+    // most mobile browsers), so the visitor lands on a working form instead of
+    // a red error line.
     try {
       var action = form.getAttribute('action') || 'https://closedins-newsletter.beehiiv.com/subscribe';
       var url = action + (action.indexOf('?') === -1 ? '?' : '&') + 'email=' + encodeURIComponent(email);
-      window.open(url, '_blank', 'noopener');
-    } catch (e) { /* swallow */ }
+      window.location.assign(url);
+    } catch (e) {
+      setButtonState(form, 'reset');
+      showError(form, 'Something went wrong. Try again in a moment.');
+    }
   }
 
   function setButtonState(form, state) {
@@ -137,20 +145,22 @@
               }
             } catch (e) { /* ignore */ }
             showSuccess(form);
-          } else {
-            setButtonState(form, 'reset');
+          } else if (resp.status === 422 || (resp.data && /already/i.test(resp.data.error || ''))) {
             // 422 from Beehiiv = already subscribed → treat as success
-            if (resp.status === 422 || (resp.data && /already/i.test(resp.data.error || ''))) {
-              showSuccess(form, 'Already on the list. Check your inbox for the latest issue.');
-            } else {
-              showError(form, 'Could not subscribe. Trying backup...');
-              fallback(form, email);
-            }
+            setButtonState(form, 'reset');
+            showSuccess(form, 'Already on the list. Check your inbox for the latest issue.');
+          } else if (resp.status === 400) {
+            // Our own validation rejected the address: let the visitor fix it.
+            setButtonState(form, 'reset');
+            showError(form, (resp.data && resp.data.error) || 'Check your email address and try again.');
+          } else {
+            // 503 (proxy not configured, fallback:true), 5xx, or anything
+            // unexpected: hand the signup to Beehiiv so it still completes.
+            fallback(form, email);
           }
         })
         .catch(function () {
-          setButtonState(form, 'reset');
-          showError(form, 'Network hiccup. Trying backup...');
+          // Network error or non-JSON response: same hand-off.
           fallback(form, email);
         });
     };

@@ -1,0 +1,171 @@
+{
+  "name": "closed:in email waterfall",
+  "version": "2026-09",
+  "source": "https://www.closedin.io/resources/clay-waterfall",
+  "guide": "https://www.closedin.io/downloads/clay-waterfall.pdf",
+  "calculator": "https://www.closedin.io/downloads/clay-credit-calculator.xlsx",
+  "how_to_use": "Clay shares tables through template links, not JSON imports. Rebuild the chain from this spec: one enrichment column per step, named as below, with the run condition set to 'previous step output is empty'. Then add the formula column that picks the first non-empty result.",
+  "input_columns": {
+    "first_name": "First name",
+    "last_name": "Last name",
+    "company_domain": "Company domain",
+    "linkedin_url": "LinkedIn URL (optional, used by Wiza)"
+  },
+  "run_rule": "Run in series. Step 1 always runs. Every later step only runs if the previous step's column is empty. Error cells do not count as empty: re-run errored rows before moving on.",
+  "steps": [
+    {
+      "step": 1,
+      "provider": "Icypeas",
+      "column": "Validate Icypeas",
+      "action": "Find work email",
+      "credits_per_row": 0.5,
+      "tier": "cheap",
+      "inputs": ["first_name", "last_name", "company_domain"],
+      "run_if": null,
+      "output": "email",
+      "notes": "Cheapest provider in the stack. Always first."
+    },
+    {
+      "step": 2,
+      "provider": "LeadMagic",
+      "column": "Validate LeadMagic",
+      "action": "Find work email",
+      "credits_per_row": 1,
+      "tier": "cheap",
+      "inputs": ["first_name", "last_name", "company_domain"],
+      "run_if": "Validate Icypeas is empty",
+      "output": "email",
+      "notes": "Strong on SMB and recent role changes."
+    },
+    {
+      "step": 3,
+      "provider": "Enrow",
+      "column": "Validate Enrow",
+      "action": "Find work email",
+      "credits_per_row": 1,
+      "tier": "cheap",
+      "inputs": ["first_name", "last_name", "company_domain"],
+      "run_if": "Validate LeadMagic is empty",
+      "output": "email",
+      "notes": "Solid EU coverage."
+    },
+    {
+      "step": 4,
+      "provider": "Kitt",
+      "column": "Validate Kitt",
+      "action": "Find work email",
+      "credits_per_row": 1,
+      "tier": "cheap",
+      "inputs": ["first_name", "last_name", "company_domain"],
+      "run_if": "Validate Enrow is empty",
+      "output": "email",
+      "notes": "Last cheap step before the 2-credit tier."
+    },
+    {
+      "step": 5,
+      "provider": "Findymail",
+      "column": "Validate Findymail",
+      "action": "Find work email",
+      "credits_per_row": 2,
+      "tier": "premium",
+      "inputs": ["first_name", "last_name", "company_domain"],
+      "run_if": "Validate Kitt is empty",
+      "output": "email",
+      "notes": "Validated finds. Skip the verification gate on these."
+    },
+    {
+      "step": 6,
+      "provider": "Hunter",
+      "column": "Validate Hunter",
+      "action": "Find work email",
+      "credits_per_row": 2,
+      "tier": "premium",
+      "inputs": ["first_name", "last_name", "company_domain"],
+      "run_if": "Validate Findymail is empty",
+      "output": "email",
+      "notes": "Strong on tech B2B and US. Also the verification provider for cheap-tier results."
+    },
+    {
+      "step": 7,
+      "provider": "Prospeo",
+      "column": "Validate Prospeo",
+      "action": "Find work email",
+      "credits_per_row": 2,
+      "tier": "premium",
+      "inputs": ["first_name", "last_name", "company_domain"],
+      "run_if": "Validate Hunter is empty",
+      "output": "email",
+      "notes": "Long-tail domains."
+    },
+    {
+      "step": 8,
+      "provider": "Datagma",
+      "column": "Validate Datagma",
+      "action": "Find work email",
+      "credits_per_row": 2,
+      "tier": "premium",
+      "inputs": ["first_name", "last_name", "company_domain"],
+      "run_if": "Validate Prospeo is empty",
+      "output": "email",
+      "notes": "Strong on NL, BE, DE."
+    },
+    {
+      "step": 9,
+      "provider": "Wiza",
+      "column": "Validate Wiza",
+      "action": "Find work email",
+      "credits_per_row": 2,
+      "tier": "premium",
+      "inputs": ["linkedin_url", "first_name", "last_name", "company_domain"],
+      "run_if": "Validate Datagma is empty",
+      "output": "email",
+      "notes": "LinkedIn-derived. Best when the profile URL is present."
+    },
+    {
+      "step": 10,
+      "provider": "Dropcontact",
+      "column": "Validate Dropcontact",
+      "action": "Find work email",
+      "credits_per_row": 2,
+      "tier": "premium",
+      "inputs": ["first_name", "last_name", "company_domain"],
+      "run_if": "Validate Wiza is empty",
+      "output": "email",
+      "notes": "Last resort. Strong GDPR posture, picks up the final 2 to 3%."
+    }
+  ],
+  "final_column": {
+    "column": "Email (waterfall)",
+    "type": "formula",
+    "logic": "First non-empty value of Validate Icypeas, Validate LeadMagic, Validate Enrow, Validate Kitt, Validate Findymail, Validate Hunter, Validate Prospeo, Validate Datagma, Validate Wiza, Validate Dropcontact, in that order.",
+    "downstream": "Verification, Instantly push and CRM push all read from this column only."
+  },
+  "optional_verification": {
+    "column": "Verify (Hunter)",
+    "provider": "Hunter",
+    "action": "Verify email",
+    "run_if": "Email (waterfall) came from steps 1 to 4",
+    "notes": "Findymail results (step 5) are trusted as-is."
+  },
+  "fallbacks": {
+    "errors": "Error cells are not empty cells. Filter each Validate column on errors after a run and re-run those rows before reading the find rate.",
+    "rate_limit": "Wait 15 minutes, re-run the errored rows on the same step. Do not push those rows to the next, more expensive step.",
+    "provider_down": "Add a checkbox column 'Skip <Provider>' and extend the step's run condition with 'and Skip is unchecked'. Tick for today's rows, untick tomorrow, re-run the skipped step on rows still empty."
+  },
+  "credit_math": {
+    "full_chain_all_attempts_per_row": 15.5,
+    "budget_per_1000_prospects": "1300 to 1800 credits at ~95% find rate on a mixed EU/US B2B list",
+    "note": "Use the calculator with your own per-step hit rates after the first full run."
+  },
+  "alternate_orders": {
+    "default_mixed": ["Icypeas", "LeadMagic", "Enrow", "Kitt", "Findymail", "Hunter", "Prospeo", "Datagma", "Wiza", "Dropcontact"],
+    "us_heavy": ["Icypeas", "LeadMagic", "Kitt", "Enrow", "Hunter", "Findymail", "Prospeo", "Wiza", "Datagma", "Dropcontact"],
+    "eu_heavy": ["Icypeas", "Enrow", "LeadMagic", "Kitt", "Datagma", "Findymail", "Dropcontact", "Hunter", "Prospeo", "Wiza"],
+    "rule": "Cheap tier stays first in every order. Reorder inside each tier by regional strength."
+  },
+  "contact": {
+    "company": "closed:in",
+    "site": "https://www.closedin.io",
+    "book_a_call": "https://closedin.neetocal.com/discovery-call?utm_source=closedin.io&utm_medium=download&utm_content=clay-waterfall-json"
+  }
+}

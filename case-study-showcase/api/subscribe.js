@@ -49,7 +49,9 @@ module.exports = async (req, res) => {
   const apiKey = process.env.BEEHIIV_API_KEY;
   const pubId = process.env.BEEHIIV_PUBLICATION_ID;
   if (!apiKey || !pubId) {
-    res.status(500).json({ error: 'Newsletter service not configured' });
+    // 503 + fallback:true tells subscribe-form.js to hand the signup to
+    // Beehiiv's hosted page instead of showing an error to the visitor.
+    res.status(503).json({ error: 'Newsletter service not configured', fallback: true });
     return;
   }
 
