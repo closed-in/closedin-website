@@ -79,9 +79,9 @@
   if (motion) {
     var reveals = gsap.utils.toArray('[data-reveal]');
     if (reveals.length) {
-      gsap.set(reveals, { autoAlpha: 0, y: desktop() ? 26 : 16 });
+      gsap.set(reveals, { opacity: 0, y: desktop() ? 26 : 16 });
       var pending = [], flushTimer = null;
-      var flush = function () { var b = pending; pending = []; flushTimer = null; gsap.to(b, { autoAlpha: 1, y: 0, duration: 1, ease: 'power3.out', stagger: 0.07, overwrite: true }); };
+      var flush = function () { var b = pending; pending = []; flushTimer = null; gsap.to(b, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', stagger: 0.07, overwrite: true }); };
       var io = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) { io.unobserve(en.target); pending.push(en.target); } }); if (pending.length && !flushTimer) flushTimer = setTimeout(flush, 40); }, { rootMargin: '0px 0px -10% 0px' });
       reveals.forEach(function (el) { io.observe(el); });
     }
@@ -173,6 +173,7 @@
         .catch(function (err) { if (window.console) console.warn('3D mark unavailable, poster shown.', err); });
     };
     var armed = false, arm = function () { if (armed) return; armed = true; if ('requestIdleCallback' in window) requestIdleCallback(load3D, { timeout: 1200 }); else setTimeout(load3D, 200); };
-    if ('IntersectionObserver' in window) { var near = new IntersectionObserver(function (entries) { if (entries.some(function (en) { return en.isIntersecting; })) { near.disconnect(); arm(); } }, { rootMargin: '150% 0px' }); near.observe(markBox); } else window.addEventListener('load', arm);
+    if (!desktop()) { if (document.readyState === 'complete') setTimeout(arm, 1500); else window.addEventListener('load', function () { setTimeout(arm, 1500); }); }
+    else if ('IntersectionObserver' in window) { var near = new IntersectionObserver(function (entries) { if (entries.some(function (en) { return en.isIntersecting; })) { near.disconnect(); arm(); } }, { rootMargin: '150% 0px' }); near.observe(markBox); } else window.addEventListener('load', arm);
   }
 })();
