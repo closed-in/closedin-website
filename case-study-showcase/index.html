@@ -57,7 +57,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.closedin.io/assets/img/og-home.png">
     <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin-wght-normal.woff2" crossorigin>
-    <link rel="preload" as="image" href="/assets/img/video/eox8dagvf8-1920.webp" imagesrcset="/assets/img/video/eox8dagvf8.webp 960w, /assets/img/video/eox8dagvf8-1920.webp 1920w" imagesizes="(max-width: 1000px) 100vw, 960px" fetchpriority="high">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-serif-italic-latin.woff2" crossorigin>
     <link rel="stylesheet" href="/assets/vendor/lenis-1.3.26/lenis.css">
     <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="stylesheet" href="/assets/css/home.css">
@@ -327,13 +327,12 @@
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="nav" id="nav" data-nav>
-    <div class="container nav__inner">
+    <div class="nav__pill">
         <a href="/" class="nav__brand" aria-label="closed:in home"><img src="/assets/brand/closedin-wordmark-ink.png" alt="closed:in" width="389" height="146"></a>
         <nav class="nav__links" aria-label="Primary">
-            <a href="/">Home</a>
-            <a href="case-studies">Case Studies</a>
+            <a href="case-studies">Cases</a>
             <div class="nav__dropdown" data-dropdown>
-                <button type="button" aria-expanded="false" aria-controls="resources-menu">Resources <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <button type="button" aria-expanded="false" aria-controls="resources-menu">Resources <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <div class="nav-dropdown-panel" id="resources-menu">
                 <div class="nav-dropdown-col">
                     <p class="nav-dropdown-heading">Resources</p>
@@ -352,346 +351,271 @@
                 </div>
             </div>
             </div>
+            <a href="blog/">Blog</a>
             <a href="team">Team</a>
             <a href="contact">Contact</a>
         </nav>
-        <a href="https://closedin.neetocal.com/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=homepage" target="_blank" rel="noopener" class="btn btn--primary btn--sm nav__cta"><span>Book a Call</span></a>
+        <a href="https://closedin.neetocal.com/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=homepage" target="_blank" rel="noopener" class="btn-arrow btn-arrow--sm nav__cta">Talk to us <span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
         <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-burger><span></span><span></span></button>
     </div>
     <div class="nav__sheet" id="mobile-menu" hidden>
         <a href="/">Home</a>
-        <a href="case-studies">Case Studies</a>
+        <a href="case-studies">Cases</a>
         <a href="resources">Resources</a>
         <a href="blog/">Blog</a>
         <a href="team">Team</a>
         <a href="contact">Contact</a>
-        <a href="https://closedin.neetocal.com/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=homepage" target="_blank" rel="noopener" class="btn btn--primary">Book a Call</a>
+        <a href="https://closedin.neetocal.com/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=homepage" target="_blank" rel="noopener" class="btn btn--primary">Talk to us</a>
     </div>
 </header>
 
 <main id="main">
 
-<!-- 1. HERO -->
+<!-- HERO -->
 <section class="hero" id="hero">
-    <div class="container hero__inner">
-        <div class="hero__badges hero-in" style="--i:0">
-            <a class="pill" href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener"><img src="/assets/partners/clay-icon.png" alt="" width="16" height="16">Clay Solutions Partner</a>
-            <a class="pill" href="https://instantly.ai/experts/jurre-groot" target="_blank" rel="noopener"><img src="/assets/partners/instantly-icon.png" alt="" width="16" height="16">Instantly Certified Expert</a>
+    <div class="container hero__top">
+        <div class="hero__copy">
+            <p class="eyebrow hero__eyebrow hero-in" style="--i:0"><svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true"><path d="M250 90H410V250H370V130H250Z"/><path d="M250 410H90V250H130V370H250Z"/><rect x="230" y="180" width="40" height="40"/><rect x="230" y="280" width="40" height="40"/></svg>closed:in, GTM engineering agency, Amsterdam</p>
+            <h1 class="hero__title hero-in" style="--i:1" data-split>Scale Your Outreach Without Scaling Your Team</h1>
         </div>
-        <h1 class="hero__title hero-in" style="--i:1" data-split>Scale Your Outreach Without Scaling Your Team</h1>
-        <p class="hero__sub hero-in" style="--i:2">Clay-powered outbound campaigns for B2B companies that want more qualified sales calls within 2 to 3 weeks. Cold email, LinkedIn and enrichment, run for you by a certified Clay and Instantly team.</p>
-        <div class="hero__actions hero-in" style="--i:3">
-            <a class="btn btn--primary" href="https://closedin.neetocal.com/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=homepage" target="_blank" rel="noopener" data-magnetic><span>Book a Discovery Call</span></a>
-            <a class="btn btn--secondary" href="#results" data-magnetic><span>See Case Studies</span></a>
-        </div>
-        <figure class="hero__video video hero-in" style="--i:4" data-wistia-id="eox8dagvf8" data-aspect="16/9" data-duration="3:34">
-            <button class="video__poster" type="button">
-                <img src="/assets/img/video/eox8dagvf8-1920.webp" srcset="/assets/img/video/eox8dagvf8.webp 960w, /assets/img/video/eox8dagvf8-1920.webp 1920w" sizes="(max-width: 1000px) 100vw, 960px" width="1920" height="1080" alt="" fetchpriority="high" decoding="async">
-                <span class="video__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-                <span class="sr-only">Play the closed:in intro video, </span><span class="video__duration">3:34</span>
-            </button>
-        </figure>
-        <div class="hero__trust hero-in" style="--i:5">
-            <p class="hero__trust-label">Trusted by 50+ B2B companies</p>
-            <ul class="logo-strip" aria-label="Clients">
-                <li><a href="case-study-gen-zero" aria-label="Gen-Zero case study"><img src="/assets/img/clients/gen-zero-sm.png" alt="Gen-Zero" height="24" loading="lazy"></a></li>
-                <li><a href="case-study-verzendbazen" aria-label="Verzendbazen case study"><img src="/assets/img/clients/verzendbazen-sm.png" alt="Verzendbazen" height="24" loading="lazy"></a></li>
-                <li><a href="case-study-jamezz" aria-label="Jamezz case study"><img src="/assets/img/clients/jamezz-sm.png" alt="Jamezz" height="24" loading="lazy"></a></li>
-                <li><a href="case-study-endresz" aria-label="Endresz case study"><img src="/assets/img/clients/endresz-sm.png" alt="Endresz" height="24" loading="lazy"></a></li>
-                <li><a href="case-study-mistertafel" aria-label="Mistertafel case study"><img src="/assets/img/clients/mistertafel-sm.png" alt="Mistertafel" height="24" loading="lazy"></a></li>
-                <li><a href="case-study-zano" aria-label="Zano case study"><img src="zano-logo.svg" alt="Zano" height="24" loading="lazy"></a></li>
-                <li><a href="case-study-redfox" aria-label="Red Fox case study"><img src="/assets/img/clients/redfox-sm.png" alt="Red Fox" height="24" loading="lazy"></a></li>
-                <li><a href="case-study-wetaxus" aria-label="Wetaxus case study"><img src="/assets/img/clients/wetaxus-sm.png" alt="Wetaxus" height="24" loading="lazy"></a></li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- 2. CLIENT STORIES -->
-<section class="stories section section--alt" id="stories" aria-labelledby="stories-title">
-    <div class="container stories__head">
-        <header class="section__head" data-reveal>
-            <h2 id="stories-title" class="title-1">Clients, in their own words.</h2>
-            <p class="section__sub">Short conversations with the founders and owners we build outbound for.</p>
-        </header>
-        <div class="stories__tools" data-reveal>
-            <a class="link" href="case-studies">See All Case Studies <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-            <div class="rail__nav" data-rail-controls>
-                <button type="button" data-rail-prev aria-label="Previous stories"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-                <button type="button" data-rail-next aria-label="Next stories"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+        <div class="hero__object hero-in" style="--i:2" aria-hidden="true">
+            <div class="mark" data-mark-3d data-trigger=".hero" data-start="top top" data-end="+=170%">
+                <img class="mark__poster" src="/assets/img/mark-poster.webp" width="1200" height="1200" alt="" fetchpriority="high" decoding="async">
+                <span class="mark__shadow"></span>
             </div>
         </div>
     </div>
-    <div class="rail" data-rail>
-        <div class="rail__track">
-            <article class="story" data-wistia-id="" data-aspect="16/9" data-duration="" data-reveal itemscope itemtype="https://schema.org/Review">
-                <button class="story__poster" type="button">
-                    <span class="sr-only">Play video: Nick Verhulsdonck, WeTaxus, </span>
-                    <img src="/assets/img/video/placeholder.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
-                    <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-                    <span class="story__duration"></span>
-                </button>
-                <div class="story__top"><span class="story__avatar" aria-hidden="true">NV</span><img class="story__logo" src="/assets/img/clients/wetaxus.png" alt="WeTaxus" height="20" loading="lazy"></div>
-                <blockquote class="story__quote" itemprop="reviewBody">closed:in delivered exactly what they promised. Within weeks we had a full pipeline of qualified leads and our sales team finally had consistent deal flow to work with. Their approach to outbound is next level.</blockquote>
-                <footer class="story__meta">
-                    <span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Nick Verhulsdonck</b> <span itemprop="jobTitle">Co-Owner, WeTaxus</span></span>
-                    <span class="story__outcome">Cold email plus website visitor de-anonymisation, two channels run together</span>
-                </footer>
-                <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span>
-                <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
-            </article>
-            <article class="story" data-wistia-id="" data-aspect="16/9" data-duration="" data-reveal itemscope itemtype="https://schema.org/Review">
-                <button class="story__poster" type="button">
-                    <span class="sr-only">Play video: Zen Alex, Red Fox Agency, </span>
-                    <img src="/assets/img/video/placeholder.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
-                    <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-                    <span class="story__duration"></span>
-                </button>
-                <div class="story__top"><span class="story__avatar" aria-hidden="true">ZA</span><img class="story__logo" src="wall/redfox-d.png" alt="Red Fox Agency" height="20" loading="lazy"></div>
-                <blockquote class="story__quote" itemprop="reviewBody">We tried outbound ourselves for months with minimal results. closed:in came in, rebuilt everything from scratch, and within 4 weeks we had qualified meetings on the calendar. Absolute game changer for our agency.</blockquote>
-                <footer class="story__meta">
-                    <span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Zen Alex</b> <span itemprop="jobTitle">Founder, Red Fox Agency</span></span>
-                    <span class="story__outcome">33 opportunities at an 8.47% reply rate from a referral campaign</span>
-                </footer>
-                <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span>
-                <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
-            </article>
-            <article class="story" data-wistia-id="" data-aspect="16/9" data-duration="" data-reveal itemscope itemtype="https://schema.org/Review">
-                <button class="story__poster" type="button">
-                    <span class="sr-only">Play video: Erik Jorgensen, CEO, </span>
-                    <img src="/assets/img/video/placeholder.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
-                    <span class="story__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-                    <span class="story__duration"></span>
-                </button>
-                <div class="story__top"><span class="story__avatar" aria-hidden="true">EJ</span></div>
-                <blockquote class="story__quote" itemprop="reviewBody">Working with closed:in was a seamless experience. Their ability to merge outreach with functionality resulted in opportunities that not only filled our pipeline but also converted.</blockquote>
-                <footer class="story__meta">
-                    <span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Erik Jorgensen</b> <span itemprop="jobTitle">CEO</span></span>
-                    <span class="story__outcome">Pipeline that converted, with a seamless handover</span>
-                </footer>
-                <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span>
-                <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
-            </article>
+    <div class="container hero__bottom">
+        <div class="hero__intro hero-in" style="--i:3">
+            <p>closed:in builds and runs outbound engines for B2B companies: Clay-powered lists, cold email, LinkedIn and CRM orchestration, tuned per ICP. Most clients book their first qualified meetings within 2 to 3 weeks.</p>
+            <a class="btn-arrow btn-arrow--down" href="#results">Discover more <span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></a>
+        </div>
+        <button class="hero__feature hero-in" style="--i:4" type="button" data-open-video data-wistia-id="eox8dagvf8" data-aspect="16/9" data-caption="How closed:in builds outbound engines, 3:34">
+            <span class="hero__feature-text">Watch the intro: how we build an outbound engine in 2 to 3 weeks</span>
+            <span class="hero__feature-thumb"><img src="/assets/img/video/eox8dagvf8-480.webp" width="480" height="270" alt=""><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="hero__feature-foot"><span>Intro video, 3:34</span><span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
+            <span class="sr-only">Play the closed:in intro video</span>
+        </button>
+        <span class="pixels" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    </div>
+    <div class="container hero__strip hero-in" style="--i:5">
+        <p class="hero__strip-label">Trusted by 50+ B2B companies</p>
+        <div class="marquee" aria-label="Clients">
+            <div class="marquee__track" data-speed="52">
+                <img src="/assets/img/clients/gen-zero-sm.png" alt="Gen-Zero" height="24"><img src="/assets/img/clients/verzendbazen-sm.png" alt="Verzendbazen" height="24"><img src="/assets/img/clients/jamezz-sm.png" alt="Jamezz" height="24"><img src="/assets/img/clients/endresz-sm.png" alt="Endresz" height="24"><img src="/assets/img/clients/quantumclub-sm.png" alt="The Quantum Club" height="24"><img src="/assets/img/clients/wetaxus-sm.png" alt="Wetaxus" height="24"><img src="/assets/img/clients/rewize-sm.png" alt="Rewize" height="24"><img src="/assets/img/clients/mistertafel-sm.png" alt="Mistertafel" height="24"><img src="/assets/img/clients/zoku-sm.png" alt="Zoku" height="24"><img src="/assets/img/clients/redfox-sm.png" alt="Red Fox" height="24"><img src="/assets/img/clients/agile-sm.png" alt="Agile Professionals" height="24"><img src="/assets/img/clients/deslimmedoos-sm.png" alt="De Slimme Doos" height="24"><img src="/assets/img/clients/brandsom-sm.png" alt="Brandsom" height="24"><img src="/assets/img/clients/atelierld-sm.png" alt="Atelier LD" height="24">
+            </div>
         </div>
     </div>
 </section>
 
-<!-- 3. RESULTS -->
-<section class="results section" id="results" aria-labelledby="results-title">
+<!-- RESULTS -->
+<section class="sec results" id="results" aria-labelledby="results-title">
     <div class="container">
-        <header class="section__head" data-reveal>
-            <h2 id="results-title" class="title-1">Results from live campaigns.</h2>
-            <p class="section__sub">Real numbers from real client campaigns, documented in full on each case page.</p>
-        </header>
-        <div class="stats" data-reveal>
-            <div class="stat"><span class="stat__num" data-count="20" data-suffix="+">20+</span><span class="stat__label">Qualified sales meetings per month</span></div>
-            <div class="stat"><span class="stat__num" data-count="80" data-suffix="%">80%</span><span class="stat__label">Of campaigns book meetings within 2 to 3 weeks</span></div>
-            <div class="stat"><span class="stat__num" data-count="10" data-suffix="%">10%</span><span class="stat__label">Average reply rate</span></div>
-            <div class="stat"><span class="stat__num" data-count="98" data-suffix="%">98%</span><span class="stat__label">Deliverability</span></div>
-        </div>
-        <div class="cases" id="cases">
-            <article class="case" data-reveal data-parallax>
-                <img class="case__logo" src="/assets/img/clients/gen-zero-sm.png" alt="Gen-Zero" height="24" loading="lazy">
-                <h3 class="case__title">142 opportunities from 27,455 contacts in 13 weeks. A custom KVK-anchored data engine on Instantly, investment recouped in under 2 months.</h3>
-                <dl class="case__metrics">
-                    <div><dt>Opportunities</dt><dd data-count="142">142</dd></div>
-                    <div><dt>Timeline</dt><dd data-count="13" data-suffix=" wk">13 wk</dd></div>
-                    <div><dt>Reply rate</dt><dd data-count="5.07" data-decimals="2" data-suffix="%">5.07%</dd></div>
-                </dl>
-                <a class="link" href="case-study-gen-zero">Read the Case Study <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-            </article>
-            <article class="case" data-reveal data-parallax>
-                <img class="case__logo" src="/assets/img/clients/verzendbazen-sm.png" alt="Verzendbazen" height="24" loading="lazy">
-                <h3 class="case__title">78 qualified opportunities and &euro;1.56M in pipeline. 13.9% reply rate, double the industry average. They hired to keep up with demand.</h3>
-                <dl class="case__metrics">
-                    <div><dt>Opportunities</dt><dd data-count="78">78</dd></div>
-                    <div><dt>Timeline</dt><dd data-count="8" data-suffix=" wk">8 wk</dd></div>
-                    <div><dt>Reply rate</dt><dd data-count="13.9" data-decimals="1" data-suffix="%">13.9%</dd></div>
-                </dl>
-                <a class="link" href="case-study-verzendbazen">Read the Case Study <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-            </article>
-            <article class="case" data-reveal data-parallax>
-                <img class="case__logo" src="/assets/img/clients/endresz-sm.png" alt="Endresz" height="24" loading="lazy">
-                <h3 class="case__title">247 boutique conversations across NL, France, Poland and London. USD 128K+ pipeline from a multi-market creative agency rollout.</h3>
-                <dl class="case__metrics">
-                    <div><dt>Conversations</dt><dd data-count="247">247</dd></div>
-                    <div><dt>Markets</dt><dd data-count="4">4</dd></div>
-                    <div><dt>Pipeline</dt><dd data-count="128" data-prefix="$" data-suffix="K">$128K</dd></div>
-                </dl>
-                <a class="link" href="case-study-endresz">Read the Case Study <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-            </article>
-        </div>
-        <div class="booked" data-reveal>
-            <p class="booked__label">Our clients booked meetings with</p>
-            <ul class="logo-strip logo-strip--muted" aria-label="Companies our clients booked meetings with">
-                <li><img src="/assets/img/clients/mcdonalds.png" alt="McDonald's" height="26" loading="lazy"></li>
-                <li><img src="/assets/img/clients/uber.png" alt="Uber" height="26" loading="lazy"></li>
-                <li><img src="/assets/img/clients/nh-hotels.png" alt="NH Hotels" height="26" loading="lazy"></li>
-                <li><img src="/assets/img/clients/rabobank.png" alt="Rabobank" height="26" loading="lazy"></li>
-                <li><img src="/assets/img/clients/heineken.png" alt="Heineken" height="26" loading="lazy"></li>
-                <li><img src="/assets/img/clients/amazon.png" alt="Amazon" height="26" loading="lazy"></li>
-                <li><img src="/assets/img/clients/jack-daniels.png" alt="Jack Daniel's" height="26" loading="lazy"></li>
-                <li><img src="/assets/img/clients/bnp-paribas.png" alt="BNP Paribas" height="26" loading="lazy"></li>
-                <li><img src="/assets/img/clients/dhl.png" alt="DHL" height="26" loading="lazy"></li>
-                <li><img src="/assets/img/clients/amex.png" alt="American Express" height="26" loading="lazy"></li>
-            </ul>
-        </div>
-        <div class="section__cta" data-reveal>
-            <a class="btn btn--secondary" href="case-studies" data-magnetic><span>View All Case Studies</span></a>
-        </div>
-    </div>
-</section>
-
-<!-- 4. PROCESS -->
-<section class="process section section--alt" id="process" aria-labelledby="process-title">
-    <div class="container process__grid">
-        <div class="process__aside">
-            <div class="process__sticky">
-                <header class="section__head" data-reveal>
-                    <h2 id="process-title" class="title-1">How we build your outbound engine.</h2>
-                    <p class="section__sub">Our 5-step framework turns cold outreach into qualified pipeline.</p>
-                </header>
-                <div class="mark" data-mark-3d aria-hidden="true">
-                    <img class="mark__poster" src="/assets/img/mark-poster.webp" width="1200" height="1200" alt="" loading="lazy" decoding="async">
-                    <span class="mark__shadow"></span>
+        <p class="eyebrow" data-reveal><svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true"><path d="M250 90H410V250H370V130H250Z"/><path d="M250 410H90V250H130V370H250Z"/><rect x="230" y="180" width="40" height="40"/><rect x="230" y="280" width="40" height="40"/></svg>Results</p>
+        <div class="sec__head">
+            <h2 id="results-title" class="title" data-reveal>50+ B2B companies trusted us to build their <span class="i">outbound</span></h2>
+            <div class="sec__aside" data-reveal>
+                <p>Service businesses, SaaS, recruitment, fintech and advisory. The same outbound engine, tuned per ICP, with the numbers documented in full on every case page.</p>
+                <div class="sec__tools">
+                    <a class="btn-arrow btn-arrow--pill" href="case-studies">Explore all cases <span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+                    <div class="arrows"><button type="button" data-prev aria-label="Previous cases"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button><button type="button" data-next aria-label="Next cases"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
                 </div>
-                <p class="process__stat" data-reveal><span class="stat__num" data-count="120" data-suffix="+">120+</span><span class="stat__label">data providers through Clay</span></p>
             </div>
         </div>
-        <ol class="process__steps" data-process>
-            <span class="process__line" aria-hidden="true"><span class="process__line-fill"></span></span>
-            <li class="process__step" id="step-1-icp" data-reveal>
-                <span class="process__num" aria-hidden="true">01</span>
-                <h3>ICP Definition</h3>
-                <p>We start by deeply understanding who your ideal customer is. Not just job titles, but buying signals, tech stack, company size, and growth indicators.</p>
-                <ul class="process__features"><li>Define your Ideal Customer Profile</li><li>Map decision makers and buying committees</li><li>Identify target account characteristics</li><li>Score and prioritize segments</li></ul>
-            </li>
-            <li class="process__step" id="step-2-sourcing" data-reveal>
-                <span class="process__num" aria-hidden="true">02</span>
-                <h3>Lead Sourcing</h3>
-                <p>Using 120+ data providers through Clay, we build hyper-targeted lead lists with verified contact data. Every lead is qualified before outreach begins.</p>
-                <ul class="process__features"><li>Source leads from 120+ data providers</li><li>Verify every email address</li><li>Clean and deduplicate data</li><li>Build segmented lead lists</li></ul>
-            </li>
-            <li class="process__step" id="step-3-enrichment" data-reveal>
-                <span class="process__num" aria-hidden="true">03</span>
-                <h3>Enrichment &amp; Personalization</h3>
-                <p>Every lead gets enriched with targeted data: icebreakers, recent news, tech stack signals, and custom variables that make every email feel 1-to-1.</p>
-                <ul class="process__features"><li>Enrich with company and personal data</li><li>Generate personalized icebreakers</li><li>Add LinkedIn and social signals</li><li>Pull recent news and triggers</li></ul>
-            </li>
-            <li class="process__step" id="step-4-infrastructure" data-reveal>
-                <span class="process__num" aria-hidden="true">04</span>
-                <h3>Infrastructure &amp; Deliverability</h3>
-                <p>We set up bulletproof email infrastructure: fresh domains, SPF/DKIM/DMARC, inbox warmup, and ongoing monitoring to ensure 98%+ deliverability.</p>
-                <ul class="process__features"><li>Purchase and configure sending domains</li><li>Set up SPF, DKIM, DMARC records</li><li>Warm up all inboxes gradually</li><li>Monitor deliverability in real-time</li></ul>
-            </li>
-            <li class="process__step" id="step-5-launch" data-reveal>
-                <span class="process__num" aria-hidden="true">05</span>
-                <h3>Campaign Launch &amp; Optimization</h3>
-                <p>Multi-step sequences go live. We continuously A/B test subject lines, copy, and timing. Your calendar fills with qualified meetings.</p>
-                <ul class="process__features"><li>Launch personalized email sequences</li><li>A/B test subjects, copy, and CTAs</li><li>Book qualified meetings on your calendar</li><li>Optimize based on reply data weekly</li></ul>
-            </li>
-        </ol>
-    </div>
-</section>
-
-<!-- 5. SERVICES -->
-<section class="services section" id="services" aria-labelledby="services-title">
-    <div class="container">
-        <header class="section__head" data-reveal>
-            <h2 id="services-title" class="title-1">Everything you need for predictable growth.</h2>
-            <p class="section__sub">Four service areas, one managed engine on top of your CRM.</p>
-        </header>
-        <div class="services__grid">
-            <article class="tile" data-reveal>
-                <span class="tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
-                <h3>Predictable Meetings</h3>
-                <p>We turn outbound into a steady flow of qualified calls on your calendar. Measurable, repeatable, and directly tied to revenue.</p>
-                <div class="tile__stats"><span><b>20+</b> meetings/month</span><span><b>80%</b> book in 2 to 3 weeks</span></div>
-            </article>
-            <article class="tile" data-reveal>
-                <span class="tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
-                <h3>Deliverability &amp; Infrastructure</h3>
-                <p>Domains, inboxes, warmup, and real-time monitoring set up the right way. We keep your emails in the inbox and out of spam, consistently.</p>
-                <div class="tile__stats"><span><b>98%</b> deliverability</span><span><b>SPF/DKIM/DMARC</b> fully configured</span></div>
-            </article>
-            <article class="tile" data-reveal>
-                <span class="tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
-                <h3>Clay Enrichment &amp; Outbound Ops</h3>
-                <p>Clay-based lead enrichment, waterfall sourcing, Claygent personalisation and CRM orchestration. Plus strategy, copy and sequencing handled end-to-end. Your team focuses on closing while we fill the pipeline.</p>
-                <div class="tile__stats"><span><b>120+</b> data providers via Clay</span><span><b>Clay Solutions Partner</b>, certified</span></div>
-            </article>
-            <article class="tile" data-reveal>
-                <span class="tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span>
-                <h3>Insights &amp; Optimization</h3>
-                <p>Clear reporting and ongoing A/B tests to lift reply rates and meeting quality month over month. Data-driven iteration, every week.</p>
-                <div class="tile__stats"><span><b>10%</b> average reply rate</span><span><b>Weekly</b> optimization</span></div>
-            </article>
-        </div>
-        <div class="builton" data-reveal>
-            <span class="builton__label">Built on</span>
-            <div class="builton__tools">
-                <img src="/assets/img/clients/clay.png" alt="Clay" title="Clay, orchestration" height="24" loading="lazy">
-                <img src="logos/instantly.png" alt="Instantly" title="Instantly, email sending" height="24" loading="lazy">
-                <img src="logos/apollo.png" alt="Apollo" title="Apollo, sourcing" height="24" loading="lazy">
-                <img src="logos/close.png" alt="Close" title="Close, CRM" height="24" loading="lazy">
-                <img src="logos/hubspot.png" alt="HubSpot" title="HubSpot, CRM and marketing" height="24" loading="lazy">
-                <img src="wall/claude.png" alt="Claude" title="Claude, AI agents" height="24" loading="lazy">
-                <img src="logos/n8n.png" alt="n8n" title="n8n, workflow automation" height="24" loading="lazy">
-                <img src="wall/notion.png" alt="Notion" title="Notion, knowledge base" height="24" loading="lazy">
+        <div class="carousel" id="cases" data-carousel data-reveal>
+            <div class="carousel__track">
+                <a class="case-card" href="case-study-gen-zero"><span class="case-card__head"><img class="case-card__logo" src="/assets/img/clients/gen-zero-sm.png" alt="Gen-Zero" height="24"><span class="case-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span><span class="tiles"><span class="tile"><b data-count="142">142</b><span>Opportunities in 13 weeks</span></span><span class="tile"><b data-count="5.07" data-decimals="2" data-suffix="%">5.07%</b><span>Reply rate on 27,455 contacts</span></span></span></a>
+                <a class="case-card" href="case-study-verzendbazen"><span class="case-card__head"><img class="case-card__logo" src="/assets/img/clients/verzendbazen-sm.png" alt="Verzendbazen" height="24"><span class="case-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span><span class="tiles"><span class="tile"><b data-count="78">78</b><span>Qualified opportunities in 8 weeks</span></span><span class="tile"><b data-count="1.56" data-decimals="2" data-prefix="&euro;" data-suffix="M">&euro;1.56M</b><span>Pipeline at a 13.9% reply rate</span></span></span></a>
+                <a class="case-card" href="case-study-endresz"><span class="case-card__head"><img class="case-card__logo" src="/assets/img/clients/endresz-sm.png" alt="Endresz" height="24"><span class="case-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span><span class="tiles"><span class="tile"><b data-count="247">247</b><span>Boutique conversations</span></span><span class="tile"><b data-count="128" data-prefix="$" data-suffix="K">$128K</b><span>Pipeline across 4 markets</span></span></span></a>
+                <a class="case-card" href="case-study-mistertafel"><span class="case-card__head"><span class="case-card__name"><img class="case-card__logo" src="/assets/img/clients/mistertafel-sm.png" alt="" height="24"> Mistertafel</span><span class="case-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span><span class="tiles"><span class="tile"><b data-count="96">96</b><span>Retail opportunities in 30 days</span></span><span class="tile"><b data-count="35" data-suffix="%+">35%+</b><span>Reply rate from 900 contacts</span></span></span></a>
+                <a class="case-card" href="case-study-jamezz"><span class="case-card__head"><img class="case-card__logo" src="/assets/img/clients/jamezz-sm.png" alt="Jamezz" height="24"><span class="case-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span><span class="tiles"><span class="tile"><b data-count="81">81</b><span>Qualified leads in 60 days</span></span><span class="tile"><b data-count="190" data-prefix="$" data-suffix="K+">$190K+</b><span>Pipeline from a hard-to-find ICP</span></span></span></a>
+                <a class="case-card" href="case-study-redfox"><span class="case-card__head"><span class="case-card__name"><img class="case-card__logo" src="/assets/img/clients/redfox-sm.png" alt="" height="24"> Red Fox Agency</span><span class="case-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span><span class="tiles"><span class="tile"><b data-count="33">33</b><span>Opportunities from a referral campaign</span></span><span class="tile"><b data-count="8.47" data-decimals="2" data-suffix="%">8.47%</b><span>Reply rate</span></span></span></a>
+                <a class="case-card" href="case-study-zano"><span class="case-card__head"><span class="case-card__name"><img class="case-card__logo" src="zano-logo.svg" alt="" height="24"> Zano</span><span class="case-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span><span class="tiles"><span class="tile"><b data-count="2253">2,253</b><span>Verified decision-maker emails</span></span><span class="tile"><b data-count="17213">17,213</b><span>Domains screened for crypto operators</span></span></span></a>
             </div>
-            <a class="link" href="resources/gtm-stack">See the Full Stack <span class="chev" aria-hidden="true">&rsaquo;</span></a>
         </div>
     </div>
 </section>
 
-<!-- 6. FIT -->
-<section class="fit section section--alt" id="fit" aria-labelledby="fit-title">
+<!-- CLIENT STORIES -->
+<section class="sec stories" id="stories" aria-labelledby="stories-title">
     <div class="container">
-        <header class="section__head" data-reveal>
-            <h2 id="fit-title" class="title-1">Four signals you're a fit.</h2>
-            <p class="section__sub">The buyers we build for, and the page that explains each approach.</p>
-        </header>
-        <div class="fit__grid">
-            <article class="fit-card" data-reveal>
-                <span class="eyebrow">B2B SaaS founders</span>
-                <h3>You want predictable demos from a lean team</h3>
-                <p>ACV between EUR 5K and EUR 50K, selling to mid-market. You tried outbound in-house and it took 4 months to get to 5 demos/month. closed:in gets you there in 4 weeks without hiring.</p>
-                <a class="link" href="cold-email-agency-saas">See the SaaS Approach <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-            </article>
-            <article class="fit-card" data-reveal>
-                <span class="eyebrow">Recruitment &amp; PE firms</span>
-                <h3>Your prospects reply to specific, credible outreach</h3>
-                <p>PE-focused executive search, buy-side advisory, niche recruitment. Your buyers expect specificity and credibility upfront. closed:in builds outbound that respects their inbox.</p>
-                <a class="link" href="gtm-engineering-agency">See GTM Engineering <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-            </article>
-            <article class="fit-card" data-reveal>
-                <span class="eyebrow">Agencies, e-commerce, services</span>
-                <h3>Your ICP is niche or invisible in standard databases</h3>
-                <p>Hospitality, boutique retail, B2C-to-B2B retail, sustainability, agency-services. ICPs that don't show up cleanly in Apollo. closed:in builds custom sourcing pipelines via Clay.</p>
-                <a class="link" href="clay-agency">See the Clay Agency <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-            </article>
-            <article class="fit-card" data-reveal>
-                <span class="eyebrow">Financial services, M&amp;A, advisory</span>
-                <h3>Your buyers are senior, skeptical and signal-driven</h3>
-                <p>M&amp;A advisory, corporate finance, asset management, audit, legal-tech, fintech. Your prospects engage with credible, signal-based outbound that respects their seniority.</p>
-                <a class="link" href="gtm-engineering-agency">See GTM Engineering <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-            </article>
+        <p class="eyebrow" data-reveal><svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true"><path d="M250 90H410V250H370V130H250Z"/><path d="M250 410H90V250H130V370H250Z"/><rect x="230" y="180" width="40" height="40"/><rect x="230" y="280" width="40" height="40"/></svg>Client stories</p>
+        <div class="sec__head">
+            <h2 id="stories-title" class="title" data-reveal>Founders on working <span class="i">with us</span></h2>
+            <div class="sec__aside" data-reveal>
+                <p>Short conversations with the founders and owners we build outbound for, recorded in October 2026. Quotes are taken from the recordings.</p>
+                <div class="sec__tools">
+                    <a class="btn-arrow btn-arrow--pill" href="case-studies">See all case studies <span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+                    <div class="arrows"><button type="button" data-prev aria-label="Previous stories"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button><button type="button" data-next aria-label="Next stories"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel" data-carousel data-reveal>
+            <div class="carousel__track">
+                <article class="story" data-wistia-id="" data-aspect="16/9" itemscope itemtype="https://schema.org/Review">
+                    <button class="story__poster" type="button" data-open-video data-wistia-id="" data-aspect="16/9" data-caption="Ronne, Endresz"><span class="sr-only">Play video: Ronne, Endresz</span><img src="/assets/img/stories/endresz.webp" srcset="/assets/img/stories/endresz-480.webp 480w, /assets/img/stories/endresz.webp 960w" sizes="(max-width: 600px) 88vw, 440px" width="960" height="540" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="story__soon">Video coming soon</span><span class="story__duration"></span></button>
+                    <div class="story__body">
+                        <blockquote class="story__quote" itemprop="reviewBody">The first week we already had amazing results. Reply rate went through the roof.</blockquote>
+                        <p class="story__meta"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Ronne</b><span itemprop="jobTitle">Marketing, Endresz</span></span><img class="story__logo" src="/assets/img/clients/endresz-sm.png" alt="Endresz" height="18"></p>
+                        <p class="story__outcome"><b>247</b> boutique conversations across NL, France, Poland and London</p>
+                    </div>
+                    <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
+                </article>
+                <article class="story" data-wistia-id="" data-aspect="16/9" itemscope itemtype="https://schema.org/Review">
+                    <button class="story__poster" type="button" data-open-video data-wistia-id="" data-aspect="16/9" data-caption="Mikel Palokaj, True Performance Network"><span class="sr-only">Play video: Mikel Palokaj, True Performance Network</span><img src="/assets/img/stories/tpn.webp" srcset="/assets/img/stories/tpn-480.webp 480w, /assets/img/stories/tpn.webp 960w" sizes="(max-width: 600px) 88vw, 440px" width="960" height="540" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="story__soon">Video coming soon</span><span class="story__duration"></span></button>
+                    <div class="story__body">
+                        <blockquote class="story__quote" itemprop="reviewBody">I really like your hands-on approach. Digging in, trying to really understand the business and then finding creative ways to reach customers.</blockquote>
+                        <p class="story__meta"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Mikel Palokaj</b><span itemprop="jobTitle">Co-founder, True Performance Network</span></span></p>
+                        <p class="story__outcome"><b>4%</b> positive reply rate and <b>500+</b> positive replies to refine the offer</p>
+                    </div>
+                    <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
+                </article>
+                <article class="story" data-wistia-id="" data-aspect="16/9" itemscope itemtype="https://schema.org/Review">
+                    <button class="story__poster" type="button" data-open-video data-wistia-id="" data-aspect="16/9" data-caption="Leva Konaté, Sankore Labs"><span class="sr-only">Play video: Leva Konaté, Sankore Labs</span><img src="/assets/img/stories/sankore.webp" srcset="/assets/img/stories/sankore-480.webp 480w, /assets/img/stories/sankore.webp 960w" sizes="(max-width: 600px) 88vw, 440px" width="960" height="540" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="story__soon">Video coming soon</span><span class="story__duration"></span></button>
+                    <div class="story__body">
+                        <blockquote class="story__quote" itemprop="reviewBody">It brought about clarity in the early discovery phase. Definitely.</blockquote>
+                        <p class="story__meta"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Leva Konaté</b><span itemprop="jobTitle">Founder, Sankore Labs</span></span></p>
+                        <p class="story__outcome">Validation and a clear ICP for a new developer matchmaking service</p>
+                    </div>
+                    <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
+                </article>
+                <article class="story" data-wistia-id="" data-aspect="16/9" itemscope itemtype="https://schema.org/Review">
+                    <button class="story__poster" type="button" data-open-video data-wistia-id="" data-aspect="16/9" data-caption="Laura Wolf, Sustainable Motion"><span class="sr-only">Play video: Laura Wolf, Sustainable Motion</span><img src="/assets/img/stories/sustainable-motion.webp" srcset="/assets/img/stories/sustainable-motion-480.webp 480w, /assets/img/stories/sustainable-motion.webp 960w" sizes="(max-width: 600px) 88vw, 440px" width="960" height="540" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="story__soon">Video coming soon</span><span class="story__duration"></span></button>
+                    <div class="story__body">
+                        <blockquote class="story__quote" itemprop="reviewBody">I really noticed that you simply wanted to deliver quality and go all in for it.</blockquote>
+                        <p class="story__meta"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Laura Wolf</b><span itemprop="jobTitle">Event manager, Sustainable Motion &middot; translated from Dutch</span></span></p>
+                        <p class="story__outcome">From loose Excel lists to one HubSpot system with <b>thousands</b> of new contacts and phone numbers</p>
+                    </div>
+                    <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
+                </article>
+                <article class="story" data-wistia-id="" data-aspect="16/9" itemscope itemtype="https://schema.org/Review">
+                    <button class="story__poster" type="button" data-open-video data-wistia-id="" data-aspect="16/9" data-caption="Nick Verhulsdonck, WeTaxus"><span class="sr-only">Play video: Nick Verhulsdonck, WeTaxus</span><img src="/assets/img/stories/wetaxus.webp" srcset="/assets/img/stories/wetaxus-480.webp 480w, /assets/img/stories/wetaxus.webp 960w" sizes="(max-width: 600px) 88vw, 440px" width="960" height="540" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="story__soon">Video coming soon</span><span class="story__duration"></span></button>
+                    <div class="story__body">
+                        <blockquote class="story__quote" itemprop="reviewBody">You were definitely willing to go the extra step, and to think creatively about solutions.</blockquote>
+                        <p class="story__meta"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Nick Verhulsdonck</b><span itemprop="jobTitle">Co-Owner, WeTaxus &middot; translated from Dutch</span></span><img class="story__logo" src="/assets/img/clients/wetaxus-sm.png" alt="WeTaxus" height="18"></p>
+                        <p class="story__outcome">Cold email as a second channel next to Meta, at a lower cost in the same period</p>
+                    </div>
+                    <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
+                </article>
+                <article class="story story--text" itemscope itemtype="https://schema.org/Review">
+                    <div class="story__body">
+                        <blockquote class="story__quote" itemprop="reviewBody">We tried outbound ourselves for months with minimal results. closed:in came in, rebuilt everything from scratch, and within 4 weeks we had qualified meetings on the calendar. Absolute game changer for our agency.</blockquote>
+                        <p class="story__meta"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Zen Alex</b><span itemprop="jobTitle">Founder, Red Fox Agency</span></span><img class="story__logo" src="/assets/img/clients/redfox-sm.png" alt="Red Fox Agency" height="18"></p>
+                        <p class="story__outcome"><b>33</b> opportunities at an <b>8.47%</b> reply rate</p>
+                    </div>
+                    <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
+                </article>
+                <article class="story story--text" itemscope itemtype="https://schema.org/Review">
+                    <div class="story__body">
+                        <blockquote class="story__quote" itemprop="reviewBody">Working with closed:in was a seamless experience. Their ability to merge outreach with functionality resulted in opportunities that not only filled our pipeline but also converted.</blockquote>
+                        <p class="story__meta"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Erik Jorgensen</b><span itemprop="jobTitle">CEO</span></span></p>
+                        <p class="story__outcome">Pipeline that converted, with a seamless handover</p>
+                    </div>
+                    <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec services" id="services" aria-labelledby="services-title">
+    <div class="container">
+        <p class="eyebrow" data-reveal><svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true"><path d="M250 90H410V250H370V130H250Z"/><path d="M250 410H90V250H130V370H250Z"/><rect x="230" y="180" width="40" height="40"/><rect x="230" y="280" width="40" height="40"/></svg>What we run</p>
+        <div class="sec__head">
+            <h2 id="services-title" class="title" data-reveal>One engine, <span class="i">four</span> moving parts</h2>
+            <div class="sec__aside" data-reveal>
+                <p>Everything you need for predictable growth, run as one managed engine on top of your CRM. Strategy, lists, copy, infrastructure and reporting, handled end-to-end.</p>
+                <div class="sec__tools"><a class="btn-arrow btn-arrow--pill" href="resources/gtm-stack">See the full stack <span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></div>
+            </div>
+        </div>
+        <div class="svc-grid">
+            <a class="svc" href="gtm-engineering-agency" data-reveal><span class="svc__num">01</span><h3>Predictable Meetings</h3><p>We turn outbound into a steady flow of qualified calls on your calendar. Measurable, repeatable, and directly tied to revenue.</p><span class="svc__stats"><span><b>20+</b> meetings/month</span><span><b>80%</b> book in 2 to 3 weeks</span></span><span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+            <a class="svc" href="cold-email-agency-amsterdam" data-reveal><span class="svc__num">02</span><h3>Deliverability &amp; Infrastructure</h3><p>Domains, inboxes, warmup, and real-time monitoring set up the right way. We keep your emails in the inbox and out of spam, consistently.</p><span class="svc__stats"><span><b>98%</b> deliverability</span><span><b>SPF/DKIM/DMARC</b> configured</span></span><span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+            <a class="svc" href="clay-agency" data-reveal><span class="svc__num">03</span><h3>Clay Enrichment &amp; Outbound Ops</h3><p>Clay-based lead enrichment, waterfall sourcing, Claygent personalisation and CRM orchestration. Plus strategy, copy and sequencing handled end-to-end. Your team focuses on closing while we fill the pipeline.</p><span class="svc__stats"><span><b>120+</b> data providers via Clay</span><span><b>Clay Solutions Partner</b></span></span><span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+            <a class="svc" href="case-studies" data-reveal><span class="svc__num">04</span><h3>Insights &amp; Optimization</h3><p>Clear reporting and ongoing A/B tests to lift reply rates and meeting quality month over month. Data-driven iteration, every week.</p><span class="svc__stats"><span><b>10%</b> average reply rate</span><span><b>Weekly</b> optimization</span></span><span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec process" id="process" aria-labelledby="process-title">
+    <div class="container">
+        <p class="eyebrow" data-reveal><svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true"><path d="M250 90H410V250H370V130H250Z"/><path d="M250 410H90V250H130V370H250Z"/><rect x="230" y="180" width="40" height="40"/><rect x="230" y="280" width="40" height="40"/></svg>How we build it</p>
+        <div class="process-card" data-reveal>
+            <div class="process__grid">
+                <div class="process__sticky">
+                    <h2 id="process-title" class="title-2">How we build your outbound engine.</h2>
+                    <p>Our 5-step framework turns cold outreach into qualified pipeline. Every step is documented, measured and handed over.</p>
+                    <p class="process__stat"><span class="stat__num" data-count="120" data-suffix="+">120+</span><span class="stat__label">data providers through Clay</span></p>
+                </div>
+                <ol class="process__steps" data-process>
+                    <span class="process__line" aria-hidden="true"><span class="process__line-fill"></span></span>
+                    <li class="process__step" id="step-1-icp"><span class="process__num" aria-hidden="true">01</span><h3>ICP Definition</h3><p>We start by deeply understanding who your ideal customer is. Not just job titles, but buying signals, tech stack, company size, and growth indicators.</p><ul class="process__features"><li>Define your Ideal Customer Profile</li><li>Map decision makers and buying committees</li><li>Identify target account characteristics</li><li>Score and prioritize segments</li></ul></li>
+                    <li class="process__step" id="step-2-sourcing"><span class="process__num" aria-hidden="true">02</span><h3>Lead Sourcing</h3><p>Using 120+ data providers through Clay, we build hyper-targeted lead lists with verified contact data. Every lead is qualified before outreach begins.</p><ul class="process__features"><li>Source leads from 120+ data providers</li><li>Verify every email address</li><li>Clean and deduplicate data</li><li>Build segmented lead lists</li></ul></li>
+                    <li class="process__step" id="step-3-enrichment"><span class="process__num" aria-hidden="true">03</span><h3>Enrichment &amp; Personalization</h3><p>Every lead gets enriched with targeted data: icebreakers, recent news, tech stack signals, and custom variables that make every email feel 1-to-1.</p><ul class="process__features"><li>Enrich with company and personal data</li><li>Generate personalized icebreakers</li><li>Add LinkedIn and social signals</li><li>Pull recent news and triggers</li></ul></li>
+                    <li class="process__step" id="step-4-infrastructure"><span class="process__num" aria-hidden="true">04</span><h3>Infrastructure &amp; Deliverability</h3><p>We set up bulletproof email infrastructure: fresh domains, SPF/DKIM/DMARC, inbox warmup, and ongoing monitoring to ensure 98%+ deliverability.</p><ul class="process__features"><li>Purchase and configure sending domains</li><li>Set up SPF, DKIM, DMARC records</li><li>Warm up all inboxes gradually</li><li>Monitor deliverability in real-time</li></ul></li>
+                    <li class="process__step" id="step-5-launch"><span class="process__num" aria-hidden="true">05</span><h3>Campaign Launch &amp; Optimization</h3><p>Multi-step sequences go live. We continuously A/B test subject lines, copy, and timing. Your calendar fills with qualified meetings.</p><ul class="process__features"><li>Launch personalized email sequences</li><li>A/B test subjects, copy, and CTAs</li><li>Book qualified meetings on your calendar</li><li>Optimize based on reply data weekly</li></ul></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TEAM -->
+<section class="sec team" id="team-section" aria-labelledby="team-title">
+    <div class="container">
+        <p class="eyebrow" data-reveal><svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true"><path d="M250 90H410V250H370V130H250Z"/><path d="M250 410H90V250H130V370H250Z"/><rect x="230" y="180" width="40" height="40"/><rect x="230" y="280" width="40" height="40"/></svg>The team</p>
+        <div class="sec__head">
+            <h2 id="team-title" class="title" data-reveal>You'll work with the <span class="i">founders</span></h2>
+            <div class="sec__aside" data-reveal>
+                <p>Every engagement is run by a founder. Max and Jurre do the strategy, the lists, the copy and the weekly numbers, with a small GTM engineering team behind them.</p>
+                <div class="sec__tools"><a class="btn-arrow btn-arrow--pill" href="team">Meet the team <span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></div>
+            </div>
+        </div>
+        <div class="team-grid">
+            <div class="founder" data-reveal><img src="/assets/team/max-640.webp" width="640" height="640" alt="Max M&uuml;nstermann" loading="lazy"><div class="founder__body"><div><b>Max M&uuml;nstermann</b><span>Co-founder, sales and GTM</span></div><a class="founder__link" href="https://www.linkedin.com/in/max-munstermann/" target="_blank" rel="noopener" aria-label="Max M&uuml;nstermann on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a></div></div>
+            <div class="founder" data-reveal><img src="/assets/team/jurre-640.webp" width="640" height="640" alt="Jurre Groot" loading="lazy"><div class="founder__body"><div><b>Jurre Groot</b><span>Co-founder, GTM engineering</span></div><a class="founder__link" href="https://www.linkedin.com/in/jurre-groot-04b7a11a1/" target="_blank" rel="noopener" aria-label="Jurre Groot on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a></div></div>
+            <div class="team-note" data-reveal>
+                <div>
+                    <h3>Certified on the tools we run every day.</h3>
+                    <p>Clay Solutions Partner, Instantly Certified Expert and Apollo Partner. The stack behind every engine we build:</p>
+                </div>
+                <div class="team-note__stack"><img src="/assets/img/clients/clay.png" alt="Clay" title="Clay" height="22"><img src="logos/instantly.png" alt="Instantly" title="Instantly" height="22"><img src="logos/heyreach.png" alt="HeyReach" title="HeyReach" height="22"><img src="logos/apollo.png" alt="Apollo" title="Apollo" height="22"><img src="logos/close.png" alt="Close" title="Close" height="22"><img src="logos/hubspot.png" alt="HubSpot" title="HubSpot" height="22"><img src="wall/claude.png" alt="Claude" title="Claude" height="22"><img src="logos/n8n.png" alt="n8n" title="n8n" height="22"><img src="wall/notion.png" alt="Notion" title="Notion" height="22"></div>
+                <div class="team-note__badges"><a class="chip" href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener"><img src="/assets/partners/clay-icon.png" alt="" width="16" height="16">Clay Solutions Partner</a><a class="chip" href="https://instantly.ai/experts/jurre-groot" target="_blank" rel="noopener"><img src="/assets/partners/instantly-icon.png" alt="" width="16" height="16">Instantly Certified Expert</a><a class="chip" href="https://www.apollo.io" target="_blank" rel="noopener">Apollo Partner</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FIT -->
+<section class="sec fit" id="fit" aria-labelledby="fit-title">
+    <div class="container">
+        <p class="eyebrow" data-reveal><svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true"><path d="M250 90H410V250H370V130H250Z"/><path d="M250 410H90V250H130V370H250Z"/><rect x="230" y="180" width="40" height="40"/><rect x="230" y="280" width="40" height="40"/></svg>Who we build for</p>
+        <div class="sec__head">
+            <h2 id="fit-title" class="title" data-reveal>Four signals you're a <span class="i">fit</span></h2>
+            <div class="sec__aside" data-reveal><p>The buyers we build for, and the page that explains each approach. ACV from EUR 5K, mid-market and enterprise, worldwide from Amsterdam.</p></div>
+        </div>
+        <div class="rows" data-reveal>
+            <a class="row" href="cold-email-agency-saas"><span class="row__who">B2B SaaS founders</span><span><h3>You want predictable demos from a lean team</h3><p>ACV between EUR 5K and EUR 50K, selling to mid-market. You tried outbound in-house and it took 4 months to get to 5 demos/month. closed:in gets you there in 4 weeks without hiring.</p></span><span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+            <a class="row" href="gtm-engineering-agency"><span class="row__who">Recruitment &amp; PE firms</span><span><h3>Your prospects reply to specific, credible outreach</h3><p>PE-focused executive search, buy-side advisory, niche recruitment. Your buyers expect specificity and credibility upfront. closed:in builds outbound that respects their inbox.</p></span><span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+            <a class="row" href="clay-agency"><span class="row__who">Agencies, e-commerce, services</span><span><h3>Your ICP is niche or invisible in standard databases</h3><p>Hospitality, boutique retail, B2C-to-B2B retail, sustainability, agency-services. ICPs that don't show up cleanly in Apollo. closed:in builds custom sourcing pipelines via Clay.</p></span><span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+            <a class="row" href="gtm-engineering-agency"><span class="row__who">Financial services, M&amp;A, advisory</span><span><h3>Your buyers are senior, skeptical and signal-driven</h3><p>M&amp;A advisory, corporate finance, asset management, audit, legal-tech, fintech. Your prospects engage with credible, signal-based outbound that respects their seniority.</p></span><span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
         </div>
         <div class="fit__more" data-reveal>
-            <p>Other industries we run outbound for: SaaS, manufacturing, IT/MSP, professional services, healthcare, sustainability, hospitality, agencies, e-commerce.</p>
-            <p>Different space? Talk to us.</p>
-            <a class="btn btn--secondary" href="https://closedin.neetocal.com/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=homepage-icp" target="_blank" rel="noopener" data-magnetic><span>Book a 30 Min Call</span></a>
+            <p>Other industries we run outbound for: SaaS, manufacturing, IT/MSP, professional services, healthcare, sustainability, hospitality, agencies, e-commerce. Different space? Talk to us.</p>
+            <a class="btn-arrow btn-arrow--pill" href="https://closedin.neetocal.com/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=homepage-icp" target="_blank" rel="noopener">Book a 30 min call <span class="btn-arrow__box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
         </div>
     </div>
 </section>
 
-<!-- 7. FAQ -->
-<section class="faq section" id="faq" aria-labelledby="faq-title">
-    <div class="container-text">
-        <header class="section__head" data-reveal>
-            <h2 id="faq-title" class="title-1">Questions, answered.</h2>
-        </header>
-        <div class="faq__list" data-reveal>
+<!-- FAQ -->
+<section class="sec faq" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+        <p class="eyebrow" data-reveal><svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true"><path d="M250 90H410V250H370V130H250Z"/><path d="M250 410H90V250H130V370H250Z"/><rect x="230" y="180" width="40" height="40"/><rect x="230" y="280" width="40" height="40"/></svg>FAQ</p>
+        <div class="sec__head"><h2 id="faq-title" class="title" data-reveal>Questions, <span class="i">answered.</span></h2></div>
+        <div class="faq-card" data-reveal>
+            <div class="faq__list">
         <details class="faq-item">
             <summary>What does closed:in do?</summary>
             <div class="faq-answer">closed:in is a GTM engineering agency in Amsterdam. We build and run outbound sales systems for B2B companies, combining cold email (Instantly), LinkedIn outreach, lead enrichment (Clay), website visitor tracking and CRM orchestration into one managed engine. Most clients see qualified meetings booked within 2-3 weeks.</div>
@@ -720,33 +644,28 @@
             <summary>How do I get started?</summary>
             <div class="faq-answer">Book a 30 minute discovery call. We'll review your current outbound setup, your ICP and your goals, and confirm whether closed:in is a fit before sending a tailored proposal.</div>
         </details>
+            </div>
         </div>
-    </div>
-</section>
-
-<!-- 8. CTA -->
-<section class="cta section section--alt" id="contact-cta" aria-labelledby="cta-title">
-    <div class="container-text" data-reveal>
-        <div class="cta__founders" aria-hidden="true">
-            <img src="/assets/team/max-160.jpg" srcset="/assets/team/max-160.jpg 1x, /assets/team/max-320.jpg 2x" width="56" height="56" alt="" loading="lazy">
-            <img src="/assets/team/jurre-160.jpg" srcset="/assets/team/jurre-160.jpg 1x, /assets/team/jurre-320.jpg 2x" width="56" height="56" alt="" loading="lazy">
-        </div>
-        <p class="cta__caption">You'll talk to Max or Jurre, the founders.</p>
-        <h2 id="cta-title" class="title-1">Ready to scale your outbound?</h2>
-        <p class="cta__lead">Book a free strategy call and discover how we can generate qualified meetings for your business within 2-3 weeks.</p>
-        <a class="btn btn--primary" href="https://closedin.neetocal.com/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=homepage" target="_blank" rel="noopener" data-magnetic><span>Book a 30 Min Call</span></a>
     </div>
 </section>
 
 </main>
 
-<!-- 9. FOOTER -->
-<footer class="footer">
+<footer class="footer" id="contact-cta">
     <div class="container">
-        <section class="newsletter" aria-labelledby="newsletter-title">
+        <div class="footer__hero">
+            <h2 data-reveal><span class="footer__faces" aria-hidden="true"><img src="/assets/team/max-160.jpg" srcset="/assets/team/max-160.jpg 1x, /assets/team/max-320.jpg 2x" width="160" height="160" alt=""><img src="/assets/team/jurre-160.jpg" srcset="/assets/team/jurre-160.jpg 1x, /assets/team/jurre-320.jpg 2x" width="160" height="160" alt=""></span>Let's build your outbound engine</h2>
+            <div class="footer__rule"><a class="btn-round" href="https://closedin.neetocal.com/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=homepage" target="_blank" rel="noopener" data-magnetic="40"><span>Book a 30 min call</span></a></div>
+            <div class="footer__contact" data-reveal>
+                <a class="pill-dark" href="mailto:info@closedin.io">info@closedin.io</a>
+                <a class="pill-dark" href="https://www.linkedin.com/company/closedin" target="_blank" rel="noopener">LinkedIn</a>
+                <a class="pill-dark" href="https://maps.google.com/?q=Jodenbreestraat+25,+Amsterdam" target="_blank" rel="noopener">Jodenbreestraat 25, Amsterdam</a>
+            </div>
+        </div>
+        <section class="footer__news" aria-labelledby="newsletter-title">
             <div>
-                <p class="eyebrow newsletter__eyebrow">The closed:in playbook</p>
-                <h2 id="newsletter-title" class="title-2">1 email per week. Real outbound tactics from live campaigns.</h2>
+                <p class="eyebrow"><svg viewBox="0 0 500 500" fill="currentColor" aria-hidden="true"><path d="M250 90H410V250H370V130H250Z"/><path d="M250 410H90V250H130V370H250Z"/><rect x="230" y="180" width="40" height="40"/><rect x="230" y="280" width="40" height="40"/></svg>The closed:in playbook</p>
+                <h3 id="newsletter-title">1 email per week. Real outbound tactics from live campaigns.</h3>
                 <p>Weekly tactics from live closed:in client campaigns, plus the 1-page infrastructure checklist the moment you sign up.</p>
             </div>
             <form class="newsletter__form" action="https://closedins-newsletter.beehiiv.com/subscribe" method="GET" target="_blank" data-magnet="homepage">
@@ -756,65 +675,20 @@
             </form>
         </section>
         <div class="footer__grid">
-            <div class="footer__brand">
-                <img src="/assets/brand/closedin-wordmark-ink.png" alt="closed:in" width="389" height="146">
-                <p>Your B2B Go-To-Market Partner</p>
-            </div>
-            <div class="footer__col">
-                <p class="footer__heading">Navigate</p>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="case-studies">Case Studies</a></li>
-                    <li><a href="resources">Resources</a></li>
-                    <li><a href="blog/">Blog</a></li>
-                    <li><a href="pricing">Pricing</a></li>
-                    <li><a href="team">Team</a></li>
-                    <li><a href="contact">Contact</a></li>
-                    <li><a href="https://follow-up-dashboard-delta.vercel.app" target="_blank" rel="noopener">Partner login</a></li>
-                </ul>
-            </div>
-            <div class="footer__col">
-                <p class="footer__heading">Contact</p>
-                <ul>
-                    <li><a href="mailto:info@closedin.io">info@closedin.io</a></li>
-                    <li><a href="https://closedin.neetocal.com/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=homepage" target="_blank" rel="noopener">Book a Call</a></li>
-                    <li><a href="https://www.linkedin.com/company/closedin" target="_blank" rel="noopener">LinkedIn</a></li>
-                    <li><a href="https://maps.google.com/?q=Jodenbreestraat+25,+Amsterdam" target="_blank" rel="noopener">Jodenbreestraat 25, Amsterdam</a></li>
-                </ul>
-            </div>
-            <div class="footer__col">
-                <p class="footer__heading">Services</p>
-                <ul>
-                    <li><a href="playbook">The Playbook (free)</a></li>
-                    <li><a href="cold-email-agency-amsterdam">Cold email NL/EU</a></li>
-                    <li><a href="cold-email-agency-saas">Cold email SaaS</a></li>
-                    <li><a href="clay-agency">Clay agency</a></li>
-                    <li><a href="gtm-engineering-agency">GTM engineering</a></li>
-                    <li><a href="outbound-agency-uk">Outbound UK</a></li>
-                    <li><a href="outbound-agency-us">Outbound US</a></li>
-                </ul>
-            </div>
-            <div class="footer__col">
-                <p class="footer__heading">Partners</p>
-                <ul>
-                    <li><a href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener">Clay Solutions Partner</a></li>
-                    <li><a href="https://instantly.ai/experts/jurre-groot" target="_blank" rel="noopener">Instantly Expert</a></li>
-                    <li><a href="https://www.apollo.io" target="_blank" rel="noopener">Apollo Partner</a></li>
-                    <li><a href="https://asif.ventures/" target="_blank" rel="noopener">Backed by ASIF Ventures</a></li>
-                </ul>
-            </div>
+            <div class="footer__brand"><img src="/assets/brand/closedin-wordmark-white.png" alt="closed:in" width="846" height="322"><p>Your B2B Go-To-Market Partner</p></div>
+            <div class="footer__col"><p class="footer__heading">Navigate</p><ul><li><a href="/">Home</a></li><li><a href="case-studies">Case Studies</a></li><li><a href="resources">Resources</a></li><li><a href="blog/">Blog</a></li><li><a href="pricing">Pricing</a></li><li><a href="team">Team</a></li><li><a href="contact">Contact</a></li><li><a href="https://follow-up-dashboard-delta.vercel.app" target="_blank" rel="noopener">Partner login</a></li></ul></div>
+            <div class="footer__col"><p class="footer__heading">Contact</p><ul><li><a href="mailto:info@closedin.io">info@closedin.io</a></li><li><a href="https://closedin.neetocal.com/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=homepage" target="_blank" rel="noopener">Book a Call</a></li><li><a href="https://www.linkedin.com/company/closedin" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://maps.google.com/?q=Jodenbreestraat+25,+Amsterdam" target="_blank" rel="noopener">Jodenbreestraat 25, Amsterdam</a></li></ul></div>
+            <div class="footer__col"><p class="footer__heading">Services</p><ul><li><a href="playbook">The Playbook (free)</a></li><li><a href="cold-email-agency-amsterdam">Cold email NL/EU</a></li><li><a href="cold-email-agency-saas">Cold email SaaS</a></li><li><a href="clay-agency">Clay agency</a></li><li><a href="gtm-engineering-agency">GTM engineering</a></li><li><a href="outbound-agency-uk">Outbound UK</a></li><li><a href="outbound-agency-us">Outbound US</a></li></ul></div>
+            <div class="footer__col"><p class="footer__heading">Partners</p><ul><li><a href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener">Clay Solutions Partner</a></li><li><a href="https://instantly.ai/experts/jurre-groot" target="_blank" rel="noopener">Instantly Expert</a></li><li><a href="https://www.apollo.io" target="_blank" rel="noopener">Apollo Partner</a></li><li><a href="https://asif.ventures/" target="_blank" rel="noopener">Backed by ASIF Ventures</a></li></ul></div>
         </div>
         <div class="footer__badges">
-            <a href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener"><img src="/assets/img/badges/clay.png" alt="Clay Solutions Partner" height="40" loading="lazy"></a>
-            <a href="https://instantly.ai/experts/jurre-groot" target="_blank" rel="noopener"><img src="/assets/img/badges/instantly.png" alt="Instantly Certified Expert" height="40" loading="lazy"></a>
-            <a href="https://www.apollo.io" target="_blank" rel="noopener"><img src="/assets/img/badges/apollo.png" alt="Apollo Partner" height="40" loading="lazy"></a>
-            <a href="https://www.s-bb.nl/" target="_blank" rel="noopener"><img src="/assets/img/badges/sbb.png" alt="SBB Accredited Work Placement Company" height="40" loading="lazy"></a>
-            <a href="https://www.utrechtbusiness.nl/ZO!_utrecht" target="_blank" rel="noopener"><img src="/assets/img/badges/zo-utrecht.png" alt="ZO! Utrecht Business Member" height="40" loading="lazy"></a>
+            <a href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener"><img src="/assets/img/badges/clay.png" alt="Clay Solutions Partner" height="36" loading="lazy"></a>
+            <a href="https://instantly.ai/experts/jurre-groot" target="_blank" rel="noopener"><img src="/assets/img/badges/instantly.png" alt="Instantly Certified Expert" height="36" loading="lazy"></a>
+            <a href="https://www.apollo.io" target="_blank" rel="noopener"><img src="/assets/img/badges/apollo.png" alt="Apollo Partner" height="36" loading="lazy"></a>
+            <a href="https://www.s-bb.nl/" target="_blank" rel="noopener"><img src="/assets/img/badges/sbb.png" alt="SBB Accredited Work Placement Company" height="36" loading="lazy"></a>
+            <a href="https://www.utrechtbusiness.nl/ZO!_utrecht" target="_blank" rel="noopener"><img src="/assets/img/badges/zo-utrecht.png" alt="ZO! Utrecht Business Member" height="36" loading="lazy"></a>
         </div>
-        <div class="footer__bottom">
-            <span>&copy; 2026 closed:in. All rights reserved.</span>
-            <a href="privacy">Privacy Policy</a>
-        </div>
+        <div class="footer__bottom"><span>&copy; 2026 closed:in. All rights reserved.</span><a href="privacy">Privacy Policy</a></div>
     </div>
 </footer>
 

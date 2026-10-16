@@ -122,9 +122,9 @@ function makeRenderer(canvas, { transparent, dpr, isMobile }) {
 
 /* One-off render for the poster and OG pipeline (transparent background, rest pose). */
 export function renderStatic(canvas, size, opts = {}) {
-  const renderer = makeRenderer(canvas, { transparent: false, dpr: 1, isMobile: false });
+  const renderer = makeRenderer(canvas, { transparent: true, dpr: 1, isMobile: false });
   renderer.setSize(size, size, false);
-  const { scene, camera } = makeScene(renderer, { transparent: false, bgHex: opts.bg || '#f5f5f7', accentHex: opts.accent || cssVar('--accent', '#0066cc'), isMobile: false });
+  const { scene, camera } = makeScene(renderer, { transparent: true, bgHex: opts.bg || '#f3f3f3', accentHex: opts.accent || cssVar('--accent', '#0066cc'), isMobile: false });
   renderer.render(scene, camera);
   return { renderer, scene, camera };
 }
@@ -140,12 +140,12 @@ export function init(box, opts = {}) {
 
   let renderer;
   try {
-    renderer = makeRenderer(canvas, { transparent: false, dpr: Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2), isMobile });
+    renderer = makeRenderer(canvas, { transparent: true, dpr: Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2), isMobile });
   } catch (err) { box.removeChild(canvas); throw err; }
 
-  const bgHex = cssVar('--surface-1', '#f5f5f7');
+  const bgHex = cssVar('--mark-bg', '') || cssVar('--surface-1', '#f5f5f7');
   const accentHex = cssVar('--accent', '#0066cc');
-  const { scene, camera, group } = makeScene(renderer, { transparent: false, bgHex, accentHex, isMobile });
+  const { scene, camera, group } = makeScene(renderer, { transparent: true, bgHex, accentHex, isMobile });
 
   const state = { rotY: CONFIG.restPose.y, rotX: CONFIG.restPose.x, scale: 1 };
   const tilt = { x: 0, y: 0, tx: 0, ty: 0 };
@@ -164,7 +164,7 @@ export function init(box, opts = {}) {
 
   /* Scroll binding: one full turn across the trigger section */
   const tl = gsap.timeline({
-    scrollTrigger: { trigger: opts.trigger || '.process', start: CONFIG.scroll.start, end: CONFIG.scroll.end, scrub: CONFIG.scroll.scrub, onUpdate: () => { lastScrollTs = performance.now(); lastChange = lastScrollTs; } }
+    scrollTrigger: { trigger: opts.trigger || '.process', start: opts.start || CONFIG.scroll.start, end: opts.end || CONFIG.scroll.end, scrub: CONFIG.scroll.scrub, onUpdate: () => { lastScrollTs = performance.now(); lastChange = lastScrollTs; } }
   });
   tl.to(state, { rotY: CONFIG.restPose.y + Math.PI * 2 * CONFIG.scroll.turns, rotX: CONFIG.scroll.rotXEnd, scale: CONFIG.scroll.scaleEnd, ease: 'none', onUpdate: () => { lastChange = performance.now(); } }, 0);
 

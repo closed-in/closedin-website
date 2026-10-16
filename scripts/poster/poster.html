@@ -8,7 +8,7 @@
   import { renderStatic } from '/case-study-showcase/assets/js/mark-3d.js';
   const size = parseInt(new URLSearchParams(location.search).get('size') || '1600', 10);
   const c = document.getElementById('c'); c.width = size; c.height = size; c.style.width = size + 'px'; c.style.height = size + 'px';
-  renderStatic(c, size, { accent: '#0066cc' });
+  renderStatic(c, size, { accent: '#0066cc', bg: new URLSearchParams(location.search).get('bg') || '#f3f3f3' });
   requestAnimationFrame(() => requestAnimationFrame(() => { document.title = 'ready'; }));
 </script>
 </body></html>
