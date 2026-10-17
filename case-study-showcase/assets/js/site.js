@@ -236,14 +236,17 @@
   });
 
   /* ---------- Watch video: preview card follows the cursor while it hovers the trigger (fine pointers only) ---------- */
-  var peek = document.querySelector('.peek');
+  var peek = document.querySelector('.peek'), peekVideo = peek && peek.querySelector('video');
   if (peek && fine && motion) {
-    var peekX = gsap.quickTo(peek, 'x', { duration: .4, ease: 'power3.out' }), peekY = gsap.quickTo(peek, 'y', { duration: .4, ease: 'power3.out' });
+    /* The preview sits still above the trigger (no cursor following, Max 17-10) and plays muted while the pointer is on it, like workflows.io. */
+    var peekOff = function () { peek.classList.remove('is-on'); if (peekVideo) peekVideo.pause(); };
     document.querySelectorAll('[data-peek]').forEach(function (tr) {
-      tr.addEventListener('pointerenter', function (e) { gsap.set(peek, { x: e.clientX, y: e.clientY }); peek.classList.add('is-on'); });
-      tr.addEventListener('pointermove', function (e) { peekX(e.clientX); peekY(e.clientY); });
-      tr.addEventListener('pointerleave', function () { peek.classList.remove('is-on'); });
-      tr.addEventListener('click', function () { peek.classList.remove('is-on'); });
+      tr.addEventListener('pointerenter', function () {
+        var r = tr.getBoundingClientRect(); var x = Math.min(Math.max(r.left + r.width / 2, 170), innerWidth - 170);
+        peek.style.left = x + 'px'; peek.style.top = (r.top - 14) + 'px'; peek.classList.add('is-on');
+        if (peekVideo) { peekVideo.muted = true; try { peekVideo.currentTime = 0; } catch (err) { /* not loaded yet */ } var pr = peekVideo.play(); if (pr && pr.catch) pr.catch(function () {}); }
+      });
+      tr.addEventListener('pointerleave', peekOff); tr.addEventListener('click', peekOff);
     });
   }
 

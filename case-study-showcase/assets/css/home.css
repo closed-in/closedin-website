@@ -24,7 +24,7 @@
 /* Watch video: a preview card that follows the cursor while it is over the trigger */
 .peek { position: fixed; left: 0; top: 0; z-index: 60; width: 300px; aspect-ratio: 16 / 9; margin: -205px 0 0 -150px; border-radius: 14px; overflow: hidden; background: #0b0b0c; box-shadow: 0 30px 80px rgba(12, 13, 14, .24), 0 0 0 1px rgba(255, 255, 255, .6); opacity: 0; scale: .86; transform-origin: 50% 100%; pointer-events: none; transition: opacity .3s, scale .45s var(--ease); }
 .peek.is-on { opacity: 1; scale: 1; }
-.peek img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.peek video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; background: #0b0b0c; }
 .peek__play { position: absolute; left: 50%; top: 50%; width: 48px; height: 48px; margin: -24px 0 0 -24px; border-radius: 50%; background: rgba(255, 255, 255, .94); color: var(--ink); display: grid; place-items: center; }
 .peek__play svg { width: 16px; height: 16px; margin-left: 2px; }
 .peek__time { position: absolute; right: 10px; bottom: 10px; padding: 3px 8px; border-radius: var(--r-pill); background: rgba(12, 13, 14, .7); color: #fff; font-size: 11px; font-variant-numeric: tabular-nums; }
@@ -193,7 +193,7 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 .svc-card:hover .vis-radial .node--hub { transform: translate(-50%, -50%) scale(1.08); box-shadow: 0 0 0 8px rgba(114, 193, 255, .22); }
 
 /* DARK LEARN BAND */
-.learn { margin-top: var(--section-y); padding: 100px 0 120px; background: radial-gradient(90% 70% at 50% 0%, #1c1e20 0%, #0b0c0d 55%, var(--dark) 100%); border-radius: var(--r-xxl); color: #fff; overflow: hidden; }
+.learn { margin-top: var(--section-y); padding: 100px 0 120px; background: radial-gradient(90% 70% at 50% 0%, #1c1e20 0%, #0b0c0d 55%, var(--dark) 100%); border-radius: var(--r-xxl) var(--r-xxl) 0 0; color: #fff; overflow: hidden; }  /* learn and engine form one dark band: rounded at the top here, at the bottom of .engine (Max 17-10: no light corners between them) */
 .learn .sec-head .h2 { color: #fff; }
 .learn__cards { position: relative; display: flex; justify-content: center; align-items: flex-end; margin-top: 64px; height: 530px; perspective: 1400px; }
 .learn-card { --tx: 0px; --ty: 0px; --ry: 0deg; --s: 1; position: absolute; bottom: 0; width: 360px; border-radius: 18px; overflow: hidden; background: #0e0f10; box-shadow: 0 40px 80px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .08) inset; text-decoration: none; color: #fff; transform: translate3d(var(--tx), var(--ty), 0) rotateY(var(--ry)) scale(var(--s)); transition: transform .7s var(--ease), box-shadow .7s var(--ease); }
@@ -212,7 +212,7 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 @media (max-width: 1023px) { .learn__cards { height: auto; flex-direction: column; align-items: center; gap: 16px; perspective: none; } .learn-card { position: static; width: min(100%, 420px); transform: none !important; } }
 
 /* DARK PROBLEM / SOLUTION */
-.engine { background: radial-gradient(60% 50% at 20% 20%, #15181a 0%, var(--dark) 70%); color: #fff; padding: 120px 0 60px; }
+.engine { background: radial-gradient(60% 50% at 20% 20%, #15181a 0%, var(--dark) 70%); color: #fff; padding: 120px 0 60px; margin-top: -1px; border-radius: 0 0 var(--r-xxl) var(--r-xxl); }
 .engine__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: start; }
 .engine__sticky { position: sticky; top: 100px; padding: 40px 36px 36px; text-align: center; }
 .engine__sticky .h2 { color: #fff; margin-top: 28px; font-size: clamp(30px, 3.2vw, 44px); }
@@ -232,9 +232,8 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 .fnode.lit { box-shadow: 0 16px 40px rgba(0, 0, 0, .55), 0 0 0 1px rgba(114, 193, 255, .45) inset, 0 0 30px rgba(114, 193, 255, .18); }
 .fnode .icons { display: flex; gap: 8px; }
 .fnode .icons img { width: 18px; height: 18px; border-radius: 4px; }
-.fnode--brand { padding: 10px 24px; }
-.fnode--brand img { height: 18px; filter: invert(1); }
-.fnode--brand .mark { width: 120px; margin: 4px 0 0; }
+.fnode--brand { align-self: center; padding: 14px 28px; }
+.fnode--brand img { height: 20px; filter: invert(1); }
 .fgap { height: 44px; }
 .frow { position: relative; z-index: 1; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; padding: 18px 16px; border-radius: 20px; box-shadow: 0 0 0 1px rgba(114, 193, 255, .35); }
 .frow .fnode { min-width: 110px; padding: 12px 14px; font-size: 13px; }
@@ -365,7 +364,7 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 .qcard__foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .qcard__who { flex: 1 1 220px; min-width: 0; } .qcard__who > div { min-width: 0; }
 .qcard__who { display: flex; align-items: center; gap: 14px; }
-.qcard__who img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; object-position: center 30%; }
+.qcard__who img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
 .qcard__who b { display: block; font-size: 16px; font-weight: 500; } .qcard__who span { display: block; font-size: 14px; color: var(--gray-90); margin-top: 2px; }
 .qcard__logo { flex: none; height: 30px; width: auto; max-width: 120px; object-fit: contain; filter: brightness(0); opacity: .85; }
 .qcard__play { position: relative; display: inline-grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; overflow: hidden; background: #ddd; cursor: pointer; border: 0; padding: 0; }
