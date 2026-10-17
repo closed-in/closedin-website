@@ -51,3 +51,13 @@ Page order now: hero (VSL), client stories (video carousel, posters from the tes
 - **Quotes slider.** White cards with a thin left bar, a large light quote, a round headshot with name and title bottom-left and the client logo bottom-right, arrows and counter in the section head. Ours: `.quotes__track` with `.qcard`.
 - **Cases page.** Big cards with a photo and metric tiles overlapping the photo, progress "01 of 14" under the rail. Not built yet, candidate for the case-studies page roll-out.
 - Dropped on purpose: Dapper's italic serif words inside headlines (Max 17-10: no italics anywhere) and the green as a surface; the accent stays light blue `#72C1FF` as small objects only.
+
+## Video-hosting voor VSL en testimonials, onderzoek 17-10
+
+Wat de referentiesites doen (uit de eigen scrapes): Dapper = Vimeo (lightbox plus achtergrond-loops), Dylan Brouwer = Bunny Stream (HLS) plus Vimeo, Dennis Snellenberg = zelf gehoste korte mp4-loops zonder geluid, workflows.io = YouTube-embeds, Anthropic = YouTube (nocookie), Apple = zelf gehoste mp4. Patroon: een klein stil loopje in de kaart, de volledige video via een streaming-host in een lightbox.
+
+Materiaal: vijf testimonial-cuts van 5:16 tot 6:48 (samen ~29 min, 83 tot 142 MB per stuk op 1080p) plus de VSL van 3:34 op Wistia. Te lang en te zwaar om als losse mp4 in de repo te zetten; streaming met adaptieve kwaliteit is nodig.
+
+Prijzen (officiële pagina's, 17-10-2026): Wistia Free 25 GB opslag, 200 GB bandbreedte, 1 gebruiker, Wistia-branding; Business $79/mnd (jaar) zonder branding; geen Wistia-leverancier in Moneybird, dus vermoedelijk het gratis plan. Mux pay-as-you-go $0/mnd met $20 krediet per maand, 100.000 afgeleverde minuten gratis, opslag $0,003 per minuut per maand (32 min = ~$0,10), witlabel Mux Player, VS. Bunny Stream opslag $0,01/GB (Frankfurt), levering $0,01/GB EU/NA, encoding gratis, minimum $1/mnd, EU-bedrijf, witlabel speler. Cloudflare Stream $5 per 1.000 min opslag (vooruitbetaald per blok) en $1 per 1.000 min levering, ~$5 tot 6/mnd. Vimeo Standard ~$20/mnd zonder branding (derde bron, Vimeo's pagina rendert alleen met JS). YouTube gratis maar zware speler, cookies en aanbevolen video's.
+
+Advies: Bunny Stream (EU, ~1 dollar per maand, upload via dashboard, witlabel) of Mux (gratis op dit volume, mooiste speler, VS). Wistia alleen houden als het logo op de speler geen bezwaar is of als de $79/mnd voor analytics gewenst is. Ongeacht de host: stille teaser-loops van 6 seconden in de kaarten, volledige video in de lightbox.
