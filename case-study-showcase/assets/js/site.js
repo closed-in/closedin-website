@@ -244,6 +244,18 @@
     io.observe(sig);
   });
 
+  /* ---------- Watch video: preview card follows the cursor while it hovers the trigger (fine pointers only) ---------- */
+  var peek = document.querySelector('.peek');
+  if (peek && fine && motion) {
+    var peekX = gsap.quickTo(peek, 'x', { duration: .4, ease: 'power3.out' }), peekY = gsap.quickTo(peek, 'y', { duration: .4, ease: 'power3.out' });
+    document.querySelectorAll('[data-peek]').forEach(function (tr) {
+      tr.addEventListener('pointerenter', function (e) { gsap.set(peek, { x: e.clientX, y: e.clientY }); peek.classList.add('is-on'); });
+      tr.addEventListener('pointermove', function (e) { peekX(e.clientX); peekY(e.clientY); });
+      tr.addEventListener('pointerleave', function () { peek.classList.remove('is-on'); });
+      tr.addEventListener('click', function () { peek.classList.remove('is-on'); });
+    });
+  }
+
   /* ---------- FAQ: one open at a time ---------- */
   var faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(function (d) { d.addEventListener('toggle', function () { if (d.open) faqItems.forEach(function (o) { if (o !== d && o.open) o.open = false; }); }); });
