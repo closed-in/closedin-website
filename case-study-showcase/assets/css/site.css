@@ -4,18 +4,18 @@
 @font-face { font-family: "Inter Fallback"; src: local("Arial"); size-adjust: 107.1%; ascent-override: 90.44%; descent-override: 22.52%; line-gap-override: 0%; }
 
 :root {
-  --bg: #F4F6F7; --bg-2: #ECF0F2; --white: #ffffff;
+  --bg: #FFFFFF; --bg-2: #F6F8FA; --white: #ffffff;
   --ink: #0C0D0E; --ink-text: #141801; --gray-100: #3C4344; --gray-90: #6b787a; --gray-80: #bbbbbb; --gray-70: #8f8f90; --stroke: #1B1C1C;
   --line: rgba(0, 0, 0, .08); --line-2: rgba(0, 0, 0, .12);
   --dark: #020304; --dark-2: #0b0c0d; --dark-card: #161718; --on-dark: #ffffff; --on-dark-2: rgba(255, 255, 255, .64); --on-dark-line: rgba(255, 255, 255, .12);
   --accent: #72C1FF; --accent-ink: #0C0D0E; --accent-soft: rgba(114, 193, 255, .22); --accent-glow: rgba(114, 193, 255, .55);
   --focus: 0 0 0 3px rgba(114, 193, 255, .6);
-  --mark-bg: transparent; --surface-1: #F4F6F7;
+  --mark-bg: transparent; --surface-1: #FFFFFF;
 
   --r-xs: .5rem; --r-sm: .75rem; --r-md: 1rem; --r-lg: 1.375rem; --r-xl: 1.5rem; --r-xxl: 1.875rem; --r-pill: 6.25rem;
-  --neu-card: rgba(0, 0, 0, .04) 0 0 1rem 0, rgba(214, 220, 223, .4) .5rem .5rem 1.25rem 0 inset, rgba(255, 255, 255, .5) -.5rem -.5rem 1.25rem 0 inset;
+  --neu-card: rgba(12, 13, 14, .05) 0 0 0 1px, rgba(0, 0, 0, .04) 0 0 1rem 0, rgba(214, 220, 223, .4) .5rem .5rem 1.25rem 0 inset, rgba(255, 255, 255, .5) -.5rem -.5rem 1.25rem 0 inset;
   --neu-pill: rgba(0, 0, 0, .04) 0 0 20px 0, rgba(0, 0, 0, .05) 4px 4px 10px 0 inset, rgba(255, 255, 255, .8) -4px -4px 8px 0 inset;
-  --neu-hover: rgba(0, 0, 0, .06) 0 0 1.5rem 0, rgba(214, 220, 223, .35) .25rem .25rem .75rem 0 inset, rgba(255, 255, 255, .55) -.25rem -.25rem .75rem 0 inset;
+  --neu-hover: rgba(12, 13, 14, .06) 0 0 0 1px, rgba(0, 0, 0, .06) 0 0 1.5rem 0, rgba(214, 220, 223, .35) .25rem .25rem .75rem 0 inset, rgba(255, 255, 255, .55) -.25rem -.25rem .75rem 0 inset;
   --neu-nav: #fff 0 0 0 1px inset, rgba(0, 0, 0, .04) 0 0 16px 0, rgba(214, 220, 223, .4) 8px 8px 20px 0 inset, rgba(255, 255, 255, .5) -8px -8px 20px 0 inset;
   --neu-dark: rgba(0, 0, 0, .35) 8px 8px 15px 0 inset, rgba(255, 255, 255, .05) -8px -8px 20px 0 inset, rgba(0, 0, 0, .2) 0 0 32px 0;
   --neu-dark-pill: rgba(0, 0, 0, .04) 0 0 20px 0, rgba(0, 0, 0, .06) 4px 4px 10px 0 inset, rgba(255, 255, 255, .06) -4px -4px 10px 0 inset;
