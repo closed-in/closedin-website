@@ -27,7 +27,7 @@
   --font: "Inter", "Inter Fallback", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
   --w-thin: 300; --w-reg: 400; --w-med: 500;
   --container: 1280px; --gutter: clamp(20px, 2.8vw, 48px);
-  --section-y: clamp(80px, 9vw, 140px);
+  --section-y: clamp(80px, 9vw, 150px);
 }
 
 /* Base */
