@@ -109,12 +109,16 @@ i, em, cite, address { font-style: normal; }
 .alink__t::after { transform: translateX(-170%); }
 .alink:hover .alink__t::before { transform: translateX(132%); }
 .alink:hover .alink__t::after { transform: translateX(0); transition-delay: .08s; }
-.alink__box { width: 40px; height: 40px; border-radius: var(--r-xs); background: var(--white); box-shadow: var(--neu-pill); display: grid; place-items: center; color: var(--ink); transition: background-color .3s, color .3s, box-shadow .3s var(--ease), transform .3s var(--ease); flex: none; }
+.alink__box { position: relative; overflow: hidden; isolation: isolate; width: 40px; height: 40px; border-radius: var(--r-xs); background: var(--white); box-shadow: var(--neu-pill); display: grid; place-items: center; color: var(--ink); transition: color .3s, box-shadow .3s var(--ease); flex: none; }
+/* The accent fills the box from the side where the pointer enters and leaves on the side where it exits (workflows.io); --ox is set by site.js. Boxes stay put, nothing drifts with the cursor (Max 17-10). */
+.alink__box::before, .arrows button::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--accent); transform: scaleX(0); transform-origin: var(--ox, 0%) 50%; transition: transform .42s var(--ease); }
 .alink__box svg { width: 16px; height: 16px; transition: transform .4s var(--ease); }
-.alink:hover .alink__box { background: var(--accent); box-shadow: var(--neu-hover); }
+.alink:hover .alink__box { box-shadow: var(--neu-hover); }
+.alink:hover .alink__box::before, .hero__trust:hover .alink__box::before, .rcard:hover .rcard__go::before, .arrows button:hover:not(:disabled)::before { transform: scaleX(1); }
 .alink:hover .alink__box svg { transform: translate(2px, -2px); }
 .alink--accent .alink__box { background: var(--accent); }
-.alink--accent:hover .alink__box { background: var(--ink); color: var(--accent); }
+.alink--accent .alink__box::before { background: var(--ink); }
+.alink--accent:hover .alink__box { color: var(--accent); }
 .alink--play .alink__box svg { transform: none; }
 .alink--play:hover .alink__box svg { transform: scale(1.12); }
 .theme-dark .alink { color: #fff; }
@@ -221,9 +225,8 @@ a:hover > .lh .ch, button:hover > .lh .ch, .lh-host:hover .lh .ch { transform: t
 
 /* Carousel arrows (round-ish neumorphic) */
 .arrows { display: flex; gap: 8px; }
-.arrows button { width: 44px; height: 44px; border-radius: var(--r-xs); border: 0; background: var(--white); box-shadow: var(--neu-pill); color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: background-color .25s, color .25s, opacity .25s, transform .5s var(--ease); }
+.arrows button { position: relative; overflow: hidden; isolation: isolate; width: 44px; height: 44px; border-radius: var(--r-xs); border: 0; background: var(--white); box-shadow: var(--neu-pill); color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: color .25s, opacity .25s; }
 .arrows button svg { width: 16px; height: 16px; }
-.arrows button:hover { background: var(--accent); }
 .arrows button:disabled { opacity: .4; cursor: default; background: var(--white); }
 
 /* Lightbox */

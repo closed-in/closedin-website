@@ -1,4 +1,4 @@
-/* closed:in site.js v4: particle hero, nav states, letter and word reveals, ripple and magnetic buttons, border beams, spotlight and tilt cards, carousels, counters, FAQ, Wistia lightbox, forms, 3D mark in the hero. */
+/* closed:in site.js v4: particle hero, nav states, letter and word reveals, ripple buttons, border beams, spotlight and tilt cards, carousels, counters, FAQ, Wistia lightbox, forms, 3D mark in the hero. */
 (function () {
   'use strict';
   var html = document.documentElement;
@@ -302,15 +302,15 @@
     });
   })();
 
-  /* ---------- Fine pointers only: magnetic buttons, spotlight, tilt (no custom cursor: the native pointer is enough, Max 17-10) ---------- */
-  if (fine && !reduce) {
-    /* magnetic: the element drifts toward the pointer while it is near */
-    document.querySelectorAll('.btn-accent, .alink__box, .arrows button, .rcard__go').forEach(function (el) {
-      var host = el.closest('a, button') || el, k = el.classList.contains('btn-accent') ? .22 : .35;
-      host.addEventListener('pointermove', function (e) { var b = el.getBoundingClientRect(); var dx = e.clientX - (b.left + b.width / 2), dy = e.clientY - (b.top + b.height / 2); if (Math.hypot(dx, dy) > 160) return; el.style.transform = 'translate(' + (dx * k).toFixed(1) + 'px,' + (dy * k).toFixed(1) + 'px)'; }, { passive: true });
-      host.addEventListener('pointerleave', function () { el.style.transform = ''; });
-    });
+  /* ---------- Directional fill: the accent enters the arrow boxes from the side where the pointer comes in and leaves on the side where it goes out (workflows.io; Max 17-10: boxes stay static) ---------- */
+  document.querySelectorAll('.alink__box, .arrows button').forEach(function (box) {
+    var host = box.closest('.alink, .hero__trust, .rcard') || box;
+    var side = function (e) { var r = box.getBoundingClientRect(); box.style.setProperty('--ox', e.clientX < r.left + r.width / 2 ? '0%' : '100%'); };
+    host.addEventListener('pointerenter', side); host.addEventListener('pointerleave', side);
+  });
 
+  /* ---------- Fine pointers only: spotlight, tilt (no custom cursor and no magnetic drift: the native pointer is enough, Max 17-10) ---------- */
+  if (fine && !reduce) {
     /* spotlight: glow position as CSS variables */
     document.querySelectorAll('.spot').forEach(function (el) { el.addEventListener('pointermove', function (e) { var b = el.getBoundingClientRect(); el.style.setProperty('--mx', (e.clientX - b.left).toFixed(0) + 'px'); el.style.setProperty('--my', (e.clientY - b.top).toFixed(0) + 'px'); }, { passive: true }); });
 
