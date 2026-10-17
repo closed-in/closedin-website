@@ -266,6 +266,7 @@ html.js [data-reveal="pop"].in { animation-name: pop; }
 .beam:hover::after { animation-duration: 1.4s; }
 @keyframes beam { to { --beam: 360deg; } }
 .theme-dark .beam::after, .learn-card .beam::after { background: conic-gradient(from var(--beam), transparent 0deg 250deg, rgba(114, 193, 255, .5) 300deg, var(--accent) 340deg, #fff 354deg, transparent 360deg); }
+.beam:not(.beam--live)::after { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { .beam::after { animation: none; } }
 
 /* Spotlight: a soft accent glow follows the pointer across a card */

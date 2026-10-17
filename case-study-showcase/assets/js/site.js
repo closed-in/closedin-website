@@ -15,7 +15,7 @@
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.config({ ignoreMobileResize: true });
     if (typeof window.Lenis !== 'undefined') {
-      lenis = new Lenis({ lerp: 0.1, smoothWheel: true, syncTouch: false, autoRaf: false, anchors: { offset: -100 } });
+      lenis = new Lenis({ lerp: 0.14, smoothWheel: true, syncTouch: false, autoRaf: false, anchors: { offset: -100 } });
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
       gsap.ticker.lagSmoothing(0);
@@ -28,10 +28,10 @@
   /* ---------- Particle dots in the hero (mouse parallax) ---------- */
   var dotsCanvas = document.querySelector('canvas.dots');
   if (dotsCanvas && !reduce) {
-    var ctx = dotsCanvas.getContext('2d'), dots = [], W = 0, H = 0, DPR = Math.min(devicePixelRatio || 1, 2);
+    var ctx = dotsCanvas.getContext('2d'), dots = [], W = 0, H = 0, DPR = Math.min(devicePixelRatio || 1, 1.5);
     var mx = 0, my = 0, tx = 0, ty = 0, visible = true, raf = null, last = 0;
     function size() { W = innerWidth; H = innerHeight; dotsCanvas.width = W * DPR; dotsCanvas.height = H * DPR; dotsCanvas.style.width = W + 'px'; dotsCanvas.style.height = H + 'px'; ctx.setTransform(DPR, 0, 0, DPR, 0, 0); seed(); }
-    function seed() { dots = []; var n = Math.round((W * H) / 9000); for (var i = 0; i < n; i++) { var z = Math.random(); dots.push({ x: Math.random() * W, y: Math.random() * H, z: z, r: 0.8 + z * 1.6, a: 0.18 + z * 0.4, vx: (Math.random() - .5) * 0.06, vy: (Math.random() - .5) * 0.06, ph: Math.random() * Math.PI * 2 }); } }
+    function seed() { dots = []; var n = Math.round((W * H) / 12000); for (var i = 0; i < n; i++) { var z = Math.random(); dots.push({ x: Math.random() * W, y: Math.random() * H, z: z, r: 0.8 + z * 1.6, a: 0.18 + z * 0.4, vx: (Math.random() - .5) * 0.06, vy: (Math.random() - .5) * 0.06, ph: Math.random() * Math.PI * 2 }); } }
     function draw(t) {
       raf = null; if (!visible) return;
       var dt = Math.min(40, t - last) || 16; last = t;
@@ -185,6 +185,10 @@
 
   /* ---------- Trusted-by wall: duplicate each row once for a seamless loop (clone is hidden from assistive tech) ---------- */
   document.querySelectorAll('.wall__track').forEach(function (t) { var dup = document.createElement('span'); dup.className = 'wall__dup'; dup.setAttribute('aria-hidden', 'true'); dup.style.display = 'contents'; dup.innerHTML = t.innerHTML; dup.querySelectorAll('a').forEach(function (a) { a.setAttribute('tabindex', '-1'); }); t.appendChild(dup); });
+
+  /* ---------- Beams only run while their pill is on screen (33 conic gradients repainting every frame otherwise) ---------- */
+  var beamEls = document.querySelectorAll('.beam');
+  if (beamEls.length && 'IntersectionObserver' in window) { var bio = new IntersectionObserver(function (entries) { entries.forEach(function (en) { en.target.classList.toggle('beam--live', en.isIntersecting); }); }, { rootMargin: '10% 0px' }); beamEls.forEach(function (el) { bio.observe(el); }); } else { beamEls.forEach(function (el) { el.classList.add('beam--live'); }); }
 
   /* ---------- Carousels ([data-carousel] tracks, arrows found in the same section) ---------- */
   document.querySelectorAll('[data-carousel]').forEach(function (track) {
@@ -352,7 +356,7 @@
   function canDo3D() { if (!markBox || !motion) return false; if (/[?&]mark=poster/.test(location.search)) return false; if (navigator.connection && navigator.connection.saveData) return false; if ((navigator.deviceMemory || 4) < 2) return false; try { var c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (err) { return false; } }
   if (canDo3D()) {
     var load3D = function () { import('/assets/js/mark-3d.js').then(function (m) { return m.init(markBox, { gsap: window.gsap, ScrollTrigger: window.ScrollTrigger, lenis: lenis, isMobile: !desktop() || !fine, trigger: markBox.getAttribute('data-trigger') || '.engine', start: markBox.getAttribute('data-start') || 'top 80%', end: markBox.getAttribute('data-end') || 'bottom 20%' }); }).catch(function (err) { if (window.console) console.warn('3D mark unavailable, poster shown.', err); }); };
-    var armed = false, arm = function () { if (armed) return; armed = true; if ('requestIdleCallback' in window) requestIdleCallback(load3D, { timeout: 1200 }); else setTimeout(load3D, 200); };
+    var armed = false, arm = function () { if (armed) return; armed = true; var go = function () { if ('requestIdleCallback' in window) requestIdleCallback(load3D, { timeout: 3000 }); else setTimeout(load3D, 400); }; if (document.readyState === 'complete') setTimeout(go, 1200); else window.addEventListener('load', function () { setTimeout(go, 1200); }, { once: true }); };
     var near = new IntersectionObserver(function (entries) { if (entries.some(function (en) { return en.isIntersecting; })) { near.disconnect(); arm(); } }, { rootMargin: '120% 0px' }); near.observe(markBox);
   }
 

@@ -116,7 +116,7 @@ function makeRenderer(canvas, { transparent, dpr, isMobile }) {
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.NeutralToneMapping || THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = CONFIG.exposure;
-  if ('transmissionResolutionScale' in renderer) renderer.transmissionResolutionScale = isMobile ? 0.5 : 1;
+  if ('transmissionResolutionScale' in renderer) renderer.transmissionResolutionScale = isMobile ? 0.5 : 0.6;   /* the refraction pass is the expensive part; 0.6 is visually identical at this size */
   return renderer;
 }
 
@@ -140,7 +140,7 @@ export function init(box, opts = {}) {
 
   let renderer;
   try {
-    renderer = makeRenderer(canvas, { transparent: true, dpr: Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2), isMobile });
+    renderer = makeRenderer(canvas, { transparent: true, dpr: Math.min(window.devicePixelRatio || 1, isMobile ? 1.25 : 1.5), isMobile });
   } catch (err) { box.removeChild(canvas); throw err; }
 
   const bgHex = cssVar('--mark-bg', '') || cssVar('--surface-1', '#f5f5f7');
@@ -220,7 +220,9 @@ export function init(box, opts = {}) {
     tilt.y += (tilt.ty - tilt.y) * 0.06;
     const moving = Math.abs(tilt.tx - tilt.x) > 0.0005 || Math.abs(tilt.ty - tilt.y) > 0.0005 || idleSpeed > 0.001;
     if (isMobile && !moving && now - lastChange > 400 && live) return;
-    if (now - lastRender < 15) return;   /* cap at ~60 fps */
+    const tiltMoving = Math.abs(tilt.tx - tilt.x) > 0.0005 || Math.abs(tilt.ty - tilt.y) > 0.0005;
+    const fast = tiltMoving || (now - lastScrollTs < 400);
+    if (now - lastRender < (fast ? 15 : 32)) return;   /* 60 fps while the user moves, 30 fps for the idle spin */
     group.rotation.y = state.rotY + tilt.x + idle;
     group.rotation.x = state.rotX + tilt.y;
     group.scale.setScalar(state.scale);
