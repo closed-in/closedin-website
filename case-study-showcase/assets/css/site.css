@@ -283,15 +283,15 @@ html.js [data-reveal="pop"].in { animation-name: pop; }
 /* Cursor follower (fine pointers only): a dot that sticks to the pointer and a ring that trails it */
 .cur { position: fixed; left: 0; top: 0; z-index: 600; pointer-events: none; opacity: 0; transition: opacity .3s; will-change: transform; }
 html.has-cursor .cur { opacity: 1; } html.cur-out .cur { opacity: 0; }
-.cur--dot span { display: block; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--ink); transition: transform .3s var(--ease), background-color .3s; }
-.cur--ring span { display: grid; place-items: center; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; border: 1.5px solid rgba(12, 13, 14, .45); font-size: 12px; font-weight: 500; color: #fff; transition: width .4s var(--ease), height .4s var(--ease), margin .4s var(--ease), background-color .35s, border-color .35s, color .3s; }
-html.cur-link .cur--ring span { width: 52px; height: 52px; margin: -26px 0 0 -26px; border-color: rgba(114, 193, 255, .95); background: rgba(114, 193, 255, .18); }
-html.cur-link .cur--dot span { transform: scale(.5); }
-html.cur-play .cur--ring span { width: 88px; height: 88px; margin: -44px 0 0 -44px; background: var(--ink); border-color: var(--ink); }
+.cur--dot span { display: block; width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; border-radius: 1px; background: var(--ink); transition: transform .3s var(--ease), background-color .3s, opacity .3s; }
+.cur--ring span { display: grid; place-items: center; box-sizing: border-box; width: 26px; height: 26px; margin: -13px 0 0 -13px; border: 0 solid rgba(12, 13, 14, .7); border-top-width: 2px; border-right-width: 2px; border-radius: 0; font-size: 12px; font-weight: 500; color: #fff; transform: rotate(0deg); transition: width .4s var(--ease), height .4s var(--ease), margin .4s var(--ease), transform .5s var(--ease), border-color .3s, background-color .3s, border-radius .4s var(--ease); }
+html.cur-link .cur--ring span { width: 40px; height: 40px; margin: -20px 0 0 -20px; border-color: var(--accent); transform: rotate(90deg); }
+html.cur-link .cur--dot span { transform: scale(.6); background: var(--accent); }
+html.cur-play .cur--ring span { width: 84px; height: 84px; margin: -42px 0 0 -42px; border-width: 0; border-radius: 22px; background: var(--ink); transform: rotate(0deg); }
 html.cur-play .cur--ring span::after { content: "Play"; }
 html.cur-play .cur--dot span { transform: scale(0); }
-html.cur-dark .cur--dot span { background: #fff; } html.cur-dark .cur--ring span { border-color: rgba(255, 255, 255, .55); }
-html.cur-dark.cur-play .cur--ring span { background: #fff; border-color: #fff; color: var(--ink); }
+html.cur-dark .cur--dot span { background: #fff; } html.cur-dark .cur--ring span { border-color: rgba(255, 255, 255, .75); }
+html.cur-dark.cur-play .cur--ring span { background: #fff; color: var(--ink); }
 html.has-cursor [data-cursor="play"]:not([disabled]) { cursor: none; }
 
 
