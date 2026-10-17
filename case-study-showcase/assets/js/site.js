@@ -9,6 +9,27 @@
   function desktop() { return window.innerWidth >= 1024; }
   if (!motion) html.classList.remove('js');
 
+  /* ---------- Splash: the closed:in loader (hooks turn once around the dots, 2.6 s cycle) on arrival and when leaving for another page ---------- */
+  var splash = document.getElementById('splash');
+  if (splash) {
+    var splashSvg = splash.querySelector('svg'), CYCLE = 2600;
+    var lift = function () { splash.classList.add('is-out'); html.classList.remove('has-splash'); };
+    if (reduce) { lift(); }
+    else {
+      html.classList.add('has-splash');
+      if (!/[?&]splash=hold/.test(location.search)) setTimeout(lift, CYCLE);   /* one full turn; ?splash=hold keeps it up for review */
+    }
+    window.addEventListener('pageshow', function (e) { if (e.persisted) lift(); });
+    if (!reduce) document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href]'); if (!a || a.target || a.hasAttribute('download') || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var url; try { url = new URL(a.getAttribute('href'), location.href); } catch (err) { return; }
+      if (url.origin !== location.origin) return; if (url.pathname === location.pathname && url.hash) return; if (/^(mailto|tel):/.test(a.getAttribute('href'))) return;
+      e.preventDefault(); try { splashSvg.setCurrentTime(0); } catch (err) { /* SMIL not available */ }
+      splash.classList.remove('is-out'); html.classList.add('has-splash');
+      setTimeout(function () { location.href = url.href; }, 900);
+    });
+  }
+
   /* Lenis */
   var lenis = null;
   if (motion) {
@@ -58,66 +79,8 @@
   /* ---------- Nav: scrolled pill group, dark theme over dark sections ---------- */
   var nav = document.querySelector('[data-nav]');
   if (nav) {
-    /* Logo morph: Max' specimen, mode "c n". Web Animations, reversible, instant under reduced motion. */
-    var logoEl = nav.querySelector('[data-logo]'), logo = null;
-    if (logoEl) {
-      var DUR = 750, EASE = 'cubic-bezier(.65,0,.35,1)';
-      var buildLogo = function (el) {
-        var inner = document.createElement('span'); inner.className = 'inner';
-        var base = document.createElement('span'); base.className = 'base'; inner.appendChild(base);
-        var mk = function (ch) { var s = document.createElement('span'); s.className = 'ch'; s.textContent = ch; inner.appendChild(s); return s; };
-        var left = 'closed'.split('').map(mk);
-        var colon = document.createElement('span'); colon.className = 'colon';
-        var d1 = document.createElement('i'); d1.className = 'dot'; var d2 = document.createElement('i'); d2.className = 'dot'; colon.appendChild(d1); colon.appendChild(d2); inner.appendChild(colon);
-        var right = 'in'.split('').map(mk);
-        var hl = document.createElement('span'); hl.className = 'hook'; var hr = document.createElement('span'); hr.className = 'hook'; inner.appendChild(hl); inner.appendChild(hr);
-        el.appendChild(inner);
-        return { el: el, base: base, left: left, right: right, colon: colon, d1: d1, d2: d2, hl: hl, hr: hr, anims: [], mark: false };
-      };
-      var geo = function (a) {
-        var fs = parseFloat(getComputedStyle(a.el).fontSize), em = function (v) { return v * fs; };
-        var base = a.base.offsetTop, xh = em(.546), asc = em(.76);
-        var cx = a.colon.offsetLeft + em(.1375);
-        var dTop = base - em(.4105), dBot = base - em(.0455), cy = (dTop + dBot) / 2;
-        a.d1.style.top = (dTop - a.colon.offsetTop) + 'px'; a.d2.style.top = (dBot - a.colon.offsetTop) + 'px';
-        var st = em(.117), stem = em(.075), arm = em(.745);
-        var ctr = function (s) { return s.offsetLeft + (s.offsetWidth + em(.07)) / 2; };
-        var L1 = { x: cx - em(.86), y: cy + em(.89) }, R1 = { x: cx + em(.87), y: cy - em(.83) };
-        return { em: em, base: base, xh: xh, asc: asc, cx: cx, cy: cy, st: st, stem: stem, arm: arm, ctr: ctr,
-          FL: { x: L1.x - st / 2, y: L1.y - arm + st / 2, w: arm, h: arm }, FR: { x: R1.x - arm + st / 2, y: R1.y - st / 2, w: arm, h: arm },
-          BL: function (w) { return '0px 0px ' + w + 'px ' + w + 'px'; }, BR: function (w) { return w + 'px ' + w + 'px 0px 0px'; } };
-      };
-      var box = function (b, bw, op, extra) { var o = { left: b.x + 'px', top: b.y + 'px', width: b.w + 'px', height: b.h + 'px', borderWidth: bw, opacity: op }; if (extra) for (var k in extra) o[k] = extra[k]; return o; };
-      var frames = function (a, g) {
-        var out = [], adv = function (s) { return s.offsetWidth + g.em(.07); };
-        var lk = a.left[0], rk = a.right[a.right.length - 1], lx = g.ctr(lk), rx = g.ctr(rk);
-        a.left.concat(a.right).forEach(function (s) {
-          if (s === lk || s === rk) { out.push([s, [{ opacity: 1, offset: 0 }, { opacity: 0, offset: .1 }, { opacity: 0, offset: 1 }], 'linear']); return; }
-          var tx = ((a.left.indexOf(s) > -1 ? lx : rx) - g.ctr(s)) * .45;
-          out.push([s, [{ opacity: 1, transform: 'none', filter: 'blur(0px)', offset: 0 }, { opacity: 0, transform: 'translateX(' + tx + 'px)', filter: 'blur(5px)', offset: .42 }, { opacity: 0, transform: 'translateX(' + tx + 'px)', filter: 'blur(5px)', offset: 1 }], 'cubic-bezier(.4,0,.6,1)']);
-        });
-        var c = lk, n = rk;
-        var SL = { x: c.offsetLeft + g.em(.045), y: g.base - g.xh, w: adv(c) - g.em(.1), h: g.xh };
-        var SR = { x: n.offsetLeft + g.em(.07), y: g.base - g.xh, w: adv(n) - g.em(.14), h: g.xh };
-        out.push([a.hl, [box(SL, g.BL(g.stem), 0, { offset: 0 }), box(SL, g.BL(g.stem), 1, { offset: .08, easing: EASE }), box(g.FL, g.BL(g.st), 1, { offset: 1 })], 'linear']);
-        out.push([a.hr, [box(SR, g.BR(g.stem), 0, { offset: 0 }), box(SR, g.BR(g.stem), 1, { offset: .08, easing: EASE }), box(g.FR, g.BR(g.st), 1, { offset: 1 })], 'linear']);
-        return out;
-      };
-      var runMorph = function (a, toMark, instant) {
-        if (!a.el.animate) return;
-        if (!instant && a.mark === toMark && a.anims.length) return;
-        a.anims.forEach(function (x) { x.cancel(); }); a.anims = [];
-        var g = geo(a);
-        a.el.style.setProperty('--shift', (g.cx - a.el.offsetWidth / 2).toFixed(2));
-        frames(a, g).forEach(function (f) { var an = f[0].animate(f[1], { duration: DUR, easing: f[2], fill: 'both', direction: toMark ? 'normal' : 'reverse' }); if (instant || reduce) an.finish(); a.anims.push(an); });
-        a.mark = toMark;
-      };
-      logo = buildLogo(logoEl);
-      var relayout = function () { runMorph(logo, logo.mark, true); };
-      window.addEventListener('resize', relayout);
-      if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
-    }
-    var setScrolled = function () { var s = scrollY > 80; nav.classList.toggle('is-scrolled', s); if (logo) runMorph(logo, s, !logo.anims.length && !s); };
+    var logoEl = nav.querySelector('[data-logo]');
+    var setScrolled = function () { var s = scrollY > 80; nav.classList.toggle('is-scrolled', s); if (logoEl) logoEl.classList.toggle('is-mark', s); };
     window.addEventListener('scroll', setScrolled, { passive: true }); setScrolled();
     var darkSections = document.querySelectorAll('[data-nav-theme="dark"]');
     var probe = function () { var y = 40; var dark = false; darkSections.forEach(function (s) { var r = s.getBoundingClientRect(); if (r.top <= y && r.bottom >= y) dark = true; }); nav.classList.toggle('is-dark', dark); };
