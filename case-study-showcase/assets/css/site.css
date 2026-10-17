@@ -181,8 +181,8 @@ a:hover > .lh .ch, button:hover > .lh .ch, .lh-host:hover .lh .ch { transform: t
 .nav__cta .alink__t { font-size: 16px; }
 .nav__cta .btn-accent--sq { height: 40px; }
 .nav.is-scrolled .nav__row { grid-template-columns: auto auto auto; justify-content: center; }
-.nav.is-scrolled .nav__brand { width: 52px; justify-content: center; padding: 0; background: rgba(255, 255, 255, .02); box-shadow: var(--neu-nav); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-.nav.is-scrolled .nav__brand img { display: none; } .nav.is-scrolled .nav__brand .nav__mark { display: block; }
+.nav.is-scrolled .nav__brand { width: 52px; justify-content: center; padding: 0; overflow: visible; background: rgba(255, 255, 255, .02); box-shadow: var(--neu-nav); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.nav.is-scrolled .nav__brand > img { display: none; } .nav.is-scrolled .nav__brand .nav__mark { display: block; }
 .nav.is-scrolled .nav__links { background: rgba(255, 255, 255, .02); box-shadow: var(--neu-nav); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 .nav.is-scrolled .nav__cta { background: rgba(255, 255, 255, .02); box-shadow: var(--neu-nav); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); padding: 0 5px 0 24px; }
 .nav.is-dark .nav__brand, .nav.is-dark .nav__links, .nav.is-dark .nav__cta { background: rgba(21, 21, 23, .576); box-shadow: var(--neu-dark-pill); color: #fff; }
@@ -291,3 +291,23 @@ html.cur-play .cur--dot span { transform: scale(0); }
 html.cur-dark .cur--dot span { background: #fff; } html.cur-dark .cur--ring span { border-color: rgba(255, 255, 255, .55); }
 html.cur-dark.cur-play .cur--ring span { background: #fff; border-color: #fff; color: var(--ink); }
 html.has-cursor [data-cursor="play"]:not([disabled]) { cursor: none; }
+
+/* Nav logo: five pieces of the wordmark; on scroll the words collapse into the colon and the brackets slide in to form the favicon mark */
+.nav__brand .logo { position: relative; display: block; flex: none; width: 71.1px; height: 26.0px; transform-origin: 50% 50%; transition: transform .6s var(--ease); }
+.nav__brand .lg { position: absolute; display: block; height: auto; transition: transform .6s var(--ease), opacity .3s; will-change: transform; }
+.nav__brand .lg-bl { left: 0.000%; top: 53.030%; width: 18.006%; }
+.nav__brand .lg-closed { left: 13.019%; top: 25.000%; width: 52.078%; }
+.nav__brand .lg-colon { left: 68.975%; top: 35.606%; width: 2.493%; }
+.nav__brand .lg-in { left: 74.792%; top: 23.485%; width: 12.465%; }
+.nav__brand .lg-br { left: 81.994%; top: 0.000%; width: 18.006%; }
+.nav.is-scrolled .nav__brand .lg-closed { transform: scaleX(0); opacity: 0; transform-origin: 100% 50%; }
+.nav.is-scrolled .nav__brand .lg-in { transform: scaleX(0); opacity: 0; transform-origin: 0 50%; }
+.nav.is-scrolled .nav__brand .lg-bl { transform: translate(35.3px, 1.9px); }
+.nav.is-scrolled .nav__brand .lg-br { transform: translate(-6.5px, -1.0px); }
+.nav.is-scrolled .nav__brand .logo { transform: translateX(-14.4px) scale(1.5); }
+.nav__brand .lg-closed, .nav__brand .lg-in { transition-duration: .45s, .25s; }
+@media (prefers-reduced-motion: reduce) { .nav__brand .logo, .nav__brand .lg { transition: none; } }
+
+/* the five logo pieces always render; the old single-image swap no longer applies */
+.nav__brand .lg, .nav.is-scrolled .nav__brand .lg { display: block; height: auto; }
+.nav.is-scrolled .nav__brand .logo { opacity: 1; }

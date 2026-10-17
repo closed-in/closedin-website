@@ -167,6 +167,24 @@
     var r = scope.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) start();
   });
 
+  /* ---------- Signals (Forwarding Copilot): flow steps light up in sequence, ticker steps one item at a time, both pause off-screen ---------- */
+  document.querySelectorAll('[data-sig]').forEach(function (sig, si) {
+    var steps = Array.prototype.slice.call(sig.querySelectorAll('[data-step]')).sort(function (a, b) { return +a.getAttribute('data-step') - +b.getAttribute('data-step'); });
+    var list = sig.querySelector('.sig__items'); var items = list ? Array.prototype.slice.call(list.children) : [];
+    if (reduce) { steps.forEach(function (s) { s.classList.add('is-on'); }); items.forEach(function (li, k) { li.classList.toggle('is-on', k === 3); }); return; }
+    if (list && items.length) { items.forEach(function (li) { var cl = li.cloneNode(true); cl.setAttribute('aria-hidden', 'true'); list.appendChild(cl); }); }
+    var all = list ? Array.prototype.slice.call(list.children) : [], n = items.length, pos = 0, PITCH = 58, ACTIVE = 3;
+    var paint = function () { all.forEach(function (li, k) { var d = k - (pos + ACTIVE); li.classList.toggle('is-on', d === 0); li.classList.toggle('is-near', Math.abs(d) === 1); }); };
+    var tick = function () { pos += 1; list.style.transform = 'translateY(' + (-pos * PITCH) + 'px)'; paint(); if (pos >= n) { setTimeout(function () { list.style.transition = 'none'; pos = 0; list.style.transform = 'translateY(0)'; paint(); void list.offsetHeight; list.style.transition = ''; }, 620); } };
+    var step = -1, stepTimer = null, tickTimer = null;
+    var advance = function () { step += 1; if (step >= steps.length + 2) { step = -1; steps.forEach(function (s) { s.classList.remove('is-on'); }); return; } steps.forEach(function (s, k) { s.classList.toggle('is-on', k <= step); }); };
+    var start = function () { if (stepTimer) return; advance(); stepTimer = setInterval(advance, 850); if (list) { paint(); tickTimer = setInterval(tick, 1900 + si * 300); } };
+    var stop = function () { clearInterval(stepTimer); clearInterval(tickTimer); stepTimer = tickTimer = null; };
+    if (list) { list.style.transform = 'translateY(0)'; paint(); }
+    var io = new IntersectionObserver(function (en) { en.forEach(function (e) { e.isIntersecting ? start() : stop(); }); }, { rootMargin: '10% 0px' });
+    io.observe(sig);
+  });
+
   /* ---------- FAQ: one open at a time ---------- */
   var faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(function (d) { d.addEventListener('toggle', function () { if (d.open) faqItems.forEach(function (o) { if (o !== d && o.open) o.open = false; }); }); });
@@ -187,23 +205,26 @@
   var WISTIA_SRC = 'https://fast.wistia.com/player.js', activePlayer = null;
   function loadWistia() { if (document.querySelector('script[src="' + WISTIA_SRC + '"]')) return; var s = document.createElement('script'); s.src = WISTIA_SRC; s.async = true; document.head.appendChild(s); }
   function mountWistia(box, mediaId, aspect) { loadWistia(); if (activePlayer) unmountWistia(); var p = document.createElement('wistia-player'); p.setAttribute('media-id', mediaId); p.setAttribute('aspect', aspect || '1.7777777777777777'); p.setAttribute('autoplay', 'true'); box.appendChild(p); activePlayer = p; var played = false, tryPlay = function () { if (played) return; played = true; try { if (typeof p.play === 'function') p.play(); } catch (err) { /* autoplay attribute */ } }; p.addEventListener('api-ready', tryPlay); if (window.customElements && customElements.whenDefined) customElements.whenDefined('wistia-player').then(function () { setTimeout(tryPlay, 2000); }); }
-  function unmountWistia() { if (!activePlayer) return; try { if (typeof activePlayer.pause === 'function') activePlayer.pause(); } catch (err) { /* ignore */ } if (activePlayer.parentNode) activePlayer.parentNode.removeChild(activePlayer); activePlayer = null; }
+  var HLS_SRC = '/assets/vendor/hls.js-1.7.3/hls.min.js', hlsInst = null;
+  function loadHls(cb) { if (window.Hls) return cb(); var s = document.querySelector('script[src="' + HLS_SRC + '"]'); if (!s) { s = document.createElement('script'); s.src = HLS_SRC; s.async = true; document.head.appendChild(s); } s.addEventListener('load', cb, { once: true }); }
+  function mountMux(box, playbackId) { if (activePlayer) unmountWistia(); var v = document.createElement('video'); v.className = 'lightbox__video'; v.controls = true; v.autoplay = true; v.playsInline = true; v.preload = 'auto'; v.poster = 'https://image.mux.com/' + playbackId + '/thumbnail.webp?time=1'; var src = 'https://stream.mux.com/' + playbackId + '.m3u8'; box.appendChild(v); activePlayer = v; if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = src; v.play().catch(function () {}); } else { loadHls(function () { if (!window.Hls || !window.Hls.isSupported()) { v.src = src; return; } hlsInst = new window.Hls(); hlsInst.loadSource(src); hlsInst.attachMedia(v); hlsInst.on(window.Hls.Events.MANIFEST_PARSED, function () { v.play().catch(function () {}); }); }); } }
+  function unmountWistia() { if (!activePlayer) return; try { if (typeof activePlayer.pause === 'function') activePlayer.pause(); } catch (err) { /* ignore */ } if (hlsInst) { try { hlsInst.destroy(); } catch (err) { /* ignore */ } hlsInst = null; } if (activePlayer.parentNode) activePlayer.parentNode.removeChild(activePlayer); activePlayer = null; }
   var dlg = document.getElementById('lightbox');
   if (dlg) {
     var dlgBox = dlg.querySelector('.lightbox__box'), dlgCap = dlg.querySelector('.lightbox__caption'), opener = null;
-    var openLightbox = function (mediaId, aspect, caption) { var a = (aspect || '16/9').split('/'); dlgBox.style.aspectRatio = a[0] + ' / ' + (a[1] || '1'); if (dlgCap) dlgCap.textContent = caption || ''; if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', ''); if (lenis) lenis.stop(); mountWistia(dlgBox, mediaId, (parseFloat(a[0]) / parseFloat(a[1] || '1')).toString()); };
+    var openLightbox = function (ids, aspect, caption) { var a = (aspect || '16/9').split('/'); dlgBox.style.aspectRatio = a[0] + ' / ' + (a[1] || '1'); if (dlgCap) dlgCap.textContent = caption || ''; if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', ''); if (lenis) lenis.stop(); if (ids.mux) mountMux(dlgBox, ids.mux); else mountWistia(dlgBox, ids.wistia, (parseFloat(a[0]) / parseFloat(a[1] || '1')).toString()); };
     var closeLightbox = function () { unmountWistia(); if (dlg.open) dlg.close(); if (lenis) lenis.start(); if (opener && opener.focus) opener.focus(); };
     dlg.addEventListener('close', function () { unmountWistia(); if (lenis) lenis.start(); });
     dlg.addEventListener('click', function (e) { if (e.target === dlg) closeLightbox(); });
     var closeBtn = dlg.querySelector('.lightbox__close'); if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    document.querySelectorAll('[data-open-video]').forEach(function (el) { el.addEventListener('click', function (e) { var id = el.getAttribute('data-wistia-id'); if (!id) return; e.preventDefault(); opener = el; openLightbox(id, el.getAttribute('data-aspect') || '16/9', el.getAttribute('data-caption') || ''); }); });
+    document.querySelectorAll('[data-open-video]').forEach(function (el) { el.addEventListener('click', function (e) { var ids = { wistia: el.getAttribute('data-wistia-id') || '', mux: el.getAttribute('data-mux-id') || '' }; if (!ids.wistia && !ids.mux) return; e.preventDefault(); opener = el; openLightbox(ids, el.getAttribute('data-aspect') || '16/9', el.getAttribute('data-caption') || ''); }); });
   }
 
   /* ---------- Border beams: pills get a travelling light with a staggered phase ---------- */
   document.querySelectorAll('.eyebrow, .tag, .chip, .learn-card .free, .story__soon').forEach(function (el, i) { el.classList.add('beam'); el.style.setProperty('--n', i % 7); });
 
   /* ---------- Stories without a hosted video yet: chip instead of a play button ---------- */
-  document.querySelectorAll('.story__poster[data-open-video]').forEach(function (b) { if (!b.getAttribute('data-wistia-id')) { b.classList.add('is-soon'); b.setAttribute('disabled', ''); b.removeAttribute('data-cursor'); } });
+  document.querySelectorAll('.story__poster[data-open-video]').forEach(function (b) { if (!b.getAttribute('data-wistia-id') && !b.getAttribute('data-mux-id')) { b.classList.add('is-soon'); b.setAttribute('disabled', ''); b.removeAttribute('data-cursor'); } });
 
   /* ---------- Word reveal: headings split into words that rise out of the line ---------- */
   (function () {
