@@ -95,12 +95,6 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 .rcard .tile span { font-size: 13px; }
 .rcard__go { position: absolute; right: 20px; top: 20px; width: 36px; height: 36px; background: var(--bg); transition: background-color .3s, color .3s, transform .4s var(--ease); }
 .rcard:hover .rcard__go { background: var(--accent); transform: translate(2px, -2px); }
-.logo-strip { margin-top: 40px; padding: 26px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.logo-strip .marquee__track { gap: 48px; padding-right: 48px; animation-duration: 70s; }
-.logo-strip .lcell { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--gray-100); font-size: 14px; white-space: nowrap; transition: color .3s; }
-.logo-strip .lcell .disc { width: 48px; height: 48px; transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
-.logo-strip .lcell .disc img { width: 30px; max-height: 26px; }
-.logo-strip .lcell:hover { color: var(--ink); } .logo-strip .lcell:hover .disc { transform: translateY(-3px); box-shadow: var(--neu-hover); } .logo-strip .lcell:hover .disc img { filter: none; opacity: 1; }
 
 /* SERVICES (eyebrow left, headline and intro right, white cards on the canvas) */
 .services { padding-top: var(--section-y); }
@@ -406,3 +400,30 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 
 /* Mobile: the radial visual scales down inside its card instead of pushing the page wider */
 @media (max-width: 767px) { .svc-card { overflow: hidden; } .vis-radial { transform: translateX(-50%) scale(.68); transform-origin: top center; } }
+
+/* TRUSTED-BY WALL (ported from the live site): two rows sliding in opposite directions, pause on hover, tile lights up, case popover */
+.wall { position: relative; margin-top: 44px; padding: 8px 0; display: flex; flex-direction: column; gap: 14px; overflow-x: clip; overflow-y: visible; }
+.wall::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 3; background: linear-gradient(90deg, var(--bg), transparent 6%, transparent 94%, var(--bg)); }
+.wall__track { position: relative; z-index: 1; display: flex; gap: 14px; width: max-content; animation: marquee 70s linear infinite; }
+.wall__track--right { animation-name: marquee-rev; }
+.wall__track:hover { animation-play-state: paused; }
+@keyframes marquee-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.wcell { position: relative; flex: none; width: 164px; height: 104px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; background: var(--white); border-radius: 14px; box-shadow: var(--neu-card); text-decoration: none; color: var(--ink); transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
+.wcell img { height: 24px; max-width: 108px; width: auto; object-fit: contain; filter: brightness(0); opacity: .45; transition: opacity .3s, filter .3s; }
+.wname { font-size: 9px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-90); transition: color .3s; }
+.wpill { position: absolute; left: 8px; bottom: 7px; z-index: 2; font-size: 8px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); background: rgba(114, 193, 255, .18); border: 1px solid rgba(114, 193, 255, .7); padding: 2px 7px; border-radius: var(--r-pill); transition: background-color .3s, border-color .3s; }
+.wpill--partner { color: var(--gray-90); background: var(--bg); border-color: var(--line-2); }
+.wcell:hover { transform: translateY(-3px); box-shadow: var(--neu-hover), 0 0 0 1px rgba(114, 193, 255, .55), 0 18px 44px rgba(114, 193, 255, .30); }
+.wcell:hover img { opacity: 1; filter: brightness(0) drop-shadow(0 0 6px rgba(114, 193, 255, .9)); }
+.wcell:hover .wname { color: var(--ink); }
+.wcell--color:hover img { filter: drop-shadow(0 0 6px rgba(114, 193, 255, .6)); }
+a.wcell:hover .wpill { background: var(--accent); border-color: var(--accent); }
+.wpop { position: absolute; bottom: calc(100% + 14px); left: 50%; width: 290px; padding: 16px 18px; transform: translateX(-50%) translateY(8px); background: var(--white); border-radius: 16px; box-shadow: var(--neu-card), 0 24px 60px rgba(12, 13, 14, .14); opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s var(--ease); z-index: 60; text-align: left; }
+.wpop::after { content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 7px solid transparent; border-top-color: var(--white); }
+a.wcell:hover .wpop { opacity: 1; transform: translateX(-50%) translateY(0); }
+.wpop b { display: block; font-size: 14px; font-weight: 500; line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 8px; color: var(--ink); }
+.wpop > span { display: block; font-size: 12.5px; line-height: 1.5; color: var(--gray-100); }
+.wpop .wpop__cta { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--ink); }
+.wpop__cta svg { width: 12px; height: 12px; }
+@media (max-width: 767px) { .wall { margin-top: 32px; } .wcell { width: 132px; height: 90px; } .wcell img { height: 20px; max-width: 90px; } .wpop { display: none; } }
+@media (prefers-reduced-motion: reduce) { .wall__track { animation: none; } }

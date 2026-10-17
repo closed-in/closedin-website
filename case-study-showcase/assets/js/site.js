@@ -124,6 +124,9 @@
   /* ---------- Marquee duplicate ---------- */
   document.querySelectorAll('.marquee__track').forEach(function (track) { var clone = track.cloneNode(true); clone.setAttribute('aria-hidden', 'true'); track.parentNode.appendChild(clone); track.parentNode.style.display = 'flex'; });
 
+  /* ---------- Trusted-by wall: duplicate each row once for a seamless loop (clone is hidden from assistive tech) ---------- */
+  document.querySelectorAll('.wall__track').forEach(function (t) { var dup = document.createElement('span'); dup.className = 'wall__dup'; dup.setAttribute('aria-hidden', 'true'); dup.setAttribute('inert', ''); dup.style.display = 'contents'; dup.innerHTML = t.innerHTML; t.appendChild(dup); });
+
   /* ---------- Carousels ([data-carousel] tracks, arrows found in the same section) ---------- */
   document.querySelectorAll('[data-carousel]').forEach(function (track) {
     var cards = Array.prototype.slice.call(track.children); if (!cards.length) return;
