@@ -134,13 +134,34 @@
     var target = function (card) { return centered ? card.offsetLeft + card.offsetWidth / 2 - track.clientWidth / 2 : card.offsetLeft - padL(); };
     var idx = function () { var c = track.scrollLeft, best = 0, bd = 1e9; cards.forEach(function (card, i) { var d = Math.abs(target(card) - c); if (d < bd) { bd = d; best = i; } }); return best; };
     var atEnd = function () { return track.scrollLeft + track.clientWidth >= track.scrollWidth - 2; };
-    var mark = function () { var i = idx(); cards.forEach(function (c, k) { c.classList.toggle('is-center', k === i); }); if (prev) prev.disabled = track.scrollLeft <= 1; if (next) next.disabled = atEnd(); };
+    var prog = sec.querySelector('[data-carousel-progress]'), pad = function (n) { return (n < 10 ? '0' : '') + n; };
+    var mark = function () { var i = idx(); cards.forEach(function (c, k) { c.classList.toggle('is-center', k === i); }); if (prev) prev.disabled = track.scrollLeft <= 1; if (next) next.disabled = atEnd(); if (prog) prog.textContent = pad(i + 1) + ' / ' + pad(cards.length); };
     var go = function (i) { i = Math.max(0, Math.min(cards.length - 1, i)); track.scrollTo({ left: target(cards[i]), behavior: 'smooth' }); };
     if (prev) prev.addEventListener('click', function () { go(idx() - 1); });
     if (next) next.addEventListener('click', function () { go(idx() + 1); });
     track.addEventListener('scroll', mark, { passive: true }); window.addEventListener('resize', mark);
     var start = parseInt(track.getAttribute('data-start') || '0', 10);
     requestAnimationFrame(function () { if (start) track.scrollLeft = target(cards[start]); mark(); });
+  });
+
+  /* ---------- Pixel clusters (Dapper): random twinkle, drift and re-arrange with scroll ---------- */
+  document.querySelectorAll('.pixels').forEach(function (grid, gi) {
+    var cols = parseInt(getComputedStyle(grid).getPropertyValue('--cols')) || 4, rows = parseInt(grid.getAttribute('data-rows') || '4', 10);
+    var total = cols * rows, lit = parseInt(grid.getAttribute('data-lit') || String(Math.round(total * 0.3)), 10);
+    var frag = document.createDocumentFragment(); var cells = [];
+    for (var i = 0; i < total; i++) { var cell = document.createElement('i'); frag.appendChild(cell); cells.push(cell); }
+    grid.appendChild(frag);
+    var picked = cells.slice().sort(function () { return Math.random() - .5; }).slice(0, lit);
+    picked.forEach(function (c) { c.classList.add('on'); });
+    if (!motion) return;
+    var px = parseFloat(getComputedStyle(grid).getPropertyValue('--px')) || 44;
+    var twinkle = function (c) { gsap.to(c, { opacity: 0.12 + Math.random() * 0.55, duration: 0.5 + Math.random() * 1.2, ease: 'power1.inOut', onComplete: function () { gsap.delayedCall(Math.random() * 1.8, function () { if (grid.__live) twinkle(c); }); } }); };
+    var start = function () { grid.__live = true; picked.forEach(function (c, k) { gsap.delayedCall(k * 0.12, function () { twinkle(c); }); }); };
+    var stop = function () { grid.__live = false; picked.forEach(function (c) { gsap.killTweensOf(c); c.style.opacity = ''; }); };
+    var scope = grid.closest('section, footer') || grid.parentElement;
+    picked.forEach(function (c, k) { var dx = ((k % 3) - 1) * px * (1 + (k % 2)), dy = (k % 2 ? -1 : 1) * px * (1 + ((k + gi) % 3)); gsap.to(c, { x: dx, y: dy, ease: 'none', scrollTrigger: { trigger: scope, start: 'top bottom', end: 'bottom top', scrub: 0.8 } }); });
+    ScrollTrigger.create({ trigger: scope, start: 'top bottom', end: 'bottom top', onEnter: start, onEnterBack: start, onLeave: stop, onLeaveBack: stop });
+    var r = scope.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) start();
   });
 
   /* ---------- FAQ: one open at a time ---------- */
