@@ -37,7 +37,7 @@ for (const [w, h, name] of sizes) {
   if (reduce || no3d) await page.screenshot({ path: path.join(out, `${name}-full${reduce ? '-reduce' : ''}${no3d ? '-no3d' : ''}.png`), fullPage: true });
   if (name === 'desktop' && !reduce && !no3d) {
     // process section with the mark at a few scroll offsets
-    const top = await page.evaluate(() => document.querySelector('.process').getBoundingClientRect().top + window.scrollY);
+    const top = await page.evaluate(() => { const el = document.querySelector('.engine, .process'); return el ? el.getBoundingClientRect().top + window.scrollY : 0; });
     for (const off of [-300, 0, 400, 800]) {
       await page.evaluate(y => window.scrollTo(0, y), top + off); await new Promise(r => setTimeout(r, 700));
       await page.screenshot({ path: path.join(out, `process-${off + 300}.png`) });
