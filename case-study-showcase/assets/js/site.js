@@ -1,4 +1,4 @@
-/* closed:in site.js v3: particle hero, nav states, letter hover, ripple buttons, reveals, counters, carousel, FAQ, Wistia lightbox, forms, 3D mark. */
+/* closed:in site.js v4: particle hero, nav states, letter and word reveals, ripple and magnetic buttons, border beams, cursor follower, spotlight and tilt cards, carousels, counters, FAQ, Wistia lightbox, forms, 3D mark in the hero. */
 (function () {
   'use strict';
   var html = document.documentElement;
@@ -124,20 +124,24 @@
   /* ---------- Marquee duplicate ---------- */
   document.querySelectorAll('.marquee__track').forEach(function (track) { var clone = track.cloneNode(true); clone.setAttribute('aria-hidden', 'true'); track.parentNode.appendChild(clone); track.parentNode.style.display = 'flex'; });
 
-  /* ---------- Case carousel: center detection + arrows ---------- */
-  var ctrack = document.querySelector('.cases__track');
-  if (ctrack) {
-    var cards = Array.prototype.slice.call(ctrack.children);
-    var prev = document.querySelector('[data-cases-prev]'), next = document.querySelector('[data-cases-next]');
-    var centerIdx = function () { var c = ctrack.scrollLeft + ctrack.clientWidth / 2, best = 0, bd = 1e9; cards.forEach(function (card, i) { var m = card.offsetLeft + card.offsetWidth / 2; var d = Math.abs(m - c); if (d < bd) { bd = d; best = i; } }); return best; };
-    var mark = function () { var i = centerIdx(); cards.forEach(function (c, k) { c.classList.toggle('is-center', k === i); }); if (prev) prev.disabled = i === 0; if (next) next.disabled = i === cards.length - 1; };
-    var go = function (i) { i = Math.max(0, Math.min(cards.length - 1, i)); var card = cards[i]; ctrack.scrollTo({ left: card.offsetLeft + card.offsetWidth / 2 - ctrack.clientWidth / 2, behavior: 'smooth' }); };
-    if (prev) prev.addEventListener('click', function () { go(centerIdx() - 1); });
-    if (next) next.addEventListener('click', function () { go(centerIdx() + 1); });
-    ctrack.addEventListener('scroll', mark, { passive: true }); window.addEventListener('resize', mark);
-    var start = parseInt(ctrack.getAttribute('data-start') || '1', 10);
-    requestAnimationFrame(function () { var card = cards[start]; if (card) ctrack.scrollLeft = card.offsetLeft + card.offsetWidth / 2 - ctrack.clientWidth / 2; mark(); });
-  }
+  /* ---------- Carousels ([data-carousel] tracks, arrows found in the same section) ---------- */
+  document.querySelectorAll('[data-carousel]').forEach(function (track) {
+    var cards = Array.prototype.slice.call(track.children); if (!cards.length) return;
+    var sec = track.closest('section') || document;
+    var prev = sec.querySelector('[data-carousel-prev]'), next = sec.querySelector('[data-carousel-next]');
+    var centered = getComputedStyle(cards[0]).scrollSnapAlign === 'center';
+    var padL = function () { return parseFloat(getComputedStyle(track).paddingLeft) || 0; };
+    var target = function (card) { return centered ? card.offsetLeft + card.offsetWidth / 2 - track.clientWidth / 2 : card.offsetLeft - padL(); };
+    var idx = function () { var c = track.scrollLeft, best = 0, bd = 1e9; cards.forEach(function (card, i) { var d = Math.abs(target(card) - c); if (d < bd) { bd = d; best = i; } }); return best; };
+    var atEnd = function () { return track.scrollLeft + track.clientWidth >= track.scrollWidth - 2; };
+    var mark = function () { var i = idx(); cards.forEach(function (c, k) { c.classList.toggle('is-center', k === i); }); if (prev) prev.disabled = track.scrollLeft <= 1; if (next) next.disabled = atEnd(); };
+    var go = function (i) { i = Math.max(0, Math.min(cards.length - 1, i)); track.scrollTo({ left: target(cards[i]), behavior: 'smooth' }); };
+    if (prev) prev.addEventListener('click', function () { go(idx() - 1); });
+    if (next) next.addEventListener('click', function () { go(idx() + 1); });
+    track.addEventListener('scroll', mark, { passive: true }); window.addEventListener('resize', mark);
+    var start = parseInt(track.getAttribute('data-start') || '0', 10);
+    requestAnimationFrame(function () { if (start) track.scrollLeft = target(cards[start]); mark(); });
+  });
 
   /* ---------- FAQ: one open at a time ---------- */
   var faqItems = document.querySelectorAll('.faq-item');
@@ -171,7 +175,63 @@
     document.querySelectorAll('[data-open-video]').forEach(function (el) { el.addEventListener('click', function (e) { var id = el.getAttribute('data-wistia-id'); if (!id) return; e.preventDefault(); opener = el; openLightbox(id, el.getAttribute('data-aspect') || '16/9', el.getAttribute('data-caption') || ''); }); });
   }
 
-  /* ---------- 3D mark (in the engine flow), gated and lazy ---------- */
+  /* ---------- Border beams: pills get a travelling light with a staggered phase ---------- */
+  document.querySelectorAll('.eyebrow, .tag, .chip, .learn-card .free, .story__soon').forEach(function (el, i) { el.classList.add('beam'); el.style.setProperty('--n', i % 7); });
+
+  /* ---------- Stories without a hosted video yet: chip instead of a play button ---------- */
+  document.querySelectorAll('.story__poster[data-open-video]').forEach(function (b) { if (!b.getAttribute('data-wistia-id')) { b.classList.add('is-soon'); b.setAttribute('disabled', ''); b.removeAttribute('data-cursor'); } });
+
+  /* ---------- Word reveal: headings split into words that rise out of the line ---------- */
+  (function () {
+    var els = document.querySelectorAll('[data-words]'); if (!els.length) return;
+    if (!motion) { els.forEach(function (el) { el.classList.add('in-words'); }); return; }
+    els.forEach(function (el) {
+      var n = 0, frag = document.createDocumentFragment();
+      var words = function (text, extra) { text.split(/(\s+)/).forEach(function (p) { if (!p) return; if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(' ')); return; } var w = document.createElement('span'); w.className = 'w'; var wi = document.createElement('span'); wi.className = 'wi' + (extra ? ' ' + extra : ''); wi.textContent = p; wi.style.setProperty('--i', n++); w.appendChild(wi); frag.appendChild(w); }); };
+      Array.prototype.slice.call(el.childNodes).forEach(function (node) { if (node.nodeType === 3) words(node.textContent); else if (node.nodeType === 1 && !node.children.length && node.tagName !== 'BR') words(node.textContent, node.className); else frag.appendChild(node.cloneNode(true)); });
+      el.textContent = ''; el.appendChild(frag);
+      if (el.closest('.hero')) { setTimeout(function () { el.classList.add('in-words'); }, 150); }
+      else { var wio = new IntersectionObserver(function (en) { if (en.some(function (e) { return e.isIntersecting; })) { wio.disconnect(); el.classList.add('in-words'); } }, { rootMargin: '0px 0px -12% 0px' }); wio.observe(el); }
+    });
+  })();
+
+  /* ---------- Fine pointers only: cursor follower, magnetic buttons, spotlight, tilt ---------- */
+  if (fine && !reduce) {
+    html.classList.add('has-cursor');
+    var mk = function (cls) { var d = document.createElement('div'); d.className = cls; d.setAttribute('aria-hidden', 'true'); d.innerHTML = '<span></span>'; document.body.appendChild(d); return d; };
+    var curDot = mk('cur cur--dot'), curRing = mk('cur cur--ring');
+    var cx = innerWidth / 2, cy = innerHeight / 2, rx = cx, ry = cy, craf = null;
+    var cloop = function () { rx += (cx - rx) * 0.16; ry += (cy - ry) * 0.16; curRing.style.transform = 'translate3d(' + rx.toFixed(1) + 'px,' + ry.toFixed(1) + 'px,0)'; craf = (Math.abs(cx - rx) > 0.15 || Math.abs(cy - ry) > 0.15) ? requestAnimationFrame(cloop) : null; };
+    document.addEventListener('pointermove', function (e) {
+      cx = e.clientX; cy = e.clientY; curDot.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)'; if (!craf) craf = requestAnimationFrame(cloop);
+      var t = e.target, c = t && t.closest ? t : null;
+      var play = c && c.closest('[data-cursor="play"]:not([disabled])'), link = !play && c && c.closest('a, button, summary, input, label, [data-cursor]');
+      html.classList.toggle('cur-play', !!play); html.classList.toggle('cur-link', !!link);
+      html.classList.toggle('cur-dark', !!(c && c.closest('.theme-dark, .learn-card, .dark-card, .lightbox')));
+      html.classList.remove('cur-out');
+    }, { passive: true });
+    window.addEventListener('mouseout', function (e) { if (!e.relatedTarget) html.classList.add('cur-out'); });
+
+    /* magnetic: the element drifts toward the pointer while it is near */
+    document.querySelectorAll('.btn-accent, .alink__box, .arrows button, .rcard__go').forEach(function (el) {
+      var host = el.closest('a, button') || el, k = el.classList.contains('btn-accent') ? .22 : .35;
+      host.addEventListener('pointermove', function (e) { var b = el.getBoundingClientRect(); var dx = e.clientX - (b.left + b.width / 2), dy = e.clientY - (b.top + b.height / 2); if (Math.hypot(dx, dy) > 160) return; el.style.transform = 'translate(' + (dx * k).toFixed(1) + 'px,' + (dy * k).toFixed(1) + 'px)'; }, { passive: true });
+      host.addEventListener('pointerleave', function () { el.style.transform = ''; });
+    });
+
+    /* spotlight: glow position as CSS variables */
+    document.querySelectorAll('.spot').forEach(function (el) { el.addEventListener('pointermove', function (e) { var b = el.getBoundingClientRect(); el.style.setProperty('--mx', (e.clientX - b.left).toFixed(0) + 'px'); el.style.setProperty('--my', (e.clientY - b.top).toFixed(0) + 'px'); }, { passive: true }); });
+
+    /* tilt: cards lean toward the pointer */
+    document.querySelectorAll('.tilt').forEach(function (el) {
+      var max = parseFloat(el.getAttribute('data-tilt') || '5');
+      el.addEventListener('animationend', function () { el.style.animation = 'none'; });
+      el.addEventListener('pointermove', function (e) { var b = el.getBoundingClientRect(); var px = (e.clientX - b.left) / b.width - .5, py = (e.clientY - b.top) / b.height - .5; el.style.transform = 'perspective(1000px) rotateX(' + (-py * max).toFixed(2) + 'deg) rotateY(' + (px * max).toFixed(2) + 'deg)'; }, { passive: true });
+      el.addEventListener('pointerleave', function () { el.style.transform = ''; });
+    });
+  }
+
+  /* ---------- 3D mark (hero object, scroll-bound to the hero), gated and lazy ---------- */
   var markBox = document.querySelector('[data-mark-3d]');
   function canDo3D() { if (!markBox || !motion) return false; if (/[?&]mark=poster/.test(location.search)) return false; if (navigator.connection && navigator.connection.saveData) return false; if ((navigator.deviceMemory || 4) < 2) return false; try { var c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (err) { return false; } }
   if (canDo3D()) {

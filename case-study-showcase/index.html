@@ -329,6 +329,8 @@
   <symbol id="i-mark" viewBox="0 0 500 500"><path d="M250 90H410V250H370V130H250Z"/><path d="M250 410H90V250H130V370H250Z"/><rect x="230" y="180" width="40" height="40"/><rect x="230" y="280" width="40" height="40"/></symbol>
   <symbol id="i-ne" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4M5 4h7v7"/></symbol>
   <symbol id="i-e" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9 3l5 5-5 5"/></symbol>
+  <symbol id="i-w" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8H2M7 3 2 8l5 5"/></symbol>
+  <symbol id="i-s" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v12M3 9l5 5 5-5"/></symbol>
   <symbol id="i-play" viewBox="0 0 16 16"><path d="M3 3.24C3 2.47 3.84 1.99 4.51 2.38l7.62 4.47a1.5 1.5 0 0 1 0 2.59l-7.62 4.47C3.84 14.3 3 13.82 3 13.05V3.24z"/></symbol>
   <symbol id="i-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-7"/></symbol>
   <symbol id="i-x" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></symbol>
@@ -393,90 +395,189 @@
 
 <main id="main">
 
-<!-- HERO -->
+<!-- HERO (Dapper composition: statement left, the 3D mark right, intro and form bottom-left, the VSL card over the hero rule) -->
 <section class="hero" id="hero">
-    <div class="hero__dome" aria-hidden="true"></div>
-    <div class="container hero__inner">
-        <p class="eyebrow hero-in" style="--i:0"><span class="eyebrow__ic"><svg><use href="#i-mark"/></svg></span>For B2B companies</p>
-        <h1 class="display hero-in" style="--i:1"><b>Outbound systems</b> for <b>predictable pipeline</b></h1>
-        <p class="lead hero-in" style="--i:2">Cold email, LinkedIn and Clay enrichment, built and run for you as one engine.</p>
-        <form class="lead-form hero-in" style="--i:3" data-book="hero" action="https://closedin.neetocal.com/discovery-call" method="GET" target="_blank">
-            <div class="lead-form__fields">
-                <label><span class="sr-only">Name</span><input type="text" name="name" placeholder="Name*" autocomplete="name" required></label>
-                <label><span class="sr-only">Email</span><input type="email" name="email" placeholder="Email*" autocomplete="email" required></label>
-            </div>
-            <button class="btn-accent" type="submit"><span class="txt" data-letters>Request Call</span><span class="ico"><svg><use href="#i-e"/></svg></span></button>
-        </form>
-    </div>
-    <div class="container hero__foot hero-in" style="--i:4">
-        <div class="chips">
-            <a class="chip" href="cold-email-agency-amsterdam" data-letters>Cold Email</a>
-            <a class="chip" href="gtm-engineering-agency" data-letters>LinkedIn</a>
-            <a class="chip" href="clay-agency" data-letters>Clay Enrichment</a>
-            <a class="chip" href="cold-email-agency-saas" data-letters>Deliverability</a>
+    <div class="container hero__top">
+        <p class="eyebrow hero-in" style="--i:0"><span class="eyebrow__ic"><svg><use href="#i-mark"/></svg></span>closed:in, GTM engineering agency</p>
+        <h1 class="display hero-in" style="--i:1" data-words>We build outbound<br>engines for <span class="i">predictable</span><br>B2B pipeline</h1>
+        <div class="hero__object hero-in" style="--i:1" aria-hidden="true">
+            <div class="mark mark--hero" data-mark-3d data-trigger=".hero" data-start="top top" data-end="bottom top"><img class="mark__poster" src="/assets/img/mark-poster.webp" width="1200" height="1200" alt="" fetchpriority="high"></div>
         </div>
-        <button class="alink alink--accent alink--play" type="button" data-open-video data-wistia-id="eox8dagvf8" data-aspect="16/9" data-caption="How closed:in builds outbound engines, 3:34"><span class="alink__t" data-letters>Watch video</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-play"/></svg></span></button>
-        <a class="hero__trust" href="#customers">
-            <span class="avatars" aria-hidden="true"><img src="/assets/img/avatars/endresz.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/tpn.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/sankore.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/sustainable-motion.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/wetaxus.webp" alt="" width="36" height="36"></span>
-            <p>Trusted by 50+ B2B companies across Europe and the US</p>
-            <span class="alink__box" aria-hidden="true"><svg><use href="#i-e"/></svg></span>
-        </a>
     </div>
+    <div class="container hero__bottom">
+        <div class="hero__intro">
+            <p class="lead hero-in" style="--i:2">closed:in is a GTM engineering agency from Amsterdam. We build and run cold email, LinkedIn outreach and Clay enrichment as one outbound engine inside your CRM, for B2B companies across Europe, the UK and the US.</p>
+            <form class="lead-form hero-in" style="--i:3" data-book="hero" action="https://closedin.neetocal.com/discovery-call" method="GET" target="_blank">
+                <div class="lead-form__fields">
+                    <label><span class="sr-only">Name</span><input type="text" name="name" placeholder="Name*" autocomplete="name" required></label>
+                    <label><span class="sr-only">Email</span><input type="email" name="email" placeholder="Email*" autocomplete="email" required></label>
+                </div>
+                <button class="btn-accent" type="submit"><span class="txt" data-letters>Request Call</span><span class="ico"><svg><use href="#i-e"/></svg></span></button>
+            </form>
+            <a class="hero__trust hero-in" style="--i:4" href="#stories">
+                <span class="avatars" aria-hidden="true"><img src="/assets/img/avatars/endresz.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/tpn.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/sankore.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/sustainable-motion.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/wetaxus.webp" alt="" width="36" height="36"></span>
+                <p>Trusted by 50+ B2B companies across Europe and the US</p>
+                <span class="alink__box" aria-hidden="true"><svg><use href="#i-s"/></svg></span>
+            </a>
+        </div>
+        <button class="hero__vsl hero-in spot tilt" data-tilt="3" style="--i:4" type="button" data-open-video data-wistia-id="eox8dagvf8" data-aspect="16/9" data-caption="How closed:in builds outbound engines, 3:34" data-cursor="play">
+            <span class="hero__vsl-media"><img src="/assets/img/video/eox8dagvf8.webp" srcset="/assets/img/video/eox8dagvf8-480.webp 480w, /assets/img/video/eox8dagvf8.webp 960w, /assets/img/video/eox8dagvf8-1920.webp 1920w" sizes="(max-width: 1023px) 92vw, 520px" width="960" height="540" alt="" fetchpriority="high"><span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span><span class="hero__vsl-time" aria-hidden="true">3:34</span></span>
+            <span class="hero__vsl-text"><b>Watch how we build an outbound engine</b><span>Lists, copy, infrastructure and the CRM handoff, in three and a half minutes.</span></span>
+            <span class="hero__vsl-foot"><img src="/assets/brand/closedin-wordmark-ink.png" alt="" width="389" height="146"><span class="alink__box alink__box--accent" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></span>
+        </button>
+        <span class="pixels" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    </div>
+    <span class="hero__rule" aria-hidden="true"></span>
 </section>
 
-<!-- CUSTOMERS -->
-<section class="customers" id="customers" aria-labelledby="customers-title">
-    <div class="container customers__grid">
-        <a class="card card--xl feature-case" href="case-study-gen-zero" data-reveal>
-            <span class="disc disc--lg"><img src="/assets/img/clients/gen-zero-sm.png" alt=""></span>
-            <h3>How Gen-Zero turned a saturated market into 142 opportunities with a KVK-anchored data engine</h3>
-            <div class="feature-case__author"><span class="avatar avatar--ini">D</span><div><b>Daniel</b><span>Founder @ Gen-Zero</span></div></div>
-            <div class="tiles">
-                <div class="tile"><b data-count="142">142</b><span>Opportunities in 13 weeks</span></div>
-                <div class="tile"><b data-count="5.07" data-decimals="2" data-suffix="%">5.07%</b><span>Reply rate</span></div>
-                <div class="tile tile--wide"><b data-count="27455">27,455</b><span>Businesses contacted, investment recouped in under 2 months</span></div>
+<!-- CLIENT STORIES (video testimonials, straight after the VSL) -->
+<section class="stories" id="stories" aria-labelledby="stories-title">
+    <div class="container">
+        <div class="split-head">
+            <div class="split-head__l">
+                <p class="eyebrow" data-reveal><span class="eyebrow__ic"><svg><use href="#i-play"/></svg></span>Client stories</p>
+                <h2 id="stories-title" class="h2 h2--xl" data-words>Founders on what changed <span class="i">after</span> closed:in</h2>
             </div>
-            <span class="alink alink--accent"><span class="alink__t">See Case Study</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></span>
-        </a>
-        <div class="customers__right">
-            <p class="eyebrow" data-reveal><span class="eyebrow__ic"><svg><use href="#i-user"/></svg></span>Customers</p>
-            <h2 id="customers-title" class="h2" data-reveal>B2B teams that trust closed:in</h2>
-            <div class="logo-grid" data-reveal>
-                <a class="logo-cell" href="case-study-gen-zero"><span class="disc disc--lg"><img src="/assets/img/clients/gen-zero-sm.png" alt=""></span><span class="logo-cell__name">Gen-Zero <i><svg><use href="#i-e"/></svg></i></span></a>
-                <a class="logo-cell" href="case-study-verzendbazen"><span class="disc disc--lg"><img src="/assets/img/clients/verzendbazen-sm.png" alt=""></span><span class="logo-cell__name">Verzendbazen <i><svg><use href="#i-e"/></svg></i></span></a>
-                <a class="logo-cell" href="case-study-jamezz"><span class="disc disc--lg"><img src="/assets/img/clients/jamezz-sm.png" alt=""></span><span class="logo-cell__name">Jamezz <i><svg><use href="#i-e"/></svg></i></span></a>
-                <a class="logo-cell" href="case-study-endresz"><span class="disc disc--lg"><img src="/assets/img/clients/endresz-sm.png" alt=""></span><span class="logo-cell__name">Endresz <i><svg><use href="#i-e"/></svg></i></span></a>
-                <a class="logo-cell" href="case-study-mistertafel"><span class="disc disc--lg"><img src="/assets/img/clients/mistertafel-sm.png" alt=""></span><span class="logo-cell__name">Mistertafel <i><svg><use href="#i-e"/></svg></i></span></a>
-                <a class="logo-cell" href="case-study-zano"><span class="disc disc--lg"><img src="zano-logo.svg" alt=""></span><span class="logo-cell__name">Zano <i><svg><use href="#i-e"/></svg></i></span></a>
-                <a class="logo-cell" href="case-study-redfox"><span class="disc disc--lg"><img src="/assets/img/clients/redfox-sm.png" alt=""></span><span class="logo-cell__name">Red Fox <i><svg><use href="#i-e"/></svg></i></span></a>
-                <a class="logo-cell" href="case-study-wetaxus"><span class="disc disc--lg"><img src="/assets/img/clients/wetaxus-sm.png" alt=""></span><span class="logo-cell__name">Wetaxus <i><svg><use href="#i-e"/></svg></i></span></a>
-                <span class="logo-cell"><span class="disc disc--lg"><img src="/assets/img/clients/quantumclub-sm.png" alt=""></span><span class="logo-cell__name">The Quantum Club</span></span>
-                <span class="logo-cell"><span class="disc disc--lg"><img src="/assets/img/clients/zoku-sm.png" alt=""></span><span class="logo-cell__name">Zoku</span></span>
-                <span class="logo-cell"><span class="disc disc--lg"><img src="/assets/img/clients/rewize-sm.png" alt=""></span><span class="logo-cell__name">Rewize</span></span>
-                <span class="logo-cell"><span class="disc disc--lg"><img src="/assets/img/clients/agile-sm.png" alt=""></span><span class="logo-cell__name">Agile Professionals</span></span>
-                <span class="logo-cell"><span class="disc disc--lg"><img src="/assets/img/clients/deslimmedoos-sm.png" alt=""></span><span class="logo-cell__name">De Slimme Doos</span></span>
-                <span class="logo-cell"><span class="disc disc--lg"><img src="/assets/img/clients/brandsom-sm.png" alt=""></span><span class="logo-cell__name">Brandsom</span></span>
-                <span class="logo-cell"><span class="disc disc--lg"><img src="/assets/img/clients/atelierld-sm.png" alt=""></span><span class="logo-cell__name">Atelier LD</span></span>
-                <span class="logo-cell"><span class="disc disc--lg"><img src="/assets/img/clients/careerstudent-sm.png" alt=""></span><span class="logo-cell__name">Career Student</span></span>
+            <div class="split-head__r" data-reveal>
+                <p class="small">Recorded on video with the founders and marketers who run their outbound through us. Their words and their numbers, no script.</p>
+                <div class="split-head__actions">
+                    <a class="alink" href="case-studies"><span class="alink__t" data-letters>Explore all cases</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a>
+                    <div class="arrows"><button type="button" data-carousel-prev aria-label="Previous stories"><svg><use href="#i-w"/></svg></button><button type="button" data-carousel-next aria-label="Next stories"><svg><use href="#i-e"/></svg></button></div>
+                </div>
             </div>
         </div>
     </div>
+    <div class="stories__wrap">
+        <div class="stories__track" data-carousel>
+            <article class="story spot tilt" data-tilt="4" itemscope itemtype="https://schema.org/Review">
+                <button class="story__poster" type="button" data-open-video data-wistia-id="" data-aspect="16/9" data-caption="Ronne, Endresz" data-cursor="play"><span class="sr-only">Play video: Ronne, Endresz</span><img src="/assets/img/stories/endresz.webp" srcset="/assets/img/stories/endresz-480.webp 480w, /assets/img/stories/endresz.webp 960w" sizes="(max-width: 600px) 86vw, 440px" width="960" height="540" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span><span class="story__soon" aria-hidden="true">Video coming soon</span></button>
+                <div class="story__body">
+                    <blockquote class="story__quote" itemprop="reviewBody">The first week we already had amazing results. Reply rate went through the roof.</blockquote>
+                    <p class="story__outcome"><b>247</b> boutique conversations across NL, France, Poland and London</p>
+                    <p class="story__meta"><span class="who"><img class="avatar" src="/assets/img/avatars/endresz.webp" alt=""><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Ronne</b><span class="role" itemprop="jobTitle">Marketing, Endresz</span></span></span><img class="story__logo" src="/assets/img/clients/endresz-sm.png" alt="" height="18"></p>
+                </div>
+                <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
+            </article>
+            <article class="story spot tilt" data-tilt="4" itemscope itemtype="https://schema.org/Review">
+                <button class="story__poster" type="button" data-open-video data-wistia-id="" data-aspect="16/9" data-caption="Mikel Palokaj, True Performance Network" data-cursor="play"><span class="sr-only">Play video: Mikel Palokaj, True Performance Network</span><img src="/assets/img/stories/tpn.webp" srcset="/assets/img/stories/tpn-480.webp 480w, /assets/img/stories/tpn.webp 960w" sizes="(max-width: 600px) 86vw, 440px" width="960" height="540" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span><span class="story__soon" aria-hidden="true">Video coming soon</span></button>
+                <div class="story__body">
+                    <blockquote class="story__quote" itemprop="reviewBody">I really like your hands-on approach. Digging in, trying to really understand the business and then finding creative ways to reach customers.</blockquote>
+                    <p class="story__outcome"><b>4%</b> positive reply rate and <b>500+</b> positive replies to refine the offer</p>
+                    <p class="story__meta"><span class="who"><img class="avatar" src="/assets/img/avatars/tpn.webp" alt=""><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Mikel Palokaj</b><span class="role" itemprop="jobTitle">Co-founder, True Performance Network</span></span></span></p>
+                </div>
+                <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
+            </article>
+            <article class="story spot tilt" data-tilt="4" itemscope itemtype="https://schema.org/Review">
+                <button class="story__poster" type="button" data-open-video data-wistia-id="" data-aspect="16/9" data-caption="Leva Konaté, Sankore Labs" data-cursor="play"><span class="sr-only">Play video: Leva Konaté, Sankore Labs</span><img src="/assets/img/stories/sankore.webp" srcset="/assets/img/stories/sankore-480.webp 480w, /assets/img/stories/sankore.webp 960w" sizes="(max-width: 600px) 86vw, 440px" width="960" height="540" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span><span class="story__soon" aria-hidden="true">Video coming soon</span></button>
+                <div class="story__body">
+                    <blockquote class="story__quote" itemprop="reviewBody">It brought about clarity in the early discovery phase. Definitely.</blockquote>
+                    <p class="story__outcome">Validation and a clear ICP for a new developer matchmaking service</p>
+                    <p class="story__meta"><span class="who"><img class="avatar" src="/assets/img/avatars/sankore.webp" alt=""><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Leva Konaté</b><span class="role" itemprop="jobTitle">Founder, Sankore Labs</span></span></span></p>
+                </div>
+                <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
+            </article>
+            <article class="story spot tilt" data-tilt="4" itemscope itemtype="https://schema.org/Review">
+                <button class="story__poster" type="button" data-open-video data-wistia-id="" data-aspect="16/9" data-caption="Laura Wolf, Sustainable Motion" data-cursor="play"><span class="sr-only">Play video: Laura Wolf, Sustainable Motion</span><img src="/assets/img/stories/sustainable-motion.webp" srcset="/assets/img/stories/sustainable-motion-480.webp 480w, /assets/img/stories/sustainable-motion.webp 960w" sizes="(max-width: 600px) 86vw, 440px" width="960" height="540" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span><span class="story__soon" aria-hidden="true">Video coming soon</span></button>
+                <div class="story__body">
+                    <blockquote class="story__quote" itemprop="reviewBody">I really noticed that you simply wanted to deliver quality and go all in for it.</blockquote>
+                    <p class="story__outcome">From loose Excel lists to one HubSpot system with <b>thousands</b> of new contacts and phone numbers</p>
+                    <p class="story__meta"><span class="who"><img class="avatar" src="/assets/img/avatars/sustainable-motion.webp" alt=""><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Laura Wolf</b><span class="role" itemprop="jobTitle">Event manager, Sustainable Motion &middot; translated from Dutch</span></span></span></p>
+                </div>
+                <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
+            </article>
+            <article class="story spot tilt" data-tilt="4" itemscope itemtype="https://schema.org/Review">
+                <button class="story__poster" type="button" data-open-video data-wistia-id="" data-aspect="16/9" data-caption="Nick Verhulsdonck, WeTaxus" data-cursor="play"><span class="sr-only">Play video: Nick Verhulsdonck, WeTaxus</span><img src="/assets/img/stories/wetaxus.webp" srcset="/assets/img/stories/wetaxus-480.webp 480w, /assets/img/stories/wetaxus.webp 960w" sizes="(max-width: 600px) 86vw, 440px" width="960" height="540" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span><span class="story__soon" aria-hidden="true">Video coming soon</span></button>
+                <div class="story__body">
+                    <blockquote class="story__quote" itemprop="reviewBody">You were definitely willing to go the extra step, and to think creatively about solutions.</blockquote>
+                    <p class="story__outcome">Cold email as a second channel next to Meta, at a lower cost in the same period</p>
+                    <p class="story__meta"><span class="who"><img class="avatar" src="/assets/img/avatars/wetaxus.webp" alt=""><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Nick Verhulsdonck</b><span class="role" itemprop="jobTitle">Co-Owner, WeTaxus &middot; translated from Dutch</span></span></span><img class="story__logo" src="/assets/img/clients/wetaxus-sm.png" alt="" height="18"></p>
+                </div>
+                <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
+            </article>
+            <article class="story story--text spot tilt" data-tilt="4" itemscope itemtype="https://schema.org/Review">
+                <div class="story__body">
+                    <span class="story__mark" aria-hidden="true"><svg><use href="#i-spark"/></svg></span>
+                    <blockquote class="story__quote" itemprop="reviewBody">We tried outbound ourselves for months with minimal results. closed:in came in, rebuilt everything from scratch, and within 4 weeks we had qualified meetings on the calendar. Absolute game changer for our agency.</blockquote>
+                    <p class="story__meta"><span class="who"><span class="avatar avatar--ini">ZA</span><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Zen Alex</b><span class="role" itemprop="jobTitle">Founder, Red Fox Agency</span></span></span><img class="story__logo" src="/assets/img/clients/redfox-sm.png" alt="" height="18"></p>
+                </div>
+                <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
+            </article>
+        </div>
+    </div>
 </section>
 
-<!-- SERVICES -->
+<!-- RESULTS (Dapper: headline left, text and arrows right, logo plus two metric tiles per card, client strip) -->
+<section class="results" id="customers" aria-labelledby="results-title">
+    <div class="container">
+        <div class="split-head">
+            <div class="split-head__l">
+                <p class="eyebrow" data-reveal><span class="eyebrow__ic"><svg><use href="#i-trend"/></svg></span>Results</p>
+                <h2 id="results-title" class="h2 h2--xl" data-words>50+ B2B companies trusted us with their <span class="i">outbound</span></h2>
+            </div>
+            <div class="split-head__r" data-reveal>
+                <p class="small">From fulfilment and fashion wholesale to SaaS, recruitment and crypto: companies across the Netherlands, Europe, the UK and the US run their outbound through closed:in.</p>
+                <div class="split-head__actions">
+                    <a class="alink" href="case-studies"><span class="alink__t" data-letters>Explore all results</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a>
+                    <div class="arrows"><button type="button" data-carousel-prev aria-label="Previous results"><svg><use href="#i-w"/></svg></button><button type="button" data-carousel-next aria-label="Next results"><svg><use href="#i-e"/></svg></button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="results__wrap">
+        <div class="results__track" data-carousel>
+            <a class="rcard spot" href="case-study-gen-zero" data-reveal><span class="rcard__logo"><img src="/assets/img/clients/gen-zero-sm.png" alt=""></span><span class="alink__box rcard__go" aria-hidden="true"><svg><use href="#i-ne"/></svg></span><span class="rcard__title">A saturated market turned into a KVK-anchored data engine</span><span class="tiles"><span class="tile"><b data-count="142">142</b><span>Opportunities in 13 weeks</span></span><span class="tile"><b data-count="5.07" data-decimals="2" data-suffix="%">5.07%</b><span>Reply rate</span></span></span></a>
+            <a class="rcard spot" href="case-study-verzendbazen" data-reveal><span class="rcard__logo"><img src="/assets/img/clients/verzendbazen-sm.png" alt=""></span><span class="alink__box rcard__go" aria-hidden="true"><svg><use href="#i-ne"/></svg></span><span class="rcard__title">&euro;1.56M in pipeline in 8 weeks, then they hired to keep up</span><span class="tiles"><span class="tile"><b>&euro;1.56M</b><span>Pipeline generated</span></span><span class="tile"><b data-count="13.9" data-decimals="1" data-suffix="%">13.9%</b><span>Reply rate, double the industry average</span></span></span></a>
+            <a class="rcard spot" href="case-study-endresz" data-reveal><span class="rcard__logo"><img src="/assets/img/clients/endresz-sm.png" alt=""></span><span class="alink__box rcard__go" aria-hidden="true"><svg><use href="#i-ne"/></svg></span><span class="rcard__title">Four new markets opened with boutique conversations</span><span class="tiles"><span class="tile"><b data-count="247">247</b><span>Boutique conversations</span></span><span class="tile"><b>4</b><span>Markets: NL, FR, PL, London</span></span></span></a>
+            <a class="rcard spot" href="case-study-mistertafel" data-reveal><span class="rcard__logo"><img src="/assets/img/clients/mistertafel-sm.png" alt=""></span><span class="alink__box rcard__go" aria-hidden="true"><svg><use href="#i-ne"/></svg></span><span class="rcard__title">From zero B2B to retail opportunities in under 30 days</span><span class="tiles"><span class="tile"><b data-count="96">96</b><span>Retail opportunities</span></span><span class="tile"><b>35%+</b><span>Reply rate</span></span></span></a>
+            <a class="rcard spot" href="case-study-redfox" data-reveal><span class="rcard__logo"><img src="/assets/img/clients/redfox-sm.png" alt=""></span><span class="alink__box rcard__go" aria-hidden="true"><svg><use href="#i-ne"/></svg></span><span class="rcard__title">An audience that exists in no database, sourced off the social graph</span><span class="tiles"><span class="tile"><b data-count="33">33</b><span>Opportunities</span></span><span class="tile"><b data-count="8.47" data-decimals="2" data-suffix="%">8.47%</b><span>Reply rate</span></span></span></a>
+            <a class="rcard spot" href="case-study-zano" data-reveal><span class="rcard__logo"><img src="zano-logo.svg" alt="" style="height:30px"></span><span class="alink__box rcard__go" aria-hidden="true"><svg><use href="#i-ne"/></svg></span><span class="rcard__title">A crypto targeting layer and a list no vendor sells</span><span class="tiles"><span class="tile"><b data-count="2253">2,253</b><span>Verified decision-maker emails</span></span><span class="tile"><b data-count="17213">17,213</b><span>Domains screened</span></span></span></a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="logo-strip" data-reveal>
+            <div class="marquee" aria-label="Clients">
+                <div class="marquee__track">
+                    <a class="lcell" href="case-study-gen-zero"><span class="disc"><img src="/assets/img/clients/gen-zero-sm.png" alt=""></span>Gen-Zero</a>
+                    <a class="lcell" href="case-study-verzendbazen"><span class="disc"><img src="/assets/img/clients/verzendbazen-sm.png" alt=""></span>Verzendbazen</a>
+                    <a class="lcell" href="case-study-jamezz"><span class="disc"><img src="/assets/img/clients/jamezz-sm.png" alt=""></span>Jamezz</a>
+                    <a class="lcell" href="case-study-endresz"><span class="disc"><img src="/assets/img/clients/endresz-sm.png" alt=""></span>Endresz</a>
+                    <a class="lcell" href="case-study-mistertafel"><span class="disc"><img src="/assets/img/clients/mistertafel-sm.png" alt=""></span>Mistertafel</a>
+                    <a class="lcell" href="case-study-zano"><span class="disc"><img src="zano-logo.svg" alt=""></span>Zano</a>
+                    <a class="lcell" href="case-study-redfox"><span class="disc"><img src="/assets/img/clients/redfox-sm.png" alt=""></span>Red Fox</a>
+                    <a class="lcell" href="case-study-wetaxus"><span class="disc"><img src="/assets/img/clients/wetaxus-sm.png" alt=""></span>Wetaxus</a>
+                    <span class="lcell"><span class="disc"><img src="/assets/img/clients/quantumclub-sm.png" alt=""></span>The Quantum Club</span>
+                    <span class="lcell"><span class="disc"><img src="/assets/img/clients/zoku-sm.png" alt=""></span>Zoku</span>
+                    <span class="lcell"><span class="disc"><img src="/assets/img/clients/rewize-sm.png" alt=""></span>Rewize</span>
+                    <span class="lcell"><span class="disc"><img src="/assets/img/clients/agile-sm.png" alt=""></span>Agile Professionals</span>
+                    <span class="lcell"><span class="disc"><img src="/assets/img/clients/deslimmedoos-sm.png" alt=""></span>De Slimme Doos</span>
+                    <span class="lcell"><span class="disc"><img src="/assets/img/clients/brandsom-sm.png" alt=""></span>Brandsom</span>
+                    <span class="lcell"><span class="disc"><img src="/assets/img/clients/atelierld-sm.png" alt=""></span>Atelier LD</span>
+                    <span class="lcell"><span class="disc"><img src="/assets/img/clients/careerstudent-sm.png" alt=""></span>Career Student</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES (Dapper: eyebrow left, headline and intro right, white cards on the canvas with the visuals) -->
 <section class="services" id="services" aria-labelledby="services-title">
     <div class="container">
-        <div class="sec-head">
-            <p class="eyebrow" data-reveal><span class="eyebrow__ic"><svg><use href="#i-grid"/></svg></span>Services</p>
-            <h2 id="services-title" class="h2" data-reveal>closed:in helps B2B teams book meetings through <svg style="width:.8em;height:.8em;vertical-align:-.08em"><use href="#i-spark"/></svg> <b>4 service lines</b></h2>
-        </div>
-        <div class="card card--xl services__card" data-reveal>
-            <div class="services__bar">
-                <h3 class="h3"><span class="disc" aria-hidden="true"><svg><use href="#i-layers"/></svg></span>Services</h3>
-                <a class="btn-accent btn-accent--sm" href="https://closedin.neetocal.com/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=homepage-services" target="_blank" rel="noopener"><span class="txt" data-letters>Book a meeting</span></a>
+        <div class="services__head">
+            <p class="eyebrow" data-reveal><span class="eyebrow__ic"><svg><use href="#i-grid"/></svg></span>Our services</p>
+            <div class="services__intro">
+                <h2 id="services-title" class="h2 h2--xl" data-words>Level up your outbound, book <span class="i">qualified</span> meetings</h2>
+                <p class="small" data-reveal>Better targeting leads to better meetings. closed:in builds and runs the complete outbound engine for B2B companies: ICP and lists, copy, sending infrastructure, LinkedIn and the handoff into your CRM. Four service lines, one system, measured weekly.</p>
+                <div class="chips" data-reveal>
+                    <a class="chip" href="cold-email-agency-amsterdam" data-letters>Cold Email</a>
+                    <a class="chip" href="gtm-engineering-agency" data-letters>LinkedIn</a>
+                    <a class="chip" href="clay-agency" data-letters>Clay Enrichment</a>
+                    <a class="chip" href="cold-email-agency-saas" data-letters>Deliverability</a>
+                </div>
+                <a class="btn-accent btn-accent--sm" href="https://closedin.neetocal.com/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=homepage-services" target="_blank" rel="noopener" data-reveal><span class="txt" data-letters>Book a meeting</span><span class="ico"><svg><use href="#i-e"/></svg></span></a>
             </div>
-            <div class="svc-grid">
-                <article class="svc">
+        </div>
+        <div class="svc-grid">
+            <article class="svc-card spot" data-reveal>
                     <span class="tags"><span class="tag">Retainer</span></span>
                     <h3 class="h3">Cold Email Outbound</h3>
                     <p>End-to-end cold email campaigns that book qualified meetings for you.</p>
@@ -487,7 +588,7 @@
                         <div class="vis-slack vis-slack--3"><span class="vis-slack__ic"><svg><use href="#i-slack"/></svg></span><div><small>Slack notification</small><b>Meeting booked for Tuesday</b></div><span class="now">9m</span></div>
                     </div>
                 </article>
-                <article class="svc">
+            <article class="svc-card spot" data-reveal>
                     <span class="tags"><span class="tag">Retainer</span></span>
                     <h3 class="h3">LinkedIn Outreach</h3>
                     <p>Connection and message sequences that run next to email, from your own profiles.</p>
@@ -502,7 +603,7 @@
                         </div>
                     </div>
                 </article>
-                <article class="svc">
+            <article class="svc-card spot" data-reveal>
                     <span class="tags"><span class="tag">Retainer</span><span class="tag">Sprint</span></span>
                     <h3 class="h3">Clay Enrichment &amp; RevOps</h3>
                     <p>GTM engineering as a service: lists, enrichment and CRM orchestration on Clay.</p>
@@ -516,7 +617,7 @@
                         </div>
                     </div>
                 </article>
-                <article class="svc">
+            <article class="svc-card spot" data-reveal>
                     <span class="tags"><span class="tag">Sprint</span></span>
                     <h3 class="h3">Deliverability &amp; Infrastructure</h3>
                     <p>Domains, inboxes, warmup and monitoring, set up to land in the inbox from week one.</p>
@@ -535,7 +636,6 @@
                         </div>
                     </div>
                 </article>
-            </div>
         </div>
     </div>
 </section>
@@ -569,7 +669,7 @@
             <h2 id="engine-title" class="h2" data-reveal>The closed:in outbound engine</h2>
             <div class="flow" data-flow>
                 <span class="flow__line" aria-hidden="true"></span>
-                <div class="fnode fnode--brand"><img src="/assets/brand/closedin-wordmark-ink.png" alt="closed:in"><div class="mark" data-mark-3d data-trigger=".engine" data-start="top 80%" data-end="bottom 30%"><img class="mark__poster" src="/assets/img/mark-poster.webp" width="1200" height="1200" alt="" loading="lazy"></div></div>
+                <div class="fnode fnode--brand"><img src="/assets/brand/closedin-wordmark-ink.png" alt="closed:in"><div class="mark"><img class="mark__poster" src="/assets/img/mark-poster.webp" width="1200" height="1200" alt="" loading="lazy"></div></div>
                 <div class="fgap"></div>
                 <div class="fnode">ICP Model<span class="icons"><img src="logos/close.png" alt=""><img src="logos/hubspot.png" alt=""></span></div>
                 <div class="fgap"></div>
@@ -660,27 +760,6 @@
                 <a class="ptile" href="https://www.utrechtbusiness.nl/ZO!_utrecht" target="_blank" rel="noopener" tabindex="-1"><img src="/assets/img/badges/zo-utrecht.png" alt=""></a>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- CASE STUDIES carousel -->
-<section class="cases" id="cases" aria-labelledby="cases-title">
-    <div class="container">
-        <div class="sec-head">
-            <p class="eyebrow" data-reveal><span class="eyebrow__ic"><svg><use href="#i-trend"/></svg></span>Case studies</p>
-            <h2 id="cases-title" class="h2" data-reveal>Our north star is driving <svg aria-hidden="true"><use href="#i-trend"/></svg> <b>qualified pipeline</b></h2>
-        </div>
-    </div>
-    <div class="cases__wrap" data-reveal>
-        <div class="cases__track" data-start="1">
-            <a class="card card--xl ccard" href="case-study-gen-zero"><span class="ccard__top"><span class="disc"><img src="/assets/img/clients/gen-zero-sm.png" alt="" style="width:40px"></span><span class="alink alink--accent"><span class="alink__t">Read success story</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></span></span><h3>How Gen-Zero turned a saturated market into 142 opportunities in 13 weeks</h3><span class="tiles"><span class="tile"><b>142</b><span>Opportunities</span></span><span class="tile"><b>5.07%</b><span>Reply rate</span></span><span class="tile tile--wide"><b>27,455</b><span>Businesses contacted, recouped in under 2 months</span></span></span><span class="tags"><span class="tag">Cold Email</span><span class="tag">Clay</span></span><span class="ccard__author"><div><span class="avatar avatar--ini avatar--xs">D</span><div><b>Daniel</b><span>Founder @ Gen-Zero</span></div></div></span></a>
-            <a class="card card--xl ccard" href="case-study-verzendbazen"><span class="ccard__top"><span class="disc"><img src="/assets/img/clients/verzendbazen-sm.png" alt="" style="width:40px"></span><span class="alink alink--accent"><span class="alink__t">Read success story</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></span></span><h3>How Verzendbazen generated &euro;1.56M in pipeline at a 13.9% reply rate in 8 weeks</h3><span class="tiles"><span class="tile"><b>&euro;1.56M</b><span>Pipeline generated</span></span><span class="tile"><b>78</b><span>Qualified opportunities</span></span><span class="tile tile--wide"><b>13.9%</b><span>Reply rate, double the industry average. They hired to keep up.</span></span></span><span class="tags"><span class="tag">Cold Email</span><span class="tag">Fulfilment</span></span></a>
-            <a class="card card--xl ccard" href="case-study-endresz"><span class="ccard__top"><span class="disc"><img src="/assets/img/clients/endresz-sm.png" alt="" style="width:40px"></span><span class="alink alink--accent"><span class="alink__t">Read success story</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></span></span><h3>How Endresz opened 4 markets with 247 boutique conversations and $128K+ pipeline</h3><span class="tiles"><span class="tile"><b>247</b><span>Boutique conversations</span></span><span class="tile"><b>4</b><span>Markets: NL, FR, PL, London</span></span><span class="tile tile--wide"><b>$128K+</b><span>Pipeline from a multi-market rollout</span></span></span><span class="tags"><span class="tag">Cold Email</span><span class="tag">Multi-market</span></span><span class="ccard__author"><div><img class="avatar avatar--xs" src="/assets/img/avatars/endresz.webp" alt=""><div><b>Ronne</b><span>Marketing @ Endresz</span></div></div></span></a>
-            <a class="card card--xl ccard" href="case-study-mistertafel"><span class="ccard__top"><span class="disc"><img src="/assets/img/clients/mistertafel-sm.png" alt="" style="width:34px"></span><span class="alink alink--accent"><span class="alink__t">Read success story</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></span></span><h3>How Mistertafel went from zero B2B to 96 retail opportunities in under 30 days</h3><span class="tiles"><span class="tile"><b>96</b><span>Retail opportunities</span></span><span class="tile"><b>35%+</b><span>Reply rate</span></span><span class="tile tile--wide"><b>900</b><span>Contacts, built from scratch for a B2C founder</span></span></span><span class="tags"><span class="tag">Cold Email</span><span class="tag">Retail</span></span></a>
-            <a class="card card--xl ccard" href="case-study-redfox"><span class="ccard__top"><span class="disc"><img src="/assets/img/clients/redfox-sm.png" alt="" style="width:30px"></span><span class="alink alink--accent"><span class="alink__t">Read success story</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></span></span><h3>How closed:in sourced an audience that exists in no database for Red Fox</h3><span class="tiles"><span class="tile"><b>33</b><span>Opportunities</span></span><span class="tile"><b>8.47%</b><span>Reply rate</span></span><span class="tile tile--wide"><b>Social graph</b><span>Photographers sourced off the graph, then a referral campaign</span></span></span><span class="tags"><span class="tag">Custom sourcing</span><span class="tag">Referral</span></span><span class="ccard__author"><div><span class="avatar avatar--ini avatar--xs">ZA</span><div><b>Zen Alex</b><span>Founder @ Red Fox Agency</span></div></div></span></a>
-            <a class="card card--xl ccard" href="case-study-zano"><span class="ccard__top"><span class="disc"><img src="zano-logo.svg" alt="" style="width:34px"></span><span class="alink alink--accent"><span class="alink__t">Read success story</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></span></span><h3>How closed:in engineered a crypto targeting layer for Zano</h3><span class="tiles"><span class="tile"><b>17,213</b><span>Domains screened</span></span><span class="tile"><b>2,230</b><span>Confirmed crypto operators</span></span><span class="tile tile--wide"><b>2,253</b><span>Verified decision-maker emails, a list no vendor sells</span></span></span><span class="tags"><span class="tag">Clay</span><span class="tag">Data engineering</span></span></a>
-        </div>
-        <div class="cases__nav"><div class="arrows"><button type="button" data-cases-prev aria-label="Previous case"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8H2M7 3 2 8l5 5"/></svg></button><button type="button" data-cases-next aria-label="Next case"><svg><use href="#i-e"/></svg></button></div></div>
     </div>
 </section>
 

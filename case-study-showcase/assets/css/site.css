@@ -1,6 +1,7 @@
-/* closed:in design system v3 (2026-10-17): workflows.io-style light neumorphic UI. */
+/* closed:in design system v4 (2026-10-17): light neumorphic UI (workflows.io), Dapper type with a serif accent, interaction layer (border beam, cursor, spotlight, tilt, word reveal). */
 @font-face { font-family: "Inter"; src: url("/assets/fonts/inter-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Instrument Serif"; src: url("/assets/fonts/instrument-serif-italic-latin.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
 @font-face { font-family: "Inter Fallback"; src: local("Arial"); size-adjust: 107.1%; ascent-override: 90.44%; descent-override: 22.52%; line-gap-override: 0%; }
 
 :root {
@@ -25,6 +26,7 @@
   --t-theme: .38s cubic-bezier(.22, 1, .36, 1);
 
   --font: "Inter", "Inter Fallback", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
+  --font-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
   --w-thin: 300; --w-reg: 400; --w-med: 500;
   --container: 1280px; --gutter: clamp(20px, 2.8vw, 48px);
   --section-y: clamp(80px, 9vw, 140px);
@@ -62,6 +64,7 @@ header, main, footer, dialog { position: relative; z-index: 1; }
 .lead { font-size: 20px; line-height: 1.45; color: var(--ink-text); font-weight: 400; }
 .small { font-size: 14px; line-height: 1.45; color: var(--gray-90); }
 .label { font-size: 12px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; color: var(--ink); }
+.i { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; font-size: 1.06em; }
 .theme-dark, .theme-dark h1, .theme-dark h2, .theme-dark h3, .theme-dark .label { color: var(--on-dark); }
 .theme-dark .lead, .theme-dark .small { color: var(--on-dark-2); }
 
@@ -69,7 +72,7 @@ header, main, footer, dialog { position: relative; z-index: 1; }
 .eyebrow { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px 0 8px; border-radius: var(--r-pill); background: var(--white); box-shadow: var(--neu-pill); font-size: 12px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; color: var(--ink); position: relative; isolation: isolate; }
 .eyebrow::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: var(--pill-border); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; z-index: -1; }
 .eyebrow__ic { width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; flex: none; }
-.eyebrow__ic svg { width: 14px; height: 14px; }
+.eyebrow__ic svg { width: 14px; height: 14px; fill: currentColor; }
 .theme-dark .eyebrow { background: rgba(21, 21, 23, .7); color: #fff; box-shadow: var(--neu-dark-pill); }
 .theme-dark .eyebrow::before { background: linear-gradient(135deg, rgba(255,255,255,.22), rgba(255,255,255,.04)); }
 .theme-dark .eyebrow__ic { background: #fff; color: var(--ink); }
@@ -87,7 +90,7 @@ header, main, footer, dialog { position: relative; z-index: 1; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 
 /* Buttons */
-.btn-accent { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 52px; padding: 0 22px; border-radius: var(--r-md); border: 0; background: var(--accent); color: var(--accent-ink); font-size: 16px; font-weight: 400; letter-spacing: 0; text-decoration: none; cursor: pointer; white-space: nowrap; }
+.btn-accent { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 52px; padding: 0 22px; border-radius: var(--r-md); border: 0; background: var(--accent); color: var(--accent-ink); font-size: 16px; font-weight: 400; letter-spacing: 0; text-decoration: none; cursor: pointer; white-space: nowrap; transition: transform .6s var(--ease); }
 .btn-accent .ripple { position: absolute; left: 0; top: 0; width: 0; height: 0; border-radius: 50%; background: var(--ink); transform: translate(-50%, -50%) scale(0); transition: transform .55s cubic-bezier(.4, 0, .2, 1); z-index: -1; pointer-events: none; }
 .btn-accent:hover .ripple, .btn-accent:focus-visible .ripple { transform: translate(-50%, -50%) scale(1); }
 .btn-accent .txt, .btn-accent .ico { position: relative; transition: color .3s; }
@@ -118,6 +121,7 @@ header, main, footer, dialog { position: relative; z-index: 1; }
 .alink--play:hover .alink__box svg { transform: scale(1.12); }
 .theme-dark .alink { color: #fff; }
 .theme-dark .alink__box { background: rgba(255, 255, 255, .08); color: #fff; box-shadow: var(--neu-dark-pill); }
+.disc img.color { filter: none; opacity: 1; }
 
 /* Letter hover: each letter lifts, duplicate rises from below */
 .lh { display: inline-block; overflow: hidden; line-height: 1.2; vertical-align: bottom; }
@@ -218,7 +222,7 @@ a:hover > .lh .ch, button:hover > .lh .ch, .lh-host:hover .lh .ch { transform: t
 
 /* Carousel arrows (round-ish neumorphic) */
 .arrows { display: flex; gap: 8px; }
-.arrows button { width: 44px; height: 44px; border-radius: var(--r-xs); border: 0; background: var(--white); box-shadow: var(--neu-pill); color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: background-color .25s, color .25s, opacity .25s; }
+.arrows button { width: 44px; height: 44px; border-radius: var(--r-xs); border: 0; background: var(--white); box-shadow: var(--neu-pill); color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: background-color .25s, color .25s, opacity .25s, transform .5s var(--ease); }
 .arrows button svg { width: 16px; height: 16px; }
 .arrows button:hover { background: var(--accent); }
 .arrows button:disabled { opacity: .4; cursor: default; background: var(--white); }
@@ -253,3 +257,39 @@ html.js [data-reveal] { opacity: 0; }
 html.js [data-reveal].in { animation: rise .9s var(--ease) both; animation-delay: calc(var(--d, 0) * 1ms); }
 html.js [data-reveal="pop"].in { animation-name: pop; }
 @media (prefers-reduced-motion: reduce) { html.js [data-reveal] { opacity: 1; animation: none !important; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } .lh .ch { transition: none; } }
+
+/* ---------- Interaction layer (v4) ---------- */
+
+/* Border beam: a light that travels around a pill (eyebrows, tags, chips, the Free badge) */
+@property --beam { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.beam { position: relative; isolation: isolate; }
+.beam::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; background: conic-gradient(from var(--beam), transparent 0deg 250deg, rgba(114, 193, 255, .35) 300deg, var(--accent) 335deg, #ffffff 352deg, transparent 360deg); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; z-index: 2; animation: beam 4.5s linear infinite; animation-delay: calc(var(--n, 0) * -.9s); }
+.beam:hover::after { animation-duration: 1.4s; }
+@keyframes beam { to { --beam: 360deg; } }
+.theme-dark .beam::after, .learn-card .beam::after { background: conic-gradient(from var(--beam), transparent 0deg 250deg, rgba(114, 193, 255, .5) 300deg, var(--accent) 340deg, #fff 354deg, transparent 360deg); }
+@media (prefers-reduced-motion: reduce) { .beam::after { animation: none; } }
+
+/* Spotlight: a soft accent glow follows the pointer across a card */
+.spot { position: relative; }
+.spot::after { content: ""; position: absolute; inset: 0; z-index: 3; border-radius: inherit; background: radial-gradient(460px circle at var(--mx, 50%) var(--my, 50%), rgba(114, 193, 255, .28), transparent 55%); mix-blend-mode: multiply; opacity: 0; transition: opacity .5s; pointer-events: none; }
+.spot:hover::after { opacity: 1; }
+.theme-dark .spot::after { mix-blend-mode: screen; background: radial-gradient(460px circle at var(--mx, 50%) var(--my, 50%), rgba(114, 193, 255, .18), transparent 55%); }
+
+/* Word reveal: each word rises out of a clipped line */
+.w { display: inline-block; overflow: hidden; vertical-align: bottom; padding: 0 .02em .14em 0; margin: 0 0 -.14em; }
+.w .wi { display: inline-block; transform: translateY(112%); transition: transform 1s var(--ease); transition-delay: calc(var(--i, 0) * 45ms); will-change: transform; }
+.in-words .w .wi, html:not(.js) .w .wi { transform: none; }
+
+/* Cursor follower (fine pointers only): a dot that sticks to the pointer and a ring that trails it */
+.cur { position: fixed; left: 0; top: 0; z-index: 600; pointer-events: none; opacity: 0; transition: opacity .3s; will-change: transform; }
+html.has-cursor .cur { opacity: 1; } html.cur-out .cur { opacity: 0; }
+.cur--dot span { display: block; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--ink); transition: transform .3s var(--ease), background-color .3s; }
+.cur--ring span { display: grid; place-items: center; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; border: 1.5px solid rgba(12, 13, 14, .45); font-size: 12px; font-weight: 500; color: #fff; transition: width .4s var(--ease), height .4s var(--ease), margin .4s var(--ease), background-color .35s, border-color .35s, color .3s; }
+html.cur-link .cur--ring span { width: 52px; height: 52px; margin: -26px 0 0 -26px; border-color: rgba(114, 193, 255, .95); background: rgba(114, 193, 255, .18); }
+html.cur-link .cur--dot span { transform: scale(.5); }
+html.cur-play .cur--ring span { width: 88px; height: 88px; margin: -44px 0 0 -44px; background: var(--ink); border-color: var(--ink); }
+html.cur-play .cur--ring span::after { content: "Play"; }
+html.cur-play .cur--dot span { transform: scale(0); }
+html.cur-dark .cur--dot span { background: #fff; } html.cur-dark .cur--ring span { border-color: rgba(255, 255, 255, .55); }
+html.cur-dark.cur-play .cur--ring span { background: #fff; border-color: #fff; color: var(--ink); }
+html.has-cursor [data-cursor="play"]:not([disabled]) { cursor: none; }
