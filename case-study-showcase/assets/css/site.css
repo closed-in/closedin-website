@@ -280,19 +280,13 @@ html.js [data-reveal="pop"].in { animation-name: pop; }
 .w .wi { display: inline-block; transform: translateY(112%); transition: transform 1s var(--ease); transition-delay: calc(var(--i, 0) * 45ms); will-change: transform; }
 .in-words .w .wi, html:not(.js) .w .wi { transform: none; }
 
-/* Cursor follower (fine pointers only): a dot that sticks to the pointer and a ring that trails it */
-.cur { position: fixed; left: 0; top: 0; z-index: 600; pointer-events: none; opacity: 0; transition: opacity .3s; will-change: transform; }
-html.has-cursor .cur { opacity: 1; } html.cur-out .cur { opacity: 0; }
-.cur--dot span { display: block; width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; border-radius: 1px; background: var(--ink); transition: transform .3s var(--ease), background-color .3s, opacity .3s; }
-.cur--ring span { display: grid; place-items: center; box-sizing: border-box; width: 26px; height: 26px; margin: -13px 0 0 -13px; border: 0 solid rgba(12, 13, 14, .7); border-top-width: 2px; border-right-width: 2px; border-radius: 0; font-size: 12px; font-weight: 500; color: #fff; transform: rotate(0deg); transition: width .4s var(--ease), height .4s var(--ease), margin .4s var(--ease), transform .5s var(--ease), border-color .3s, background-color .3s, border-radius .4s var(--ease); }
-html.cur-link .cur--ring span { width: 40px; height: 40px; margin: -20px 0 0 -20px; border-color: var(--accent); transform: rotate(90deg); }
-html.cur-link .cur--dot span { transform: scale(.6); background: var(--accent); }
-html.cur-play .cur--ring span { width: 84px; height: 84px; margin: -42px 0 0 -42px; border-width: 0; border-radius: 22px; background: var(--ink); transform: rotate(0deg); }
-html.cur-play .cur--ring span::after { content: "Play"; }
-html.cur-play .cur--dot span { transform: scale(0); }
-html.cur-dark .cur--dot span { background: #fff; } html.cur-dark .cur--ring span { border-color: rgba(255, 255, 255, .75); }
-html.cur-dark.cur-play .cur--ring span { background: #fff; color: var(--ink); }
-html.has-cursor [data-cursor="play"]:not([disabled]) { cursor: none; }
+/* Nav hover: the two hooks of the mark close around the word (Max 17-10) */
+.nav__links > a, .nav__dropdown > button { position: relative; }
+.nav__links > a::before, .nav__links > a::after, .nav__dropdown > button::before, .nav__dropdown > button::after { content: ""; position: absolute; width: 10px; height: 10px; border: 0 solid var(--ink); opacity: 0; pointer-events: none; transition: opacity .22s var(--ease), transform .38s var(--ease); }
+.nav__links > a::before, .nav__dropdown > button::before { top: 1px; right: 1px; border-top-width: 1.5px; border-right-width: 1.5px; transform: translate(7px, -7px); }
+.nav__links > a::after, .nav__dropdown > button::after { bottom: 1px; left: 1px; border-bottom-width: 1.5px; border-left-width: 1.5px; transform: translate(-7px, 7px); }
+.nav__links > a:hover::before, .nav__links > a:hover::after, .nav__links > a:focus-visible::before, .nav__links > a:focus-visible::after, .nav__dropdown > button:hover::before, .nav__dropdown > button:hover::after, .nav__dropdown.is-open > button::before, .nav__dropdown.is-open > button::after, .nav__dropdown > button[aria-expanded="true"]::before, .nav__dropdown > button[aria-expanded="true"]::after { opacity: 1; transform: none; }
+.nav.is-dark .nav__links > a::before, .nav.is-dark .nav__links > a::after, .nav.is-dark .nav__dropdown > button::before, .nav.is-dark .nav__dropdown > button::after { border-color: #fff; }
 
 
 
@@ -316,9 +310,14 @@ html.has-cursor [data-cursor="play"]:not([disabled]) { cursor: none; }
 .logo--center.is-mark { transform: translateX(calc(var(--u) * -0.2022)); }
 @media (prefers-reduced-motion: reduce) { .logo, .logo .lg { transition: none; } }
 .nav__brand .logo { --u: 76px; }
-/* Splash: the wordmark folds into the mark while the page gets ready, then the overlay lifts; also shown when leaving for another page */
-.splash { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; background: var(--bg); transition: opacity .55s var(--ease), visibility 0s linear .55s; }
-.splash.is-out { opacity: 0; visibility: hidden; }
-.splash .ld { width: clamp(72px, 9vw, 120px); height: auto; color: var(--ink); display: block; }
-html.has-splash body { overflow: hidden; }
-html.has-splash .hero-in { animation-play-state: paused; }
+/* Page transition (Max' specimen): the brackets close the page into the logo, hold, and open again on the next page */
+.veil { position: fixed; inset: 0; z-index: 300; pointer-events: none; visibility: hidden; }
+.veil.on { visibility: visible; pointer-events: auto; animation: veil-failsafe 0s linear 6s forwards; }
+@keyframes veil-failsafe { to { visibility: hidden; pointer-events: none; } }
+.veil .shade { position: absolute; inset: 0; background: var(--ink); }
+.veil .shade::after { content: ""; position: absolute; inset: 0; background-image: var(--grain, none); background-size: 180px; opacity: .5; }
+.veil .hook { position: absolute; left: 0; top: 0; box-sizing: border-box; border: 0 solid #F4F6F8; will-change: left, top; }
+.veil .dot { position: absolute; left: 0; top: 0; background: #F4F6F8; border-radius: 32%; opacity: 0; }
+html.has-veil body { overflow: hidden; }
+html.has-veil .hero-in { animation-play-state: paused; }
+html.veil-hold .veil.on { animation: none; }

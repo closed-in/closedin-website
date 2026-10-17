@@ -1,4 +1,4 @@
-/* closed:in site.js v4: particle hero, nav states, letter and word reveals, ripple and magnetic buttons, border beams, cursor follower, spotlight and tilt cards, carousels, counters, FAQ, Wistia lightbox, forms, 3D mark in the hero. */
+/* closed:in site.js v4: particle hero, nav states, letter and word reveals, ripple and magnetic buttons, border beams, spotlight and tilt cards, carousels, counters, FAQ, Wistia lightbox, forms, 3D mark in the hero. */
 (function () {
   'use strict';
   var html = document.documentElement;
@@ -9,24 +9,48 @@
   function desktop() { return window.innerWidth >= 1024; }
   if (!motion) html.classList.remove('js');
 
-  /* ---------- Splash: the closed:in loader (hooks turn once around the dots, 2.6 s cycle) on arrival and when leaving for another page ---------- */
-  var splash = document.getElementById('splash');
-  if (splash) {
-    var splashSvg = splash.querySelector('svg'), CYCLE = 2600;
-    var lift = function () { splash.classList.add('is-out'); html.classList.remove('has-splash'); };
-    if (reduce) { lift(); }
-    else {
-      html.classList.add('has-splash');
-      if (!/[?&]splash=hold/.test(location.search)) setTimeout(lift, CYCLE);   /* one full turn; ?splash=hold keeps it up for review */
-    }
-    window.addEventListener('pageshow', function (e) { if (e.persisted) lift(); });
+  /* ---------- Page transition (Max' specimen): brackets close the page into the logo, hold, open again on the next page ---------- */
+  var veil = document.getElementById('veil');
+  if (veil) {
+    var shade = veil.querySelector('.shade'), hooks = veil.querySelectorAll('.hook'), hl = hooks[0], hr = hooks[1], vdots = veil.querySelectorAll('.dot');
+    try { var gc = document.createElement('canvas'); gc.width = gc.height = 180; var gx = gc.getContext('2d'); var gim = gx.createImageData(180, 180); for (var gi = 0; gi < gim.data.length; gi += 4) { var gv = Math.random() * 255; gim.data[gi] = gim.data[gi + 1] = gim.data[gi + 2] = gv; gim.data[gi + 3] = 38; } gx.putImageData(gim, 0, 0); html.style.setProperty('--grain', 'url(' + gc.toDataURL() + ')'); } catch (err) { /* no grain */ }
+    var K = { st: .117, arm: .745, dot: .117, dotY: .1825, L: { x: -.86, y: .89 }, R: { x: .87, y: -.83 } }; K.sq = (K.arm - K.st) / 2;
+    var T = { close: 700, toLogo: 420, hold: 450, back: 360, openOut: 700 }; var vt1 = T.close, vt2 = vt1 + T.toLogo, vt3 = vt2 + T.hold, vt4 = vt3 + T.back, vt5 = vt4 + T.openOut;
+    var lerp = function (a, b, t) { return a + (b - a) * t; }, lerpP = function (a, b, t) { return { x: lerp(a.x, b.x, t), y: lerp(a.y, b.y, t) }; };
+    var vEase = function (t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }, outE = function (t) { return 1 - Math.pow(1 - t, 3); }, smooth = function (a, b, t) { t = Math.min(1, Math.max(0, (t - a) / (b - a))); return t * t * (3 - 2 * t); };
+    var dims = function () { var W = innerWidth, H = innerHeight, em = Math.min(W, H) * .16, C = { x: W / 2, y: H / 2 }; var P = function (u, v) { return { x: C.x + u * em, y: C.y + v * em }; }; return { W: W, H: H, em: em, C: C, open: { L: { x: -K.arm * em, y: H + K.arm * em }, R: { x: W + K.arm * em, y: -K.arm * em } }, square: { L: P(-K.sq, K.sq), R: P(K.sq, -K.sq) }, logo: { L: P(K.L.x, K.L.y), R: P(K.R.x, K.R.y) } }; };
+    var draw = function (g, L, R, hole, dotAmt) {
+      var st = K.st * g.em, arm = K.arm * g.em;
+      hl.style.cssText = 'left:' + (L.x - st / 2) + 'px;top:' + (L.y - arm + st / 2) + 'px;width:' + arm + 'px;height:' + arm + 'px;border-width:0 0 ' + st + 'px ' + st + 'px';
+      hr.style.cssText = 'left:' + (R.x - arm + st / 2) + 'px;top:' + (R.y - st / 2) + 'px;width:' + arm + 'px;height:' + arm + 'px;border-width:' + st + 'px ' + st + 'px 0 0';
+      var x1 = L.x + st / 2, x2 = R.x - st / 2, y1 = R.y + st / 2, y2 = L.y - st / 2, mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+      x1 = mx + (x1 - mx) * hole; x2 = mx + (x2 - mx) * hole; y1 = my + (y1 - my) * hole; y2 = my + (y2 - my) * hole;
+      shade.style.clipPath = hole <= 0.001 ? 'none' : 'polygon(evenodd,0px 0px,' + g.W + 'px 0px,' + g.W + 'px ' + g.H + 'px,0px ' + g.H + 'px,0px 0px,' + x1 + 'px ' + y1 + 'px,' + x2 + 'px ' + y1 + 'px,' + x2 + 'px ' + y2 + 'px,' + x1 + 'px ' + y2 + 'px,' + x1 + 'px ' + y1 + 'px)';
+      var ds = K.dot * g.em * (.4 + .6 * dotAmt);
+      [[vdots[0], -K.dotY], [vdots[1], K.dotY]].forEach(function (pair) { pair[0].style.cssText = 'width:' + ds + 'px;height:' + ds + 'px;left:' + (g.C.x - ds / 2) + 'px;top:' + (g.C.y + pair[1] * g.em - ds / 2) + 'px;opacity:' + dotAmt; });
+    };
+    var frameAt = function (t, g) {
+      if (t < vt1) { var p0 = t / T.close, e0 = vEase(p0); return [lerpP(g.open.L, g.square.L, e0), lerpP(g.open.R, g.square.R, e0), 1 - smooth(.62, 1, p0), 0]; }
+      if (t < vt2) { var p1 = (t - vt1) / T.toLogo, e1 = outE(p1); return [lerpP(g.square.L, g.logo.L, e1), lerpP(g.square.R, g.logo.R, e1), 0, smooth(0, .7, p1)]; }
+      if (t < vt3) return [g.logo.L, g.logo.R, 0, 1];
+      if (t < vt4) { var p3 = (t - vt3) / T.back, e3 = vEase(p3); return [lerpP(g.logo.L, g.square.L, e3), lerpP(g.logo.R, g.square.R, e3), 0, 1 - smooth(.25, 1, p3)]; }
+      var p4 = Math.min(1, (t - vt4) / T.openOut), e4 = vEase(p4); return [lerpP(g.square.L, g.open.L, e4), lerpP(g.square.R, g.open.R, e4), smooth(0, .38, p4), 0];
+    };
+    var show = function (t) { var g = dims(), f = frameAt(t, g); draw(g, f[0], f[1], f[2], f[3]); };
+    var hideVeil = function () { veil.classList.remove('on'); html.classList.remove('has-veil'); busyVeil = false; };
+    var busyVeil = false, hold = /[?&]veil=hold/.test(location.search);
+    var playVeil = function (from, to, onPass, passAt, onDone) { busyVeil = true; veil.classList.add('on'); html.classList.add('has-veil'); var start = performance.now(), passed = false; show(from); var tick = function (now) { var t = from + (now - start); if (!passed && passAt != null && t >= passAt) { passed = true; onPass && onPass(); } if (t >= to) { show(to); onDone && onDone(); return; } show(t); requestAnimationFrame(tick); }; requestAnimationFrame(tick); };
+    if (reduce) { hideVeil(); }
+    else if (hold) { veil.classList.add('on'); html.classList.add('has-veil', 'veil-hold'); show(vt2); }
+    else { playVeil(vt2, vt5, function () { html.classList.remove('has-veil'); }, vt4, hideVeil); }   /* arrival: the logo holds, closes and the brackets open out; the page wakes up as they open */
+    window.addEventListener('pageshow', function (e) { if (e.persisted) hideVeil(); });
+    window.__veil = { show: show, t: { t1: vt1, t2: vt2, t3: vt3, t4: vt4, t5: vt5 } };
     if (!reduce) document.addEventListener('click', function (e) {
       var a = e.target.closest('a[href]'); if (!a || a.target || a.hasAttribute('download') || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       var url; try { url = new URL(a.getAttribute('href'), location.href); } catch (err) { return; }
       if (url.origin !== location.origin) return; if (url.pathname === location.pathname && url.hash) return; if (/^(mailto|tel):/.test(a.getAttribute('href'))) return;
-      e.preventDefault(); try { splashSvg.setCurrentTime(0); } catch (err) { /* SMIL not available */ }
-      splash.classList.remove('is-out'); html.classList.add('has-splash');
-      setTimeout(function () { location.href = url.href; }, 900);
+      e.preventDefault(); if (busyVeil) return;
+      playVeil(0, vt3, function () { location.href = url.href; }, vt2 + T.hold / 2, null);   /* leaving: close in, become the logo, navigate mid-hold */
     });
   }
 
@@ -262,7 +286,7 @@
   document.querySelectorAll('.eyebrow, .tag, .chip, .learn-card .free, .story__soon').forEach(function (el, i) { el.classList.add('beam'); el.style.setProperty('--n', i % 7); });
 
   /* ---------- Stories without a hosted video yet: chip instead of a play button ---------- */
-  document.querySelectorAll('.story__poster[data-open-video]').forEach(function (b) { if (!b.getAttribute('data-wistia-id') && !b.getAttribute('data-mux-id')) { b.classList.add('is-soon'); b.setAttribute('disabled', ''); b.removeAttribute('data-cursor'); } });
+  document.querySelectorAll('.story__poster[data-open-video]').forEach(function (b) { if (!b.getAttribute('data-wistia-id') && !b.getAttribute('data-mux-id')) { b.classList.add('is-soon'); b.setAttribute('disabled', ''); } });
 
   /* ---------- Word reveal: headings split into words that rise out of the line ---------- */
   (function () {
@@ -278,23 +302,8 @@
     });
   })();
 
-  /* ---------- Fine pointers only: cursor follower, magnetic buttons, spotlight, tilt ---------- */
+  /* ---------- Fine pointers only: magnetic buttons, spotlight, tilt (no custom cursor: the native pointer is enough, Max 17-10) ---------- */
   if (fine && !reduce) {
-    html.classList.add('has-cursor');
-    var mk = function (cls) { var d = document.createElement('div'); d.className = cls; d.setAttribute('aria-hidden', 'true'); d.innerHTML = '<span></span>'; document.body.appendChild(d); return d; };
-    var curDot = mk('cur cur--dot'), curRing = mk('cur cur--ring');
-    var cx = innerWidth / 2, cy = innerHeight / 2, rx = cx, ry = cy, craf = null;
-    var cloop = function () { rx += (cx - rx) * 0.16; ry += (cy - ry) * 0.16; curRing.style.transform = 'translate3d(' + rx.toFixed(1) + 'px,' + ry.toFixed(1) + 'px,0)'; craf = (Math.abs(cx - rx) > 0.15 || Math.abs(cy - ry) > 0.15) ? requestAnimationFrame(cloop) : null; };
-    document.addEventListener('pointermove', function (e) {
-      cx = e.clientX; cy = e.clientY; curDot.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)'; if (!craf) craf = requestAnimationFrame(cloop);
-      var t = e.target, c = t && t.closest ? t : null;
-      var play = c && c.closest('[data-cursor="play"]:not([disabled])'), link = !play && c && c.closest('a, button, summary, input, label, [data-cursor]');
-      html.classList.toggle('cur-play', !!play); html.classList.toggle('cur-link', !!link);
-      html.classList.toggle('cur-dark', !!(c && c.closest('.theme-dark, .learn-card, .dark-card, .lightbox')));
-      html.classList.remove('cur-out');
-    }, { passive: true });
-    window.addEventListener('mouseout', function (e) { if (!e.relatedTarget) html.classList.add('cur-out'); });
-
     /* magnetic: the element drifts toward the pointer while it is near */
     document.querySelectorAll('.btn-accent, .alink__box, .arrows button, .rcard__go').forEach(function (el) {
       var host = el.closest('a, button') || el, k = el.classList.contains('btn-accent') ? .22 : .35;
