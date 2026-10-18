@@ -27,7 +27,7 @@
   --font: "Inter", "Inter Fallback", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
   --w-thin: 300; --w-reg: 400; --w-med: 500;
   --container: 1280px; --gutter: clamp(20px, 2.8vw, 48px);
-  --section-y: clamp(80px, 9vw, 150px);
+  --section-y: clamp(56px, 6vw, 96px);   /* 18-10: compacter, Max wilde de segmenten dichter op elkaar */
 }
 
 /* Base */

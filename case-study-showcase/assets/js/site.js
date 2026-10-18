@@ -171,7 +171,7 @@
   document.querySelectorAll('.marquee__track').forEach(function (track) { var clone = track.cloneNode(true); clone.setAttribute('aria-hidden', 'true'); track.parentNode.appendChild(clone); track.parentNode.style.display = 'flex'; });
 
   /* ---------- Trusted-by wall: duplicate each row once for a seamless loop (clone is hidden from assistive tech) ---------- */
-  document.querySelectorAll('.wall__track, [data-marquee]').forEach(function (t) { var dup = document.createElement('span'); dup.className = 'wall__dup'; dup.setAttribute('aria-hidden', 'true'); dup.style.display = 'contents'; dup.innerHTML = t.innerHTML; dup.querySelectorAll('a, button').forEach(function (a) { a.setAttribute('tabindex', '-1'); }); dup.querySelectorAll('[itemscope], [itemprop]').forEach(function (n) { n.removeAttribute('itemscope'); n.removeAttribute('itemtype'); n.removeAttribute('itemprop'); }); dup.querySelectorAll('[id]').forEach(function (n) { n.removeAttribute('id'); }); t.appendChild(dup); });
+  document.querySelectorAll('.wall__track').forEach(function (t) { var dup = document.createElement('span'); dup.className = 'wall__dup'; dup.setAttribute('aria-hidden', 'true'); dup.style.display = 'contents'; dup.innerHTML = t.innerHTML; dup.querySelectorAll('a, button').forEach(function (a) { a.setAttribute('tabindex', '-1'); }); dup.querySelectorAll('[itemscope], [itemprop]').forEach(function (n) { n.removeAttribute('itemscope'); n.removeAttribute('itemtype'); n.removeAttribute('itemprop'); }); dup.querySelectorAll('[id]').forEach(function (n) { n.removeAttribute('id'); }); t.appendChild(dup); });
 
   /* ---------- Carousels ([data-carousel] tracks, arrows found in the same section) ---------- */
   document.querySelectorAll('[data-carousel]').forEach(function (track) {
@@ -283,7 +283,7 @@
   }
 
   /* ---------- Border beams: pills get a travelling light with a staggered phase ---------- */
-  document.querySelectorAll('.eyebrow, .tag, .chip, .learn-card .free, .story__soon').forEach(function (el, i) { el.classList.add('beam'); el.style.setProperty('--n', i % 7); });
+  document.querySelectorAll('.eyebrow, .tag, .chip, .learn-card .free, .story__soon').forEach(function (el, i) { el.classList.add('beam'); el.style.setProperty('--n', 0); });   /* one phase for every beam: staggered lights read as noise (Max 18-10) */
   /* The beam spins on its own (CSS animation) and only pauses while the pill is off screen; observe after the classes exist */
   var beamEls = document.querySelectorAll('.beam');
   if (beamEls.length && 'IntersectionObserver' in window) { var bio = new IntersectionObserver(function (entries) { entries.forEach(function (en) { en.target.classList.toggle('beam--live', en.isIntersecting); }); }, { rootMargin: '10% 0px' }); beamEls.forEach(function (el) { bio.observe(el); }); } else { beamEls.forEach(function (el) { el.classList.add('beam--live'); }); }

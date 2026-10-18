@@ -65,7 +65,8 @@ export function init(host, opts = {}) {
   { const n = isMobile ? 256 : 512, c = document.createElement('canvas'); c.width = c.height = n; const g = c.getContext('2d'); const img = g.createImageData(n, n), d = img.data, sc = 512 / n;
     for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) { const X = x * sc, Y = y * sc; const f = fbm(X * 0.012, Y * 0.012); const v = Math.max(0, Math.min(255, 128 + Math.sin(f * 14 + X * 0.02) * 60 + (fbm(X * 0.05, Y * 0.05) - 0.5) * 60)); const i = (y * n + x) * 4; d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = 255; }
     g.putImageData(img, 0, 0); const tex = new THREE.CanvasTexture(c); tex.wrapS = tex.wrapT = THREE.RepeatWrapping; tex.repeat.set(2, 2);
-    ALL.forEach((m) => { m.bumpMap = tex; m.bumpScale = 0.02; m.roughnessMap = tex; m.roughness = 0.06; m.clearcoatRoughness = 0.02; m.envMapIntensity = 0.9 * LIGHT; });
+    /* bumpScale 0.6 here gives the fine white speckles the artifact had at 0.02 in r128: the bump derivative scales differently in this three version */
+    ALL.forEach((m) => { m.bumpMap = tex; m.bumpScale = 0.6; m.roughnessMap = tex; m.roughness = 0.06; m.clearcoatRoughness = 0.02; m.envMapIntensity = 0.9 * LIGHT; });
     [inkMat, dotMat].forEach((m) => { m.metalness = 0.65; m.roughness = 0.28; }); }
 
   /* lights (three 0.186 uses physical light units, so the artifact's r128 intensities are scaled by pi) */
