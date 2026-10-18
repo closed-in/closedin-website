@@ -793,8 +793,7 @@
 </section>
 
 <!-- ENGINE (dark) -->
-<section class="engine has-pixels" id="engine" aria-labelledby="engine-title" data-glyphs="right">
-    <span class="pixels" style="--cols:3; right:6%; top:72px" data-rows="4" data-lit="4" aria-hidden="true"></span>
+<section class="engine" id="engine" aria-labelledby="engine-title" data-glyphs="right">
     <div class="container engine__grid">
         <div class="frame engine__sticky" data-reveal>
             <p class="eyebrow">For B2B companies</p>
@@ -944,50 +943,39 @@
 
 </main>
 
-<footer class="footer theme-dark has-pixels" id="contact-cta" data-nav-theme="dark">
-    <span class="pixels" style="--cols:4; left:6%; top:120px" data-rows="3" data-lit="5" aria-hidden="true"></span>
-    <div class="footer__sky">
-        <canvas class="sky" aria-hidden="true"></canvas>
-        <div class="footer__book">
-            <h2 class="h2" data-reveal>Book your <img src="/assets/brand/closedin-wordmark-white.png" alt="closed:in" width="846" height="322"> strategy call</h2>
-            <form class="lead-form lead-form--dark" data-book="footer" action="https://meeting.closedin.io/discovery-call" method="GET" target="_blank" data-reveal>
-                <div class="lead-form__fields">
-                    <label><span class="sr-only">Full name</span><input type="text" name="name" placeholder="Full Name*" autocomplete="name" required></label>
-                    <label><span class="sr-only">Email</span><input type="email" name="email" placeholder="Email*" autocomplete="email" required></label>
-                </div>
-                <button class="btn-accent" type="submit"><span class="txt" data-letters>Get Started</span><span class="ico"><svg><use href="#i-e"/></svg></span></button>
-            </form>
-        </div>
-    </div>
-    <div class="footer__card">
-        <div class="footer__grid">
-            <div class="footer__brand">
-                <img src="/assets/brand/closedin-wordmark-white.png" alt="closed:in" width="846" height="322">
-                <h3 class="h3">Subscribe to the closed:in playbook</h3>
-                <form class="lead-form lead-form--dark" action="https://closedins-newsletter.beehiiv.com/subscribe" method="GET" target="_blank" data-magnet="homepage">
-                    <div class="lead-form__fields"><label><span class="sr-only">Email address</span><input type="email" name="email" placeholder="Email*" autocomplete="email" required></label></div>
-                    <button class="btn-accent" type="submit"><span class="txt" data-letters>Subscribe</span><span class="ico"><svg><use href="#i-e"/></svg></span></button>
-                </form>
-                <small>1 email per week with outbound tactics from live campaigns, plus the 1-page infrastructure checklist on signup.</small>
+<footer class="footer theme-dark" id="contact-cta" data-nav-theme="dark">
+    <div class="footer__top">
+        <div class="footer__lead">
+            <p class="footer__pill"><i aria-hidden="true"></i>Book your strategy call</p>
+            <p class="footer__statement">Scale your outreach<br><span>without scaling your team.</span></p>
+            <div class="footer__actions">
+                <a class="footer__btn footer__btn--accent" href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&amp;utm_medium=cta&amp;utm_content=footer" target="_blank" rel="noopener">Request Call <svg aria-hidden="true"><use href="#i-e"/></svg></a>
+                <a class="footer__btn footer__btn--ghost" href="resources/gtm-stack">Check out our GTM stack</a>
             </div>
-            <div class="footer__col"><p class="hd">Navigate</p><ul><li><a href="/">Home</a></li><li><a href="case-studies">Case Studies</a></li><li><a href="resources">Resources</a></li><li><a href="pricing">Pricing</a></li><li><a href="team">Team</a></li><li><a href="contact">Contact</a></li></ul><p class="hd">Follow</p><ul><li><a href="https://www.linkedin.com/company/closedin" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.linkedin.com/in/max-munstermann/" target="_blank" rel="noopener">Max M&uuml;nstermann</a></li><li><a href="https://www.linkedin.com/in/jurre-groot-04b7a11a1/" target="_blank" rel="noopener">Jurre Groot</a></li></ul></div>
-            <div class="footer__col"><p class="hd">Resources</p><ul><li><a href="blog/">Blog</a></li><li><a href="playbook">The Playbook (free)</a></li><li><a href="resources/gtm-stack">The GTM Stack</a></li><li><a href="resources/n8n-workflows">n8n Workflows</a></li><li><a href="resources/cold-email-templates">Cold email templates</a></li><li><a href="resources/clay-waterfall">Clay waterfall</a></li><li><a href="tools/roi-calculator">ROI Calculator</a></li><li><a href="tools/email-verifier">Email Verifier</a></li></ul></div>
-            <div class="footer__col"><p class="hd">Services</p><ul><li><a href="cold-email-agency-amsterdam">Cold email NL/EU</a></li><li><a href="cold-email-agency-saas">Cold email SaaS</a></li><li><a href="clay-agency">Clay agency</a></li><li><a href="gtm-engineering-agency">GTM engineering</a></li><li><a href="outbound-agency-uk">Outbound UK</a></li><li><a href="outbound-agency-us">Outbound US</a></li></ul><p class="hd">Partners</p><ul><li><a href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener">Clay Solutions Partner</a></li><li><a href="https://instantly.ai/experts" target="_blank" rel="noopener">Instantly Expert</a></li><li><a href="https://www.apollo.io/" target="_blank" rel="noopener">Apollo Partner</a></li><li><a href="https://asif.ventures/" target="_blank" rel="noopener">Backed by ASIF Ventures</a></li></ul></div>
-            <div class="footer__col"><p class="hd">Get in touch</p><div class="footer__people">
-                <a class="footer__person" href="https://www.linkedin.com/in/max-munstermann/" target="_blank" rel="noopener"><img src="/assets/img/avatars/max.webp" alt="" width="160" height="160"><div><b>Max M&uuml;nstermann</b><span>Co-Founder</span></div></a>
-                <a class="footer__person" href="https://www.linkedin.com/in/jurre-groot-04b7a11a1/" target="_blank" rel="noopener"><img src="/assets/img/avatars/jurre.webp" alt="" width="160" height="160"><div><b>Jurre Groot</b><span>Co-Founder</span></div></a>
-                <a class="footer__person" href="mailto:info@closedin.io"><span class="mail"><svg><use href="#i-mail"/></svg></span><div><b>info@closedin.io</b><span>Jodenbreestraat 25, Amsterdam</span></div></a>
-            </div></div>
+            <form class="footer__subscribe" action="https://closedins-newsletter.beehiiv.com/subscribe" method="GET" target="_blank" data-magnet="homepage">
+                <label><span class="sr-only">Email address</span><input type="email" name="email" placeholder="Email*" autocomplete="email" required></label>
+                <button type="submit">Get the playbook</button>
+            </form>
+            <small class="footer__note">1 email per week with outbound tactics from live campaigns, plus the 1-page infrastructure checklist on signup.</small>
         </div>
-        <div class="footer__cardbar">
-            <h3 class="h3">Check out our <a href="resources/gtm-stack">GTM stack <svg style="width:.7em;height:.7em"><use href="#i-ne"/></svg></a></h3>
-            <a class="alink" href="https://follow-up-dashboard-delta.vercel.app" target="_blank" rel="noopener"><span class="alink__t">Partner login</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a>
-        </div>
+        <nav class="footer__nav" aria-label="Footer">
+            <div class="footer__col"><p class="hd">Navigate</p><ul><li><a href="/">Home</a></li><li><a href="case-studies">Case Studies</a></li><li><a href="resources">Resources</a></li><li><a href="blog/">Blog</a></li><li><a href="pricing">Pricing</a></li><li><a href="team">Team</a></li><li><a href="contact">Contact</a></li><li><a href="https://follow-up-dashboard-delta.vercel.app" target="_blank" rel="noopener">Partner login</a></li></ul></div>
+            <div class="footer__col"><p class="hd">Services</p><ul><li><a href="playbook">The Playbook (free)</a></li><li><a href="cold-email-agency-amsterdam">Cold email NL/EU</a></li><li><a href="cold-email-agency-saas">Cold email SaaS</a></li><li><a href="clay-agency">Clay agency</a></li><li><a href="gtm-engineering-agency">GTM engineering</a></li><li><a href="outbound-agency-uk">Outbound UK</a></li><li><a href="outbound-agency-us">Outbound US</a></li></ul></div>
+            <div class="footer__col"><p class="hd">Contact</p><ul><li><a href="mailto:info@closedin.io">info@closedin.io</a></li><li><a href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&amp;utm_medium=cta&amp;utm_content=footer" target="_blank" rel="noopener">Book a Call</a></li><li><a href="https://www.linkedin.com/company/closedin" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://maps.google.com/?q=Jodenbreestraat+25,+Amsterdam" target="_blank" rel="noopener">Jodenbreestraat 25, Amsterdam</a></li></ul></div>
+            <div class="footer__col"><p class="hd">Partners</p><ul><li><a href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener">Clay Solutions Partner</a></li><li><a href="https://instantly.ai/experts/max-munstermann" target="_blank" rel="noopener">Instantly Expert</a></li><li><a href="https://www.apollo.io" target="_blank" rel="noopener">Apollo Partner</a></li></ul></div>
+        </nav>
     </div>
-    <div class="footer__bottom">
-        <div class="badges"><a href="https://www.acquisition-international.com/winners/closedin/" target="_blank" rel="noopener"><img src="/assets/img/logos-web/award-2026.webp" alt="Most Innovative B2B GTM Engineering Agency 2026, Acquisition International" width="320" height="320"></a><img src="/assets/img/logos-web/clay.webp" alt="Clay Solutions Partner" width="240" height="182"><img src="/assets/img/logos-web/instantly.webp" alt="Instantly Certified Expert" width="143" height="160"><img src="/assets/img/logos-web/apollo.webp" alt="Apollo Partner" width="360" height="134"><img src="/assets/img/logos-web/sbb.webp" alt="SBB Accredited Work Placement Company" width="171" height="160"><img src="/assets/img/logos-web/zo-utrecht.webp" alt="ZO! Utrecht Business Member" width="160" height="160"></div>
-        <div><span>closed:in &copy; 2026</span><a href="privacy">Privacy Policy</a></div>
+    <div class="footer__badges">
+        <a class="award" href="https://www.acquisition-international.com/winners/closedin/" target="_blank" rel="noopener"><img src="/assets/img/logos-web/award-2026.webp" alt="Most Innovative B2B GTM Engineering Agency 2026, Acquisition International" width="320" height="320"></a>
+        <a href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener"><img src="/assets/img/logos-web/clay.webp" alt="Clay Solutions Partner" width="240" height="182"></a>
+        <a href="https://instantly.ai/experts/max-munstermann" target="_blank" rel="noopener"><img src="/assets/img/logos-web/instantly.webp" alt="Instantly Certified Expert" width="143" height="160"></a>
+        <a href="https://www.apollo.io" target="_blank" rel="noopener"><img src="/assets/img/logos-web/apollo.webp" alt="Apollo Partner" width="360" height="134"></a>
+        <a href="https://www.s-bb.nl/" target="_blank" rel="noopener"><img src="/assets/img/logos-web/sbb.webp" alt="SBB Accredited Work Placement Company" width="171" height="160"></a>
+        <a href="https://www.utrechtbusiness.nl/ZO!_utrecht" target="_blank" rel="noopener"><img src="/assets/img/logos-web/zo-utrecht.webp" alt="ZO! Utrecht Business Member" width="160" height="160"></a>
     </div>
+    <div class="footer__ribbon" aria-hidden="true"><div class="footer__ribbon-track"><span class="rb"><b>&euro;1.56M</b><span>pipeline in 8 weeks</span></span><i></i><span class="rb"><b>142</b><span>opportunities in 13 weeks</span></span><i></i><span class="rb"><b>13.9%</b><span>reply rate, double the industry average</span></span><i></i><span class="rb"><b>247</b><span>conversations across NL, FR, PL and London</span></span><i></i><span class="rb"><b>35%+</b><span>reply rate in under 30 days</span></span><i></i><span class="rb"><b>&euro;1.56M</b><span>pipeline in 8 weeks</span></span><i></i><span class="rb"><b>142</b><span>opportunities in 13 weeks</span></span><i></i><span class="rb"><b>13.9%</b><span>reply rate, double the industry average</span></span><i></i><span class="rb"><b>247</b><span>conversations across NL, FR, PL and London</span></span><i></i><span class="rb"><b>35%+</b><span>reply rate in under 30 days</span></span><i></i></div></div>
+    <div class="footer__wordmark" role="img" aria-label="closed:in"><div class="footer__wordmark-track" aria-hidden="true"><span class="wm"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg><span class="wm is-hollow"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg><span class="wm"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg><span class="wm is-hollow"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg><span class="wm"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg><span class="wm is-hollow"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg><span class="wm"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg><span class="wm is-hollow"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg></div></div>
+    <div class="footer__bottom"><span>&copy; 2026 closed:in &middot; Amsterdam</span><div><a href="privacy">Privacy Policy</a><a href="#hero">Back to top</a></div></div>
 </footer>
 
 <dialog class="lightbox" id="lightbox" aria-label="Video">
