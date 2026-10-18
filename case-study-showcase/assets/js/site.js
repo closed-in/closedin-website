@@ -273,23 +273,24 @@
   var HLS_SRC = '/assets/vendor/hls.js-1.7.3/hls.min.js', hlsInst = null;
   function loadHls(cb) { if (window.Hls) return cb(); var s = document.querySelector('script[src="' + HLS_SRC + '"]'); if (!s) { s = document.createElement('script'); s.src = HLS_SRC; s.async = true; document.head.appendChild(s); } s.addEventListener('load', cb, { once: true }); }
   function mountMux(box, playbackId) { if (activePlayer) unmountWistia(); var v = document.createElement('video'); v.className = 'lightbox__video'; v.controls = true; v.autoplay = true; v.playsInline = true; v.preload = 'auto'; v.poster = 'https://image.mux.com/' + playbackId + '/thumbnail.webp?time=1'; var src = 'https://stream.mux.com/' + playbackId + '.m3u8'; box.appendChild(v); activePlayer = v; if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = src; v.play().catch(function () {}); } else { loadHls(function () { if (!window.Hls || !window.Hls.isSupported()) { v.src = src; return; } hlsInst = new window.Hls(); hlsInst.loadSource(src); hlsInst.attachMedia(v); hlsInst.on(window.Hls.Events.MANIFEST_PARSED, function () { v.play().catch(function () {}); }); }); } }
+  function mountTella(box, id) { if (activePlayer) unmountWistia(); var f = document.createElement('iframe'); f.className = 'lightbox__video'; f.src = 'https://www.tella.tv/video/' + id + '/embed?b=0&title=0&a=1&loop=0&t=0&muted=0&wt=0'; f.allow = 'autoplay; fullscreen; picture-in-picture'; f.setAttribute('allowfullscreen', ''); f.setAttribute('title', 'Client story video'); f.style.cssText = 'width:100%;height:100%;border:0;display:block;background:#000'; box.appendChild(f); activePlayer = f; }
   function unmountWistia() { if (!activePlayer) return; try { if (typeof activePlayer.pause === 'function') activePlayer.pause(); } catch (err) { /* ignore */ } if (hlsInst) { try { hlsInst.destroy(); } catch (err) { /* ignore */ } hlsInst = null; } if (activePlayer.parentNode) activePlayer.parentNode.removeChild(activePlayer); activePlayer = null; }
   var dlg = document.getElementById('lightbox');
   if (dlg) {
     var dlgBox = dlg.querySelector('.lightbox__box'), dlgCap = dlg.querySelector('.lightbox__caption'), opener = null;
-    var openLightbox = function (ids, aspect, caption) { var a = (aspect || '16/9').split('/'); dlgBox.style.aspectRatio = a[0] + ' / ' + (a[1] || '1'); if (dlgCap) dlgCap.textContent = caption || ''; if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', ''); if (lenis) lenis.stop(); if (ids.mux) mountMux(dlgBox, ids.mux); else mountWistia(dlgBox, ids.wistia, (parseFloat(a[0]) / parseFloat(a[1] || '1')).toString()); };
+    var openLightbox = function (ids, aspect, caption) { var a = (aspect || '16/9').split('/'); dlgBox.style.aspectRatio = a[0] + ' / ' + (a[1] || '1'); if (dlgCap) dlgCap.textContent = caption || ''; if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', ''); if (lenis) lenis.stop(); if (ids.tella) mountTella(dlgBox, ids.tella); else if (ids.mux) mountMux(dlgBox, ids.mux); else mountWistia(dlgBox, ids.wistia, (parseFloat(a[0]) / parseFloat(a[1] || '1')).toString()); };
     var closeLightbox = function () { unmountWistia(); if (dlg.open) dlg.close(); if (lenis) lenis.start(); if (opener && opener.focus) opener.focus(); };
     dlg.addEventListener('close', function () { unmountWistia(); if (lenis) lenis.start(); });
     dlg.addEventListener('click', function (e) { if (e.target === dlg) closeLightbox(); });
     var closeBtn = dlg.querySelector('.lightbox__close'); if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    document.querySelectorAll('[data-open-video]').forEach(function (el) { el.addEventListener('click', function (e) { var ids = { wistia: el.getAttribute('data-wistia-id') || '', mux: el.getAttribute('data-mux-id') || '' }; if (!ids.wistia && !ids.mux) return; e.preventDefault(); opener = el; openLightbox(ids, el.getAttribute('data-aspect') || '16/9', el.getAttribute('data-caption') || ''); }); });
+    document.querySelectorAll('[data-open-video]').forEach(function (el) { el.addEventListener('click', function (e) { var ids = { wistia: el.getAttribute('data-wistia-id') || '', mux: el.getAttribute('data-mux-id') || '', tella: el.getAttribute('data-tella-id') || '' }; if (!ids.wistia && !ids.mux && !ids.tella) return; e.preventDefault(); opener = el; openLightbox(ids, el.getAttribute('data-aspect') || '16/9', el.getAttribute('data-caption') || ''); }); });
   }
 
   /* ---------- Border beams: pills get a travelling light with a staggered phase ---------- */
   document.querySelectorAll('.eyebrow, .tag, .chip, .learn-card .free, .story__soon').forEach(function (el, i) { el.classList.add('beam'); el.style.setProperty('--n', i % 7); });
 
   /* ---------- Stories without a hosted video yet: chip instead of a play button ---------- */
-  document.querySelectorAll('.story__poster[data-open-video]').forEach(function (b) { if (!b.getAttribute('data-wistia-id') && !b.getAttribute('data-mux-id')) { b.classList.add('is-soon'); b.setAttribute('disabled', ''); } });
+  document.querySelectorAll('.story__poster[data-open-video]').forEach(function (b) { if (!b.getAttribute('data-wistia-id') && !b.getAttribute('data-mux-id') && !b.getAttribute('data-tella-id')) { b.classList.add('is-soon'); b.setAttribute('disabled', ''); } });
 
   /* ---------- Word reveal: headings split into words that rise out of the line ---------- */
   (function () {

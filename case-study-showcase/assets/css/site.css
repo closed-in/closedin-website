@@ -67,13 +67,18 @@ i, em, cite, address { font-style: normal; }
 .theme-dark .lead, .theme-dark .small { color: var(--on-dark-2); }
 
 /* Eyebrow pill: white gradient, neumorphic, icon disc */
-.eyebrow { display: inline-flex; justify-self: start; align-self: start; align-items: center; gap: 10px; height: 44px; padding: 0 18px 0 8px; border-radius: var(--r-pill); background: var(--white); box-shadow: var(--neu-pill); font-size: 12px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; color: var(--ink); position: relative; isolation: isolate; }
+.eyebrow { display: inline-flex; justify-self: start; align-self: start; align-items: center; gap: 9px; height: 44px; padding: 0 18px 0 14px; border-radius: var(--r-pill); background: var(--white); box-shadow: var(--neu-pill); font-size: 12px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; color: var(--ink); position: relative; isolation: isolate; }
 .eyebrow::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: var(--pill-border); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; z-index: -1; }
-.eyebrow__ic { width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; flex: none; }
-.eyebrow__ic svg { width: 14px; height: 14px; fill: currentColor; }
+.eyebrow__ic { width: 20px; height: 20px; color: var(--ink); display: grid; place-items: center; flex: none; }
+.eyebrow__ic svg { width: 16px; height: 16px; fill: currentColor; }
+.eyebrow__ic--img img { width: 20px; height: 20px; border-radius: 4px; display: block; }
+/* Award pill: tinted, links to the winners page, grows a little on hover (scale, so the entrance animation keeps its transform) */
+.eyebrow--award { background: linear-gradient(135deg, #DDEEFF, #F1F7FD); text-decoration: none; transition: scale .35s var(--ease), box-shadow .35s var(--ease); }
+.eyebrow--award::before { background: linear-gradient(135deg, rgba(114, 193, 255, .95), rgba(114, 193, 255, .35)); }
+.eyebrow--award:hover { scale: 1.04; box-shadow: var(--neu-hover); }
 .theme-dark .eyebrow { background: rgba(21, 21, 23, .7); color: #fff; box-shadow: var(--neu-dark-pill); }
 .theme-dark .eyebrow::before { background: linear-gradient(135deg, rgba(255,255,255,.22), rgba(255,255,255,.04)); }
-.theme-dark .eyebrow__ic { background: #fff; color: var(--ink); }
+.theme-dark .eyebrow__ic { color: #fff; }
 .sec-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px; }
 .sec-head .h2 { max-width: 30ch; }
 .sec-head .lead { max-width: 60ch; }
