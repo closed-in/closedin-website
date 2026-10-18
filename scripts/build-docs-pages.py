@@ -176,6 +176,8 @@ def page_specific(name, c):
     if name == "blog/index.html":
         c = c.replace('<span class="post-cta">Read post →</span>', '<span class="post-cta">Read post<span class="alink__box" aria-hidden="true"><svg><use href="#i-e"/></svg></span></span>')
         assert "→" not in c
+        # /blog/ redirects to /blog on Vercel (trailingSlash: false), so relative post links resolved to /<slug> (404 on the live site): absolute
+        c = re.sub(r'<a href="(?!/|https?:)([^"]+)" class="post-card">', r'<a href="/blog/\1" class="post-card">', c)
         c = glyph_wrap(c, '<div class="posts">', "right")
     elif name == "tools/email-verifier.html":
         c = re.sub(r'<div class="hero-badge">✓ (.*?)</div>', lambda m: f'<div class="hero-badge">{CHECK}{m.group(1)}</div>', c)

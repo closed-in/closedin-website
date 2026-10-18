@@ -413,7 +413,7 @@
   if (darkBox && motion && !(navigator.connection && navigator.connection.saveData) && (navigator.deviceMemory || 4) >= 2 && !/[?&]mark=poster/.test(location.search) && ('WebGLRenderingContext' in window)) {
     /* 19-10: the WebGL support test used to create a throwaway context (a long task during the arrival animation); three.js now throws on its own when WebGL is missing and the SVG mark stays.
        The modules download and compile right away (modulepreload), the scene starts once the veil is gone, in idle time; the canvas fades in over the SVG mark. */
-    ['/assets/vendor/three-0.186.1/three.core.min.js', '/assets/vendor/three-0.186.1/three.module.min.js', '/assets/js/mark-dark.js'].forEach(function (href) { var l = document.createElement('link'); l.rel = 'modulepreload'; l.href = href; document.head.appendChild(l); });
+    ['/assets/vendor/three-0.186.1/three.core.min.js', '/assets/vendor/three-0.186.1/three.module.min.js', '/assets/js/mark-dark.js'].forEach(function (href) { var l = document.createElement('link'); l.rel = 'modulepreload'; l.href = href; l.fetchPriority = 'low'; document.head.appendChild(l); });   /* low: the font and the images above the fold go first */
     afterArrival(function () { whenIdle(function () { import('/assets/js/mark-dark.js').then(function (m) { return m.init(darkBox, { isMobile: !desktop() || !fine }); }).catch(function (err) { if (window.console) console.warn('mark-dark', err); }); }, 700); });
   }
 
