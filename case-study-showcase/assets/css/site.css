@@ -67,7 +67,7 @@ i, em, cite, address { font-style: normal; }
 .theme-dark .lead, .theme-dark .small { color: var(--on-dark-2); }
 
 /* Eyebrow pill: white gradient, neumorphic, icon disc */
-.eyebrow { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px 0 8px; border-radius: var(--r-pill); background: var(--white); box-shadow: var(--neu-pill); font-size: 12px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; color: var(--ink); position: relative; isolation: isolate; }
+.eyebrow { display: inline-flex; justify-self: start; align-self: start; align-items: center; gap: 10px; height: 44px; padding: 0 18px 0 8px; border-radius: var(--r-pill); background: var(--white); box-shadow: var(--neu-pill); font-size: 12px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; color: var(--ink); position: relative; isolation: isolate; }
 .eyebrow::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: var(--pill-border); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; z-index: -1; }
 .eyebrow__ic { width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; flex: none; }
 .eyebrow__ic svg { width: 14px; height: 14px; fill: currentColor; }
@@ -282,6 +282,8 @@ html.js [data-reveal="pop"].in { animation-name: pop; }
 .w { display: inline-block; overflow: hidden; vertical-align: bottom; padding: 0 .02em .14em 0; margin: 0 0 -.14em; }
 .w .wi { display: inline-block; transform: translateY(112%); transition: transform 1s var(--ease); transition-delay: calc(var(--i, 0) * 45ms); will-change: transform; }
 .in-words .w .wi, html:not(.js) .w .wi { transform: none; }
+
+img { width: auto; height: auto; }  /* width/height attributes only feed the aspect ratio; class rules below decide the rendered box */
 
 /* Nav hover: the two hooks of the mark close around the word (Max 17-10) */
 .nav__links > a, .nav__dropdown > button { position: relative; }
