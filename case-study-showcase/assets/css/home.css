@@ -278,7 +278,7 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 
 /* PARTNERS: five badge tiles */
 /* THE STACK (ported from Max' artifact): a pinned stage, two lanes of tool icons on the right, five windows that grow out of their icon */
-.stack { position: relative; height: 420vh; margin-top: var(--section-y); --mono: ui-monospace, 'SF Mono', Menlo, monospace; --pop: cubic-bezier(.34, 1.56, .64, 1); --muted: var(--gray-90); }
+.stack { position: relative; height: 300vh; margin-top: var(--section-y); --mono: ui-monospace, 'SF Mono', Menlo, monospace; --pop: cubic-bezier(.34, 1.56, .64, 1); --muted: var(--gray-90); }
 .stack__pin { position: sticky; top: 0; height: 100vh; overflow: hidden; background: var(--bg); }
 .stack__head { position: absolute; z-index: 3; left: var(--gx); top: calc(var(--gy) - 4px); right: calc(var(--sa) + var(--gx) * 2); display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; }
 .stack__head .h2 { margin: 14px 0 0; font-size: clamp(24px, 2.6vw, 40px); max-width: 22ch; }
@@ -320,7 +320,7 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 .stack .badge-wrap { display: flex; justify-content: center; max-width: 100%; }
 .stack .w-in-clay { gap: clamp(4px, .8vh, 10px); } .stack .w-in-clay .w-body { gap: clamp(6px, 1vh, 10px); }
 .stack .clay-foot img.badge { width: auto; height: clamp(44px, 6.5vh, 72px); max-width: 100%; border-radius: 999px; box-shadow: 0 14px 30px -16px rgba(0, 0, 0, .6); }
-.stack .clay-row figure { margin: 0; position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; }
+.stack .clay-row figure { margin: 0; position: relative; width: 100%; height: 100%; min-height: 0; border-radius: 14px; overflow: hidden; }
 .stack .clay-row figure img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
 .stack .clay-row figcaption { position: absolute; left: 8px; bottom: 8px; background: rgba(12, 13, 14, .72); padding: 4px 9px; border-radius: 99px; font-size: 11px; color: #fff; }
 .stack .post { background: #fff; color: var(--ink); border-radius: 14px; padding: clamp(10px, 1.1vw, 16px); display: flex; flex-direction: column; gap: 8px; box-shadow: 0 14px 30px -16px rgba(0, 0, 0, .5); }
@@ -343,7 +343,7 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 .stack .tip::after { content: ""; position: absolute; right: -5px; top: 50%; width: 10px; height: 10px; background: var(--ink); transform: translateY(-50%) rotate(45deg); border-radius: 2px; }
 .stack__also { padding: 24px var(--gutter) 0; } .stack__also .small { text-align: center; color: var(--gray-90); } .stack__also a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
 @media (hover: none) { .stack .tip { display: none; } }
-@media (max-width: 899px) { .stack .hide-sm { display: none !important; } .stack .win h3 { font-size: 15px; } .stack__head .h2 { font-size: 20px; } }
+@media (max-width: 899px) { .stack .hide-sm, .stack .post, .stack .clay-row, .stack .clay-foot, .stack .shot, .stack .win a.cta { display: none !important; } .stack .win h3 { font-size: 14px; line-height: 1.15; } .stack__head .h2 { font-size: 20px; } .stack .w-in { padding: 10px 12px; gap: 4px; } .stack .win .w-top .disc { width: 34px; height: 34px; } .stack .w-top > div { display: grid; gap: 1px; line-height: 1.2; } .stack .w-top b { font-size: 13px; } .stack .w-top span { font-size: 10px; } }   /* phones: five short strips, title row plus heading only */
 @media (prefers-reduced-motion: reduce) { .stack .tok img { transition: none; } }
 
 .marquee { overflow: hidden; }
@@ -547,3 +547,53 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 
 /* closed:in frame language: hairline boxes, square corners */
 .frame { position: relative; background: var(--white); border: 1px solid var(--line); }
+
+/* stack on short screens: tighter windows so nothing is cut */
+.stack.stack--short .w-in { padding: 12px 14px; gap: 6px; } .stack.stack--short .w-body { gap: 6px; }
+.stack.stack--short .win h3 { font-size: 16px; } .stack.stack--short .win p { font-size: 12px; line-height: 1.4; }
+.stack.stack--short .post { padding: 9px 10px; gap: 6px; border-radius: 10px; } .stack.stack--short .post blockquote { font-size: 12px; line-height: 1.35; }
+.stack.stack--short .stats div { padding: 5px 8px; } .stack.stack--short .stats strong { font-size: 15px; } .stack.stack--short .stats span { font-size: 10px; }
+.stack.stack--short .clay-row figcaption { display: none; } .stack.stack--short .clay-foot img.badge { height: 40px; } .stack.stack--short .win a.cta { padding: 7px 12px; font-size: 12px; }
+.stack.stack--short .post-head img { width: 26px; height: 26px; } .stack.stack--short .post-head b { font-size: 12px; } .stack.stack--short .post-head span { display: none; }
+.stack.stack--xshort .clay-row { display: none; } .stack.stack--xshort .post-head { display: none; } .stack.stack--xshort .win .hide-sm { display: none !important; }
+
+/* stories as a slow continuous rail: duplicated by site.js, pauses on hover */
+.stories__wrap { overflow-x: clip; }
+.stories__track[data-marquee] { overflow: visible; width: max-content; gap: 0; margin-left: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter))); padding-left: 0; padding-right: 0; scroll-snap-type: none; animation: marquee 120s linear infinite; will-change: transform; }
+.stories__track[data-marquee] .story { margin-right: 20px; }
+.stories__track[data-marquee]:hover, .stories__track[data-marquee]:focus-within { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .stories__track[data-marquee] { animation: none; width: auto; gap: 20px; margin-left: 0; overflow-x: auto; padding: 16px max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter))) 28px; } .stories__track[data-marquee] .story { margin-right: 0; } .stories__track[data-marquee] .wall__dup { display: none !important; } }
+.story__logo--ink { filter: brightness(0); }
+
+/* learn: rounded frame and the moving glyph field behind it */
+.learn { position: relative; overflow: hidden; }
+.learn .container { position: relative; z-index: 1; }
+.learn__ascii { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: .9; }
+.learn__cards { border-radius: 18px; overflow: hidden; }
+.learn-card__go { border-radius: 8px; }
+
+/* HERO v5 (2026-10-18): opening shot from the Light Rebrand artifact. Centred statement, two actions, partner line, then a wide stage: the 3D mark on a hairline grid, four floating case chips, drag to rotate. */
+.hero--stage { min-height: 0; justify-content: flex-start; padding: 104px 0 0; }
+.hero--stage .display { margin-top: 24px; }
+.hero--stage .lead { margin-top: 16px; max-width: 60ch; }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 30px; margin-top: 30px; }
+.hero__partners { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 12px; margin: 18px 0 0; font-size: 13px; letter-spacing: .01em; color: var(--gray-100); }
+.hero__partners i { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+.hero__stagewrap { position: relative; z-index: 1; margin-top: clamp(28px, 4vh, 44px); }
+.stage { position: relative; height: clamp(330px, 41vh, 520px); border-radius: 24px; overflow: hidden; background: radial-gradient(70% 80% at 50% 42%, #ffffff 0%, #eef5fb 52%, #e2edf8 100%); box-shadow: var(--neu-card); }
+.stage::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 56px 56px; background-position: center; -webkit-mask-image: radial-gradient(70% 70% at 50% 50%, #000 30%, transparent 80%); mask-image: radial-gradient(70% 70% at 50% 50%, #000 30%, transparent 80%); }
+.stage__mark { position: absolute; left: 50%; top: 50%; width: clamp(200px, 30vh, 320px); transform: translate(-50%, -50%); z-index: 1; }
+.stage__mark .mark { width: 100%; cursor: grab; touch-action: pan-y; }
+.stage__mark .mark.is-grabbing { cursor: grabbing; }
+.stage__mark img, .stage__mark canvas { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; }
+.schip { position: absolute; z-index: 2; display: grid; gap: 2px; padding: 14px 18px; border-radius: 14px; background: rgba(255, 255, 255, .84); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: var(--neu-card); text-decoration: none; color: var(--ink); animation: schip-float 8s ease-in-out infinite; transition: background .3s; }
+.schip:hover { background: #fff; }
+.schip b { font-size: 26px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.schip span { font-size: 13px; color: var(--gray-100); }
+.schip .schip__who { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); }
+.schip--1 { left: 6%; top: 16%; } .schip--2 { right: 6%; top: 26%; animation-delay: -2.5s; } .schip--3 { left: 10%; bottom: 14%; animation-delay: -5s; } .schip--4 { right: 9%; bottom: 12%; animation-delay: -1.2s; }
+.stage__hint { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 2; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-100); transition: opacity .4s; }
+.stage.is-dragged .stage__hint { opacity: 0; }
+@keyframes schip-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@media (prefers-reduced-motion: reduce) { .schip { animation: none; } }
+@media (max-width: 760px) { .hero--stage { padding-top: 104px; } .hero__actions { flex-direction: column; gap: 16px; } .stage { height: 340px; border-radius: 18px; } .stage__mark { width: 200px; } .schip { padding: 10px 12px; } .schip b { font-size: 19px; } .schip--2, .schip--3 { display: none; } .schip--1 { left: 12px; top: 14px; } .schip--4 { right: 12px; bottom: 44px; } }

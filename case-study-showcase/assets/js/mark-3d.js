@@ -149,6 +149,8 @@ export function init(box, opts = {}) {
 
   const state = { rotY: CONFIG.restPose.y, rotX: CONFIG.restPose.x, scale: 1 };
   const tilt = { x: 0, y: 0, tx: 0, ty: 0 };
+  /* Drag to spin (opt-in with data-drag): horizontal drag adds to the turn, released with inertia */
+  let spin = 0, spinVel = 0, dragging = false, dragX = 0, dragged = false;
   let idle = 0, idleSpeed = 0, lastScrollTs = performance.now(), lastChange = performance.now(), lastRender = 0;
   let visible = true, live = false, disposed = false, frames = 0, frameTimeSum = 0, degraded = false;
 
@@ -175,6 +177,12 @@ export function init(box, opts = {}) {
     lastChange = performance.now();
   };
   if (!isMobile) window.addEventListener('pointermove', onPointer, { passive: true });
+  if (opts.drag) {
+    const endDrag = () => { if (!dragging) return; dragging = false; box.classList.remove('is-grabbing'); lastChange = performance.now(); };
+    box.addEventListener('pointerdown', (e) => { if (e.button && e.button !== 0) return; dragging = true; dragX = e.clientX; spinVel = 0; box.classList.add('is-grabbing'); try { box.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ } lastChange = performance.now(); });
+    box.addEventListener('pointermove', (e) => { if (!dragging) return; const dx = e.clientX - dragX; dragX = e.clientX; spinVel = dx * 0.006; spin += spinVel; lastChange = performance.now(); lastScrollTs = performance.now(); if (!dragged && Math.abs(dx) > 2) { dragged = true; box.dispatchEvent(new CustomEvent('markdrag', { bubbles: true })); } });
+    box.addEventListener('pointerup', endDrag); box.addEventListener('pointercancel', endDrag); box.addEventListener('lostpointercapture', endDrag);
+  }
 
   /* Visibility */
   const io = new IntersectionObserver((entries) => { visible = entries.some((en) => en.isIntersecting); if (visible) lastChange = performance.now(); }, { rootMargin: '20% 0px' });
@@ -218,12 +226,14 @@ export function init(box, opts = {}) {
     }
     tilt.x += (tilt.tx - tilt.x) * 0.06;
     tilt.y += (tilt.ty - tilt.y) * 0.06;
-    const moving = Math.abs(tilt.tx - tilt.x) > 0.0005 || Math.abs(tilt.ty - tilt.y) > 0.0005 || idleSpeed > 0.001;
+    if (!dragging) { spinVel *= 0.95; spin += spinVel; }
+    const spinning = dragging || Math.abs(spinVel) > 0.0004;
+    const moving = spinning || Math.abs(tilt.tx - tilt.x) > 0.0005 || Math.abs(tilt.ty - tilt.y) > 0.0005 || idleSpeed > 0.001;
     if (isMobile && !moving && now - lastChange > 400 && live) return;
     const tiltMoving = Math.abs(tilt.tx - tilt.x) > 0.0005 || Math.abs(tilt.ty - tilt.y) > 0.0005;
-    const fast = tiltMoving || (now - lastScrollTs < 400);
+    const fast = spinning || tiltMoving || (now - lastScrollTs < 400);
     if (now - lastRender < (fast ? 15 : 32)) return;   /* 60 fps while the user moves, 30 fps for the idle spin */
-    group.rotation.y = state.rotY + tilt.x + idle;
+    group.rotation.y = state.rotY + tilt.x + idle + spin;
     group.rotation.x = state.rotX + tilt.y;
     group.scale.setScalar(state.scale);
     const t0 = performance.now();

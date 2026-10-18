@@ -139,7 +139,8 @@ function layout() {
   const hEnd = Math.max(...S.map(g => g.Hend + g.o));
   // windows: the left four-fifths, two on top (Clay, Instantly), three below (Apollo, Claude, n8n)
   const wx0 = gx, wx1 = sx0 - (narrow ? 12 : 28), wy0 = gy + (head.offsetHeight || 60) + 14, wy1 = PH - gy * .6, pg = narrow ? 8 : 14;
-  const W = wx1 - wx0, H = wy1 - wy0, hTop = (H - pg) * .6, hBot = H - pg - hTop;
+  const W = wx1 - wx0, H = wy1 - wy0, hTop = (H - pg) * .62, hBot = H - pg - hTop;
+  stack.classList.toggle('stack--short', hTop < 400); stack.classList.toggle('stack--xshort', hTop < 345);   // short laptops: tighter type, then drop the photo and post header
   const w2 = (W - pg) / 2, w3 = (W - pg * 2) / 3;
   const rects = narrow
     ? wins.map((_, i) => ({ x: wx0, y: wy0 + i * (H + pg) / 5, w: W, h: (H + pg) / 5 - pg }))
@@ -162,7 +163,7 @@ function layout() {
 // ── timeline ──
 // 0.04–0.80  both snakes slide in from the top; Clay, Instantly, Apollo, Claude and n8n each open their window the moment they land
 // 0.80–1.00  hold on the full picture, then the page continues
-const FILL0 = .04, FILL1 = .80, WOPEN = .06;
+const FILL0 = .02, FILL1 = .64, WOPEN = .07;   /* icons land within the first two thirds of the scroll, then the full picture holds */
 
 
 let target = 0, p = 0, last = performance.now(), drawnP = -1, dirty = true;

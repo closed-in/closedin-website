@@ -171,7 +171,7 @@
   document.querySelectorAll('.marquee__track').forEach(function (track) { var clone = track.cloneNode(true); clone.setAttribute('aria-hidden', 'true'); track.parentNode.appendChild(clone); track.parentNode.style.display = 'flex'; });
 
   /* ---------- Trusted-by wall: duplicate each row once for a seamless loop (clone is hidden from assistive tech) ---------- */
-  document.querySelectorAll('.wall__track').forEach(function (t) { var dup = document.createElement('span'); dup.className = 'wall__dup'; dup.setAttribute('aria-hidden', 'true'); dup.style.display = 'contents'; dup.innerHTML = t.innerHTML; dup.querySelectorAll('a').forEach(function (a) { a.setAttribute('tabindex', '-1'); }); t.appendChild(dup); });
+  document.querySelectorAll('.wall__track, [data-marquee]').forEach(function (t) { var dup = document.createElement('span'); dup.className = 'wall__dup'; dup.setAttribute('aria-hidden', 'true'); dup.style.display = 'contents'; dup.innerHTML = t.innerHTML; dup.querySelectorAll('a, button').forEach(function (a) { a.setAttribute('tabindex', '-1'); }); dup.querySelectorAll('[itemscope], [itemprop]').forEach(function (n) { n.removeAttribute('itemscope'); n.removeAttribute('itemtype'); n.removeAttribute('itemprop'); }); dup.querySelectorAll('[id]').forEach(function (n) { n.removeAttribute('id'); }); t.appendChild(dup); });
 
   /* ---------- Carousels ([data-carousel] tracks, arrows found in the same section) ---------- */
   document.querySelectorAll('[data-carousel]').forEach(function (track) {
@@ -305,6 +305,33 @@
     });
   })();
 
+
+  /* ---------- Learn: a slow field of monospace glyphs in the accent colour (a wave band along the top, two soft shapes beside the title), only while on screen ---------- */
+  (function () {
+    var cv = document.querySelector('.learn__ascii'); if (!cv || reduce) return;
+    var ctx = cv.getContext('2d'), sec = cv.parentNode, cw = 0, chh = 0, cols = 0, rows = 0, dpr = Math.min(devicePixelRatio || 1, 2), cell = 11, line = 15, ramp = ' .:-=+*#', live = false, t0 = performance.now(), last = 0;
+    var size = function () { var r = sec.getBoundingClientRect(); cw = Math.round(r.width); chh = Math.round(r.height); cv.width = cw * dpr; cv.height = chh * dpr; cv.style.width = cw + 'px'; cv.style.height = chh + 'px'; cols = Math.ceil(cw / cell); rows = Math.ceil(chh / line); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.font = '12px ui-monospace, "SF Mono", Menlo, monospace'; ctx.textBaseline = 'top'; };
+    var hash = function (x, y) { var n = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return n - Math.floor(n); };
+    var draw = function (now) {
+      if (!live) return; if (now - last < 100) { requestAnimationFrame(draw); return; } last = now;
+      var tt = (now - t0) / 1000, wide = cw > 700, bandY = 0.085, bandR = wide ? 0.085 : 0.045, step = Math.floor(tt * .5);
+      ctx.clearRect(0, 0, cw, chh);
+      var maxRow = Math.min(rows, Math.ceil((wide ? .5 : .14) * rows));
+      for (var yi = 0; yi < maxRow; yi++) for (var xi = 0; xi < cols; xi++) {
+        var px = (xi + .5) / cols, py = (yi + .5) / rows;
+        var wave = .5 + .5 * Math.sin(px * 9 + tt * .2) * Math.sin(px * 3.7 - tt * .11 + 1.3);
+        var dyb = (py - bandY) / bandR, v = Math.exp(-dyb * dyb) * wave;
+        if (wide) { var dl = Math.pow((px - .07) / .11, 2) + Math.pow((py - .31) / .13, 2), dr = Math.pow((px - .93) / .11, 2) + Math.pow((py - .31) / .13, 2); v += .7 * Math.exp(-dl) * (.5 + .5 * Math.sin(tt * .3 + py * 9 + px * 20)) + .7 * Math.exp(-dr) * (.5 + .5 * Math.cos(tt * .27 + py * 9 + px * 20)); }
+        v = v * (.8 + .2 * hash(xi + step, yi)) - .22; if (v <= .05) continue;
+        var g = ramp[Math.min(ramp.length - 1, Math.floor(v * ramp.length))]; if (g === ' ') continue;
+        ctx.fillStyle = 'rgba(114, 193, 255, ' + Math.min(.85, .2 + v * .6).toFixed(2) + ')'; ctx.fillText(g, xi * cell, yi * line);
+      }
+      requestAnimationFrame(draw);
+    };
+    size(); window.addEventListener('resize', size);
+    if ('IntersectionObserver' in window) { new IntersectionObserver(function (en) { var on = en[0].isIntersecting; if (on && !live) { live = true; requestAnimationFrame(draw); } else if (!on) { live = false; } }, { rootMargin: '10% 0px' }).observe(sec); } else { live = true; requestAnimationFrame(draw); }
+  })();
+
   /* ---------- Directional fill: the accent enters the arrow boxes from the side where the pointer comes in and leaves on the side where it goes out (workflows.io; Max 17-10: boxes stay static) ---------- */
   document.querySelectorAll('.alink__box, .arrows button').forEach(function (box) {
     var host = box.closest('.alink, .hero__trust, .rcard') || box;
@@ -328,9 +355,10 @@
 
   /* ---------- 3D mark (hero object, scroll-bound to the hero), gated and lazy ---------- */
   var markBox = document.querySelector('[data-mark-3d]');
+  document.addEventListener('markdrag', function (e) { var st = e.target && e.target.closest ? e.target.closest('.stage') : null; if (st) st.classList.add('is-dragged'); });
   function canDo3D() { if (!markBox || !motion) return false; if (/[?&]mark=poster/.test(location.search)) return false; if (navigator.connection && navigator.connection.saveData) return false; if ((navigator.deviceMemory || 4) < 2) return false; try { var c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (err) { return false; } }
   if (canDo3D()) {
-    var load3D = function () { import('/assets/js/mark-3d.js').then(function (m) { return m.init(markBox, { gsap: window.gsap, ScrollTrigger: window.ScrollTrigger, lenis: lenis, isMobile: !desktop() || !fine, trigger: markBox.getAttribute('data-trigger') || '.engine', start: markBox.getAttribute('data-start') || 'top 80%', end: markBox.getAttribute('data-end') || 'bottom 20%' }); }).catch(function (err) { if (window.console) console.warn('3D mark unavailable, poster shown.', err); }); };
+    var load3D = function () { import('/assets/js/mark-3d.js').then(function (m) { return m.init(markBox, { gsap: window.gsap, ScrollTrigger: window.ScrollTrigger, lenis: lenis, isMobile: !desktop() || !fine, trigger: markBox.getAttribute('data-trigger') || '.engine', start: markBox.getAttribute('data-start') || 'top 80%', end: markBox.getAttribute('data-end') || 'bottom 20%', drag: markBox.hasAttribute('data-drag') }); }).catch(function (err) { if (window.console) console.warn('3D mark unavailable, poster shown.', err); }); };
     var armed = false, arm = function () { if (armed) return; armed = true; var go = function () { if ('requestIdleCallback' in window) requestIdleCallback(load3D, { timeout: 3000 }); else setTimeout(load3D, 400); }; if (document.readyState === 'complete') setTimeout(go, 1200); else window.addEventListener('load', function () { setTimeout(go, 1200); }, { once: true }); };
     var near = new IntersectionObserver(function (entries) { if (entries.some(function (en) { return en.isIntersecting; })) { near.disconnect(); arm(); } }, { rootMargin: '120% 0px' }); near.observe(markBox);
   }

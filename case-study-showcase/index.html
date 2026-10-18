@@ -398,35 +398,28 @@
 <main id="main">
 
 <!-- HERO (workflows.io composition: dome, eyebrow, two-weight headline, one line, name/email rail, chips, Watch video with a cursor-following preview, trusted-by faces) -->
-<section class="hero" id="hero">
+<section class="hero hero--stage" id="hero">
     <div class="hero__glow" aria-hidden="true"></div>
     <canvas class="dots" aria-hidden="true"></canvas>
     <div class="container hero__inner">
-        <div class="hero__object hero-in" style="--i:0" aria-hidden="true"><div class="mark mark--hero" data-mark-3d data-trigger=".hero" data-start="top top" data-end="bottom top"><img class="mark__poster" src="/assets/img/mark-poster-640.webp" width="640" height="640" alt="" fetchpriority="high"></div></div>
         <a class="eyebrow eyebrow--award hero-in" style="--i:0" href="https://www.acquisition-international.com/winners/closedin/" target="_blank" rel="noopener" title="Acquisition International, winners page"><span class="eyebrow__ic eyebrow__ic--img"><img src="/assets/img/logos-web/acquisition-international.png" alt="" width="64" height="64"></span>Most Innovative B2B GTM Engineering Agency 2026</a>
         <h1 class="display hero-in" style="--i:1"><b>Creative outbound</b><span class="lt">, engineered for</span> <b>predictable B2B pipeline</b></h1>
         <p class="lead hero-in" style="--i:2">Cold email, LinkedIn and Clay enrichment, run as one engine inside your CRM. Creative where it counts: the list, the angle, the first line.</p>
-        <form class="lead-form hero-in" style="--i:3" data-book="hero" action="https://meeting.closedin.io/discovery-call" method="GET" target="_blank">
-                <div class="lead-form__fields">
-                    <label><span class="sr-only">Name</span><input type="text" name="name" placeholder="Name*" autocomplete="name" required></label>
-                    <label><span class="sr-only">Email</span><input type="email" name="email" placeholder="Email*" autocomplete="email" required></label>
-                </div>
-                <button class="btn-accent" type="submit"><span class="txt" data-letters>Request Call</span><span class="ico"><svg><use href="#i-e"/></svg></span></button>
-            </form>
-    </div>
-    <div class="container hero__foot hero-in" style="--i:4">
-        <div class="chips">
-            <a class="chip" href="cold-email-agency-amsterdam" data-letters>Cold Email</a>
-            <a class="chip" href="gtm-engineering-agency" data-letters>LinkedIn</a>
-            <a class="chip" href="clay-agency" data-letters>Clay Enrichment</a>
-            <a class="chip" href="cold-email-agency-saas" data-letters>Deliverability</a>
+        <div class="hero__actions hero-in" style="--i:3">
+            <a class="btn-accent" href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&amp;utm_medium=cta&amp;utm_content=homepage-hero" target="_blank" rel="noopener"><span class="txt" data-letters>Book a 30-minute call</span><span class="ico"><svg><use href="#i-e"/></svg></span></a>
+            <button class="alink alink--accent hero__watch" type="button" data-peek data-open-video data-wistia-id="eox8dagvf8" data-aspect="16/9" data-caption="How closed:in builds outbound engines, 3:34"><span class="alink__t" data-letters>Watch the video</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-play"/></svg></span></button>
         </div>
-        <button class="alink alink--accent hero__watch" type="button" data-peek data-open-video data-wistia-id="eox8dagvf8" data-aspect="16/9" data-caption="How closed:in builds outbound engines, 3:34"><span class="alink__t" data-letters>Watch video</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-play"/></svg></span></button>
-        <a class="hero__trust" href="#stories">
-            <span class="avatars" aria-hidden="true"><img src="/assets/img/avatars/endresz-v4.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/tpn-v4.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/sankore-v4.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/sustainable-motion-v5.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/wetaxus-v4.webp" alt="" width="36" height="36"></span>
-            <p>Trusted by 50+ B2B companies across Europe and the US</p>
-            <span class="alink__box" aria-hidden="true"><svg><use href="#i-s"/></svg></span>
-        </a>
+        <p class="hero__partners hero-in" style="--i:4"><span>Clay Solutions Partner</span><i aria-hidden="true"></i><span>Instantly Certified Expert</span><i aria-hidden="true"></i><span>Apollo Partner</span></p>
+    </div>
+    <div class="container hero__stagewrap hero-in" style="--i:5">
+        <div class="stage" id="hero-stage">
+            <div class="stage__mark" aria-hidden="true"><div class="mark mark--hero" data-mark-3d data-drag data-trigger=".hero" data-start="top top" data-end="bottom top"><img class="mark__poster" src="/assets/img/mark-poster-640.webp" width="640" height="640" alt="" fetchpriority="high" draggable="false"></div></div>
+            <a class="schip schip--1" href="case-study-verzendbazen"><span class="schip__who">Verzendbazen</span><b>13.9%</b><span>reply rate</span></a>
+            <a class="schip schip--2" href="case-study-jamezz"><span class="schip__who">Jamezz</span><b>$190K+</b><span>pipeline in 60 days</span></a>
+            <a class="schip schip--3" href="case-study-endresz"><span class="schip__who">Endresz</span><b>247</b><span>boutique conversations</span></a>
+            <a class="schip schip--4" href="case-study-mistertafel"><span class="schip__who">Mistertafel</span><b>96</b><span>opportunities in 30 days</span></a>
+            <span class="stage__hint" aria-hidden="true">Drag to rotate</span>
+        </div>
     </div>
 </section>
 
@@ -479,13 +472,12 @@
                 <p class="small">Founders and marketers who run their outbound through us, on video. Their words, their numbers.</p>
                 <div class="split-head__actions">
                     <a class="alink" href="case-studies"><span class="alink__t" data-letters>Explore all cases</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a>
-                    <span class="progress" data-carousel-progress aria-hidden="true">01 / 06</span><div class="arrows"><button type="button" data-carousel-prev aria-label="Previous stories"><svg><use href="#i-w"/></svg></button><button type="button" data-carousel-next aria-label="Next stories"><svg><use href="#i-e"/></svg></button></div>
-                </div>
+                                    </div>
             </div>
         </div>
     </div>
     <div class="stories__wrap">
-        <div class="stories__track" data-carousel>
+        <div class="stories__track" data-marquee>
             <article class="story spot tilt" data-tilt="4" itemscope itemtype="https://schema.org/Review">
                 <button class="story__poster" type="button" data-open-video data-tella-id="vid_cmv2gqxki00xq06ld6eqec52b" data-aspect="16/9" data-caption="Ronne van Rijn, Endresz"><span class="sr-only">Play video: Ronne van Rijn, Endresz</span><img src="/assets/img/stories/endresz-photo.webp" srcset="/assets/img/stories/endresz-photo-440.webp 440w, /assets/img/stories/endresz-photo.webp 880w" sizes="(max-width: 600px) 86vw, 440px" width="880" height="495" alt="" loading="lazy" decoding="async"><span class="story__shade" aria-hidden="true"></span><img class="story__brand" src="/assets/img/logos-web/endresz-sm.webp" alt="" width="240" height="49" loading="lazy"><span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span><span class="story__soon" aria-hidden="true">Video coming soon</span></button>
                 <div class="story__body">
@@ -531,11 +523,12 @@
                 </div>
                 <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
             </article>
-            <article class="story story--text spot tilt" data-tilt="4" itemscope itemtype="https://schema.org/Review">
+            <article class="story spot tilt" data-tilt="4" itemscope itemtype="https://schema.org/Review">
+                <button class="story__poster" type="button" data-open-video data-aspect="16/9" data-caption="Zen Alex, Red Fox Agency"><span class="sr-only">Play video: Zen Alex, Red Fox Agency</span><img src="/assets/img/stories/redfox-photo.webp" srcset="/assets/img/stories/redfox-photo-440.webp 440w, /assets/img/stories/redfox-photo.webp 880w" sizes="(max-width: 600px) 86vw, 440px" width="880" height="495" alt="" loading="lazy" decoding="async"><span class="story__shade" aria-hidden="true"></span><img class="story__brand" src="/assets/img/clients/redfox-sm.png" alt="" width="96" height="96" loading="lazy"><span class="story__soon">Video coming soon</span><span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span></button>
                 <div class="story__body">
-                    <span class="story__mark" aria-hidden="true"><svg><use href="#i-spark"/></svg></span>
-                    <blockquote class="story__quote" itemprop="reviewBody">We tried outbound ourselves for months with minimal results. closed:in came in, rebuilt everything from scratch, and within 4 weeks we had qualified meetings on the calendar. Absolute game changer for our agency.</blockquote>
-                    <p class="story__meta"><span class="who"><span class="avatar avatar--ini">ZA</span><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Zen Alex</b><span class="role" itemprop="jobTitle">Founder, Red Fox Agency</span></span></span><img class="story__logo" src="/assets/img/clients/redfox-sm.png" alt="" width="96" height="96"></p>
+                    <blockquote class="story__quote" itemprop="reviewBody">We tried outbound ourselves for months with minimal results. closed:in came in, rebuilt everything from scratch, and within 4 weeks we had qualified meetings on the calendar.</blockquote>
+                    <p class="story__outcome"><b>33</b> opportunities at an 8.47% reply rate, from an audience that exists in no database</p>
+                    <p class="story__meta"><span class="who"><img class="avatar" src="/assets/img/avatars/redfox-v5.webp" alt="" width="160" height="160"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><b itemprop="name">Zen Alex</b><span class="role" itemprop="jobTitle">Founder, Red Fox Agency</span></span></span><img class="story__logo story__logo--ink" src="/assets/img/clients/redfox-sm.png" alt="" width="96" height="96"></p>
                 </div>
                 <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" hidden><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></span><span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" hidden><meta itemprop="name" content="closed:in"></span>
             </article>
@@ -546,6 +539,69 @@
 <!-- RESULTS (Dapper: headline left, text and arrows right, logo plus two metric tiles per card, client strip) -->
 
 <!-- SERVICES (Dapper: eyebrow left, headline and intro right, white cards on the canvas with the visuals) -->
+<section class="stack" id="stack" aria-label="Our toolstack and the CRMs we work in">
+    <div class="stack__pin" id="stack-pin">
+        <div class="stack__head" id="stack-head"><div><p class="eyebrow">The stack</p><h2 class="h2" id="stack-title">The tools we run on, and the CRMs we plug into.</h2></div></div>
+        <div class="snakes" id="stack-snakes"></div>
+        <div class="wins" id="stack-wins">
+            <article class="win" id="w-clay" style="--wbg:radial-gradient(120% 90% at 0% 0%, #12a265, #0b8a52 45%, #062e1d)">
+                <div class="w-in w-in-clay">
+                    <div class="w-top"><span class="disc"><img data-logo="clay" alt="" width="64" height="64"></span><div><b>Clay</b><span class="ok">Verified expert</span></div></div>
+                    <div class="w-body">
+                        <h3>Clay Artisan Solutions Partner, 2026.</h3>
+                        <div class="clay-row"><figure class="hide-sm"><img src="/assets/img/stack/clay-cup.webp" alt="Max from closed:in live on the Clay Cup" width="960" height="540" loading="lazy"><figcaption>Max on the Clay Cup</figcaption></figure></div>
+                        <div class="clay-foot"><div class="badge-wrap"><img class="badge" src="/assets/img/stack/clay-artisan-2026.webp" alt="Clay Artisan Solutions Partner 2026 badge" width="600" height="212" loading="lazy"></div></div>
+                        <a class="cta" href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener">Clay partner profile <svg><use href="#i-ne"/></svg></a>
+                    </div>
+                </div>
+            </article>
+            <article class="win" id="w-instantly" style="--wbg:radial-gradient(120% 90% at 100% 0%, #4c7dff, #2c64f6 45%, #0f2a7a)">
+                <div class="w-in">
+                    <div class="w-top"><span class="disc"><img data-logo="instantly" alt="" width="64" height="64"></span><div><b>Instantly</b><span class="ok">Verified expert</span></div></div>
+                    <div class="w-body">
+                        <h3>Featured by Instantly as a certified expert.</h3>
+                        <div class="post">
+                            <div class="post-head"><img data-logo="instantly" alt="" width="64" height="64"><div><b>Instantly.ai</b><span>Case study on LinkedIn</span></div><span class="li">LinkedIn</span></div>
+                            <blockquote>&ldquo;Max M&uuml;nstermann is a co-founder of closedin.io and a certified Instantly expert.&rdquo;</blockquote>
+                            <div class="stats"><div><strong>$190K</strong><span>new pipeline</span></div><div><strong>60</strong><span>days</span></div><div><strong>SaaS</strong><span>hospitality</span></div></div>
+                        </div>
+                        <a class="cta" href="https://instantly.ai/experts/max-munstermann" target="_blank" rel="noopener">Instantly expert profile <svg><use href="#i-ne"/></svg></a>
+                    </div>
+                </div>
+            </article>
+            <article class="win dark-fg" id="w-apollo" style="--wbg:linear-gradient(160deg, #f1f75a, #e3ec22); --wfg:#111118">
+                <div class="w-in">
+                    <div class="w-top"><span class="disc"><img data-logo="apollo" alt="" width="64" height="64"></span><div><b>Apollo.io</b><span class="ok">Partner</span></div></div>
+                    <div class="w-body">
+                        <h3>Apollo partner for sourcing at volume.</h3>
+                        <p class="hide-sm">Volume sourcing and email enrichment in one place. We use it to source, and keep verification for the end of the waterfall.</p>
+                    </div>
+                </div>
+            </article>
+            <article class="win" id="w-claude" style="--wbg:linear-gradient(160deg, #d97757, #b9573a)">
+                <div class="w-in">
+                    <div class="w-top"><span class="disc"><img data-logo="claude" alt="" width="64" height="64"></span><div><b>Claude</b><span>Core AI</span></div></div>
+                    <div class="w-body">
+                        <h3>The AI behind our copy, research and code.</h3>
+                        <p class="hide-sm">Used daily for sales copy and automation, Claude Code for engineering, and the API powers research prompts inside Clay.</p>
+                    </div>
+                </div>
+            </article>
+            <article class="win" id="w-n8n" style="--wbg:linear-gradient(160deg, #ee5a7f, #c9355c)">
+                <div class="w-in">
+                    <div class="w-top"><span class="disc k"><img data-logo="n8n" alt="" width="64" height="64"></span><div><b>n8n</b><span class="ok">Partner</span></div></div>
+                    <div class="w-body">
+                        <h3>The glue between Clay, Close and Instantly.</h3>
+                        <figure class="shot hide-sm"><img src="/assets/img/stack/n8n-templates.webp" alt="closed:in page with 10 n8n workflow templates" width="576" height="720" loading="lazy"></figure>
+                        <a class="cta" href="resources/n8n-workflows">10 n8n templates <svg><use href="#i-ne"/></svg></a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    <div class="container stack__also"><p class="small">Also: <a href="https://www.acquisition-international.com/winners/closedin/" target="_blank" rel="noopener">Most Innovative B2B GTM Engineering Agency 2026, Acquisition International</a> <span aria-hidden="true">&middot;</span> <a href="https://www.s-bb.nl/" target="_blank" rel="noopener">SBB accredited work placement company</a> <span aria-hidden="true">&middot;</span> <a href="https://www.utrechtbusiness.nl/ZO!_utrecht" target="_blank" rel="noopener">ZO! Utrecht business member</a></p></div>
+</section>
+
 <section class="services" id="services" aria-labelledby="services-title">
     <div class="container">
         <div class="services__head">
@@ -706,15 +762,16 @@
 
 <!-- LEARN (dark) -->
 <section class="learn" id="resources-band" aria-labelledby="learn-title">
+    <canvas class="learn__ascii" aria-hidden="true"></canvas>
     <div class="container">
         <div class="sec-head">
             <p class="eyebrow" data-reveal>Learn</p>
             <h2 id="learn-title" class="h2" data-reveal>The free closed:in resource vault</h2>
         </div>
         <div class="learn__cards" data-reveal>
-            <a class="learn-card learn-card--l" href="resources"><span class="free">Free</span><img src="/assets/img/pages/resources.webp" width="720" height="900" alt="" loading="lazy"><span class="learn-card__body"><b>The Vault</b><span>13 free templates and tools.</span></span><span class="learn-card__go" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a>
-            <a class="learn-card learn-card--c" href="resources/gtm-stack"><span class="free">Free</span><img src="/assets/img/pages/gtm-stack.webp" width="720" height="900" alt="" loading="lazy"><span class="learn-card__body"><b>The GTM Stack</b><span>32 tools, real monthly cost, honest take.</span></span><span class="learn-card__go" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a>
-            <a class="learn-card learn-card--r" href="resources/n8n-workflows"><span class="free">Free</span><img src="/assets/img/pages/n8n-workflows.webp" width="720" height="900" alt="" loading="lazy"><span class="learn-card__body"><b>n8n Workflows</b><span>10 hand-picked automation templates.</span></span><span class="learn-card__go" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a>
+            <a class="learn-card learn-card--l" href="resources"><img src="/assets/img/pages/resources.webp" width="720" height="900" alt="" loading="lazy"><span class="learn-card__body"><b>The Vault</b><span>13 free templates and tools.</span></span><span class="learn-card__go" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a>
+            <a class="learn-card learn-card--c" href="resources/gtm-stack"><img src="/assets/img/pages/gtm-stack.webp" width="720" height="900" alt="" loading="lazy"><span class="learn-card__body"><b>The GTM Stack</b><span>32 tools, real monthly cost, honest take.</span></span><span class="learn-card__go" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a>
+            <a class="learn-card learn-card--r" href="resources/n8n-workflows"><img src="/assets/img/pages/n8n-workflows.webp" width="720" height="900" alt="" loading="lazy"><span class="learn-card__body"><b>n8n Workflows</b><span>10 hand-picked automation templates.</span></span><span class="learn-card__go" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a>
         </div>
     </div>
 </section>
@@ -800,69 +857,6 @@
 </section>
 
 <!-- PARTNERS -->
-<section class="stack" id="stack" aria-label="Our toolstack and the CRMs we work in">
-    <div class="stack__pin" id="stack-pin">
-        <div class="stack__head" id="stack-head"><div><p class="eyebrow">The stack</p><h2 class="h2" id="stack-title">The tools we run on, and the CRMs we plug into.</h2></div></div>
-        <div class="snakes" id="stack-snakes"></div>
-        <div class="wins" id="stack-wins">
-            <article class="win" id="w-clay" style="--wbg:radial-gradient(120% 90% at 0% 0%, #12a265, #0b8a52 45%, #062e1d)">
-                <div class="w-in w-in-clay">
-                    <div class="w-top"><span class="disc"><img data-logo="clay" alt="" width="64" height="64"></span><div><b>Clay</b><span class="ok">Verified expert</span></div></div>
-                    <div class="w-body">
-                        <h3>Clay Artisan Solutions Partner, 2026.</h3>
-                        <div class="clay-row"><figure class="hide-sm"><img src="/assets/img/stack/clay-cup.webp" alt="Max from closed:in live on the Clay Cup" width="960" height="540" loading="lazy"><figcaption>Max on the Clay Cup</figcaption></figure></div>
-                        <div class="clay-foot"><div class="badge-wrap"><img class="badge" src="/assets/img/stack/clay-artisan-2026.webp" alt="Clay Artisan Solutions Partner 2026 badge" width="600" height="212" loading="lazy"></div></div>
-                        <a class="cta" href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener">Clay partner profile <svg><use href="#i-ne"/></svg></a>
-                    </div>
-                </div>
-            </article>
-            <article class="win" id="w-instantly" style="--wbg:radial-gradient(120% 90% at 100% 0%, #4c7dff, #2c64f6 45%, #0f2a7a)">
-                <div class="w-in">
-                    <div class="w-top"><span class="disc"><img data-logo="instantly" alt="" width="64" height="64"></span><div><b>Instantly</b><span class="ok">Verified expert</span></div></div>
-                    <div class="w-body">
-                        <h3>Featured by Instantly as a certified expert.</h3>
-                        <div class="post">
-                            <div class="post-head"><img data-logo="instantly" alt="" width="64" height="64"><div><b>Instantly.ai</b><span>Case study on LinkedIn</span></div><span class="li">LinkedIn</span></div>
-                            <blockquote>&ldquo;Max M&uuml;nstermann is a co-founder of closedin.io and a certified Instantly expert.&rdquo;</blockquote>
-                            <div class="stats"><div><strong>$190K</strong><span>new pipeline</span></div><div><strong>60</strong><span>days</span></div><div><strong>SaaS</strong><span>hospitality</span></div></div>
-                        </div>
-                        <a class="cta" href="https://instantly.ai/experts/max-munstermann" target="_blank" rel="noopener">Instantly expert profile <svg><use href="#i-ne"/></svg></a>
-                    </div>
-                </div>
-            </article>
-            <article class="win dark-fg" id="w-apollo" style="--wbg:linear-gradient(160deg, #f1f75a, #e3ec22); --wfg:#111118">
-                <div class="w-in">
-                    <div class="w-top"><span class="disc"><img data-logo="apollo" alt="" width="64" height="64"></span><div><b>Apollo.io</b><span class="ok">Partner</span></div></div>
-                    <div class="w-body">
-                        <h3>Apollo partner for sourcing at volume.</h3>
-                        <p class="hide-sm">Volume sourcing and email enrichment in one place. We use it to source, and keep verification for the end of the waterfall.</p>
-                    </div>
-                </div>
-            </article>
-            <article class="win" id="w-claude" style="--wbg:linear-gradient(160deg, #d97757, #b9573a)">
-                <div class="w-in">
-                    <div class="w-top"><span class="disc"><img data-logo="claude" alt="" width="64" height="64"></span><div><b>Claude</b><span>Core AI</span></div></div>
-                    <div class="w-body">
-                        <h3>The AI behind our copy, research and code.</h3>
-                        <p class="hide-sm">Used daily for sales copy and automation, Claude Code for engineering, and the API powers research prompts inside Clay.</p>
-                    </div>
-                </div>
-            </article>
-            <article class="win" id="w-n8n" style="--wbg:linear-gradient(160deg, #ee5a7f, #c9355c)">
-                <div class="w-in">
-                    <div class="w-top"><span class="disc k"><img data-logo="n8n" alt="" width="64" height="64"></span><div><b>n8n</b><span class="ok">Partner</span></div></div>
-                    <div class="w-body">
-                        <h3>The glue between Clay, Close and Instantly.</h3>
-                        <figure class="shot hide-sm"><img src="/assets/img/stack/n8n-templates.webp" alt="closed:in page with 10 n8n workflow templates" width="576" height="720" loading="lazy"></figure>
-                        <a class="cta" href="resources/n8n-workflows">10 n8n templates <svg><use href="#i-ne"/></svg></a>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </div>
-    <div class="container stack__also"><p class="small">Also: <a href="https://www.acquisition-international.com/winners/closedin/" target="_blank" rel="noopener">Most Innovative B2B GTM Engineering Agency 2026, Acquisition International</a> <span aria-hidden="true">&middot;</span> <a href="https://www.s-bb.nl/" target="_blank" rel="noopener">SBB accredited work placement company</a> <span aria-hidden="true">&middot;</span> <a href="https://www.utrechtbusiness.nl/ZO!_utrecht" target="_blank" rel="noopener">ZO! Utrecht business member</a></p></div>
-</section>
-
 <!-- TESTIMONIALS (Dapper quote slider: left-bar quote, round headshot, client logo) -->
 <section class="quotes" id="testimonials" aria-labelledby="quotes-title">
     <div class="container">
