@@ -12,3 +12,5 @@ research/reference-sites/
 
 # Vercel CLI link, lokaal
 .vercel/
+.vercel
+.env*
