@@ -270,7 +270,6 @@ html.js [data-reveal="pop"].in { animation-name: pop; }
 @property --beam { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
 .beam { position: relative; isolation: isolate; }
 .beam::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; background: conic-gradient(from var(--beam), transparent 0deg 250deg, rgba(114, 193, 255, .35) 300deg, var(--accent) 335deg, #ffffff 352deg, transparent 360deg); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; z-index: 2; animation: beam 4.5s linear infinite; animation-delay: calc(var(--n, 0) * -.9s); }
-.beam:hover::after { animation-duration: 1.4s; }
 @keyframes beam { to { --beam: 360deg; } }
 .theme-dark .beam::after, .learn-card .beam::after { background: conic-gradient(from var(--beam), transparent 0deg 250deg, rgba(114, 193, 255, .5) 300deg, var(--accent) 340deg, #fff 354deg, transparent 360deg); }
 .beam:not(.beam--live)::after { animation-play-state: paused; }
