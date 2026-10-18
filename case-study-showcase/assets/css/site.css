@@ -5,7 +5,7 @@
 
 :root {
   --bg: #F4F6F8; --bg-2: #ECF0F3; --white: #ffffff;
-  --ink: #0C0D0E; --ink-text: #141801; --gray-100: #3C4344; --gray-90: #6b787a; --gray-80: #bbbbbb; --gray-70: #8f8f90; --stroke: #1B1C1C;
+  --ink: #0C0D0E; --ink-text: #141801; --gray-100: #3C4344; --gray-90: #5f6c6e; --gray-80: #bbbbbb; --gray-70: #8f8f90; --stroke: #1B1C1C;
   --line: rgba(0, 0, 0, .08); --line-2: rgba(0, 0, 0, .12);
   --dark: #020304; --dark-2: #0b0c0d; --dark-card: #161718; --on-dark: #ffffff; --on-dark-2: rgba(255, 255, 255, .64); --on-dark-line: rgba(255, 255, 255, .12);
   --accent: #72C1FF; --accent-ink: #0C0D0E; --accent-soft: rgba(114, 193, 255, .22); --accent-glow: rgba(114, 193, 255, .55);
@@ -212,19 +212,20 @@ a:hover > .lh .ch, button:hover > .lh .ch, .lh-host:hover .lh .ch { transform: t
 .nav-dropdown-item-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .nav-dropdown-item-text strong { font-size: 14px; font-weight: 500; color: var(--ink); }
 .nav-dropdown-item-text span { font-size: 12px; color: var(--gray-90); }
-.nav__burger { display: none; pointer-events: auto; width: 44px; height: 44px; border-radius: var(--r-xs); border: 0; background: #fff; box-shadow: var(--neu-pill); cursor: pointer; place-items: center; justify-self: end; }
+.nav__burger { display: none; pointer-events: auto; width: 44px; height: 44px; border-radius: var(--r-xs); border: 0; background: #fff; box-shadow: var(--neu-pill); cursor: pointer; place-items: center; place-content: center; justify-self: end; }   /* place-content: the two lines sit 6.5px apart, so the open state is a clean X */
 .nav__burger span { display: block; width: 16px; height: 1.5px; background: var(--ink); margin: 2.5px 0; transition: transform .3s var(--ease); }
 .nav.is-open .nav__burger span:nth-child(1) { transform: translateY(3.25px) rotate(45deg); } .nav.is-open .nav__burger span:nth-child(2) { transform: translateY(-3.25px) rotate(-45deg); }
-.nav__sheet { display: none; position: fixed; inset: 0; z-index: 99; background: var(--bg); padding: 90px var(--gutter) 40px; overflow-y: auto; }
+.nav__sheet { display: none; position: fixed; inset: 0; z-index: 99; background: var(--bg); padding: 90px var(--gutter) 40px; overflow-y: auto; pointer-events: auto; }   /* 19-10: .nav is click-through, the sheet must not inherit that (taps went to the page under the menu) */
+.nav__row { position: relative; z-index: 100; }   /* the bar (logo, close button) stays above the open sheet */
 .nav__sheet[data-open] { display: flex; flex-direction: column; gap: 2px; }
 .nav__sheet a { font-size: 24px; font-weight: 300; color: var(--ink); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--line); }
-.nav__sheet .btn-accent { margin-top: 24px; align-self: flex-start; border-bottom: 0; font-size: 16px; }
+.nav__sheet .btn-accent { margin-top: 24px; align-self: flex-start; border-bottom: 0; font-size: 16px; padding: 0 22px; }
 @media (max-width: 1023px) {
   .nav { padding: 12px 16px 0; }
   .nav__row, .nav.is-scrolled .nav__row { grid-template-columns: auto 1fr auto; }
   .nav__links, .nav__cta { display: none !important; }
   .nav__burger { display: grid; }
-  .nav.is-dark .nav__burger { background: rgba(21, 21, 23, .7); } .nav.is-dark .nav__burger span { background: #fff; }
+  .nav.is-dark .nav__burger { background: rgba(21, 21, 23, .7); box-shadow: var(--neu-dark-pill); } .nav.is-dark .nav__burger span { background: #fff; }
 }
 
 /* Carousel arrows (round-ish neumorphic) */
@@ -401,6 +402,7 @@ html.veil-hold .veil.on { animation: none; }
 [data-glyphs] { position: relative; }
 [data-glyphs] > .glyphs { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: .9; }
 [data-glyphs] > .container, [data-glyphs] > .stories__wrap, [data-glyphs] > .quotes__wrap, [data-glyphs] > .frame { position: relative; z-index: 1; }
+.cta-dark > .glyphs { z-index: 1; opacity: .7; } .cta-dark > .cta-dark__in { z-index: 2; }   /* 19-10: the field over the black tiles, in the two lower corners, under the text */
 .fade { height: clamp(140px, 18vh, 200px); background: linear-gradient(180deg, #000000 0%, #040404 7%, #0e0e0e 14%, #1d1d1d 21%, #303131 29%, #474848 36%, #606162 43%, #7a7b7c 50%, #949596 57%, #adaeb0 64%, #c4c5c7 71%, #d7d9db 79%, #e6e8ea 86%, #f0f2f4 93%, #f4f6f8 100%); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 @keyframes marquee-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }

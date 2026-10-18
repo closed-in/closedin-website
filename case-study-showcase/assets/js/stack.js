@@ -66,7 +66,7 @@ const snakes = LANES.map((list, si) => {
   const items = list.map(([key, name, fit, color, win], i) => {
     const hole = document.createElement('span'); hole.className = 'hole'; lanesEl.appendChild(hole);
     const el = document.createElement('div'); el.className = 'tok' + (fit === 'k' ? ' k' : fit === 'm' ? ' m' : '') + (win ? ' feat' : '');
-    el.innerHTML = `<img src="${LOGOS[key]}" alt="">`; el.setAttribute('role', 'img'); el.setAttribute('aria-label', name);
+    el.innerHTML = `<img src="${LOGOS[key]}" alt="" width="64" height="64" decoding="async">`; el.setAttribute('role', 'img'); el.setAttribute('aria-label', name);
     if (color) el.style.setProperty('--c', color);
     lanesEl.appendChild(el);
     const it = { el, hole, i, key, name, win };
@@ -165,9 +165,18 @@ rest.forEach((it, k) => { it.act = WAVE0 + k / Math.max(1, rest.length - 1) * (W
 
 
 let target = 0, p = 0, last = performance.now(), drawnP = -1, dirty = true;
+// 19-10: both loops (the scroll timeline and the character stream) only run while the section is near the screen; they used to run every frame for the whole visit
+let near = true, frameOn = false, asciiOn = false;
+const wake = () => {
+  if (!frameOn) { read(); const r = stack.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) { p = target; dirty = true; }   // still out of sight (e.g. after a jump): no catch-up animation
+    frameOn = true; last = performance.now(); requestAnimationFrame(frame); }
+  if (!asciiOn && !reduce) { asciiOn = true; requestAnimationFrame(ascii); }
+};
+if ('IntersectionObserver' in window) new IntersectionObserver(en => { near = en[en.length - 1].isIntersecting; if (near) wake(); }, { rootMargin: '25% 0px' }).observe(stack);
 function read() { const r = stack.getBoundingClientRect(), pre = innerHeight * PRE; target = clamp((pre - r.top) / Math.max(1, stack.offsetHeight - innerHeight + pre), 0, 1); }
 
 function frame(now) {
+  if (!near && p === target && !dirty) { frameOn = false; return; }   // off screen and settled: sleep until the observer wakes us
   const dt = Math.min(64, now - last); last = now;
   read();
   p += (target - p) * (reduce ? 1 : 1 - Math.exp(-dt / 140));
@@ -229,25 +238,24 @@ function ascii(now) {
     actx.font = '500 10px ui-monospace, "SF Mono", Menlo, monospace'; actx.textAlign = 'center'; actx.textBaseline = 'middle';
     const ox = (AW - cols * cw) / 2 + cw / 2;
     for (let r = 0; r < rows; r++) {
-      const y = r * rh + rh / 2, done = y <= head, near = Math.max(0, 1 - Math.abs(y - head) / 70);
+      const y = r * rh + rh / 2, done = y <= head, nh = Math.max(0, 1 - Math.abs(y - head) / 70);
       for (let c = 0; c < cols; c++) {
         const mid = 1 - Math.abs(c - (cols - 1) / 2) / ((cols + 1) / 2);              // denser towards the line
         const wave = Math.sin(r * .42 - t * (done ? 5.5 : 2.2) + c * .9) * .5 + .5;     // waves running down
         const flick = hash(r * 7 + c, Math.floor(t * (done ? 14 : 5) + c * 3.1));       // fast flicker, like Firecrawl
-        let v = wave * .55 + flick * .45; v *= .45 + mid * .75; v += near * .6;
+        let v = wave * .55 + flick * .45; v *= .45 + mid * .75; v += nh * .6;
         if (v < (done ? .42 : .6)) continue;
         const ch = CH[Math.min(CH.length - 1, Math.floor(v * (CH.length - 1)))];
-        const a = done ? Math.min(1, .35 + v * .55 + near * .3) : .14 + near * .5;
-        actx.fillStyle = done || near > .2 ? `rgba(84,160,240,${a.toFixed(3)})` : `rgba(150,160,185,${a.toFixed(3)})`;
+        const a = done ? Math.min(1, .35 + v * .55 + nh * .3) : .14 + nh * .5;
+        actx.fillStyle = done || nh > .2 ? `rgba(84,160,240,${a.toFixed(3)})` : `rgba(150,160,185,${a.toFixed(3)})`;
         actx.fillText(ch, ox + c * cw, y);
       }
     }
   }
-  if (!reduce) requestAnimationFrame(ascii);
+  if (!reduce && near) requestAnimationFrame(ascii); else asciiOn = false;
 }
-requestAnimationFrame(ascii);
 addEventListener('resize', layout);
 document.fonts?.ready.then(layout);
 layout(); read(); p = target;
-requestAnimationFrame(frame);
+wake();
 })();

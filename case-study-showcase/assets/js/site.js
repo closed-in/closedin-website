@@ -9,6 +9,13 @@
   function desktop() { return window.innerWidth >= 1024; }
   if (!motion) html.classList.remove('js');
 
+  /* ---------- Work that waits for the arrival transition: the veil animates on the main thread, so heavy starts (the WebGL mark) come after it, in idle time ---------- */
+  var arrivalQ = [], arrived = false;
+  function afterArrival(fn) { if (arrived) fn(); else arrivalQ.push(fn); }
+  function markArrived() { if (arrived) return; arrived = true; arrivalQ.splice(0).forEach(function (fn) { try { fn(); } catch (err) { if (window.console) console.warn(err); } }); }
+  function whenIdle(fn, timeout) { if ('requestIdleCallback' in window) requestIdleCallback(fn, { timeout: timeout || 1000 }); else setTimeout(fn, 50); }
+  setTimeout(markArrived, 4000);   /* safety net: a background tab never runs the veil's frames */
+
   /* ---------- Page transition (Max' specimen): brackets close the page into the logo, hold, open again on the next page ---------- */
   var veil = document.getElementById('veil');
   if (veil) {
@@ -36,12 +43,14 @@
       if (t < vt4) { var p3 = (t - vt3) / T.back, e3 = vEase(p3); return [lerpP(g.logo.L, g.square.L, e3), lerpP(g.logo.R, g.square.R, e3), 0, 1 - smooth(.25, 1, p3)]; }
       var p4 = Math.min(1, (t - vt4) / T.openOut), e4 = vEase(p4); return [lerpP(g.square.L, g.open.L, e4), lerpP(g.square.R, g.open.R, e4), smooth(0, .38, p4), 0];
     };
-    var show = function (t) { var g = dims(), f = frameAt(t, g); draw(g, f[0], f[1], f[2], f[3]); };
-    var hideVeil = function () { veil.classList.remove('on'); html.classList.remove('has-veil'); busyVeil = false; };
+    /* the geometry is measured once per size, not every frame: reading innerWidth after the style writes forced a layout on each frame of the transition */
+    var geo = null; window.addEventListener('resize', function () { geo = null; });
+    var show = function (t) { var g = geo || (geo = dims()), f = frameAt(t, g); draw(g, f[0], f[1], f[2], f[3]); };
+    var hideVeil = function () { veil.classList.remove('on'); html.classList.remove('has-veil'); busyVeil = false; markArrived(); };
     var busyVeil = false, hold = /[?&]veil=hold/.test(location.search);
     var playVeil = function (from, to, onPass, passAt, onDone) { busyVeil = true; veil.classList.add('on'); html.classList.add('has-veil'); var start = performance.now(), passed = false; show(from); var tick = function (now) { var t = from + (now - start); if (!passed && passAt != null && t >= passAt) { passed = true; onPass && onPass(); } if (t >= to) { show(to); onDone && onDone(); return; } show(t); requestAnimationFrame(tick); }; requestAnimationFrame(tick); };
     if (reduce) { hideVeil(); }
-    else if (hold) { veil.classList.add('on'); html.classList.add('has-veil', 'veil-hold'); show(vt2); }
+    else if (hold) { veil.classList.add('on'); html.classList.add('has-veil', 'veil-hold'); show(vt2); markArrived(); }
     else { playVeil(vt2, vt5, function () { html.classList.remove('has-veil'); }, vt4, hideVeil); }   /* arrival: the logo holds, closes and the brackets open out; the page wakes up as they open */
     window.addEventListener('pageshow', function (e) { if (e.persisted) hideVeil(); });
     window.__veil = { show: show, t: { t1: vt1, t2: vt2, t3: vt3, t4: vt4, t5: vt5 } };
@@ -50,9 +59,17 @@
       var url; try { url = new URL(a.getAttribute('href'), location.href); } catch (err) { return; }
       if (url.origin !== location.origin) return; if (url.pathname === location.pathname && url.hash) return; if (/^(mailto|tel):/.test(a.getAttribute('href'))) return;
       e.preventDefault(); if (busyVeil) return;
+      prefetch(url);
       playVeil(0, vt3, function () { location.href = url.href; }, vt2 + T.hold / 2, null);   /* leaving: close in, become the logo, navigate mid-hold */
     });
+    /* 19-10: the next page downloads while the brackets close (and already on hover or touch), so the navigation mid-hold comes from the cache */
+    var fetched = {};
+    var prefetch = function (url) { var key = url.origin + url.pathname; if (fetched[key] || url.origin !== location.origin || url.pathname === location.pathname) return; fetched[key] = 1; var l = document.createElement('link'); l.rel = 'prefetch'; l.href = url.origin + url.pathname; document.head.appendChild(l); };
+    var hoverFetch = function (e) { var a = e.target && e.target.closest ? e.target.closest('a[href]') : null; if (!a || a.target || a.hasAttribute('download')) return; var url; try { url = new URL(a.getAttribute('href'), location.href); } catch (err) { return; } if (!/^https?:$/.test(url.protocol)) return; prefetch(url); };
+    if (!(navigator.connection && navigator.connection.saveData)) { document.addEventListener('pointerover', hoverFetch, { passive: true }); document.addEventListener('touchstart', hoverFetch, { passive: true }); }
   }
+
+  if (!veil) markArrived();
 
   /* Lenis */
   var lenis = null;
@@ -107,7 +124,7 @@
     var setScrolled = function () { var s = scrollY > 80; nav.classList.toggle('is-scrolled', s); if (logoEl) logoEl.classList.toggle('is-mark', s); };
     window.addEventListener('scroll', setScrolled, { passive: true }); setScrolled();
     var darkSections = document.querySelectorAll('[data-nav-theme="dark"]');
-    var probe = function () { var y = 40; var dark = false; darkSections.forEach(function (s) { var r = s.getBoundingClientRect(); if (r.top <= y && r.bottom >= y) dark = true; }); nav.classList.toggle('is-dark', dark); };
+    var probe = function () { if (nav.classList.contains('is-open')) { nav.classList.remove('is-dark'); return; } var y = 40; var dark = false; darkSections.forEach(function (s) { var r = s.getBoundingClientRect(); if (r.top <= y && r.bottom >= y) dark = true; }); nav.classList.toggle('is-dark', dark); };
     window.addEventListener('scroll', probe, { passive: true }); window.addEventListener('resize', probe); probe();
     var dropdowns = nav.querySelectorAll('[data-dropdown]');
     var closeDropdowns = function (except) { dropdowns.forEach(function (dd) { if (dd === except) return; dd.classList.remove('is-open'); var b = dd.querySelector('button'); if (b) b.setAttribute('aria-expanded', 'false'); }); };
@@ -118,8 +135,8 @@
     });
     document.addEventListener('click', function (e) { if (!nav.contains(e.target)) closeDropdowns(); });
     var burger = nav.querySelector('[data-burger]'), sheet = document.getElementById('mobile-menu');
-    var openSheet = function () { if (!sheet) return; sheet.setAttribute('data-open', ''); sheet.removeAttribute('hidden'); nav.classList.add('is-open'); burger.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; if (lenis) lenis.stop(); };
-    var closeSheet = function () { if (!sheet || !sheet.hasAttribute('data-open')) return; sheet.removeAttribute('data-open'); sheet.setAttribute('hidden', ''); nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; if (lenis) lenis.start(); };
+    var openSheet = function () { if (!sheet) return; sheet.setAttribute('data-open', ''); sheet.removeAttribute('hidden'); nav.classList.add('is-open'); nav.classList.remove('is-dark'); burger.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; if (lenis) lenis.stop(); };
+    var closeSheet = function () { if (!sheet || !sheet.hasAttribute('data-open')) return; sheet.removeAttribute('data-open'); sheet.setAttribute('hidden', ''); nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; if (lenis) lenis.start(); probe(); };
     if (burger && sheet) { burger.addEventListener('click', function () { sheet.hasAttribute('data-open') ? closeSheet() : openSheet(); }); sheet.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeSheet); }); window.addEventListener('resize', function () { if (desktop()) closeSheet(); }); }
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeDropdowns(); closeSheet(); } });
   }
@@ -306,10 +323,12 @@
   })();
 
 
-  /* ---------- Glyph fields (Firecrawl-style): a slow field of monospace glyphs in the accent colour behind every section marked data-glyphs. The preset says where the shapes sit; a band breathes in waves, the side shapes drift; drawn at ~10 fps and only while the section is on screen. ---------- */
+  /* ---------- Glyph fields (Firecrawl-style): a slow field of monospace glyphs in the accent colour behind every section marked data-glyphs. The preset says where the shapes sit; a band breathes in waves, the side shapes drift.
+     19-10: the canvas holds pixels only while its section is on screen (freed again off screen), is sized from the observer entries (no forced layouts),
+     draws at ~10 fps on a timer instead of waking every frame, and batches the glyphs per alpha step. ---------- */
   (function () {
     if (reduce) return;
-    var secs = document.querySelectorAll('[data-glyphs]'); if (!secs.length) return;
+    var secs = document.querySelectorAll('[data-glyphs]'); if (!secs.length || !('IntersectionObserver' in window)) return;
     var ramp = ' .:-=+*#', hash = function (x, y) { var n = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return n - Math.floor(n); };
     var PRESETS = {
       top: [{ x: .5, y: .12, rx: .62, ry: .16, band: 1 }, { x: .06, y: .55, rx: .11, ry: .24 }, { x: .94, y: .55, rx: .11, ry: .24 }],
@@ -317,20 +336,34 @@
       corners: [{ x: .05, y: .9, rx: .2, ry: .16 }, { x: .95, y: .88, rx: .2, ry: .16 }],
       right: [{ x: .94, y: .2, rx: .16, ry: .2 }, { x: .04, y: .82, rx: .1, ry: .16 }],
       left: [{ x: .06, y: .22, rx: .16, ry: .2 }, { x: .96, y: .84, rx: .1, ry: .16 }],
-      hero: [{ x: .86, y: .46, rx: .17, ry: .4 }, { x: .5, y: .97, rx: .8, ry: .1, band: 1 }, { x: .66, y: .14, rx: .09, ry: .16 }]   /* dark page heroes: a field on the right and a band along the bottom edge */
+      hero: [{ x: .86, y: .46, rx: .17, ry: .4 }, { x: .5, y: .97, rx: .8, ry: .1, band: 1 }, { x: .66, y: .14, rx: .09, ry: .16 }],   /* dark page heroes: a field on the right and a band along the bottom edge */
+      edges: [{ x: .02, y: .5, rx: .05, ry: .42 }, { x: .98, y: .5, rx: .05, ry: .42 }],   /* thin columns in the side margins, for bands where the middle is busy */
+      band: [{ x: .5, y: .9, rx: .7, ry: .14, band: 1 }],   /* one breathing band low in the section */
+      heroband: [{ x: .5, y: .985, rx: .82, ry: .075, band: 1 }, { x: .97, y: .55, rx: .05, ry: .3 }]   /* homepage hero: a band hugging the bottom edge (as on the page heroes) and a thin column on the far right */
     };
+    var STEPS = 14, STY = [];
+    for (var q = 0; q < STEPS; q++) STY.push('rgba(114, 193, 255, ' + (.2 + .65 * q / (STEPS - 1)).toFixed(3) + ')');
+    var dpr = Math.min(window.devicePixelRatio || 1, 2), cell = 11, line = 15;
     secs.forEach(function (sec, si) {
-      var cv = document.createElement('canvas'); cv.className = 'glyphs'; cv.setAttribute('aria-hidden', 'true'); sec.insertBefore(cv, sec.firstChild);
       var shapes = PRESETS[sec.getAttribute('data-glyphs')] || PRESETS.top;
-      var ctx = cv.getContext('2d'), cw = 0, ch = 0, cols = 0, rows = 0, dpr = Math.min(devicePixelRatio || 1, 2), cell = 11, line = 15, live = false, t0 = performance.now() - si * 7300, last = 0;
-      var size = function () { var r = sec.getBoundingClientRect(); var w = Math.round(r.width), h = Math.round(r.height); if (w === cw && h === ch) return; cw = w; ch = h; cv.width = cw * dpr; cv.height = ch * dpr; cv.style.width = cw + 'px'; cv.style.height = ch + 'px'; cols = Math.ceil(cw / cell); rows = Math.ceil(ch / line); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.font = '12px ui-monospace, "SF Mono", Menlo, monospace'; ctx.textBaseline = 'top'; };
-      var draw = function (now) {
-        if (!live) return; if (now - last < 100) { requestAnimationFrame(draw); return; } last = now;
-        var tt = (now - t0) / 1000, wide = cw > 700, step = Math.floor(tt * .5);
-        ctx.clearRect(0, 0, cw, ch);
+      /* the element goes in right away (same DOM as before, so no selector or layout changes later); its pixels come with the first visit */
+      var cv = document.createElement('canvas'), ctx = null, cw = 0, ch = 0, cols = 0, rows = 0, live = false, timer = 0, t0 = performance.now() - si * 7300;
+      cv.className = 'glyphs'; cv.setAttribute('aria-hidden', 'true'); cv.width = 0; cv.height = 0; sec.insertBefore(cv, sec.firstChild);
+      var buckets = []; for (var q = 0; q < STEPS; q++) buckets.push([]);
+      var size = function (w, h) {
+        w = Math.round(w); h = Math.round(h); if (!w || !h || (w === cw && h === ch)) return;
+        if (!ctx) ctx = cv.getContext('2d');
+        cw = w; ch = h; cv.width = cw * dpr; cv.height = ch * dpr; cv.style.width = cw + 'px'; cv.style.height = ch + 'px'; cols = Math.ceil(cw / cell); rows = Math.ceil(ch / line);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.font = '12px ui-monospace, "SF Mono", Menlo, monospace'; ctx.textBaseline = 'top';
+      };
+      var release = function () { cv.width = 0; cv.height = 0; cw = ch = 0; };   /* frees the pixels; the element stays */
+      var draw = function () {
+        timer = 0; if (!live || !ctx || !cw) return;
+        var tt = (performance.now() - t0) / 1000, wide = cw > 700, step = Math.floor(tt * .5), q, k;
+        for (q = 0; q < STEPS; q++) buckets[q].length = 0;
         for (var yi = 0; yi < rows; yi++) for (var xi = 0; xi < cols; xi++) {
           var px = (xi + .5) / cols, py = (yi + .5) / rows, v = 0;
-          for (var k = 0; k < shapes.length; k++) {
+          for (k = 0; k < shapes.length; k++) {
             var sh = shapes[k]; if (!wide && !sh.band) continue;
             var dx = (px - sh.x) / sh.rx, dy = (py - sh.y) / sh.ry, d2 = dx * dx + dy * dy; if (d2 > 4) continue;
             var wave = sh.band ? .5 + .5 * Math.sin(px * 9 + tt * .2) * Math.sin(px * 3.7 - tt * .11 + 1.3) : .5 + .5 * Math.sin(tt * .3 + py * 9 + px * 20 + k);
@@ -339,13 +372,18 @@
           if (v <= .1) continue;
           v = v * (.8 + .2 * hash(xi + step, yi)) - .22; if (v <= .05) continue;
           var g = ramp[Math.min(ramp.length - 1, Math.floor(v * ramp.length))]; if (g === ' ') continue;
-          ctx.fillStyle = 'rgba(114, 193, 255, ' + Math.min(.85, .2 + v * .6).toFixed(2) + ')'; ctx.fillText(g, xi * cell, yi * line);
+          q = Math.round((Math.min(.85, .2 + v * .6) - .2) / .65 * (STEPS - 1)); buckets[q].push(g, xi * cell, yi * line);
         }
-        requestAnimationFrame(draw);
+        ctx.clearRect(0, 0, cw, ch);
+        for (q = 0; q < STEPS; q++) { var bk = buckets[q]; if (!bk.length) continue; ctx.fillStyle = STY[q]; for (var j = 0; j < bk.length; j += 3) ctx.fillText(bk[j], bk[j + 1], bk[j + 2]); }
+        timer = setTimeout(function () { requestAnimationFrame(draw); }, 100);
       };
-      size(); window.addEventListener('resize', size);
-      if ('ResizeObserver' in window) new ResizeObserver(size).observe(sec);
-      if ('IntersectionObserver' in window) { new IntersectionObserver(function (en) { var on = en[0].isIntersecting; if (on && !live) { live = true; requestAnimationFrame(draw); } else if (!on) { live = false; } }, { rootMargin: '10% 0px' }).observe(sec); } else { live = true; requestAnimationFrame(draw); }
+      new IntersectionObserver(function (en) {
+        var e = en[en.length - 1];
+        if (e.isIntersecting) { size(e.boundingClientRect.width, e.boundingClientRect.height); if (!live) { live = true; if (!timer) requestAnimationFrame(draw); } }
+        else if (live) { live = false; if (timer) { clearTimeout(timer); timer = 0; } release(); }
+      }, { rootMargin: '10% 0px' }).observe(sec);
+      if ('ResizeObserver' in window) new ResizeObserver(function (en) { if (!live) return; var b = en[0].borderBoxSize && en[0].borderBoxSize[0]; if (b) size(b.inlineSize, b.blockSize); else { var r = sec.getBoundingClientRect(); size(r.width, r.height); } }).observe(sec);
     });
   })();
 
@@ -372,9 +410,11 @@
 
   /* ---------- Dark hero mark (Front Page artifact): loads right away, the SVG mark stays until the first frame ---------- */
   var darkBox = document.querySelector('[data-mark-dark]');
-  if (darkBox && motion && !(navigator.connection && navigator.connection.saveData) && (navigator.deviceMemory || 4) >= 2 && !/[?&]mark=poster/.test(location.search)) {
-    (function () { var ok = false; try { var c = document.createElement('canvas'); ok = !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (err) { ok = false; }
-      if (!ok) return; import('/assets/js/mark-dark.js').then(function (m) { return m.init(darkBox, { isMobile: !desktop() || !fine }); }).catch(function (err) { if (window.console) console.warn('mark-dark', err); }); })();
+  if (darkBox && motion && !(navigator.connection && navigator.connection.saveData) && (navigator.deviceMemory || 4) >= 2 && !/[?&]mark=poster/.test(location.search) && ('WebGLRenderingContext' in window)) {
+    /* 19-10: the WebGL support test used to create a throwaway context (a long task during the arrival animation); three.js now throws on its own when WebGL is missing and the SVG mark stays.
+       The modules download and compile right away (modulepreload), the scene starts once the veil is gone, in idle time; the canvas fades in over the SVG mark. */
+    ['/assets/vendor/three-0.186.1/three.core.min.js', '/assets/vendor/three-0.186.1/three.module.min.js', '/assets/js/mark-dark.js'].forEach(function (href) { var l = document.createElement('link'); l.rel = 'modulepreload'; l.href = href; document.head.appendChild(l); });
+    afterArrival(function () { whenIdle(function () { import('/assets/js/mark-dark.js').then(function (m) { return m.init(darkBox, { isMobile: !desktop() || !fine }); }).catch(function (err) { if (window.console) console.warn('mark-dark', err); }); }, 700); });
   }
 
   /* ---------- Services console: hover or focus picks a service, auto-advances while in view ---------- */
@@ -392,7 +432,7 @@
   /* ---------- 3D mark (hero object, scroll-bound to the hero), gated and lazy ---------- */
   var markBox = document.querySelector('[data-mark-3d]');
   document.addEventListener('markdrag', function (e) { var st = e.target && e.target.closest ? e.target.closest('.stage') : null; if (st) st.classList.add('is-dragged'); });
-  function canDo3D() { if (!markBox || !motion) return false; if (/[?&]mark=poster/.test(location.search)) return false; if (navigator.connection && navigator.connection.saveData) return false; if ((navigator.deviceMemory || 4) < 2) return false; try { var c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (err) { return false; } }
+  function canDo3D() { if (!markBox || !motion) return false; if (/[?&]mark=poster/.test(location.search)) return false; if (navigator.connection && navigator.connection.saveData) return false; if ((navigator.deviceMemory || 4) < 2) return false; return 'WebGLRenderingContext' in window; }
   if (canDo3D()) {
     var load3D = function () { import('/assets/js/mark-3d.js').then(function (m) { return m.init(markBox, { gsap: window.gsap, ScrollTrigger: window.ScrollTrigger, lenis: lenis, isMobile: !desktop() || !fine, trigger: markBox.getAttribute('data-trigger') || '.engine', start: markBox.getAttribute('data-start') || 'top 80%', end: markBox.getAttribute('data-end') || 'bottom 20%', drag: markBox.hasAttribute('data-drag') }); }).catch(function (err) { if (window.console) console.warn('3D mark unavailable, poster shown.', err); }); };
     var armed = false, arm = function () { if (armed) return; armed = true; var go = function () { if ('requestIdleCallback' in window) requestIdleCallback(load3D, { timeout: 3000 }); else setTimeout(load3D, 400); }; if (document.readyState === 'complete') setTimeout(go, 1200); else window.addEventListener('load', function () { setTimeout(go, 1200); }, { once: true }); };

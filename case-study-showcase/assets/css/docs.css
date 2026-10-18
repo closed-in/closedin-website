@@ -3,7 +3,7 @@
    so the copy and the tool scripts stay untouched; this sheet draws those components in the new design. */
 
 :root { --mono: ui-monospace, "SF Mono", Menlo, monospace; --accent-text: #1c6fb2; --green: #0f7a4e; --amber: #975a16; --red: #c53030; }
-.docs [data-glyphs] > :not(.glyphs) { position: relative; z-index: 1; }
+.docs .dglyph > :not(.glyphs) { position: relative; z-index: 1; }   /* only the docs wrappers: the CTA band keeps its absolute tile grid */
 .docs .dcheck { flex: none; width: 13px; height: 13px; color: var(--accent); }
 
 /* ---------- Hero (dark, like the homepage opening) ---------- */

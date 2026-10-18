@@ -131,6 +131,8 @@ export function init(host, opts = {}) {
   }
   canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); dispose(); });
   function dispose() { if (disposed) return; disposed = true; ro.disconnect(); io.disconnect(); window.removeEventListener('pointermove', onPointer); host.classList.remove('is-live'); scene.traverse((o) => { if (o.geometry) o.geometry.dispose(); if (o.material) (Array.isArray(o.material) ? o.material : [o.material]).forEach((m) => m.dispose()); }); renderer.dispose(); if (canvas.parentNode) canvas.parentNode.removeChild(canvas); }
-  requestAnimationFrame(frame);
+  /* 19-10: compile the shaders before the first frame (in parallel where the driver allows it), so the first frame does not block the page */
+  const start = () => { if (!disposed) requestAnimationFrame(frame); };
+  if (renderer.compileAsync) renderer.compileAsync(scene, camera).then(start, start); else start();
   return { dispose };
 }
