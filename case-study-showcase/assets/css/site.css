@@ -67,13 +67,13 @@ i, em, cite, address { font-style: normal; }
 .theme-dark .lead, .theme-dark .small { color: var(--on-dark-2); }
 
 /* Eyebrow pill: white gradient, neumorphic, icon disc */
-.eyebrow { display: inline-flex; justify-self: start; align-self: start; align-items: center; gap: 9px; height: 44px; padding: 0 18px 0 14px; border-radius: var(--r-pill); background: var(--white); box-shadow: var(--neu-pill); font-size: 12px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; color: var(--ink); position: relative; isolation: isolate; }
+.eyebrow { display: inline-flex; justify-self: start; align-self: start; align-items: center; gap: 9px; height: 44px; padding: 0 18px; border-radius: var(--r-pill); background: var(--white); box-shadow: var(--neu-pill); font-size: 12px; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; color: var(--ink); position: relative; isolation: isolate; }
 .eyebrow::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: var(--pill-border); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; z-index: -1; }
 .eyebrow__ic { width: 20px; height: 20px; color: var(--ink); display: grid; place-items: center; flex: none; }
 .eyebrow__ic svg { width: 16px; height: 16px; fill: currentColor; }
 .eyebrow__ic--img img { width: 20px; height: 20px; border-radius: 4px; display: block; }
 /* Award pill: tinted, links to the winners page, grows a little on hover (scale, so the entrance animation keeps its transform) */
-.eyebrow--award { background: linear-gradient(135deg, #DDEEFF, #F1F7FD); text-decoration: none; transition: scale .35s var(--ease), box-shadow .35s var(--ease); }
+.eyebrow--award { padding-left: 12px; background: linear-gradient(135deg, #DDEEFF, #F1F7FD); text-decoration: none; transition: scale .35s var(--ease), box-shadow .35s var(--ease); }
 .eyebrow--award::before { background: linear-gradient(135deg, rgba(114, 193, 255, .95), rgba(114, 193, 255, .35)); }
 .eyebrow--award:hover { scale: 1.04; box-shadow: var(--neu-hover); }
 .theme-dark .eyebrow { background: rgba(21, 21, 23, .7); color: #fff; box-shadow: var(--neu-dark-pill); }
@@ -182,7 +182,7 @@ a:hover > .lh .ch, button:hover > .lh .ch, .lh-host:hover .lh .ch { transform: t
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 32px 0; pointer-events: none; }
 .nav__row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; height: 50px; transition: all var(--t-theme); }
 .nav__brand, .nav__links, .nav__cta { pointer-events: auto; }
-.nav__brand { display: inline-flex; align-items: center; height: 50px; padding: 0 14px 0 0; border-radius: var(--r-xs); transition: all var(--t-theme); }
+.nav__brand { display: inline-flex; align-items: center; justify-content: center; width: 104px; height: 50px; padding: 0; border-radius: var(--r-xs); overflow: visible; transition: all var(--t-theme); }
 .nav__brand img { height: 24px; width: auto; display: block; }
 .nav__brand .nav__mark { display: none; width: 24px; height: 24px; }
 .nav__links { display: flex; align-items: center; justify-content: center; gap: 16px; height: 50px; padding: 0 36px; border-radius: var(--r-xs); transition: all var(--t-theme); }
@@ -190,7 +190,6 @@ a:hover > .lh .ch, button:hover > .lh .ch, .lh-host:hover .lh .ch { transform: t
 .nav__cta { justify-self: end; display: inline-flex; align-items: center; gap: 10px; height: 50px; padding: 0 5px 0 14px; border-radius: var(--r-xs); color: var(--ink); text-decoration: none; transition: all var(--t-theme); }
 .nav__cta .alink__t { font-size: 16px; }
 .nav__cta .btn-accent--sq { height: 40px; }
-.nav.is-scrolled .nav__row { grid-template-columns: auto auto auto; justify-content: center; }
 .nav.is-scrolled .nav__brand { width: 52px; justify-content: center; padding: 0; overflow: visible; background: rgba(255, 255, 255, .02); box-shadow: var(--neu-nav); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 .nav.is-scrolled .nav__brand > img { display: none; } .nav.is-scrolled .nav__brand .nav__mark { display: block; }
 .nav.is-scrolled .nav__links { background: rgba(255, 255, 255, .02); box-shadow: var(--neu-nav); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
