@@ -316,7 +316,8 @@
       bottom: [{ x: .5, y: .94, rx: .62, ry: .12, band: 1 }, { x: .04, y: .35, rx: .09, ry: .2 }, { x: .96, y: .35, rx: .09, ry: .2 }],
       corners: [{ x: .05, y: .9, rx: .2, ry: .16 }, { x: .95, y: .88, rx: .2, ry: .16 }],
       right: [{ x: .94, y: .2, rx: .16, ry: .2 }, { x: .04, y: .82, rx: .1, ry: .16 }],
-      left: [{ x: .06, y: .22, rx: .16, ry: .2 }, { x: .96, y: .84, rx: .1, ry: .16 }]
+      left: [{ x: .06, y: .22, rx: .16, ry: .2 }, { x: .96, y: .84, rx: .1, ry: .16 }],
+      hero: [{ x: .86, y: .46, rx: .17, ry: .4 }, { x: .5, y: .97, rx: .8, ry: .1, band: 1 }, { x: .66, y: .14, rx: .09, ry: .16 }]   /* dark page heroes: a field on the right and a band along the bottom edge */
     };
     secs.forEach(function (sec, si) {
       var cv = document.createElement('canvas'); cv.className = 'glyphs'; cv.setAttribute('aria-hidden', 'true'); sec.insertBefore(cv, sec.firstChild);

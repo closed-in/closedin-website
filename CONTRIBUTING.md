@@ -20,7 +20,7 @@ Daarna draait de site op http://localhost:8080.
 1. Voor je begint: `git pull`.
 2. Werk in kleine stappen, commit met een duidelijke boodschap.
 3. Voor het pushen twee checks, allebei moeten slagen:
-   `python3 scripts/check-trackers.py` (vijf keer PASS) en `python3 scripts/check-copy.py` (PASS).
+   `python3 scripts/check-trackers.py` (eindigt op ALL PASS; dekt de homepage en de vier binnenpagina's) en `python3 scripts/check-copy.py` (PASS).
 4. `git push`. Kijk de preview-link na in de pull request.
 
 Optioneel voor een hele controle: `node scripts/audit.mjs` (met de lokale server aan).

@@ -131,14 +131,14 @@ function layout() {
   const hEnd = Math.max(...S.map(g => g.Hend + g.o));
   // windows: the left four-fifths, two on top (Clay, Instantly), three below (Apollo, Claude, n8n)
   const wx0 = gx, wx1 = sx0 - (narrow ? 12 : 28), wy0 = gy + (head.offsetHeight || 60) + 14, wy1 = PH - gy * .4, pg = narrow ? 8 : 14;
-  const W = wx1 - wx0, H = wy1 - wy0, hTop = (H - pg) * .56, hBot = H - pg - hTop;   // 18-10: bottom row taller, so the n8n preview gets room
-  stack.classList.toggle('stack--short', hTop < 400); stack.classList.toggle('stack--xshort', hTop < 345);   // short laptops: tighter type, then drop the photo and post header
+  const W = wx1 - wx0, H = wy1 - wy0, hTop = (H - pg) * .6, hBot = H - pg - hTop, hBig = (H - pg) * .82;   // 18-10: Clay and Instantly open big (hBig), then settle to hTop when the bottom row comes in
+  stack.classList.toggle('stack--short', hTop < 400); stack.classList.toggle('stack--xshort', hTop < 300);   // short laptops: tighter type
   const w2 = (W - pg) / 2, w3 = (W - pg * 2) / 3;
   const rects = narrow
     ? wins.map((_, i) => ({ x: wx0, y: wy0 + i * (H + pg) / 5, w: W, h: (H + pg) / 5 - pg }))
     : [{ x: wx0, y: wy0, w: w2, h: hTop }, { x: wx0 + w2 + pg, y: wy0, w: w2, h: hTop },
        { x: wx0, y: wy0 + hTop + pg, w: w3, h: hBot }, { x: wx0 + w3 + pg, y: wy0 + hTop + pg, w: w3, h: hBot }, { x: wx0 + (w3 + pg) * 2, y: wy0 + hTop + pg, w: w3, h: hBot }];
-  wins.forEach((w, i) => { const r = rects[i], st = w.el.style; st.setProperty('--tx', r.x + 'px'); st.setProperty('--ty', r.y + 'px'); st.setProperty('--tw', r.w + 'px'); st.setProperty('--th', r.h + 'px'); st.setProperty('--pd', d + 'px'); w.rect = r; });
+  wins.forEach((w, i) => { const r = rects[i], st = w.el.style; st.setProperty('--tx', r.x + 'px'); st.setProperty('--ty', r.y + 'px'); st.setProperty('--tw', r.w + 'px'); st.setProperty('--th', r.h + 'px'); st.setProperty('--pd', d + 'px'); w.rect = r; w.base = r; w.big = (!narrow && i < 2) ? { x: r.x, y: r.y, w: r.w, h: hBig } : null; w.lastS = -1; });
   const padW = parseFloat(getComputedStyle(wins[0].el.querySelector('.w-in')).paddingLeft) || 20;
   const U = { x0: wx0, y0: wy0, x1: wx1, y1: wy1 };
   G = { PW, PH, S, d, gap, hEnd, sx0, sy0, padW, U, narrow };
@@ -195,11 +195,14 @@ function frame(now) {
   progFill.style.transform = `scaleY(${pf.toFixed(4)})`;
   progDot.style.top = (pf * 100).toFixed(3) + '%'; APF = pf;
 
+  // Clay and Instantly open big; they settle to their base size while Apollo comes in (the bottom row needs the room)
+  const settle = wins[2] ? io(ss(wins[2].landP - .03, wins[2].landP + .05, p)) : 1;
   // the windows grow out of their icon the moment it lands
   wins.forEach(w => {
-    const e = io(ss(w.landP, w.landP + WOPEN, p));
-    if (e === w.last) return;
-    w.last = e;
+    const e = io(ss(w.landP, w.landP + WOPEN, p)), s = w.big ? settle : 1;
+    if (e === w.last && s === w.lastS) return;
+    if (w.big && s !== w.lastS) { const b = w.big, a = w.base; w.rect = { x: a.x, y: a.y, w: a.w, h: lerp(b.h, a.h, s) }; w.el.style.setProperty('--th', w.rect.h.toFixed(1) + 'px'); }
+    w.last = e; w.lastS = s;
     if (e <= 0.001) { w.el.classList.remove('on'); return; }
     const sl = G.S[w.lane].slots[w.item.i];
     const fx = G.sx0 + sl.x, fy = G.sy0 + sl.y, r = G.d / 2;               // the landed icon's circle
