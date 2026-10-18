@@ -9,3 +9,6 @@ research/reference-sites/
 # lokale Claude-instellingen en macOS-bestanden horen niet in de repo
 .claude/settings.local.json
 .DS_Store
+
+# Vercel CLI link, lokaal
+.vercel/
