@@ -28,11 +28,6 @@
 .peek__play { position: absolute; left: 50%; top: 50%; width: 48px; height: 48px; margin: -24px 0 0 -24px; border-radius: 50%; background: rgba(255, 255, 255, .94); color: var(--ink); display: grid; place-items: center; }
 .peek__play svg { width: 16px; height: 16px; margin-left: 2px; }
 .peek__time { position: absolute; right: 10px; bottom: 10px; padding: 3px 8px; border-radius: var(--r-pill); background: rgba(12, 13, 14, .7); color: #fff; font-size: 11px; font-variant-numeric: tabular-nums; }
-.play { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: rgba(255, 255, 255, .94); color: var(--ink); display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0, 0, 0, .25); transition: transform .5s var(--ease-back), background-color .3s; }
-.play svg { width: 20px; height: 20px; margin-left: 3px; }
-.play::before { content: ""; position: absolute; inset: -10px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .6); animation: play-ring 2.2s var(--ease) infinite; }
-@keyframes play-ring { 0% { transform: scale(.8); opacity: .9; } 100% { transform: scale(1.4); opacity: 0; } }
-.story__poster:hover .play { transform: scale(1.1); background: var(--accent); }
 @keyframes hero-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc(var(--i, 0) * 110ms); }
 @media (prefers-reduced-motion: reduce) { html.js .hero-in { animation: none; } .play::before { animation: none; } .peek { transition: none; } }
@@ -53,33 +48,6 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 
 /* CLIENT STORIES (video) */
 .stories { padding-top: var(--section-y); }
-.story { flex: none; width: 440px; max-width: 86vw; scroll-snap-align: start; display: flex; flex-direction: column; background: var(--white); border-radius: 16px; box-shadow: var(--neu-card); overflow: hidden; transition: box-shadow .5s var(--ease), transform .5s var(--ease); }
-.story:hover { box-shadow: var(--neu-hover), 0 30px 70px rgba(12, 13, 14, .10); }
-.story__poster { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; padding: 0; border: 0; background: var(--bg-2); cursor: pointer; overflow: hidden; font: inherit; }
-.story__poster > img:first-of-type { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; transition: transform 1.2s var(--ease); }
-.story:hover .story__poster > img:first-of-type { transform: scale(1.05); }
-.story__shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 10, 12, 0) 38%, rgba(8, 10, 12, .64) 100%); pointer-events: none; }
-.story__poster .story__brand { position: absolute; left: 18px; bottom: 18px; max-width: 44%; max-height: 34px; width: auto; height: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: .96; pointer-events: none; }
-.story__poster .play { z-index: 1; }
-.story__poster .play { left: auto; top: auto; right: 16px; bottom: 16px; width: 56px; height: 56px; margin: 0; }
-.story__poster .play svg { width: 18px; height: 18px; }
-.story__soon { display: none; position: absolute; left: 14px; top: 14px; align-items: center; gap: 8px; height: 32px; padding: 0 12px 0 10px; border-radius: var(--r-pill); background: rgba(255, 255, 255, .92); color: var(--ink); font-size: 12px; font-weight: 500; }
-.story__soon::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-.story__poster.is-soon { cursor: default; } .story__poster.is-soon .play { display: none; } .story__poster.is-soon .story__soon { display: inline-flex; }
-.story__body { display: flex; flex-direction: column; gap: 16px; padding: 22px 24px 24px; flex: 1; }
-.story__quote { margin: 0; font-size: 19px; line-height: 1.35; letter-spacing: -0.01em; font-weight: 400; color: var(--ink); }
-.story__quote::before { content: "\201C"; } .story__quote::after { content: "\201D"; }
-.story__outcome { padding: 12px 14px; border-radius: var(--r-sm); background: var(--bg); font-size: 14px; line-height: 1.4; color: var(--gray-100); box-shadow: rgba(255, 255, 255, .9) 0 0 0 1px inset; }
-.story__outcome b { color: var(--ink); font-weight: 500; }
-.story__meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; }
-.story__meta .who { display: flex; align-items: center; gap: 12px; }
-.story__meta .avatar { width: 40px; height: 40px; }
-.story__meta b { display: block; font-size: 15px; font-weight: 500; } .story__meta .role { display: block; font-size: 12.5px; color: var(--gray-90); }
-.story__logo { height: 18px; width: auto; filter: brightness(0); opacity: .7; }
-.story--text .story__body { padding-top: 26px; gap: 20px; }
-.story--text .story__quote { font-size: 21px; }
-.story__mark { width: 48px; height: 48px; border-radius: 50%; background: var(--bg); display: grid; place-items: center; color: var(--accent); box-shadow: rgba(255, 255, 255, .9) 0 0 0 1px inset; }
-.story__mark svg { width: 20px; height: 20px; }
 
 /* RESULTS (logo plus two metric tiles per card, then the client strip) */
 .results { padding-top: var(--section-y); }
