@@ -398,30 +398,35 @@
 <main id="main">
 
 <!-- HERO (workflows.io composition: dome, eyebrow, two-weight headline, one line, name/email rail, chips, Watch video with a cursor-following preview, trusted-by faces) -->
-<section class="hero hero--stage" id="hero">
-    <div class="hero__glow" aria-hidden="true"></div>
-    <canvas class="dots" aria-hidden="true"></canvas>
-    <div class="container hero__inner">
-        <a class="eyebrow eyebrow--award hero-in" style="--i:0" href="https://www.acquisition-international.com/winners/closedin/" target="_blank" rel="noopener" title="Acquisition International, winners page"><span class="eyebrow__ic eyebrow__ic--img"><img src="/assets/img/logos-web/acquisition-international.png" alt="" width="64" height="64"></span>Most Innovative B2B GTM Engineering Agency 2026</a>
-        <h1 class="display hero-in" style="--i:1"><b>Creative outbound</b><span class="lt">, engineered for</span> <b>predictable B2B pipeline</b></h1>
-        <p class="lead hero-in" style="--i:2">Cold email, LinkedIn and Clay enrichment, run as one engine inside your CRM. Creative where it counts: the list, the angle, the first line.</p>
-        <div class="hero__actions hero-in" style="--i:3">
-            <a class="btn-accent" href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&amp;utm_medium=cta&amp;utm_content=homepage-hero" target="_blank" rel="noopener"><span class="txt" data-letters>Book a 30-minute call</span><span class="ico"><svg><use href="#i-e"/></svg></span></a>
-            <button class="alink alink--accent hero__watch" type="button" data-peek data-open-video data-wistia-id="eox8dagvf8" data-aspect="16/9" data-caption="How closed:in builds outbound engines, 3:34"><span class="alink__t" data-letters>Watch the video</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-play"/></svg></span></button>
+<section class="hero hero--dark theme-dark" id="hero" data-nav-theme="dark">
+    <div class="container hero__grid">
+        <div class="hero__text">
+            <a class="hero__eyebrow hero-in" style="--i:0" href="https://www.acquisition-international.com/winners/closedin/" target="_blank" rel="noopener" title="Acquisition International, winners page"><i aria-hidden="true"></i>Most Innovative B2B GTM Engineering Agency 2026</a>
+            <h1 class="display hero-in" style="--i:1"><b>Creative outbound</b><span class="lt">, engineered for</span><br><b>predictable B2B pipeline</b></h1>
+            <p class="lead hero-in" style="--i:2">Cold email, LinkedIn and Clay enrichment, run as one engine inside your CRM. Creative where it counts: the list, the angle, the first line.</p>
+            <form class="lead-form lead-form--pills hero-in" style="--i:3" data-book="hero" action="https://meeting.closedin.io/discovery-call" method="GET" target="_blank">
+                <label><span class="sr-only">Name</span><input type="text" name="name" placeholder="Name*" autocomplete="name" required></label>
+                <label><span class="sr-only">Email</span><input type="email" name="email" placeholder="Email*" autocomplete="email" required></label>
+                <button class="btn-accent" type="submit"><span class="txt" data-letters>Request Call</span><span class="ico"><svg><use href="#i-e"/></svg></span></button>
+            </form>
+            <div class="chips chips--dark hero-in" style="--i:4">
+                <a class="chip" href="cold-email-agency-amsterdam" data-letters>Cold Email</a>
+                <a class="chip" href="gtm-engineering-agency" data-letters>LinkedIn</a>
+                <a class="chip" href="clay-agency" data-letters>Clay Enrichment</a>
+                <a class="chip" href="cold-email-agency-saas" data-letters>Deliverability</a>
+                <button class="chip chip--play" type="button" data-peek data-open-video data-wistia-id="eox8dagvf8" data-aspect="16/9" data-caption="How closed:in builds outbound engines, 3:34"><svg aria-hidden="true"><use href="#i-play"/></svg><span data-letters>Watch the video</span></button>
+            </div>
+            <a class="hero__trust hero-in" style="--i:5" href="#stories">
+                <span class="avatars" aria-hidden="true"><img src="/assets/img/avatars/endresz-v4.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/tpn-v4.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/sankore-v4.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/sustainable-motion-v5.webp" alt="" width="36" height="36"><img src="/assets/img/avatars/wetaxus-v4.webp" alt="" width="36" height="36"></span>
+                <p>Trusted by 50+ B2B companies across Europe and the US</p>
+            </a>
         </div>
-        <p class="hero__partners hero-in" style="--i:4"><span>Clay Solutions Partner</span><i aria-hidden="true"></i><span>Instantly Certified Expert</span><i aria-hidden="true"></i><span>Apollo Partner</span></p>
-    </div>
-    <div class="container hero__stagewrap hero-in" style="--i:5">
-        <div class="stage" id="hero-stage">
-            <div class="stage__mark" aria-hidden="true"><div class="mark mark--hero" data-mark-3d data-drag data-trigger=".hero" data-start="top top" data-end="bottom top"><img class="mark__poster" src="/assets/img/mark-poster-640.webp" width="640" height="640" alt="" fetchpriority="high" draggable="false"></div></div>
-            <a class="schip schip--1" href="case-study-verzendbazen"><span class="schip__who">Verzendbazen</span><b>13.9%</b><span>reply rate</span></a>
-            <a class="schip schip--2" href="case-study-jamezz"><span class="schip__who">Jamezz</span><b>$190K+</b><span>pipeline in 60 days</span></a>
-            <a class="schip schip--3" href="case-study-endresz"><span class="schip__who">Endresz</span><b>247</b><span>boutique conversations</span></a>
-            <a class="schip schip--4" href="case-study-mistertafel"><span class="schip__who">Mistertafel</span><b>96</b><span>opportunities in 30 days</span></a>
-            <span class="stage__hint" aria-hidden="true">Drag to rotate</span>
+        <div class="hero__mark hero-in" style="--i:2" aria-hidden="true" data-mark-dark>
+            <svg class="hero__mark-fallback" viewBox="96 96 308 308"><path fill="currentColor" d="M267 105H395V229H386V114H267Z"/><path fill="currentColor" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg>
         </div>
     </div>
 </section>
+<div class="fade" aria-hidden="true"></div>
 
 <div class="peek" aria-hidden="true"><video class="peek__video" muted loop playsinline preload="none" poster="/assets/img/video/eox8dagvf8-480.webp" width="480" height="270"><source src="/assets/video/vsl-peek.mp4" type="video/mp4"></video><span class="peek__play"><svg><use href="#i-play"/></svg></span><span class="peek__time">3:34</span></div>
 
@@ -549,9 +554,7 @@
                     <div class="w-top"><span class="disc"><img data-logo="clay" alt="" width="64" height="64"></span><div><b>Clay</b><span class="ok">Verified expert</span></div></div>
                     <div class="w-body">
                         <h3>Clay Artisan Solutions Partner, 2026.</h3>
-                        <div class="clay-row"><figure class="hide-sm"><img src="/assets/img/stack/clay-cup.webp" alt="Max from closed:in live on the Clay Cup" width="960" height="540" loading="lazy"><figcaption>Max on the Clay Cup</figcaption></figure></div>
-                        <div class="clay-foot"><div class="badge-wrap"><img class="badge" src="/assets/img/stack/clay-artisan-2026.webp" alt="Clay Artisan Solutions Partner 2026 badge" width="600" height="212" loading="lazy"></div></div>
-                        <a class="cta" href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener">Clay partner profile <svg><use href="#i-ne"/></svg></a>
+                        <div class="clay-shot"><img src="/assets/img/stack/clay-cup.webp" alt="Max from closed:in live on the Clay Cup" width="960" height="540" loading="lazy"><span class="clay-shot__cap">Max on the Clay Cup</span><img class="badge" src="/assets/img/stack/clay-artisan-2026.webp" alt="Clay Artisan Solutions Partner 2026 badge" width="600" height="212" loading="lazy"><a class="cta" href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener">Clay partner profile <svg><use href="#i-ne"/></svg></a></div>
                     </div>
                 </div>
             </article>
@@ -618,66 +621,69 @@
                 <a class="btn-accent btn-accent--sm" href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=homepage-services" target="_blank" rel="noopener" data-reveal><span class="txt" data-letters>Book a meeting</span><span class="ico"><svg><use href="#i-e"/></svg></span></a>
             </div>
         </div>
-        <div class="svc-grid">
-            <article class="svc-card" data-reveal>
-                    <span class="tags"><span class="tag">Retainer</span></span>
-                    <h3 class="h3">Cold Email Outbound</h3>
-                    <p>End-to-end cold email campaigns that book qualified meetings for you.</p>
-                    <a class="alink" href="cold-email-agency-amsterdam"><span class="alink__t" data-letters>Explore cold email</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a>
-                    <div class="svc__visual" aria-hidden="true">
-                        <div class="vis-slack"><span class="vis-slack__ic"><svg><use href="#i-slack"/></svg></span><div><small>Slack notification</small><b>New sales call booked</b></div><span class="now">Now</span></div>
-                        <div class="vis-slack vis-slack--2"><span class="vis-slack__ic"><svg><use href="#i-slack"/></svg></span><div><small>Slack notification</small><b>Positive reply: CFO, logistics</b></div><span class="now">2m</span></div>
-                        <div class="vis-slack vis-slack--3"><span class="vis-slack__ic"><svg><use href="#i-slack"/></svg></span><div><small>Slack notification</small><b>Meeting booked for Tuesday</b></div><span class="now">9m</span></div>
-                    </div>
-                </article>
-            <article class="svc-card" data-reveal>
-                    <span class="tags"><span class="tag">Retainer</span></span>
-                    <h3 class="h3">LinkedIn Outreach</h3>
-                    <p>Connection and message sequences that run next to email, from your own profiles.</p>
-                    <a class="alink" href="gtm-engineering-agency"><span class="alink__t" data-letters>Explore LinkedIn outreach</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a>
-                    <div class="svc__visual" aria-hidden="true">
-                        <div class="vis-cal">
-                            <div class="vis-cal__head"><span>Monday</span><span>Tuesday</span><span>Wednesday</span><span>Thursday</span></div>
-                            <div class="vis-cal__grid">
-                                <div class="vis-cal__day on">10<span class="in">in</span><span class="bar"></span></div><div class="vis-cal__day li">11<span class="in">in</span><span class="bar"></span></div><div class="vis-cal__day">12<span class="mail"><svg><use href="#i-mail"/></svg></span><span class="bar"></span></div><div class="vis-cal__day">13<span class="bar"></span></div>
-                                <div class="vis-cal__day">17<span class="bar"></span></div><div class="vis-cal__day li">18<span class="in">in</span><span class="bar"></span></div><div class="vis-cal__day on">19<span class="mail"><svg><use href="#i-mail"/></svg></span><span class="bar"></span></div><div class="vis-cal__day li">20<span class="in">in</span><span class="bar"></span></div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            <article class="svc-card" data-reveal>
-                    <span class="tags"><span class="tag">Retainer</span><span class="tag">Sprint</span></span>
-                    <h3 class="h3">Clay Enrichment &amp; RevOps</h3>
-                    <p>GTM engineering as a service: lists, enrichment and CRM orchestration on Clay.</p>
-                    <a class="alink" href="clay-agency"><span class="alink__t" data-letters>Explore Clay enrichment</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a>
-                    <div class="svc__visual" aria-hidden="true">
-                        <div class="vis-flow">
-                            <svg class="lines" viewBox="0 0 1000 220" preserveAspectRatio="none"><path d="M236 31C300 31 319 110 373 110"/><path d="M236 84C300 84 319 110 373 110"/><path d="M236 136C300 136 319 110 373 110"/><path d="M236 189C300 189 319 110 373 110"/><path d="M626 110C680 110 700 31 764 31"/><path d="M626 110C680 110 700 84 764 84"/><path d="M626 110C680 110 700 136 764 136"/><path d="M626 110C680 110 700 189 764 189"/><circle cx="236" cy="31" r="3"/><circle cx="236" cy="84" r="3"/><circle cx="236" cy="136" r="3"/><circle cx="236" cy="189" r="3"/><circle cx="764" cy="31" r="3"/><circle cx="764" cy="84" r="3"/><circle cx="764" cy="136" r="3"/><circle cx="764" cy="189" r="3"/></svg>
-                            <div class="vis-flow__col"><span class="vis-pill"><svg><use href="#i-db"/></svg>TAM sourcing</span><span class="vis-pill"><svg><use href="#i-compass"/></svg>Signal scoring</span><span class="vis-pill"><svg><use href="#i-user"/></svg>Decision makers</span><span class="vis-pill"><svg><use href="#i-chart"/></svg>CRM enrichment</span></div>
-                            <div class="vis-hub"><div class="vis-hub__top"><img src="/assets/brand/closedin-wordmark-ink.png" alt="" width="389" height="146"></div><div class="vis-hub__row"><img src="/assets/img/logos-web/clay.webp" alt="" class="color" width="240" height="182">Clay<span class="ok"><svg><use href="#i-check"/></svg></span></div><div class="vis-hub__row"><svg><use href="#i-db"/></svg>120+ data providers<span class="ok"><svg><use href="#i-check"/></svg></span></div><div class="vis-hub__row"><svg><use href="#i-spark"/></svg>Claygent research<span class="ok"><svg><use href="#i-check"/></svg></span></div></div>
-                            <div class="vis-flow__col"><span class="vis-pill"><img src="logos/hubspot.png" alt="" width="256" height="256">HubSpot</span><span class="vis-pill"><img src="/assets/img/logos-web/close.webp" alt="" width="240" height="240">Close</span><span class="vis-pill"><img src="logos/salesforce.png" alt="" width="32" height="32">Salesforce</span><span class="vis-pill"><svg><use href="#i-slack"/></svg>Slack</span></div>
-                        </div>
-                    </div>
-                </article>
-            <article class="svc-card" data-reveal>
-                    <span class="tags"><span class="tag">Sprint</span></span>
-                    <h3 class="h3">Deliverability &amp; Infrastructure</h3>
-                    <p>Domains, inboxes, warmup and monitoring, set up to land in the inbox from week one.</p>
-                    <a class="alink" href="cold-email-agency-saas"><span class="alink__t" data-letters>Explore deliverability</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a>
-                    <div class="svc__visual" aria-hidden="true">
-                        <div class="vis-radial"><i></i><i></i><i></i><i></i>
-                            <span class="node node--hub" style="left:50%;top:50%"><img src="/assets/brand/closedin-mark.svg" alt=""></span>
-                            <span class="node" style="left:50%;top:12.5%"><img src="logos/instantly.png" alt="" width="256" height="256"></span>
-                            <span class="node" style="left:24%;top:24%"><svg><use href="#i-shield"/></svg></span>
-                            <span class="node" style="left:76%;top:24%"><img src="logos/heyreach.png" alt="" width="256" height="256"></span>
-                            <span class="node" style="left:12.5%;top:50%"><svg><use href="#i-mail"/></svg></span>
-                            <span class="node" style="left:87.5%;top:50%"><img src="logos/hunter.png" alt="" width="256" height="256"></span>
-                            <span class="node" style="left:50%;top:25%"><img src="logos/findymail.png" alt="" width="230" height="230"></span>
-                            <span class="node" style="left:32%;top:40%"><img src="logos/apollo.png" alt="" width="256" height="256"></span>
-                            <span class="node" style="left:68%;top:40%"><img src="logos/n8n.png" alt="" width="48" height="48"></span>
-                        </div>
-                    </div>
-                </article>
+        <div class="svc" data-svc>
+            <ol class="svc__list">
+                <li class="svc__item is-on">
+                    <button class="svc__row" type="button" id="svc-tab-1" aria-expanded="true" aria-controls="svc-screen-1"><span class="svc__num">01</span><span class="svc__name">Cold Email Outbound</span><span class="svc__tag">Retainer</span></button>
+                    <div class="svc__more"><div class="svc__more-in"><p>End-to-end cold email campaigns that book qualified meetings for you. Lists, copy, sending and the replies, handled.</p><a class="alink" href="cold-email-agency-amsterdam"><span class="alink__t" data-letters>Explore cold email</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a></div></div>
+                </li>
+                <li class="svc__item">
+                    <button class="svc__row" type="button" id="svc-tab-2" aria-expanded="false" aria-controls="svc-screen-2"><span class="svc__num">02</span><span class="svc__name">LinkedIn Outreach</span><span class="svc__tag">Retainer</span></button>
+                    <div class="svc__more"><div class="svc__more-in"><p>Connection and message sequences that run next to email, from your own profiles, in one cadence.</p><a class="alink" href="gtm-engineering-agency"><span class="alink__t" data-letters>Explore LinkedIn outreach</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a></div></div>
+                </li>
+                <li class="svc__item">
+                    <button class="svc__row" type="button" id="svc-tab-3" aria-expanded="false" aria-controls="svc-screen-3"><span class="svc__num">03</span><span class="svc__name">Clay Enrichment &amp; RevOps</span><span class="svc__tag">Retainer, Sprint</span></button>
+                    <div class="svc__more"><div class="svc__more-in"><p>GTM engineering as a service: lists, enrichment and CRM orchestration on Clay, with 120+ data providers behind it.</p><a class="alink" href="clay-agency"><span class="alink__t" data-letters>Explore Clay enrichment</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a></div></div>
+                </li>
+                <li class="svc__item">
+                    <button class="svc__row" type="button" id="svc-tab-4" aria-expanded="false" aria-controls="svc-screen-4"><span class="svc__num">04</span><span class="svc__name">Deliverability &amp; Infrastructure</span><span class="svc__tag">Sprint</span></button>
+                    <div class="svc__more"><div class="svc__more-in"><p>Domains, inboxes, warmup and monitoring, set up to land in the inbox from week one.</p><a class="alink" href="cold-email-agency-saas"><span class="alink__t" data-letters>Explore deliverability</span><span class="alink__box" aria-hidden="true"><svg><use href="#i-ne"/></svg></span></a></div></div>
+                </li>
+            </ol>
+            <div class="svc__stage" aria-hidden="true">
+                <div class="svc__screen is-on" id="svc-screen-1">
+                    <div class="svc__bar"><i></i><b>Cold email</b><span>campaign feed</span><span class="svc__clock">live</span></div>
+                    <ul class="svc__log">
+                        <li><b>New sales call booked</b><span>now</span></li>
+                        <li><b>Positive reply: CFO, logistics</b><span>2m</span></li>
+                        <li><b>Meeting booked for Tuesday</b><span>9m</span></li>
+                        <li><b>Reply: send me the deck</b><span>14m</span></li>
+                        <li><b>Positive reply: Head of Ops, 3PL</b><span>21m</span></li>
+                    </ul>
+                    <div class="svc__kpis"><div><b>10%</b><span>average reply rate</span></div><div><b>20+</b><span>meetings a month</span></div><div><b>2 to 3</b><span>weeks to first meetings</span></div></div>
+                </div>
+                <div class="svc__screen" id="svc-screen-2">
+                    <div class="svc__bar"><i></i><b>LinkedIn</b><span>this week, from your profiles</span><span class="svc__clock">live</span></div>
+                    <ul class="svc__log">
+                        <li><b>Mon</b><span>10 invites sent, 7 accepted</span></li>
+                        <li><b>Tue</b><span>11 invites sent, 2 replies</span></li>
+                        <li><b>Wed</b><span>12 invites sent, 1 meeting</span></li>
+                        <li><b>Thu</b><span>email follow-up to the accepted</span></li>
+                    </ul>
+                    <div class="svc__bars"><i style="--v:.55"></i><i style="--v:.7"></i><i style="--v:.85"></i><i style="--v:.6"></i><i style="--v:.4"></i><i style="--v:.75"></i><i style="--v:.95"></i></div>
+                    <div class="svc__kpis"><div><b>2</b><span>channels, one cadence</span></div><div><b>Your</b><span>profiles, your voice</span></div></div>
+                </div>
+                <div class="svc__screen" id="svc-screen-3">
+                    <div class="svc__bar"><i></i><b>Clay</b><span>enrichment waterfall</span><span class="svc__clock">running</span></div>
+                    <ul class="svc__log">
+                        <li><b>TAM sourcing</b><span>120+ data providers</span></li>
+                        <li><b>Signal scoring</b><span>Claygent research per account</span></li>
+                        <li><b>Decision makers</b><span>found and verified</span></li>
+                        <li><b>CRM sync</b><span>HubSpot, Close, Salesforce</span></li>
+                    </ul>
+                    <div class="svc__fall"><div><span>Sourced</span><i style="--v:1"></i></div><div><span>Scored</span><i style="--v:.72"></i></div><div><span>Verified</span><i style="--v:.58"></i></div><div><span>In your CRM</span><i style="--v:.58"></i></div></div>
+                </div>
+                <div class="svc__screen" id="svc-screen-4">
+                    <div class="svc__bar"><i></i><b>Deliverability</b><span>sending infrastructure</span><span class="svc__clock">healthy</span></div>
+                    <ul class="svc__log">
+                        <li><b>Domains</b><span>SPF, DKIM, DMARC set</span></li>
+                        <li><b>Inbox placement</b><span>98% deliverability</span></li>
+                        <li><b>Warmup</b><span>day 14 of 14</span></li>
+                        <li><b>Monitoring</b><span>blacklists and bounces, daily</span></li>
+                    </ul>
+                    <div class="svc__kpis"><div><b>98%</b><span>deliverability</span></div><div><b>Week 1</b><span>landing in the inbox</span></div></div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

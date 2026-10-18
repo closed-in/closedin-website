@@ -314,14 +314,14 @@
     var hash = function (x, y) { var n = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return n - Math.floor(n); };
     var draw = function (now) {
       if (!live) return; if (now - last < 100) { requestAnimationFrame(draw); return; } last = now;
-      var tt = (now - t0) / 1000, wide = cw > 700, bandY = 0.085, bandR = wide ? 0.085 : 0.045, step = Math.floor(tt * .5);
+      var tt = (now - t0) / 1000, wide = cw > 700, bandY = 0.12, bandR = wide ? 0.16 : 0.07, step = Math.floor(tt * .5);
       ctx.clearRect(0, 0, cw, chh);
-      var maxRow = Math.min(rows, Math.ceil((wide ? .5 : .14) * rows));
+      var maxRow = Math.min(rows, Math.ceil((wide ? .82 : .24) * rows));
       for (var yi = 0; yi < maxRow; yi++) for (var xi = 0; xi < cols; xi++) {
         var px = (xi + .5) / cols, py = (yi + .5) / rows;
         var wave = .5 + .5 * Math.sin(px * 9 + tt * .2) * Math.sin(px * 3.7 - tt * .11 + 1.3);
         var dyb = (py - bandY) / bandR, v = Math.exp(-dyb * dyb) * wave;
-        if (wide) { var dl = Math.pow((px - .07) / .11, 2) + Math.pow((py - .31) / .13, 2), dr = Math.pow((px - .93) / .11, 2) + Math.pow((py - .31) / .13, 2); v += .7 * Math.exp(-dl) * (.5 + .5 * Math.sin(tt * .3 + py * 9 + px * 20)) + .7 * Math.exp(-dr) * (.5 + .5 * Math.cos(tt * .27 + py * 9 + px * 20)); }
+        if (wide) { var dl = Math.pow((px - .06) / .11, 2) + Math.pow((py - .55) / .24, 2), dr = Math.pow((px - .94) / .11, 2) + Math.pow((py - .55) / .24, 2); v += .7 * Math.exp(-dl) * (.5 + .5 * Math.sin(tt * .3 + py * 9 + px * 20)) + .7 * Math.exp(-dr) * (.5 + .5 * Math.cos(tt * .27 + py * 9 + px * 20)); }
         v = v * (.8 + .2 * hash(xi + step, yi)) - .22; if (v <= .05) continue;
         var g = ramp[Math.min(ramp.length - 1, Math.floor(v * ramp.length))]; if (g === ' ') continue;
         ctx.fillStyle = 'rgba(114, 193, 255, ' + Math.min(.85, .2 + v * .6).toFixed(2) + ')'; ctx.fillText(g, xi * cell, yi * line);
@@ -352,6 +352,25 @@
       el.addEventListener('pointerleave', function () { el.style.transform = ''; });
     });
   }
+
+  /* ---------- Dark hero mark (Front Page artifact): loads right away, the SVG mark stays until the first frame ---------- */
+  var darkBox = document.querySelector('[data-mark-dark]');
+  if (darkBox && motion && !(navigator.connection && navigator.connection.saveData) && (navigator.deviceMemory || 4) >= 2 && !/[?&]mark=poster/.test(location.search)) {
+    (function () { var ok = false; try { var c = document.createElement('canvas'); ok = !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (err) { ok = false; }
+      if (!ok) return; import('/assets/js/mark-dark.js').then(function (m) { return m.init(darkBox, { isMobile: !desktop() || !fine }); }).catch(function (err) { if (window.console) console.warn('mark-dark', err); }); })();
+  }
+
+  /* ---------- Services console: hover or focus picks a service, auto-advances while in view ---------- */
+  document.querySelectorAll('[data-svc]').forEach(function (root) {
+    var items = Array.prototype.slice.call(root.querySelectorAll('.svc__item')), rows = Array.prototype.slice.call(root.querySelectorAll('.svc__row')), screens = Array.prototype.slice.call(root.querySelectorAll('.svc__screen'));
+    var cur = 0, timer = null, hover = false, inView = false;
+    function go(i) { cur = i; items.forEach(function (it, k) { var on = k === i; it.classList.toggle('is-on', on); var r = it.querySelector('.svc__row'); if (r) r.setAttribute('aria-expanded', on ? 'true' : 'false'); }); screens.forEach(function (sc, k) { sc.classList.toggle('is-on', k === i); }); }
+    function restart() { if (timer) clearInterval(timer); timer = setInterval(function () { if (inView && !hover && !reduce && !document.hidden) go((cur + 1) % items.length); }, 6000); }
+    rows.forEach(function (r, i) { r.addEventListener('click', function () { go(i); restart(); }); r.addEventListener('mouseenter', function () { if (fine) go(i); }); r.addEventListener('focus', function () { go(i); }); });
+    root.addEventListener('mouseenter', function () { hover = true; }); root.addEventListener('mouseleave', function () { hover = false; });
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { inView = en[0].isIntersecting; }, { threshold: .25 }).observe(root); else inView = true;
+    restart();
+  });
 
   /* ---------- 3D mark (hero object, scroll-bound to the hero), gated and lazy ---------- */
   var markBox = document.querySelector('[data-mark-3d]');

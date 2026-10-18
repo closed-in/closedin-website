@@ -127,7 +127,7 @@ function layout() {
   const build = (si) => {
     const sn = snakes[si], n = sn.items.length, x = laneX[si];
     const slots = sn.items.map((_, k) => ({ x, y: Y(k) }));
-    const startY = top0 - rowP * 2;
+    const startY = top0 - rowP * .9;                        // just above the clipped lane top: the first icon shows as soon as the chain moves
     sn.path.setAttribute('d', `M${x},${startY} L${x},${Y(n - 1)}`);
     const slotS = slots.map(sl => sl.y - startY);
     const posAt = s_ => ({ x, y: startY + s_ });
@@ -155,19 +155,19 @@ function layout() {
     const si = snakes.findIndex(sn => sn.items.some(it => it.key === w.key)), sn = snakes[si], it = sn.items.find(x => x.key === w.key), g = S[si];
     const headAt = g.slotS[it.i] + (sn.items.length - 1 - it.i) * gap + g.o;
     w.lane = si; w.item = it;
-    w.landP = FILL0 + (headAt + gap * 1.5) / (hEnd + gap * 1.5) * (FILL1 - FILL0);
+    w.landP = FILL0 + (headAt + gap * LEAD) / (hEnd + gap * LEAD) * (FILL1 - FILL0);
   });
   dirty = true; wins.forEach(w => { w.last = -1; });
 }
 
 // ── timeline ──
-// 0.04–0.80  both snakes slide in from the top; Clay, Instantly, Apollo, Claude and n8n each open their window the moment they land
-// 0.80–1.00  hold on the full picture, then the page continues
-const FILL0 = .02, FILL1 = .64, WOPEN = .07;   /* icons land within the first two thirds of the scroll, then the full picture holds */
+// 0–0.70  both snakes slide in from the top (already moving before the pin); Clay, Instantly, Apollo, Claude and n8n each open their window the moment they land
+// 0.70–1.00  hold on the full picture, then the page continues
+const FILL0 = 0, FILL1 = .70, WOPEN = .06, LEAD = .4, PRE = .5;   /* the chains start moving while the section is still scrolling in (PRE = half a viewport before the pin), land over the first 70% of the pinned scroll, then the full picture holds */
 
 
 let target = 0, p = 0, last = performance.now(), drawnP = -1, dirty = true;
-function read() { const r = stack.getBoundingClientRect(); target = clamp(-r.top / Math.max(1, stack.offsetHeight - innerHeight), 0, 1); }
+function read() { const r = stack.getBoundingClientRect(), pre = innerHeight * PRE; target = clamp((pre - r.top) / Math.max(1, stack.offsetHeight - innerHeight + pre), 0, 1); }
 
 function frame(now) {
   const dt = Math.min(64, now - last); last = now;
@@ -181,7 +181,7 @@ function frame(now) {
 
   // the snakes
   let landed = 0;
-  const headAll = -G.gap * 1.5 + fill * (G.hEnd + G.gap * 1.5);
+  const headAll = -G.gap * LEAD + fill * (G.hEnd + G.gap * LEAD);
   snakes.forEach((sn, si) => {
     const g = G.S[si], n = sn.items.length, headS = headAll - g.o;
     sn.items.forEach(it => {
