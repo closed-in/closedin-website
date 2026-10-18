@@ -41,6 +41,7 @@ HEAD_LINKS = '''    <link rel="preload" as="font" type="font/woff2" href="/asset
     <link rel="stylesheet" href="/assets/vendor/lenis-1.3.26/lenis.css">
     <link rel="stylesheet" href="/assets/css/site.css">
     <link rel="stylesheet" href="/assets/css/pages.css">
+    <script defer src="/assets/js/veil.js"></script>
     <script defer src="/assets/vendor/gsap-3.15.0/gsap.min.js"></script>
     <script defer src="/assets/vendor/gsap-3.15.0/ScrollTrigger.min.js"></script>
     <script defer src="/assets/vendor/lenis-1.3.26/lenis.min.js"></script>
