@@ -154,9 +154,9 @@ function layout() {
 
 // ── timeline ──
 // dock timeline: every icon sits in place, grey, from the start (the progress starts PRE viewports before the pin)
-// 0.05–0.60  Clay, Instantly, Apollo, Claude, n8n light up one by one and their window grows out of the icon
-// 0.66–0.82  the rest of the stack and the CRMs light up in one quick wave, top to bottom
-// 0.82–1.00  hold on the full picture
+// 0.05 to 0.60  Clay, Instantly, Apollo, Claude, n8n light up one by one and their window grows out of the icon
+// 0.66 to 0.82  the rest of the stack and the CRMs light up in one quick wave, top to bottom
+// 0.82 to 1.00  hold on the full picture
 const WOPEN = .07, FEAT0 = .05, FEATSTEP = .12, WAVE0 = .66, WAVE1 = .82, PRE = .3;
 const rest = [];
 [1, 2].forEach(si => snakes[si].items.forEach(it => rest.push(it)));

@@ -6,17 +6,26 @@ root = pathlib.Path(__file__).resolve().parent.parent
 def block(text, start, end, inclusive_end=True):
     i = text.find(start)
     if i < 0: return None
+    if isinstance(end, tuple):   # (marker, closing): up to and including the first closing string after the marker
+        j = text.find(end[0], i)
+        if j < 0: return None
+        j = text.find(end[1], j)
+        return None if j < 0 else text[i: j + len(end[1])]
     j = text.find(end, i)
     if j < 0: return None
     return text[i: j + (len(end) if inclusive_end else 0)]
 BLOCKS = [
-    ("head trackers", '<script defer src="/_vercel/insights/script.js"></script>', "gtag('config', 'G-WK7J5NHB0C');\n    </script>"),
+    ("head trackers", '<script defer src="/_vercel/insights/script.js"></script>', ("gtag('config', 'G-WK7J5NHB0C');", "</script>")),
     ("json-ld graph", '<script type="application/ld+json">\n    {\n      "@context": "https://schema.org",\n      "@graph"', "</script>"),
     ("prospect pro + stairoids", "<!-- Prospect Pro", "jq_950354e1.js'></script>"),
+    ("stairoids", "<!-- Stairoids", "jq_950354e1.js'></script>"),
     ("cookie banner + claydar", '<div class="cookie-banner" id="cookie-banner">', "})();\n</script>"),
+    ("leadboxer", "<!-- Leadboxer", 'leadboxer.com/?dataset=316eddd7dcb64c2d96481f90418a96c1"></script>'),
     ("leadboxer + subscribe", "<!-- Leadboxer", '<script defer src="/subscribe-form.js"></script>'),
 ]
-PAGES = ["index.html", "case-studies.html", "resources.html", "team.html", "contact.html"]   # pages rebuilt on the new design system
+PAGES = ["index.html", "case-studies.html", "resources.html", "team.html", "contact.html",   # pages rebuilt on the new design system
+         "blog/index.html", "resources/gtm-stack.html", "resources/n8n-workflows.html", "playbook.html", "tools/roi-calculator.html",
+         "tools/email-verifier.html", "resources/cold-email-templates.html", "resources/clay-waterfall.html"]
 LD = re.compile(r'<script type="application/ld\+json"[^>]*>.*?</script>', re.S)
 def check(name, main, new):
     fails = 0

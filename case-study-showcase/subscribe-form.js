@@ -32,23 +32,39 @@
     return out;
   }
 
+  // The new design (data-theme="light") puts most forms on dark cards and bands: read the surface behind the form
+  // instead of the page theme, so the confirmation and the error note stay legible on both.
+  function surface(form) {
+    var newDesign = document.documentElement.getAttribute('data-theme') === 'light';
+    if (!newDesign) return 'legacy';
+    for (var el = form.parentElement; el && el !== document.documentElement; el = el.parentElement) {
+      var m = (getComputedStyle(el).backgroundColor || '').match(/rgba?\(([^)]+)\)/);
+      if (!m) continue;
+      var c = m[1].split(',').map(parseFloat);
+      if (c.length > 3 && c[3] < 0.5) continue;
+      return (0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]) / 255 < 0.45 ? 'dark' : 'light';
+    }
+    return 'light';
+  }
+
   function showSuccess(form, msg) {
     var wrapper = document.createElement('div');
     wrapper.className = 'subscribe-success';
     wrapper.setAttribute('role', 'status');
-    var light = document.documentElement.getAttribute('data-theme') === 'light';
+    var kind = surface(form), light = kind === 'light', dark = kind === 'dark';
+    var cs = getComputedStyle(form), centered = cs.justifyContent === 'center' || getComputedStyle(form.parentNode).textAlign === 'center';
     wrapper.style.cssText = [
       'padding: 18px 22px',
-      light ? 'background: #f5f5f7' : 'background: rgba(120,119,198,0.08)',
-      light ? 'border: 1px solid rgba(0,0,0,0.08)' : 'border: 1px solid rgba(120,119,198,0.35)',
+      light ? 'background: #f5f5f7' : dark ? 'background: rgba(114,193,255,0.08)' : 'background: rgba(120,119,198,0.08)',
+      light ? 'border: 1px solid rgba(0,0,0,0.08)' : dark ? 'border: 1px solid rgba(114,193,255,0.35)' : 'border: 1px solid rgba(120,119,198,0.35)',
       'border-radius: 14px',
       light ? 'color: #1d1d1f' : 'color: #fff',
       'font-family: inherit',
       'font-size: 14px',
       'line-height: 1.5',
-      'text-align: center',
+      kind === 'legacy' || centered ? 'text-align: center' : 'text-align: left',
       'max-width: 480px',
-      'margin: 0 auto',
+      kind === 'legacy' || centered ? 'margin: 0 auto' : 'margin: 0',
     ].join(';');
     wrapper.innerHTML =
       '<strong style="display:block;margin-bottom:6px;">Check your inbox.</strong>' +
@@ -63,8 +79,8 @@
     if (existing) existing.remove();
     var note = document.createElement('div');
     note.className = 'subscribe-error';
-    var lightErr = document.documentElement.getAttribute('data-theme') === 'light';
-    note.style.cssText = 'margin-top:10px;font-size:13px;color:' + (lightErr ? '#c0262d' : '#ff9b9b') + ';text-align:center;';
+    var lightErr = surface(form) === 'light';
+    note.style.cssText = 'margin-top:10px;font-size:13px;color:' + (lightErr ? '#c0262d' : '#ff9b9b') + ';text-align:center;flex-basis:100%;';
     note.textContent = msg || 'Something went wrong. Try again or check your email format.';
     form.appendChild(note);
   }
@@ -88,12 +104,13 @@
   function setButtonState(form, state) {
     var btn = form.querySelector('button[type="submit"], button:not([type])');
     if (!btn) return;
+    var label = btn.querySelector('.txt') || btn;   // the new accent button keeps its arrow and ripple
     if (state === 'loading') {
-      btn.dataset._origText = btn.textContent;
-      btn.textContent = 'Sending...';
+      btn.dataset._origText = label.textContent;
+      label.textContent = 'Sending...';
       btn.disabled = true;
     } else if (state === 'reset') {
-      if (btn.dataset._origText) btn.textContent = btn.dataset._origText;
+      if (btn.dataset._origText) label.textContent = btn.dataset._origText;
       btn.disabled = false;
     }
   }
