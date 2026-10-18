@@ -306,30 +306,46 @@
   })();
 
 
-  /* ---------- Learn: a slow field of monospace glyphs in the accent colour (a wave band along the top, two soft shapes beside the title), only while on screen ---------- */
+  /* ---------- Glyph fields (Firecrawl-style): a slow field of monospace glyphs in the accent colour behind every section marked data-glyphs. The preset says where the shapes sit; a band breathes in waves, the side shapes drift; drawn at ~10 fps and only while the section is on screen. ---------- */
   (function () {
-    var cv = document.querySelector('.learn__ascii'); if (!cv || reduce) return;
-    var ctx = cv.getContext('2d'), sec = cv.parentNode, cw = 0, chh = 0, cols = 0, rows = 0, dpr = Math.min(devicePixelRatio || 1, 2), cell = 11, line = 15, ramp = ' .:-=+*#', live = false, t0 = performance.now(), last = 0;
-    var size = function () { var r = sec.getBoundingClientRect(); cw = Math.round(r.width); chh = Math.round(r.height); cv.width = cw * dpr; cv.height = chh * dpr; cv.style.width = cw + 'px'; cv.style.height = chh + 'px'; cols = Math.ceil(cw / cell); rows = Math.ceil(chh / line); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.font = '12px ui-monospace, "SF Mono", Menlo, monospace'; ctx.textBaseline = 'top'; };
-    var hash = function (x, y) { var n = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return n - Math.floor(n); };
-    var draw = function (now) {
-      if (!live) return; if (now - last < 100) { requestAnimationFrame(draw); return; } last = now;
-      var tt = (now - t0) / 1000, wide = cw > 700, bandY = 0.12, bandR = wide ? 0.16 : 0.07, step = Math.floor(tt * .5);
-      ctx.clearRect(0, 0, cw, chh);
-      var maxRow = Math.min(rows, Math.ceil((wide ? .82 : .24) * rows));
-      for (var yi = 0; yi < maxRow; yi++) for (var xi = 0; xi < cols; xi++) {
-        var px = (xi + .5) / cols, py = (yi + .5) / rows;
-        var wave = .5 + .5 * Math.sin(px * 9 + tt * .2) * Math.sin(px * 3.7 - tt * .11 + 1.3);
-        var dyb = (py - bandY) / bandR, v = Math.exp(-dyb * dyb) * wave;
-        if (wide) { var dl = Math.pow((px - .06) / .11, 2) + Math.pow((py - .55) / .24, 2), dr = Math.pow((px - .94) / .11, 2) + Math.pow((py - .55) / .24, 2); v += .7 * Math.exp(-dl) * (.5 + .5 * Math.sin(tt * .3 + py * 9 + px * 20)) + .7 * Math.exp(-dr) * (.5 + .5 * Math.cos(tt * .27 + py * 9 + px * 20)); }
-        v = v * (.8 + .2 * hash(xi + step, yi)) - .22; if (v <= .05) continue;
-        var g = ramp[Math.min(ramp.length - 1, Math.floor(v * ramp.length))]; if (g === ' ') continue;
-        ctx.fillStyle = 'rgba(114, 193, 255, ' + Math.min(.85, .2 + v * .6).toFixed(2) + ')'; ctx.fillText(g, xi * cell, yi * line);
-      }
-      requestAnimationFrame(draw);
+    if (reduce) return;
+    var secs = document.querySelectorAll('[data-glyphs]'); if (!secs.length) return;
+    var ramp = ' .:-=+*#', hash = function (x, y) { var n = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return n - Math.floor(n); };
+    var PRESETS = {
+      top: [{ x: .5, y: .12, rx: .62, ry: .16, band: 1 }, { x: .06, y: .55, rx: .11, ry: .24 }, { x: .94, y: .55, rx: .11, ry: .24 }],
+      bottom: [{ x: .5, y: .94, rx: .62, ry: .12, band: 1 }, { x: .04, y: .35, rx: .09, ry: .2 }, { x: .96, y: .35, rx: .09, ry: .2 }],
+      corners: [{ x: .05, y: .9, rx: .2, ry: .16 }, { x: .95, y: .88, rx: .2, ry: .16 }],
+      right: [{ x: .94, y: .2, rx: .16, ry: .2 }, { x: .04, y: .82, rx: .1, ry: .16 }],
+      left: [{ x: .06, y: .22, rx: .16, ry: .2 }, { x: .96, y: .84, rx: .1, ry: .16 }]
     };
-    size(); window.addEventListener('resize', size);
-    if ('IntersectionObserver' in window) { new IntersectionObserver(function (en) { var on = en[0].isIntersecting; if (on && !live) { live = true; requestAnimationFrame(draw); } else if (!on) { live = false; } }, { rootMargin: '10% 0px' }).observe(sec); } else { live = true; requestAnimationFrame(draw); }
+    secs.forEach(function (sec, si) {
+      var cv = document.createElement('canvas'); cv.className = 'glyphs'; cv.setAttribute('aria-hidden', 'true'); sec.insertBefore(cv, sec.firstChild);
+      var shapes = PRESETS[sec.getAttribute('data-glyphs')] || PRESETS.top;
+      var ctx = cv.getContext('2d'), cw = 0, ch = 0, cols = 0, rows = 0, dpr = Math.min(devicePixelRatio || 1, 2), cell = 11, line = 15, live = false, t0 = performance.now() - si * 7300, last = 0;
+      var size = function () { var r = sec.getBoundingClientRect(); var w = Math.round(r.width), h = Math.round(r.height); if (w === cw && h === ch) return; cw = w; ch = h; cv.width = cw * dpr; cv.height = ch * dpr; cv.style.width = cw + 'px'; cv.style.height = ch + 'px'; cols = Math.ceil(cw / cell); rows = Math.ceil(ch / line); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.font = '12px ui-monospace, "SF Mono", Menlo, monospace'; ctx.textBaseline = 'top'; };
+      var draw = function (now) {
+        if (!live) return; if (now - last < 100) { requestAnimationFrame(draw); return; } last = now;
+        var tt = (now - t0) / 1000, wide = cw > 700, step = Math.floor(tt * .5);
+        ctx.clearRect(0, 0, cw, ch);
+        for (var yi = 0; yi < rows; yi++) for (var xi = 0; xi < cols; xi++) {
+          var px = (xi + .5) / cols, py = (yi + .5) / rows, v = 0;
+          for (var k = 0; k < shapes.length; k++) {
+            var sh = shapes[k]; if (!wide && !sh.band) continue;
+            var dx = (px - sh.x) / sh.rx, dy = (py - sh.y) / sh.ry, d2 = dx * dx + dy * dy; if (d2 > 4) continue;
+            var wave = sh.band ? .5 + .5 * Math.sin(px * 9 + tt * .2) * Math.sin(px * 3.7 - tt * .11 + 1.3) : .5 + .5 * Math.sin(tt * .3 + py * 9 + px * 20 + k);
+            v += Math.exp(-d2) * wave * (sh.band ? 1 : .7);
+          }
+          if (v <= .1) continue;
+          v = v * (.8 + .2 * hash(xi + step, yi)) - .22; if (v <= .05) continue;
+          var g = ramp[Math.min(ramp.length - 1, Math.floor(v * ramp.length))]; if (g === ' ') continue;
+          ctx.fillStyle = 'rgba(114, 193, 255, ' + Math.min(.85, .2 + v * .6).toFixed(2) + ')'; ctx.fillText(g, xi * cell, yi * line);
+        }
+        requestAnimationFrame(draw);
+      };
+      size(); window.addEventListener('resize', size);
+      if ('ResizeObserver' in window) new ResizeObserver(size).observe(sec);
+      if ('IntersectionObserver' in window) { new IntersectionObserver(function (en) { var on = en[0].isIntersecting; if (on && !live) { live = true; requestAnimationFrame(draw); } else if (!on) { live = false; } }, { rootMargin: '10% 0px' }).observe(sec); } else { live = true; requestAnimationFrame(draw); }
+    });
   })();
 
   /* ---------- Directional fill: the accent enters the arrow boxes from the side where the pointer comes in and leaves on the side where it goes out (workflows.io; Max 17-10: boxes stay static) ---------- */

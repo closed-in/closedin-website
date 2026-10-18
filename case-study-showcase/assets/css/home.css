@@ -495,7 +495,9 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 /* learn: rounded frame and the moving glyph field behind it */
 .learn { position: relative; overflow: hidden; }
 .learn .container { position: relative; z-index: 1; }
-.learn__ascii { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: .9; }
+[data-glyphs] { position: relative; }
+[data-glyphs] > .glyphs { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: .9; }
+[data-glyphs] > .container, [data-glyphs] > .stories__wrap, [data-glyphs] > .quotes__wrap, [data-glyphs] > .frame { position: relative; z-index: 1; }
 .learn__cards { border-radius: 18px; overflow: hidden; }
 .learn-card__go { border-radius: 8px; }
 

@@ -4,6 +4,8 @@ import * as THREE from 'three';
 
 export function init(host, opts = {}) {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* Light balance, matched against the artifact rendered side by side (18-10): white key light up, the blue front light down, edge glow near white, bump high enough for the white glitter on the black faces */
+  const KEY = 2.5, RIM = 1.5, GLOW = 0.3, BUMP = 3.5, EDGE = 0xdbeeff, STRIP_BLUE = 0.5;
   const isMobile = !!opts.isMobile;
   const LIGHT = 0.8, ACCENT = 0x72C1FF, PI = Math.PI;
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
@@ -18,7 +20,7 @@ export function init(host, opts = {}) {
 
   const inkMat = new THREE.MeshPhysicalMaterial({ color: 0x0f1115, metalness: 0.65, roughness: 0.28, clearcoat: 1, clearcoatRoughness: 0.02, reflectivity: 0.8 });
   const dotMat = inkMat.clone(); dotMat.emissive = new THREE.Color(0xbfe3ff); dotMat.emissiveIntensity = 0;
-  const edgeMat = inkMat.clone(); edgeMat.color.set(0x05070a); edgeMat.emissive = new THREE.Color(ACCENT); edgeMat.emissiveIntensity = 1.7;
+  const edgeMat = inkMat.clone(); edgeMat.color.set(0x05070a); edgeMat.emissive = new THREE.Color(EDGE); edgeMat.emissiveIntensity = 1.7;
   const ALL = [inkMat, dotMat, edgeMat];
 
   /* geometry in the favicon's 500-unit grid, centred on (250, 250) */
@@ -52,7 +54,7 @@ export function init(host, opts = {}) {
   const pmrem = new THREE.PMREMGenerator(renderer);
   const envScene = new THREE.Scene();
   envScene.add(new THREE.Mesh(new THREE.SphereGeometry(60, 32, 16), new THREE.MeshBasicMaterial({ color: 0x030405, side: THREE.BackSide })));
-  [[-8, 10, 6, 26, 1.2, 6.0, 0xeef4ff], [9, -3, 5, 1.0, 22, 3.0, 0xffffff], [2, 6, -10, 18, 1.6, 4.0, ACCENT]].forEach(([x, y, z, w, h, k, col]) => {
+  [[-8, 10, 6, 26, 1.2, 6.0, 0xeef4ff], [9, -3, 5, 1.0, 22, 3.0, 0xffffff], [2, 6, -10, 18, 1.6, 4.0 * STRIP_BLUE, ACCENT]].forEach(([x, y, z, w, h, k, col]) => {
     const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: new THREE.Color(col).multiplyScalar(k), side: THREE.DoubleSide }));
     m.position.set(x, y, z); m.lookAt(0, 0, 0); envScene.add(m);
   });
@@ -65,16 +67,15 @@ export function init(host, opts = {}) {
   { const n = isMobile ? 256 : 512, c = document.createElement('canvas'); c.width = c.height = n; const g = c.getContext('2d'); const img = g.createImageData(n, n), d = img.data, sc = 512 / n;
     for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) { const X = x * sc, Y = y * sc; const f = fbm(X * 0.012, Y * 0.012); const v = Math.max(0, Math.min(255, 128 + Math.sin(f * 14 + X * 0.02) * 60 + (fbm(X * 0.05, Y * 0.05) - 0.5) * 60)); const i = (y * n + x) * 4; d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = 255; }
     g.putImageData(img, 0, 0); const tex = new THREE.CanvasTexture(c); tex.wrapS = tex.wrapT = THREE.RepeatWrapping; tex.repeat.set(2, 2);
-    /* bumpScale 0.6 here gives the fine white speckles the artifact had at 0.02 in r128: the bump derivative scales differently in this three version */
-    ALL.forEach((m) => { m.bumpMap = tex; m.bumpScale = 0.6; m.roughnessMap = tex; m.roughness = 0.06; m.clearcoatRoughness = 0.02; m.envMapIntensity = 0.9 * LIGHT; });
+    ALL.forEach((m) => { m.bumpMap = tex; m.bumpScale = BUMP; m.roughnessMap = tex; m.roughness = 0.06; m.clearcoatRoughness = 0.02; m.envMapIntensity = 0.9 * LIGHT; });
     [inkMat, dotMat].forEach((m) => { m.metalness = 0.65; m.roughness = 0.28; }); }
 
   /* lights (three 0.186 uses physical light units, so the artifact's r128 intensities are scaled by pi) */
   scene.add(new THREE.HemisphereLight(0xffffff, 0x3a4250, 0.12 * LIGHT * PI));
-  const key = new THREE.DirectionalLight(0xffffff, 0.45 * LIGHT * PI); key.position.set(-4, 5, 5); key.castShadow = true; key.shadow.mapSize.set(1024, 1024); key.shadow.bias = -0.0005; key.shadow.normalBias = 0.01; scene.add(key);
+  const key = new THREE.DirectionalLight(0xffffff, 0.45 * LIGHT * PI * KEY); key.position.set(-4, 5, 5); key.castShadow = true; key.shadow.mapSize.set(1024, 1024); key.shadow.bias = -0.0005; key.shadow.normalBias = 0.01; scene.add(key);
   const fill = new THREE.DirectionalLight(0xdbe9ff, 0.08 * LIGHT * PI); fill.position.set(4, -1, 3); scene.add(fill);
-  const rim = new THREE.DirectionalLight(0xffffff, 1.4 * LIGHT * PI); rim.position.set(2, 2, -5); scene.add(rim);
-  const glow = new THREE.PointLight(ACCENT, 0.7 * LIGHT * PI, 6, 2); glow.position.set(0, 0, 1.6); scene.add(glow);
+  const rim = new THREE.DirectionalLight(0xffffff, 1.4 * LIGHT * PI * RIM); rim.position.set(2, 2, -5); scene.add(rim);
+  const glow = new THREE.PointLight(ACCENT, 0.7 * LIGHT * PI * GLOW, 6, 2); glow.position.set(0, 0, 1.6); scene.add(glow);
 
   /* state machine: idle, spin (cw, ccw, flip), pause, open, hold, click */
   const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
@@ -124,7 +125,7 @@ export function init(host, opts = {}) {
     dotMat.emissiveIntensity = clickKick * 0.9;
     edgeMat.emissiveIntensity = 1.7 * (0.85 + Math.sin(t * 1.6) * 0.15 + clickKick * 0.8);
     host.style.setProperty('--pulse', (0.9 + Math.sin(t * 1.6) * 0.1 + clickKick * 0.6).toFixed(3));
-    glow.intensity = (0.7 * LIGHT + clickKick * 2.2) * PI;
+    glow.intensity = (0.7 * LIGHT + clickKick * 2.2) * PI * GLOW;
     renderer.render(scene, camera);
     if (!live) { live = true; host.classList.add('is-live'); }
   }

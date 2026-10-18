@@ -130,8 +130,8 @@ function layout() {
   const S = [build(0), build(1), build(2)];
   const hEnd = Math.max(...S.map(g => g.Hend + g.o));
   // windows: the left four-fifths, two on top (Clay, Instantly), three below (Apollo, Claude, n8n)
-  const wx0 = gx, wx1 = sx0 - (narrow ? 12 : 28), wy0 = gy + (head.offsetHeight || 60) + 14, wy1 = PH - gy * .6, pg = narrow ? 8 : 14;
-  const W = wx1 - wx0, H = wy1 - wy0, hTop = (H - pg) * .62, hBot = H - pg - hTop;
+  const wx0 = gx, wx1 = sx0 - (narrow ? 12 : 28), wy0 = gy + (head.offsetHeight || 60) + 14, wy1 = PH - gy * .4, pg = narrow ? 8 : 14;
+  const W = wx1 - wx0, H = wy1 - wy0, hTop = (H - pg) * .56, hBot = H - pg - hTop;   // 18-10: bottom row taller, so the n8n preview gets room
   stack.classList.toggle('stack--short', hTop < 400); stack.classList.toggle('stack--xshort', hTop < 345);   // short laptops: tighter type, then drop the photo and post header
   const w2 = (W - pg) / 2, w3 = (W - pg * 2) / 3;
   const rects = narrow
