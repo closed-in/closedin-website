@@ -306,6 +306,7 @@
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.font = '12px ui-monospace, "SF Mono", Menlo, monospace'; ctx.textBaseline = 'top';
       };
       var release = function () { cv.width = 0; cv.height = 0; cw = ch = 0; };   /* frees the pixels; the element stays */
+      var hasBand = shapes.some(function (sh) { return sh.band; }), drawable = function (w) { return w > 700 || hasBand; };   /* phones draw only the bands: a corner-only field stays empty there, so it gets no pixels */
       var draw = function () {
         timer = 0; if (!live || !ctx || !cw) return;
         var tt = (performance.now() - t0) / 1000, wide = cw > 700, step = Math.floor(tt * .5), q, k;
@@ -329,10 +330,10 @@
       };
       new IntersectionObserver(function (en) {
         var e = en[en.length - 1];
-        if (e.isIntersecting) { size(e.boundingClientRect.width, e.boundingClientRect.height); if (!live) { live = true; if (!timer) requestAnimationFrame(draw); } }
+        if (e.isIntersecting && drawable(e.boundingClientRect.width)) { size(e.boundingClientRect.width, e.boundingClientRect.height); if (!live) { live = true; if (!timer) requestAnimationFrame(draw); } }
         else if (live) { live = false; if (timer) { clearTimeout(timer); timer = 0; } release(); }
       }, { rootMargin: '10% 0px' }).observe(sec);
-      if ('ResizeObserver' in window) new ResizeObserver(function (en) { if (!live) return; var b = en[0].borderBoxSize && en[0].borderBoxSize[0]; if (b) size(b.inlineSize, b.blockSize); else { var r = sec.getBoundingClientRect(); size(r.width, r.height); } }).observe(sec);
+      if ('ResizeObserver' in window) new ResizeObserver(function (en) { if (!live) return; var b = en[0].borderBoxSize && en[0].borderBoxSize[0], w, h; if (b) { w = b.inlineSize; h = b.blockSize; } else { var r = sec.getBoundingClientRect(); w = r.width; h = r.height; } if (!drawable(w)) { live = false; if (timer) { clearTimeout(timer); timer = 0; } release(); return; } size(w, h); }).observe(sec);
     });
   })();
 
