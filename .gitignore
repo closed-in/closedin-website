@@ -5,3 +5,7 @@ case-study-showcase/index-light.html
 case-study-showcase/wall/src/
 mock-claycup-inspiration.html
 research/reference-sites/
+
+# lokale Claude-instellingen en macOS-bestanden horen niet in de repo
+.claude/settings.local.json
+.DS_Store
