@@ -1,4 +1,4 @@
-/* The stack: two lanes of tool icons slide in as you scroll and five of them open a window (ported from Max' artifact, 18-10-2026). */
+/* The stack dock: every tool icon sits in place, grey; as you scroll the five partners light up one by one and open their window, then the rest of the stack and the CRMs light up in one wave. A glowing line with a character stream runs down the divider (ported from Max' Stack Dock artifact, 18-10-2026). */
 
 (() => {
 // logos: closedin.io/logos, plus the official app icons of the tools that weren't on the site yet
@@ -56,6 +56,11 @@ const mkPath = () => { const p = document.createElementNS(svgNS, 'path'); p.setA
 const LANES = [STACK.filter(s => s[4]), STACK.filter(s => !s[4]), CRM];
 const labels = ['<b>Toolstack</b>', '<b>CRM</b>'].map(h => { const lab = document.createElement('div'); lab.className = 'lane-label'; lab.innerHTML = h; snakesEl.appendChild(lab); return lab; });
 const sep = document.createElement('span'); sep.className = 'lane-sep'; snakesEl.appendChild(sep);
+const prog = document.createElement('span'); prog.className = 'lane-prog'; prog.innerHTML = '<i></i><b></b>'; snakesEl.appendChild(prog);
+const progFill = prog.firstChild, progDot = prog.lastChild;
+// Firecrawl-style character stream behind the divider: always moving a little, accent blue where the scroll has been
+const asc = document.createElement('canvas'); asc.className = 'lane-ascii'; snakesEl.insertBefore(asc, prog);
+const actx = asc.getContext('2d'); let AW = 0, AH = 0, APF = 0;
 const snakes = LANES.map((list, si) => {
   const path = mkPath();
   const items = list.map(([key, name, fit, color, win], i) => {
@@ -71,23 +76,6 @@ const snakes = LANES.map((list, si) => {
   return { list, path, items };
 });
 
-// the Clay Cup photo: fit the full 16:9 frame inside the room the row has, never crop it
-(() => {
-  const body = document.querySelector('#w-clay .w-body'), row = body && body.querySelector('.clay-row'), fig = row && row.querySelector('figure'), wrap = body && body.querySelector('.badge-wrap');
-  if (!row || !fig || !('ResizeObserver' in window)) return;
-  row.style.flex = '0 0 auto';                                             // the row is exactly as tall as the photo, so the badge sits right under it
-  const fit = () => {
-    const W = body.clientWidth; if (!W || !body.clientHeight) return;
-    const gap = parseFloat(getComputedStyle(body).rowGap) || 0;
-    let used = 0, n = 0;
-    for (const c of body.children) { n++; if (c !== row) used += c.offsetHeight; }
-    const H = body.clientHeight - used - gap * (n - 1) - 16;              // 16px kept free above the button, so the badge is clearly closer to the photo
-    let w = W, h = W * 9 / 16; if (h > H) { h = Math.max(40, H); w = h * 16 / 9; }
-    fig.style.width = w + 'px'; fig.style.height = h + 'px'; row.style.height = h + 'px';
-    if (wrap) wrap.style.width = w + 'px';
-  };
-  new ResizeObserver(fit).observe(body); fit();
-})();
 
 // hover tip
 const tip = document.createElement('div'); tip.className = 'tip'; pin.appendChild(tip);
@@ -121,6 +109,10 @@ function layout() {
   snakesEl.style.setProperty('--d', d + 'px');
   lanesEl.style.clipPath = `inset(${labH + 4}px -40px -40px -40px)`;              // icons appear from just under the lane labels
   Object.assign(sep.style, { left: sepX + 'px', top: (labH + 6) + 'px', bottom: '0px' });
+  Object.assign(prog.style, { left: sepX + 'px', top: (labH + 6) + 'px', bottom: '0px' });
+  { const dpr = Math.min(2, devicePixelRatio || 1); AW = Math.round(Math.min(46, SA * .16)); AH = Math.round(sH - labH - 6);
+    asc.width = AW * dpr; asc.height = AH * dpr; Object.assign(asc.style, { left: sepX + 'px', top: (labH + 6) + 'px', width: AW + 'px', height: AH + 'px' });
+    actx.setTransform(dpr, 0, 0, dpr, 0, 0); }
   labels[0].style.left = (laneX[0] + laneX[1]) / 2 + 'px'; labels[1].style.left = laneX[2] + 'px';
   const Y = r => top0 + rowP * (r + .5);
   const gap = rowP * .72;                                     // a bit closer than the slots (so the top slot lands first), but wide enough that moving icons never overlap
@@ -128,7 +120,7 @@ function layout() {
     const sn = snakes[si], n = sn.items.length, x = laneX[si];
     const slots = sn.items.map((_, k) => ({ x, y: Y(k) }));
     const startY = top0 - rowP * .9;                        // just above the clipped lane top: the first icon shows as soon as the chain moves
-    sn.path.setAttribute('d', `M${x},${startY} L${x},${Y(n - 1)}`);
+    sn.path.setAttribute('d', '');
     const slotS = slots.map(sl => sl.y - startY);
     const posAt = s_ => ({ x, y: startY + s_ });
     sn.items.forEach((it, k) => { it.hole.style.left = slots[k].x + 'px'; it.hole.style.top = slots[k].y + 'px'; });
@@ -155,15 +147,21 @@ function layout() {
     const si = snakes.findIndex(sn => sn.items.some(it => it.key === w.key)), sn = snakes[si], it = sn.items.find(x => x.key === w.key), g = S[si];
     const headAt = g.slotS[it.i] + (sn.items.length - 1 - it.i) * gap + g.o;
     w.lane = si; w.item = it;
-    w.landP = FILL0 + (headAt + gap * LEAD) / (hEnd + gap * LEAD) * (FILL1 - FILL0);
+    w.landP = FEAT0 + wins.indexOf(w) * FEATSTEP; it.act = w.landP;
   });
   dirty = true; wins.forEach(w => { w.last = -1; });
 }
 
 // ── timeline ──
-// 0–0.70  both snakes slide in from the top (already moving before the pin); Clay, Instantly, Apollo, Claude and n8n each open their window the moment they land
-// 0.70–1.00  hold on the full picture, then the page continues
-const FILL0 = 0, FILL1 = .70, WOPEN = .06, LEAD = .4, PRE = .5;   /* the chains start moving while the section is still scrolling in (PRE = half a viewport before the pin), land over the first 70% of the pinned scroll, then the full picture holds */
+// dock timeline: every icon sits in place, grey, from the start (the progress starts PRE viewports before the pin)
+// 0.05–0.60  Clay, Instantly, Apollo, Claude, n8n light up one by one and their window grows out of the icon
+// 0.66–0.82  the rest of the stack and the CRMs light up in one quick wave, top to bottom
+// 0.82–1.00  hold on the full picture
+const WOPEN = .07, FEAT0 = .05, FEATSTEP = .12, WAVE0 = .66, WAVE1 = .82, PRE = .3;
+const rest = [];
+[1, 2].forEach(si => snakes[si].items.forEach(it => rest.push(it)));
+rest.sort((a, b) => a.i - b.i);
+rest.forEach((it, k) => { it.act = WAVE0 + k / Math.max(1, rest.length - 1) * (WAVE1 - WAVE0); });
 
 
 let target = 0, p = 0, last = performance.now(), drawnP = -1, dirty = true;
@@ -177,22 +175,25 @@ function frame(now) {
   if (p === drawnP && !dirty) { requestAnimationFrame(frame); return; }      // nothing moved: skip the frame's work
   drawnP = p; dirty = false;
 
-  const fill = clamp((p - FILL0) / (FILL1 - FILL0), 0, 1);
-
-  // the snakes
+  // the dock: icons stay in their slot and light up at their moment; the featured five grow a little while their window opens
   let landed = 0;
-  const headAll = -G.gap * LEAD + fill * (G.hEnd + G.gap * LEAD);
   snakes.forEach((sn, si) => {
-    const g = G.S[si], n = sn.items.length, headS = headAll - g.o;
+    const g = G.S[si];
     sn.items.forEach(it => {
-      const j = n - 1 - it.i, dest = g.slotS[it.i], want = headS - j * g.gap;
-      const s = Math.min(dest, want), arrived = want >= dest, q = g.posAt(s);
-      const tf = `translate3d(${q.x.toFixed(1)}px, ${q.y.toFixed(1)}px, 0) scale(${arrived ? 1 : .86})`;
-      if (tf !== it.tf) { it.el.style.transform = tf; it.tf = tf; }
+      const q = g.slots[it.i], arrived = p >= it.act;
+      const nowOn = !!it.win && arrived && p < it.act + FEATSTEP;
+      if (nowOn !== it.el.classList.contains('on-now')) it.el.classList.toggle('on-now', nowOn);
+      const tf = `${q.x.toFixed(1)}px ${q.y.toFixed(1)}px`;
+      if (tf !== it.tf) { it.el.style.translate = tf; it.tf = tf; }
       if (arrived !== it.el.classList.contains('in')) it.el.classList.toggle('in', arrived);
       if (arrived) landed++;
     });
   });
+
+  // the running line in the divider follows the scroll continuously, so there is always motion between the moments
+  const pf = clamp(p / WAVE1, 0, 1);
+  progFill.style.transform = `scaleY(${pf.toFixed(4)})`;
+  progDot.style.top = (pf * 100).toFixed(3) + '%'; APF = pf;
 
   // the windows grow out of their icon the moment it lands
   wins.forEach(w => {
@@ -216,6 +217,32 @@ function frame(now) {
 
   requestAnimationFrame(frame);
 }
+const CH = " .'`-_,:;^\"~+=*";
+const hash = (a, b) => { const x = Math.sin(a * 127.1 + b * 311.7) * 43758.5453; return x - Math.floor(x); };
+function ascii(now) {
+  if (AW && AH) {
+    const t = reduce ? 0 : now / 1000, cw = 7, rh = 11, cols = Math.floor(AW / cw), rows = Math.ceil(AH / rh), head = APF * AH;
+    actx.clearRect(0, 0, AW, AH);
+    actx.font = '500 10px ui-monospace, "SF Mono", Menlo, monospace'; actx.textAlign = 'center'; actx.textBaseline = 'middle';
+    const ox = (AW - cols * cw) / 2 + cw / 2;
+    for (let r = 0; r < rows; r++) {
+      const y = r * rh + rh / 2, done = y <= head, near = Math.max(0, 1 - Math.abs(y - head) / 70);
+      for (let c = 0; c < cols; c++) {
+        const mid = 1 - Math.abs(c - (cols - 1) / 2) / ((cols + 1) / 2);              // denser towards the line
+        const wave = Math.sin(r * .42 - t * (done ? 5.5 : 2.2) + c * .9) * .5 + .5;     // waves running down
+        const flick = hash(r * 7 + c, Math.floor(t * (done ? 14 : 5) + c * 3.1));       // fast flicker, like Firecrawl
+        let v = wave * .55 + flick * .45; v *= .45 + mid * .75; v += near * .6;
+        if (v < (done ? .42 : .6)) continue;
+        const ch = CH[Math.min(CH.length - 1, Math.floor(v * (CH.length - 1)))];
+        const a = done ? Math.min(1, .35 + v * .55 + near * .3) : .14 + near * .5;
+        actx.fillStyle = done || near > .2 ? `rgba(84,160,240,${a.toFixed(3)})` : `rgba(150,160,185,${a.toFixed(3)})`;
+        actx.fillText(ch, ox + c * cw, y);
+      }
+    }
+  }
+  if (!reduce) requestAnimationFrame(ascii);
+}
+requestAnimationFrame(ascii);
 addEventListener('resize', layout);
 document.fonts?.ready.then(layout);
 layout(); read(); p = target;

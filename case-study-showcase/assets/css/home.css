@@ -169,7 +169,7 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 .cmp th.us, .cmp td.us { background: rgba(114, 193, 255, .10); box-shadow: none; }
 .cmp th.us { border-top: 2px solid var(--accent); background: rgba(114, 193, 255, .16); }
 .cmp th.us span { display: inline-flex; align-items: center; gap: 8px; }
-.cmp th.us img { height: 16px; }
+.cmp th.us img { height: 36px; }   /* Max 18-10: the logo in the comparison head was too small */
 .cmp .yes, .cmp .no { display: inline-grid; place-items: center; width: 22px; height: 22px; }
 .cmp .yes { background: var(--ink); color: #fff; } .cmp .no { background: #e2e5e7; color: #fff; }
 .cmp .yes svg, .cmp .no svg { width: 12px; height: 12px; }
@@ -206,6 +206,20 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 .stack .tok.in img { filter: none; opacity: 1; }
 .stack .tok.in { box-shadow: 0 0 0 1px var(--line-2), 0 10px 22px -12px rgba(12, 13, 14, .45); }
 .stack .tok.feat.in { box-shadow: 0 0 0 2px var(--c), 0 10px 22px -10px var(--c); }
+/* dock (18-10): icons rest in place at 90%, grey; they pop to full size and colour with a ring when their moment comes */
+.stack .hole { display: none; }
+.stack .lane-sep { opacity: 0; }
+.stack .tok { transform-origin: 50% 50%; transition: scale .5s var(--pop), box-shadow .35s ease; scale: .9; will-change: transform; contain: layout paint; }
+.stack .tok img { filter: grayscale(1) contrast(.85) brightness(1.12); opacity: .55; transition: filter .45s ease, opacity .45s ease; }
+.stack .tok.in img { filter: none; opacity: 1; }
+.stack .tok.in { scale: 1; animation: stack-ping .9s ease-out; }
+.stack .tok.feat.on-now { scale: 1.12; }
+@keyframes stack-ping { 0% { box-shadow: 0 0 0 0 var(--c, #b9c3cc), 0 10px 22px -12px rgba(12, 13, 14, .45); } 100% { box-shadow: 0 0 0 14px transparent, 0 10px 22px -12px rgba(12, 13, 14, .45); } }
+.stack .lane-prog { position: absolute; width: 3px; transform: translateX(-50%); }
+.stack .lane-prog i { position: absolute; inset: 0; border-radius: 3px; background: linear-gradient(180deg, rgba(114, 193, 255, .25), var(--accent) 70%); box-shadow: 0 0 6px rgba(114, 193, 255, .9), 0 0 16px rgba(114, 193, 255, .55); transform-origin: 50% 0; transform: scaleY(0); will-change: transform; }
+.stack .lane-prog b { position: absolute; left: 50%; top: 0; width: 11px; height: 11px; border-radius: 50%; background: #fff; border: 3px solid var(--accent); transform: translate(-50%, -50%); box-shadow: 0 0 10px 2px rgba(114, 193, 255, .95), 0 0 28px 8px rgba(114, 193, 255, .5); will-change: top; }
+.stack .lane-ascii { position: absolute; transform: translateX(-50%); pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .stack .tok, .stack .tok img { transition: none; animation: none !important; } }
 .stack .wins { position: absolute; inset: 0; z-index: 5; pointer-events: none; transform-origin: 0 0; }
 .stack .win { position: absolute; inset: 0; display: none; pointer-events: auto; overflow: hidden; color: var(--wfg, #fff); will-change: clip-path; contain: layout paint; }
 .stack .win.on { display: block; }
