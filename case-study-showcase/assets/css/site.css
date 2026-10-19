@@ -193,14 +193,11 @@ a:hover > .lh .ch, button:hover > .lh .ch, .lh-host:hover .lh .ch { transform: t
 .nav__cta { justify-self: end; display: inline-flex; align-items: center; gap: 10px; height: 50px; padding: 0 5px 0 14px; border-radius: var(--r-xs); color: var(--ink); text-decoration: none; transition: all var(--t-theme); }
 .nav__cta .alink__t { font-size: 16px; }
 .nav__cta .btn-accent--sq { height: 40px; }
-.nav.is-scrolled .nav__brand { width: 52px; justify-content: center; padding: 0; overflow: visible; background: rgba(255, 255, 255, .02); box-shadow: var(--neu-nav); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+/* The floating bar is always light glass with dark text (Max 19-10: scrolled over a dark block or section the links were unreadable) */
+.nav__brand, .nav__links, .nav__cta, .nav__burger { background: rgba(255, 255, 255, .74); box-shadow: var(--neu-nav); -webkit-backdrop-filter: blur(16px) saturate(1.6); backdrop-filter: blur(16px) saturate(1.6); }
+.nav.is-scrolled .nav__brand { width: 52px; justify-content: center; padding: 0; overflow: visible; }
 .nav.is-scrolled .nav__brand > img { display: none; } .nav.is-scrolled .nav__brand .nav__mark { display: block; }
-.nav.is-scrolled .nav__links { background: rgba(255, 255, 255, .02); box-shadow: var(--neu-nav); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-.nav.is-scrolled .nav__cta { background: rgba(255, 255, 255, .02); box-shadow: var(--neu-nav); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); padding: 0 5px 0 24px; }
-.nav.is-dark .nav__brand, .nav.is-dark .nav__links, .nav.is-dark .nav__cta { background: rgba(21, 21, 23, .576); box-shadow: var(--neu-dark-pill); color: #fff; }
-.nav.is-dark .nav__links > a, .nav.is-dark .nav__links > button, .nav.is-dark .nav__dropdown > button, .nav.is-dark .nav__cta { color: #fff; }
-.nav.is-dark .nav__brand img, .nav.is-dark .nav__brand .nav__mark { filter: invert(1); } .nav.is-dark .nav__brand .logo .lg { filter: invert(1); } .nav.is-dark .nav__brand .logo.is-mark .lg-closed, .nav.is-dark .nav__brand .logo.is-mark .lg-in { filter: invert(1) blur(calc(var(--u) * .06)); }
-.nav.is-dark:not(.is-scrolled) .nav__brand, .nav.is-dark:not(.is-scrolled) .nav__links, .nav.is-dark:not(.is-scrolled) .nav__cta { background: transparent; box-shadow: none; }
+.nav.is-scrolled .nav__cta { padding: 0 5px 0 24px; }
 .nav__dropdown { position: relative; }
 .nav__dropdown > button svg { width: 10px; height: 10px; transition: transform .3s var(--ease); }
 .nav__dropdown.is-open > button svg { transform: rotate(180deg); }
@@ -215,7 +212,7 @@ a:hover > .lh .ch, button:hover > .lh .ch, .lh-host:hover .lh .ch { transform: t
 .nav-dropdown-item-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .nav-dropdown-item-text strong { font-size: 14px; font-weight: 500; color: var(--ink); }
 .nav-dropdown-item-text span { font-size: 12px; color: var(--gray-90); }
-.nav__burger { display: none; pointer-events: auto; width: 44px; height: 44px; border-radius: var(--r-xs); border: 0; background: #fff; box-shadow: var(--neu-pill); cursor: pointer; place-items: center; place-content: center; justify-self: end; }   /* place-content: the two lines sit 6.5px apart, so the open state is a clean X */
+.nav__burger { display: none; pointer-events: auto; width: 44px; height: 44px; border-radius: var(--r-xs); border: 0; cursor: pointer; place-items: center; place-content: center; justify-self: end; }   /* place-content: the two lines sit 6.5px apart, so the open state is a clean X */
 .nav__burger span { display: block; width: 16px; height: 1.5px; background: var(--ink); margin: 2.5px 0; transition: transform .3s var(--ease); }
 .nav.is-open .nav__burger span:nth-child(1) { transform: translateY(3.25px) rotate(45deg); } .nav.is-open .nav__burger span:nth-child(2) { transform: translateY(-3.25px) rotate(-45deg); }
 .nav__sheet { display: none; position: fixed; inset: 0; z-index: 99; background: var(--bg); padding: 90px var(--gutter) 40px; overflow-y: auto; pointer-events: auto; }   /* 19-10: .nav is click-through, the sheet must not inherit that (taps went to the page under the menu) */
@@ -228,7 +225,6 @@ a:hover > .lh .ch, button:hover > .lh .ch, .lh-host:hover .lh .ch { transform: t
   .nav__row, .nav.is-scrolled .nav__row { grid-template-columns: auto 1fr auto; }
   .nav__links, .nav__cta { display: none !important; }
   .nav__burger { display: grid; }
-  .nav.is-dark .nav__burger { background: rgba(21, 21, 23, .7); box-shadow: var(--neu-dark-pill); } .nav.is-dark .nav__burger span { background: #fff; }
 }
 
 /* Carousel arrows (round-ish neumorphic) */
@@ -298,7 +294,6 @@ img { width: auto; height: auto; }  /* width/height attributes only feed the asp
 .nav__links > a::before, .nav__dropdown > button::before { top: 1px; right: 1px; border-top-width: 1.5px; border-right-width: 1.5px; transform: translate(7px, -7px); }
 .nav__links > a::after, .nav__dropdown > button::after { bottom: 1px; left: 1px; border-bottom-width: 1.5px; border-left-width: 1.5px; transform: translate(-7px, 7px); }
 .nav__links > a:hover::before, .nav__links > a:hover::after, .nav__links > a:focus-visible::before, .nav__links > a:focus-visible::after, .nav__dropdown > button:hover::before, .nav__dropdown > button:hover::after, .nav__dropdown.is-open > button::before, .nav__dropdown.is-open > button::after, .nav__dropdown > button[aria-expanded="true"]::before, .nav__dropdown > button[aria-expanded="true"]::after { opacity: 1; transform: none; }
-.nav.is-dark .nav__links > a::before, .nav.is-dark .nav__links > a::after, .nav.is-dark .nav__dropdown > button::before, .nav.is-dark .nav__dropdown > button::after { border-color: #fff; }
 
 
 
