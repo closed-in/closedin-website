@@ -18,7 +18,7 @@ def absolutize(block):
     return re.sub(r'\b(href|src)="([^"]*)"', lambda m: m.group(0) if ABS_OK.match(m.group(2)) else f'{m.group(1)}="/{m.group(2)}"', block)
 
 
-NAV = absolutize(bp.NAV).replace('href="#services"', 'href="/#services"')
+NAV = absolutize(bp.NAV).replace('<a href="#services">Services</a>', '<a href="/">Services</a>')
 FOOTER = absolutize(bp.FOOTER)
 assert 'href="#services"' not in NAV and 'href="#hero"' not in FOOTER
 

@@ -32,7 +32,7 @@ GRID = '<div class="cta-dark__grid" aria-hidden="true">' + '<i></i>' * 18 + '</d
 
 
 def nav_for(slug):
-    n = NAV.replace('href="#services"', 'href="/#services"').replace('utm_content=homepage', 'utm_content=' + slug)
+    n = NAV.replace('<a href="#services">Services</a>', '<a href="/">Services</a>').replace('utm_content=homepage', 'utm_content=' + slug)
     assert 'href="#services"' not in n
     return n
 

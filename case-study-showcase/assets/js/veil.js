@@ -45,10 +45,18 @@
   else { playVeil(vt2, vt5, function () { html.classList.remove('has-veil'); }, vt4, hideVeil); }   /* arrival: the logo holds, closes and the brackets open out; the page wakes up as they open */
   window.addEventListener('pageshow', function (e) { if (e.persisted) hideVeil(); });
   window.__veil.show = show; window.__veil.t = { t1: vt1, t2: vt2, t3: vt3, t4: vt4, t5: vt5 };
-  if (!reduce) document.addEventListener('click', function (e) {
+  document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href]'); if (!a || a.target || a.hasAttribute('download') || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     var url; try { url = new URL(a.getAttribute('href'), location.href); } catch (err) { return; }
     if (url.origin !== location.origin) return; if (url.pathname === location.pathname && url.hash) return; if (/^(mailto|tel):/.test(a.getAttribute('href'))) return;
+    /* 19-10: a link to the page you are on (Services, Home or the logo on the homepage) glides to the top instead of reloading the page */
+    if (url.pathname === location.pathname && url.search === location.search) {
+      e.preventDefault(); var l = window.__closedin && window.__closedin.lenis;
+      if (l) l.scrollTo(0); else window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      if (location.hash && history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+      return;
+    }
+    if (reduce) return;
     e.preventDefault(); if (busyVeil) return;
     prefetch(url);
     playVeil(0, vt3, function () { location.href = url.href; }, vt2 + T.hold / 2, null);   /* leaving: close in, become the logo, navigate mid-hold */
