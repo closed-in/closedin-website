@@ -460,12 +460,11 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 .svc__item { position: relative; border-bottom: 1px solid var(--line); }
 .svc__item::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--accent); transform: scaleY(0); transform-origin: top; transition: transform .45s var(--ease); }
 .svc__item.is-on::before { transform: scaleY(1); }
-.svc__row { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; gap: 12px; width: 100%; padding: 20px 0 20px 16px; background: none; border: 0; cursor: pointer; text-align: left; font: inherit; color: var(--ink); }
+.svc__row { display: grid; grid-template-columns: 48px minmax(0, 1fr); align-items: center; gap: 12px; width: 100%; padding: 20px 0 20px 16px; background: none; border: 0; cursor: pointer; text-align: left; font: inherit; color: var(--ink); }
 .svc__num { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 11px; letter-spacing: .12em; color: var(--gray-90); transition: color .3s; }
 .svc__item.is-on .svc__num { color: var(--accent); }
 .svc__name { font-size: clamp(18px, 1.5vw, 22px); font-weight: 500; letter-spacing: -0.01em; color: var(--gray-100); transition: color .3s; }
 .svc__item.is-on .svc__name, .svc__row:hover .svc__name { color: var(--ink); }
-.svc__tag { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--gray-90); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 4px 9px; white-space: nowrap; }
 .svc__more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .5s var(--ease); }
 .svc__item.is-on .svc__more { grid-template-rows: 1fr; }
 .svc__more-in { overflow: hidden; min-height: 0; padding-left: 76px; }
@@ -497,6 +496,6 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 .svc__screen:not(.is-on) .svc__fall i { transform: scaleX(0); }
 @media (prefers-reduced-motion: reduce) { .svc__screen.is-on .svc__log li { animation: none; opacity: 1; transform: none; } .svc__item::before, .svc__more, .svc__bars i, .svc__fall i { transition: none; } }
 @media (max-width: 1023px) { .svc { grid-template-columns: 1fr; gap: 24px; } .svc__stage { position: relative; top: auto; min-height: 400px; } .svc__more-in { padding-left: 64px; } }
-@media (max-width: 600px) { .svc__row { grid-template-columns: 36px minmax(0, 1fr); padding-left: 12px; } .svc__tag { display: none; } .svc__more-in { padding-left: 48px; } .svc__screen { padding: 18px; } .svc__kpis { gap: 18px; } .svc__kpis b { font-size: 22px; } }
+@media (max-width: 600px) { .svc__row { grid-template-columns: 36px minmax(0, 1fr); padding-left: 12px; } .svc__more-in { padding-left: 48px; } .svc__screen { padding: 18px; } .svc__kpis { gap: 18px; } .svc__kpis b { font-size: 22px; } }
 /* hero pills: one shared beam phase and a calmer light on black (the staggered, bright beams were distracting) */
 .hero--dark .beam::after { animation-delay: 0s; animation-duration: 6s; background: conic-gradient(from var(--beam), transparent 0deg 262deg, rgba(114, 193, 255, .18) 310deg, rgba(114, 193, 255, .6) 342deg, rgba(255, 255, 255, .45) 355deg, transparent 360deg); }
