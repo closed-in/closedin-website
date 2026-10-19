@@ -198,3 +198,29 @@ html:not(.js) .pmember:hover .pmember__photo img { filter: none; }   /* without 
 @media (max-width: 1100px) { .pstories { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 680px) { .pstories { grid-template-columns: 1fr; } }
 
+/* Written cases in the story grid (19-10, Max: "de written testimonials gelijk vast aan de recorded testimonials, dubbele eruit"): the same card as the videos,
+   with a dark poster that carries the headline number, the client logo in white and an arrow where the play button sits */
+.story--case { color: var(--ink); text-decoration: none; }
+.story__poster--case { display: flex; flex-direction: column; justify-content: flex-start; padding: 56px 24px 22px; cursor: pointer; background: radial-gradient(80% 95% at 88% 10%, rgba(114, 193, 255, .22), rgba(0, 0, 0, 0) 60%), #050607; }
+.story__poster--case::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(rgba(114, 193, 255, .3) 1px, transparent 1.4px); background-size: 14px 14px; -webkit-mask-image: radial-gradient(60% 80% at 86% 18%, #000 10%, transparent 72%); mask-image: radial-gradient(60% 80% at 86% 18%, #000 10%, transparent 72%); }
+.story__chip { position: absolute; left: 14px; top: 14px; display: inline-flex; align-items: center; gap: 8px; height: 30px; padding: 0 12px 0 10px; border-radius: var(--r-pill); background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .14); color: rgba(255, 255, 255, .85); font-size: 12.5px; }
+.story__chip::before { content: ""; width: 7px; height: 7px; background: var(--accent); }
+.story__kpi { position: relative; display: flex; flex-direction: column; gap: 8px; color: #fff; }
+.story__kpi b { font-size: clamp(42px, 3.8vw, 56px); line-height: .95; font-weight: 500; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; }
+.story__kpi > span { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255, 255, 255, .6); }
+.story__case-brand { position: absolute; left: 18px; bottom: 18px; display: flex; align-items: center; gap: 8px; max-width: 52%; color: #fff; }
+.story__case-brand img { display: block; width: auto; height: auto; max-width: 100%; max-height: 30px; object-fit: contain; filter: brightness(0) invert(1); opacity: .95; }
+.story__case-brand b { font-size: 15px; font-weight: 700; letter-spacing: .08em; }
+.story__go { position: absolute; right: 16px; bottom: 16px; z-index: 1; width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); transition: transform .4s var(--ease), background .3s; }
+.story__go svg { width: 17px; height: 17px; }
+.story--case:hover .story__go { transform: translate(2px, -2px); background: #fff; }
+.story__tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.story__tags .ptag { height: 24px; padding: 0 8px; font-size: 10px; }
+.story__head { margin: 0; font-size: 19px; line-height: 1.3; font-weight: 500; letter-spacing: -0.01em; }
+.story__desc { margin: 0; font-size: 14px; line-height: 1.55; color: var(--gray-100); }
+.story__stats { margin-top: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 12px 14px; border-radius: var(--r-sm); background: var(--bg); box-shadow: rgba(255, 255, 255, .9) 0 0 0 1px inset; }
+.story__stats > span { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.story__stats > span + span { padding-left: 14px; border-left: 1px solid var(--line); }
+.story__stats b { font-size: 19px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.story__stats i { font-style: normal; font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-90); }
+

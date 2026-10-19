@@ -34,7 +34,8 @@
 
 /* Base */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: 110px; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }   /* 19-10: a section opens at its own top; with 110px the section above showed (Services opened on the toolstack) */
+.story { scroll-margin-top: 86px; }   /* cards keep room for the nav (110px in all) */
 body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px / 1.5 var(--font); letter-spacing: -0.005em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; overflow-x: clip; }
 img, svg, video, canvas { max-width: 100%; height: auto; }
 img { display: inline-block; vertical-align: middle; }
@@ -445,26 +446,14 @@ html.veil-hold .veil.on { animation: none; }
 .story__mark svg { width: 20px; height: 20px; }
 @media (prefers-reduced-motion: reduce) { .play::before { animation: none; } }
 
-/* Case cards and tags (moved from pages.css on 19-10: the homepage shows the written cases under the client stories too) */
+/* Tags (shared: team cards, the vault, the written cases on the cases page) */
 .ptag { display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border: 1px solid var(--line-2); border-radius: var(--r-pill); font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-100); background: var(--white); white-space: nowrap; }
 .ptag--accent { border-color: rgba(114, 193, 255, .7); background: rgba(114, 193, 255, .12); color: var(--ink); }
-.pcases { margin-top: 48px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-.pcase { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 30px 32px 32px; background: var(--white); color: var(--ink); text-decoration: none; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; transition: background .45s var(--ease); }
-.pcase:hover { background: linear-gradient(180deg, rgba(114, 193, 255, 0) 35%, rgba(114, 193, 255, .08)); }
-.pcase__top { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 44px; }
-.pcase__logo { display: flex; align-items: center; gap: 10px; min-width: 0; }
-.pcase__logo img { display: block; width: auto; height: auto; max-height: 34px; max-width: 170px; filter: brightness(0); opacity: .8; transition: filter .45s var(--ease), opacity .45s var(--ease); }
-.pcase:hover .pcase__logo img { filter: none; opacity: 1; }
-.pcase__logo.is-white img, .pcase:hover .pcase__logo.is-white img { filter: brightness(0); }
-.pcase__logo .wordmark { font-weight: 700; font-size: 18px; letter-spacing: .06em; color: var(--ink); }
-.pcase .alink__box { flex: none; }
-.pcase:hover .alink__box { background: var(--accent); }
-.pcase__tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.pcase h3 { margin: 0; max-width: 26ch; font-size: clamp(22px, 1.9vw, 28px); line-height: 1.15; letter-spacing: -0.015em; font-weight: 500; }
-.pcase .desc { margin: 0; max-width: 54ch; font-size: 15px; line-height: 1.55; color: var(--gray-100); }
-.pcase__stats { margin-top: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
-.pcase__stats > div { padding: 16px 12px 0 0; min-width: 0; }
-.pcase__stats > div + div { padding-left: 16px; border-left: 1px solid var(--line); }
-.pcase__stat-val { font-size: clamp(22px, 2vw, 28px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; font-variant-numeric: tabular-nums; }
-.pcase__stat-lbl { margin-top: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-90); }
-@media (max-width: 900px) { .pcases { grid-template-columns: 1fr; } .pcase { padding: 26px 22px 28px; } }
+
+/* Story cards whose client also has a written case: the outcome line links to it (19-10) */
+.story__outcome--link { display: flex; align-items: center; justify-content: space-between; gap: 12px; text-decoration: none; transition: background .3s var(--ease); }
+.story__outcome--link:hover { background: rgba(114, 193, 255, .12); }
+.story__outcome-go { flex: none; position: relative; overflow: hidden; isolation: isolate; width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; background: var(--white); color: var(--ink); box-shadow: var(--neu-pill); }
+.story__outcome-go::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; transition: transform .42s var(--ease); }
+.story__outcome--link:hover .story__outcome-go::before { transform: scaleX(1); }
+.story__outcome-go svg { width: 13px; height: 13px; }

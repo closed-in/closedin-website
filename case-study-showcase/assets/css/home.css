@@ -522,22 +522,3 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 @media (max-width: 600px) { .svc__row { grid-template-columns: 36px minmax(0, 1fr); padding-left: 12px; } .svc__tag { display: none; } .svc__more-in { padding-left: 48px; } .svc__screen { padding: 18px; } .svc__kpis { gap: 18px; } .svc__kpis b { font-size: 22px; } }
 /* hero pills: one shared beam phase and a calmer light on black (the staggered, bright beams were distracting) */
 .hero--dark .beam::after { animation-delay: 0s; animation-duration: 6s; background: conic-gradient(from var(--beam), transparent 0deg 262deg, rgba(114, 193, 255, .18) 310deg, rgba(114, 193, 255, .6) 342deg, rgba(255, 255, 255, .45) 355deg, transparent 360deg); }
-
-/* Written cases under the client stories (19-10, Max: "de case studies van de live site ook op deze site, de cases die alleen geschreven zijn onderaan"):
-   the clients with a video are in the rail above, the written-only cases sit here in the hairline grid of the cases page, the sixth cell leads to all cases */
-.stories__cases { margin-top: clamp(64px, 7vw, 104px); }
-.stories__cases-head { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
-.stories__cases-head .h2 { margin: 0; max-width: 18ch; }
-@media (min-width: 1101px) { .pcases--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.pcases--3 .pcase { padding: 26px 26px 28px; }
-.pcases--3 .pcase h3 { font-size: clamp(21px, 1.6vw, 25px); }
-.pcases--3 .pcase__stats > div { padding-right: 8px; }
-.pcases--3 .pcase__stats > div + div { padding-left: 12px; }
-.pcases--3 .pcase__stat-val { font-size: clamp(19px, 1.5vw, 23px); white-space: nowrap; }
-.pcases--3 .pcase__stat-lbl { font-size: 10px; }
-.pcase--all { justify-content: space-between; min-height: 280px; background: radial-gradient(90% 80% at 100% 100%, rgba(114, 193, 255, .18), rgba(0, 0, 0, 0) 60%), #050607; color: #fff; }
-.pcase--all:hover { background: radial-gradient(90% 80% at 100% 100%, rgba(114, 193, 255, .30), rgba(0, 0, 0, 0) 65%), #050607; }
-.pcase--all__t { max-width: 11ch; font-size: clamp(28px, 2.6vw, 38px); line-height: 1.05; font-weight: 500; letter-spacing: -0.025em; }
-.pcase--all .alink__box { align-self: flex-end; width: 48px; height: 48px; background: var(--accent); color: var(--accent-ink); box-shadow: none; }
-.pcase--all:hover .alink__box svg { transform: translate(2px, -2px); }
-@media (max-width: 900px) { .pcase--all { min-height: 200px; } }

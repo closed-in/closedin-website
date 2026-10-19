@@ -26,7 +26,7 @@
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.config({ ignoreMobileResize: true });
     if (typeof window.Lenis !== 'undefined') {
-      lenis = new Lenis({ lerp: 0.14, smoothWheel: true, syncTouch: false, autoRaf: false, anchors: { offset: -100 } });
+      lenis = new Lenis({ lerp: 0.14, smoothWheel: true, syncTouch: false, autoRaf: false });
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
       gsap.ticker.lagSmoothing(0);
@@ -35,6 +35,19 @@
     window.addEventListener('load', function () { ScrollTrigger.refresh(); });
   }
   window.__closedin = { lenis: lenis, ScrollTrigger: window.ScrollTrigger || null };
+
+  /* In-page anchors (19-10): a section scrolls to its own top, so the section above stays out of view (Max: Services opened on the toolstack);
+     cards keep room for the nav. Links to another page are handled by veil.js and the browser, with the same CSS margins. */
+  if (lenis) document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target.closest ? e.target.closest('a[href*="#"]') : null; if (!a || a.target || a.classList.contains('skip-link')) return;
+    var url; try { url = new URL(a.getAttribute('href'), location.href); } catch (err) { return; }
+    if (url.origin !== location.origin || url.pathname !== location.pathname || url.hash.length < 2) return;
+    var t = document.getElementById(decodeURIComponent(url.hash.slice(1))); if (!t) return;
+    e.preventDefault();
+    lenis.scrollTo(t);   /* Lenis honours scroll-padding-top (24px, sections) and scroll-margin-top (cards: 110px in all) from site.css, like the browser does across pages */
+    if (history.replaceState) history.replaceState(null, '', url.hash);
+  });
 
   /* ---------- Particle dots in the hero (mouse parallax) ---------- */
   var dotsCanvas = document.querySelector('canvas.dots');
