@@ -256,20 +256,60 @@
   /* ---------- Wistia lightbox ---------- */
   var WISTIA_SRC = 'https://fast.wistia.com/player.js', activePlayer = null;
   function loadWistia() { if (document.querySelector('script[src="' + WISTIA_SRC + '"]')) return; var s = document.createElement('script'); s.src = WISTIA_SRC; s.async = true; document.head.appendChild(s); }
-  function mountWistia(box, mediaId, aspect) { loadWistia(); if (activePlayer) unmountWistia(); var p = document.createElement('wistia-player'); p.setAttribute('media-id', mediaId); p.setAttribute('aspect', aspect || '1.7777777777777777'); p.setAttribute('autoplay', 'true'); box.appendChild(p); activePlayer = p; var played = false, tryPlay = function () { if (played) return; played = true; try { if (typeof p.play === 'function') p.play(); } catch (err) { /* autoplay attribute */ } }; p.addEventListener('api-ready', tryPlay); if (window.customElements && customElements.whenDefined) customElements.whenDefined('wistia-player').then(function () { setTimeout(tryPlay, 2000); }); }
+  function mountWistia(box, mediaId, aspect, ready) { loadWistia(); if (activePlayer) unmountWistia(); var p = document.createElement('wistia-player'); p.setAttribute('media-id', mediaId); p.setAttribute('aspect', aspect || '1.7777777777777777'); p.setAttribute('autoplay', 'true'); box.appendChild(p); activePlayer = p; var played = false, tryPlay = function () { if (ready) ready(); if (played) return; played = true; try { if (typeof p.play === 'function') p.play(); } catch (err) { /* autoplay attribute */ } }; p.addEventListener('api-ready', tryPlay); if (window.customElements && customElements.whenDefined) customElements.whenDefined('wistia-player').then(function () { setTimeout(tryPlay, 2000); }); }
   var HLS_SRC = '/assets/vendor/hls.js-1.7.3/hls.min.js', hlsInst = null;
   function loadHls(cb) { if (window.Hls) return cb(); var s = document.querySelector('script[src="' + HLS_SRC + '"]'); if (!s) { s = document.createElement('script'); s.src = HLS_SRC; s.async = true; document.head.appendChild(s); } s.addEventListener('load', cb, { once: true }); }
-  function mountMux(box, playbackId) { if (activePlayer) unmountWistia(); var v = document.createElement('video'); v.className = 'lightbox__video'; v.controls = true; v.autoplay = true; v.playsInline = true; v.preload = 'auto'; v.poster = 'https://image.mux.com/' + playbackId + '/thumbnail.webp?time=1'; var src = 'https://stream.mux.com/' + playbackId + '.m3u8'; box.appendChild(v); activePlayer = v; if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = src; v.play().catch(function () {}); } else { loadHls(function () { if (!window.Hls || !window.Hls.isSupported()) { v.src = src; return; } hlsInst = new window.Hls(); hlsInst.loadSource(src); hlsInst.attachMedia(v); hlsInst.on(window.Hls.Events.MANIFEST_PARSED, function () { v.play().catch(function () {}); }); }); } }
-  function mountTella(box, id) { if (activePlayer) unmountWistia(); var f = document.createElement('iframe'); f.className = 'lightbox__video'; f.src = 'https://www.tella.tv/video/' + id + '/embed?b=0&title=0&a=1&loop=0&t=0&muted=0&wt=0'; f.allow = 'autoplay; fullscreen; picture-in-picture'; f.setAttribute('allowfullscreen', ''); f.setAttribute('title', 'Client story video'); f.style.cssText = 'width:100%;height:100%;border:0;display:block;background:#000'; box.appendChild(f); activePlayer = f; }
+  function mountMux(box, playbackId, ready) { if (activePlayer) unmountWistia(); var v = document.createElement('video'); v.className = 'lightbox__video'; v.controls = true; v.autoplay = true; v.playsInline = true; v.preload = 'auto'; v.poster = 'https://image.mux.com/' + playbackId + '/thumbnail.webp?time=1'; var src = 'https://stream.mux.com/' + playbackId + '.m3u8'; box.appendChild(v); activePlayer = v; if (ready) v.addEventListener('loadeddata', ready, { once: true }); if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = src; v.play().catch(function () {}); } else { loadHls(function () { if (!window.Hls || !window.Hls.isSupported()) { v.src = src; return; } hlsInst = new window.Hls(); hlsInst.loadSource(src); hlsInst.attachMedia(v); hlsInst.on(window.Hls.Events.MANIFEST_PARSED, function () { v.play().catch(function () {}); }); }); } }
+  var tellaSrc = function (id) { return 'https://www.tella.tv/video/' + id + '/embed?b=0&title=0&a=1&loop=0&t=0&muted=0&wt=0'; };
+  /* The Tella player fades in over the poster once its page has loaded (Max 19-10: it felt slow; a black box for seconds) */
+  function mountTella(box, id, ready) { if (activePlayer) unmountWistia(); var f = document.createElement('iframe'); f.className = 'lightbox__video'; f.src = tellaSrc(id); f.allow = 'autoplay; fullscreen; picture-in-picture'; f.setAttribute('allowfullscreen', ''); f.setAttribute('title', 'Client story video'); f.style.cssText = 'width:100%;height:100%;border:0;display:block;background:transparent;opacity:0;position:relative;z-index:3'; f.addEventListener('load', function () { f.style.opacity = '1'; if (ready) ready(); }, { once: true }); box.appendChild(f); activePlayer = f; }
   function unmountWistia() { if (!activePlayer) return; try { if (typeof activePlayer.pause === 'function') activePlayer.pause(); } catch (err) { /* ignore */ } if (hlsInst) { try { hlsInst.destroy(); } catch (err) { /* ignore */ } hlsInst = null; } if (activePlayer.parentNode) activePlayer.parentNode.removeChild(activePlayer); activePlayer = null; }
+  /* Tella answers a page it served a moment ago in about 0.7 s and a cold one in 2 to 3 s (measured 19-10): open the connection when the stories come near,
+     and ask for a video's player page as soon as the pointer is on its card, so it is warm by the time someone clicks play */
+  var hint = function (rel, href) { if (document.querySelector('link[rel="' + rel + '"][href="' + href + '"]')) return; var l = document.createElement('link'); l.rel = rel; l.href = href; document.head.appendChild(l); };
+  var tellaCards = document.querySelectorAll('[data-open-video][data-tella-id]');
+  if (tellaCards.length) {
+    var warmUp = function () { hint('preconnect', 'https://www.tella.tv'); hint('preconnect', 'https://prod-stream.tella.tv'); };
+    if ('IntersectionObserver' in window) { var tio = new IntersectionObserver(function (en) { if (en.some(function (e) { return e.isIntersecting; })) { tio.disconnect(); warmUp(); } }, { rootMargin: '600px 0px' }); tellaCards.forEach(function (c) { tio.observe(c); }); } else warmUp();
+    tellaCards.forEach(function (el) {
+      var card = el.closest('.story') || el, id = el.getAttribute('data-tella-id'), warm = function () { if (id) { warmUp(); hint('prefetch', tellaSrc(id)); } };
+      card.addEventListener('pointerenter', warm, { once: true }); card.addEventListener('focusin', warm, { once: true }); card.addEventListener('touchstart', warm, { once: true, passive: true });
+    });
+  }
   var dlg = document.getElementById('lightbox');
   if (dlg) {
-    var dlgBox = dlg.querySelector('.lightbox__box'), dlgCap = dlg.querySelector('.lightbox__caption'), opener = null;
-    var openLightbox = function (ids, aspect, caption) { var a = (aspect || '16/9').split('/'); dlgBox.style.aspectRatio = a[0] + ' / ' + (a[1] || '1'); if (dlgCap) dlgCap.textContent = caption || ''; if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', ''); if (lenis) lenis.stop(); if (ids.tella) mountTella(dlgBox, ids.tella); else if (ids.mux) mountMux(dlgBox, ids.mux); else mountWistia(dlgBox, ids.wistia, (parseFloat(a[0]) / parseFloat(a[1] || '1')).toString()); };
-    var closeLightbox = function () { unmountWistia(); if (dlg.open) dlg.close(); if (lenis) lenis.start(); if (opener && opener.focus) opener.focus(); };
-    dlg.addEventListener('close', function () { unmountWistia(); if (lenis) lenis.start(); });
+    var dlgBox = dlg.querySelector('.lightbox__box'), dlgCap = dlg.querySelector('.lightbox__caption'), closeBtn = dlg.querySelector('.lightbox__close'), opener = null, closing = false, waitT = 0, fades = [];
+    /* Max 19-10: the player grows out of the play button that was clicked and shrinks back into it on close */
+    var originOf = function (el) { var o = el && (el.querySelector('.play') || el), r = o && o.getBoundingClientRect(); return r && r.width && r.bottom > 0 && r.top < innerHeight ? r : null; };
+    var flip = function (back) {
+      if (reduce || !dlgBox.animate) return null;
+      var from = originOf(opener), to = dlgBox.getBoundingClientRect(); if (!from || !to.width) return null;
+      var s = Math.max(from.width / to.width, .03), dx = (from.left + from.width / 2) - (to.left + to.width / 2), dy = (from.top + from.height / 2) - (to.top + to.height / 2);
+      var small = { transform: 'translate(' + dx.toFixed(1) + 'px, ' + dy.toFixed(1) + 'px) scale(' + s.toFixed(4) + ')', borderRadius: (to.height / 2).toFixed(1) + 'px', opacity: .5 }, big = { transform: 'none', borderRadius: getComputedStyle(dlgBox).borderTopLeftRadius, opacity: 1 };
+      return dlgBox.animate(back ? [big, small] : [small, big], back ? { duration: 360, easing: 'cubic-bezier(.5, 0, .75, .15)', fill: 'forwards' } : { duration: 560, easing: 'cubic-bezier(.22, 1, .36, 1)' });
+    };
+    var clearFades = function () { fades.forEach(function (an) { an.cancel(); }); fades = []; };
+    var fadeChrome = function (show) { clearFades(); if (reduce) return; [closeBtn, dlgCap].forEach(function (el) { if (el && el.animate) fades.push(el.animate([{ opacity: show ? 0 : 1 }, { opacity: show ? 1 : 0 }], { duration: show ? 300 : 160, delay: show ? 260 : 0, easing: 'ease', fill: show ? 'backwards' : 'forwards' })); }); };
+    var ready = function () { clearTimeout(waitT); dlgBox.classList.remove('is-waiting'); };
+    var openLightbox = function (ids, aspect, caption) {
+      var a = (aspect || '16/9').split('/'); dlgBox.style.aspectRatio = a[0] + ' / ' + (a[1] || '1'); if (dlgCap) dlgCap.textContent = caption || '';
+      var img = opener && opener.querySelector('img'), poster = (opener && opener.getAttribute('data-poster')) || (img && (img.currentSrc || img.src)) || '';
+      dlgBox.style.backgroundImage = poster ? 'url("' + poster + '")' : ''; dlgBox.classList.add('is-waiting'); clearTimeout(waitT); waitT = setTimeout(ready, 8000);
+      if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+      if (lenis) lenis.stop();
+      flip(false); fadeChrome(true);
+      if (ids.tella) mountTella(dlgBox, ids.tella, ready); else if (ids.mux) mountMux(dlgBox, ids.mux, ready); else mountWistia(dlgBox, ids.wistia, (parseFloat(a[0]) / parseFloat(a[1] || '1')).toString(), ready);
+    };
+    var finishClose = function () { closing = false; clearTimeout(waitT); unmountWistia(); dlgBox.classList.remove('is-waiting'); dlgBox.style.backgroundImage = ''; if (dlg.open) dlg.close(); dlgBox.getAnimations().forEach(function (an) { an.cancel(); }); clearFades(); if (lenis) lenis.start(); if (opener && opener.focus) { try { opener.focus({ preventScroll: true }); } catch (err) { /* old browsers */ } } };
+    var closeLightbox = function () {
+      if (closing || !dlg.open) return; closing = true;
+      var an = flip(true); fadeChrome(false);
+      if (an) { try { fades.push(dlg.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 360, easing: 'ease', fill: 'forwards', pseudoElement: '::backdrop' })); } catch (err) { /* no pseudo-element animations */ } an.onfinish = finishClose; } else finishClose();
+    };
+    dlg.addEventListener('cancel', function (e) { e.preventDefault(); closeLightbox(); });   /* Escape closes with the same shrink */
+    dlg.addEventListener('close', function () { if (closing) return; clearTimeout(waitT); unmountWistia(); if (lenis) lenis.start(); });
     dlg.addEventListener('click', function (e) { if (e.target === dlg) closeLightbox(); });
-    var closeBtn = dlg.querySelector('.lightbox__close'); if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
     document.querySelectorAll('[data-open-video]').forEach(function (el) { el.addEventListener('click', function (e) { var ids = { wistia: el.getAttribute('data-wistia-id') || '', mux: el.getAttribute('data-mux-id') || '', tella: el.getAttribute('data-tella-id') || '' }; if (!ids.wistia && !ids.mux && !ids.tella) return; e.preventDefault(); opener = el; openLightbox(ids, el.getAttribute('data-aspect') || '16/9', el.getAttribute('data-caption') || ''); }); });
   }
 

@@ -357,3 +357,14 @@ Max na de Attio/Stripe/Linear-ronde: "dit is het niet", vooral tekst, spacing en
 - **Preset `hero`** (donkere openingen van Cases, Resources, blog en de Resources-menupagina's) kreeg dezelfde band langs de bovenrand en kolom links als de homepage-hero.
 - **Team:** de waarden-sectie gebruikt `edges` (dunne kolommen links en rechts over de volle hoogte).
 - **Checks:** trackers ALL PASS, copy PASS; screenshots op 1440 px van team, cases en resources.
+
+## v4.42 (19-10): video-popup opent uit de playknop, laadt sneller, en de pagina blijft staan
+
+- **Sprong naar boven (Max: "als je het testimonial-scherm afsluit kom je weer bovenaan").** Gemeten: de sprong gebeurde al bij het openen. De globale regel `header, main, footer, dialog { position: relative }` gold ook voor de modale `<dialog>`; een top-layer-element met `position: relative` wordt `absolute` tegen het begin van de pagina, en de focus op de sluitknop scrolde de pagina daarheen. `.lightbox { position: fixed }` lost het op. Bij sluiten gaat de focus terug naar de knop met `preventScroll`. Gemeten: scrollY 1406 voor, tijdens en na (sluitknop, Escape, klik naast de video), ook op /case-studies en bij de hero-video.
+- **Openen uit de knop.** De videobox groeit met een FLIP-animatie (Web Animations API, 560 ms, `cubic-bezier(.22, 1, .36, 1)`) vanuit de playknop van de kaart, of uit de pil Watch the video, naar zijn plek; de achtergrond fadet mee in. Bij sluiten (ook Escape, via het `cancel`-event) krimpt hij terug in de knop (360 ms) en fadet de achtergrond uit. Bij reduced motion of een knop buiten beeld opent hij zonder animatie.
+- **Sneller laden.** Gemeten: de Tella-speler is een volledige Next.js-pagina met ongeveer 80 verzoeken. Een pagina die Tella net nog serveerde staat er na ongeveer 0,7 s, een koude na 2 tot 3 s. Directe HLS-streaming kan niet: de streamlinks zijn ondertekend, verlopen binnen dagen en staan geen andere origin toe. Daarom:
+  - preconnect naar www.tella.tv en prod-stream.tella.tv zodra de verhalen in de buurt komen;
+  - prefetch van de spelerpagina zodra de muis op een kaart komt (of bij focus of touch), zodat Tella hem warm heeft bij de klik;
+  - de popup toont direct de foto van de kaart (of de VSL-poster, `data-poster`) met een laadring, en de speler fadet erover in zodra hij geladen is.
+  - Gemeten van klik tot speler: 0,7 tot 1,1 s.
+- **Checks:** trackers ALL PASS, copy PASS, geen scriptfouten; drie keer achter elkaar openen en sluiten zet de achtergrond en de sluitknop telkens goed terug.

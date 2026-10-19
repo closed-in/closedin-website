@@ -240,9 +240,17 @@ a:hover > .lh .ch, button:hover > .lh .ch, .lh-host:hover .lh .ch { transform: t
 .arrows button:disabled { opacity: .4; cursor: default; background: var(--white); }
 
 /* Lightbox */
-.lightbox { border: 0; padding: 0; background: transparent; width: min(1100px, 92vw); max-width: none; overflow: visible; }
+.lightbox { position: fixed; border: 0; padding: 0; background: transparent; width: min(1100px, 92vw); max-width: none; overflow: visible; }   /* fixed: the global dialog rule (relative) put the modal at the top of the page, so opening it scrolled the page up (Max 19-10) */
 .lightbox::backdrop { background: rgba(2, 3, 4, .8); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
-.lightbox__box { position: relative; aspect-ratio: 16 / 9; border-radius: var(--r-xl); overflow: hidden; background: #000; box-shadow: 0 40px 100px rgba(0, 0, 0, .5); }
+.lightbox__box { position: relative; aspect-ratio: 16 / 9; border-radius: var(--r-xl); overflow: hidden; background: #000 center / cover no-repeat; box-shadow: 0 40px 100px rgba(0, 0, 0, .5); transform-origin: 50% 50%; }
+/* while the player loads: the opener's own picture, dimmed, with a ring (Max 19-10: it felt slow) */
+.lightbox__box.is-waiting::before { content: ""; position: absolute; inset: 0; z-index: 1; background: rgba(2, 3, 4, .38); pointer-events: none; }
+.lightbox__box.is-waiting::after { content: ""; position: absolute; left: 50%; top: 50%; z-index: 2; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .25); border-top-color: #fff; animation: lb-spin .8s linear infinite; pointer-events: none; }
+@keyframes lb-spin { to { transform: rotate(360deg); } }
+.lightbox__box > iframe, .lightbox__box > video { transition: opacity .45s ease; }
+.lightbox[open]::backdrop { animation: lb-fade .4s ease both; }
+@keyframes lb-fade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .lightbox[open]::backdrop { animation: none; } .lightbox__box.is-waiting::after { animation-duration: 2s; } }
 .lightbox__box wistia-player { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .lightbox__close { position: absolute; top: -52px; right: 0; width: 40px; height: 40px; border-radius: var(--r-xs); border: 0; background: rgba(255, 255, 255, .14); color: #fff; cursor: pointer; display: grid; place-items: center; }
 .lightbox__close svg { width: 16px; height: 16px; }
