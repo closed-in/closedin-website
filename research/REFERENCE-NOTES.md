@@ -299,3 +299,17 @@ Max na de Attio/Stripe/Linear-ronde: "dit is het niet", vooral tekst, spacing en
 - **Fix:** een ResizeObserver op het vastgezette frame (`#stack-pin`) in `stack.js` meet opnieuw zodra breedte of hoogte verandert, ook zonder resize-event. Nagebootst in headless Chrome (body 15 px smaller na het laden): voor de fix rechts -1 px, erna 14 px in alle vijf kaarten.
 - **Lage schermen:** bij vensters onder ongeveer 720 px hoog (klasse `stack--xshort`, kaarten lager dan 300 px) liepen de knop van Instantly en n8n onder de kaart weg. Nu vallen daar het kopje Instantly.ai in het quote-blok en het n8n-screenshot weg, koppen 15 px, lopende tekst maximaal drie regels, foto minimaal 64 px. Nieuwe klasse `stack--tiny` (kaarten lager dan 240 px, rond 600 px venster): de quote valt weg, de cijfers blijven. Gemeten: niets loopt meer uit de kaarten van 1280x600 tot 1920x969.
 - **Checks:** trackers ALL PASS, copy PASS.
+
+## v4.35 (19-10): contactpagina eraf, TPN als case in de logomuur, eerste scherm bijgewerkt, video Shirin
+
+- **Contactpagina eraf (Max).** `contact.html` is verwijderd; de link Contact is uit de nav, het mobiele menu en de footer van de twaalf pagina's in het nieuwe ontwerp. `vercel.json` stuurt `/contact` permanent door naar `/` (de hero heeft het belformulier; de live site had /contact, dus oude links en Google komen goed uit). Uit `sitemap.xml`, uit `check-trackers.py` en `check-copy.py`, en de contact-CSS (zoom-kaart, formulier) uit `pages.css`. De oude-stijl-pagina's (cases, landingspagina's, pricing) linken nog naar /contact en gaan via de redirect. De footerkolom Contact (mail, Book a Call, LinkedIn) blijft.
+- **TPN in de logomuur (Max: "bij TPN mag er case study worden gezet in de trusted by 50+").** Het TPN-logo is nu een case-cel zoals Sustainable Motion en Advantive: label Case study, pop-up "How closed:in got TPN 500+ positive replies" (4% positive reply rate, 500+ positive replies, uit de story-kaart) en de link springt naar Mikels videokaart (`#story-tpn`, nieuw id).
+- **Eerste scherm:**
+  - De trust-rij (gezichten plus "Trusted by 50+ B2B companies") staat rechtsonder in de hero, rechts uitgelijnd en op de hoogte van de pills. Grid met twee rijen: de tekst over beide, het logo in rij 1, de trust-rij in rij 2.
+  - Het logo staat daardoor hoger, en nog 28px extra (`top: -28px`).
+  - Kop, witruimte en logo schalen mee met de schermhoogte (vanaf 837px hoog identiek), zodat pills en trust-rij in beeld zijn op 1280x600, 1366x657, 1280x720, 1536x730, 1440x789, 1413x837, 1512x860, 1728x1000 en 1920x969.
+  - Geen beam meer op de vier service-pills (Watch the video houdt hem). De award-pil krijgt de rondlopende beam plus een zachte halo net buiten de rand (geblurde conic-gradient, gemaskeerd tot de rand).
+  - Het pixelveld `heroband` heeft een band langs de bovenrand en een kolom links erbij.
+- **Glitter in het draaiende logo feller (Max).** Bump van 3.5 naar 4.6, ruwheid van de zwarte vlakken van 0.28 naar 0.2, en ongeveer 230 glitterschilfers per textuurtegel (koepeltjes van ongeveer 2 schermpixels). Fijnere korrel per texel bleek onzichtbaar: een texel is op scherm ongeveer 0,27 pixel.
+- **Video Shirin Danesh (Advantive):** Tella `vid_cmvdxwrpd000a02qrd353ftx5` (2:47, opgezocht via de Tella-API op de link d353ftx5) op de homepage en de Cases-pagina.
+- **Checks:** trackers ALL PASS (homepage plus elf pagina's), copy PASS, twaalf pagina's zonder scriptfouten en zonder link naar /contact, Tella-embed 200.

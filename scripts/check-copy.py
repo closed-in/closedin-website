@@ -5,7 +5,7 @@ included in the 'open rate' / 'plynq' checks. Exit 1 on any hit.
 The blog index keeps the teaser of the post that argues against open rate (live copy, allowlisted below by its exact sentences)."""
 import re, sys, pathlib
 root = pathlib.Path(__file__).resolve().parent.parent / "case-study-showcase"
-PAGES = ["index.html", "case-studies.html", "resources.html", "team.html", "contact.html", "blog/index.html", "resources/gtm-stack.html",
+PAGES = ["index.html", "case-studies.html", "resources.html", "team.html", "blog/index.html", "resources/gtm-stack.html",
          "resources/n8n-workflows.html", "playbook.html", "tools/roi-calculator.html", "tools/email-verifier.html", "resources/cold-email-templates.html",
          "resources/clay-waterfall.html"]
 files = [root / p for p in PAGES] + [root / "assets/css" / c for c in ("site.css", "home.css", "pages.css", "docs.css")] + [root / "assets/js" / j for j in ("site.js", "pages.js", "mark-3d.js", "mark-dark.js", "stack.js")]

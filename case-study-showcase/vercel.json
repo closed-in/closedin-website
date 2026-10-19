@@ -16,6 +16,11 @@
       "source": "/case-study",
       "destination": "/case-study-verzendbazen",
       "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "headers": [

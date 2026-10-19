@@ -459,6 +459,21 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 .hero__mark-fallback { position: absolute; left: 50%; top: 50%; width: 46%; height: 46%; transform: translate(-50%, -50%); color: #fff; filter: drop-shadow(0 0 30px rgba(114, 193, 255, .35)); transition: opacity .6s; }
 .hero__mark.is-live .hero__mark-fallback { opacity: 0; }
 @media (max-width: 860px) { .hero__grid { grid-template-columns: 1fr; gap: 20px; padding: 0 var(--gutter); } .hero__mark { order: -1; max-width: 300px; justify-self: center; margin-bottom: -8px; } .hero--dark { padding-top: 92px; } .lead-form--pills label { flex: 1 1 100%; } .lead-form--pills input, .lead-form--pills .btn-accent { width: 100%; } .hero--dark .display { font-size: clamp(36px, 10vw, 44px); } }
+/* Max 19-10: the trust row sits bottom right, level with the pills, so it shows on a laptop screen; the mark rides a little higher */
+.hero__grid { grid-template-rows: minmax(0, 1fr) auto; }
+.hero__text { grid-row: 1 / span 2; }
+.hero__mark { grid-row: 1; top: -28px; }
+.hero--dark .hero__trust { grid-column: 2; grid-row: 2; justify-self: end; align-self: end; margin: 0 0 3px; }
+/* short laptop screens: type and spacing follow the screen height, so the pills and the trust row stay in view (identical from 837px high up) */
+@media (min-width: 861px) {
+  .hero--dark { padding-top: clamp(84px, 13vh, 108px); }
+  .hero--dark .display { font-size: clamp(38px, min(6.2vw, 8.6vh), 72px); margin-top: clamp(12px, 2.6vh, 22px); }
+  .hero--dark .lead { margin-top: clamp(12px, 2.6vh, 22px); }
+  .hero--dark .lead-form--pills { margin-top: clamp(20px, 5.7vh, 48px); }
+  .chips--dark { margin-top: clamp(12px, 2.6vh, 22px); }
+  .hero__mark { max-width: min(560px, 64vh); }
+}
+@media (max-width: 860px) { .hero__grid { grid-template-rows: none; } .hero__text, .hero__mark { grid-row: auto; } .hero__mark { top: 0; } .hero--dark .hero__trust { grid-column: auto; grid-row: auto; justify-self: start; margin: 4px 0 0; } }
 
 /* SERVICES v2 (2026-10-18): a numbered service list on the left, the active service expands; on the right a dark console that plays that service's feed. Auto-advances every few seconds while in view, hover or focus picks a row. */
 .svc { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; margin-top: 44px; align-items: start; }
@@ -505,3 +520,8 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 @media (max-width: 600px) { .svc__row { grid-template-columns: 36px minmax(0, 1fr); padding-left: 12px; } .svc__more-in { padding-left: 48px; } .svc__screen { padding: 18px; } .svc__kpis { gap: 18px; } .svc__kpis b { font-size: 22px; } }
 /* hero pills: one shared beam phase and a calmer light on black (the staggered, bright beams were distracting) */
 .hero--dark .beam::after { animation-delay: 0s; animation-duration: 6s; background: conic-gradient(from var(--beam), transparent 0deg 262deg, rgba(114, 193, 255, .18) 310deg, rgba(114, 193, 255, .6) 342deg, rgba(255, 255, 255, .45) 355deg, transparent 360deg); }
+/* the award pill: a light that runs around it, with a soft halo just outside the edge (Max 19-10); the service pills under the form have no beam (site.js) */
+.hero__eyebrow.beam::after { background: conic-gradient(from var(--beam), transparent 0deg 250deg, rgba(114, 193, 255, .5) 300deg, var(--accent) 340deg, #fff 354deg, transparent 360deg); }
+.hero__eyebrow.beam::before { content: ""; position: absolute; inset: -9px; padding: 9px; border-radius: inherit; pointer-events: none; z-index: 1; background: conic-gradient(from var(--beam), transparent 0deg 245deg, rgba(114, 193, 255, .35) 300deg, rgba(150, 210, 255, .85) 345deg, transparent 360deg); filter: blur(7px); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude; animation: beam 6s linear infinite; }
+.hero__eyebrow.beam:not(.beam--live)::before { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .hero__eyebrow.beam::before { animation: none; } }

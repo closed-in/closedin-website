@@ -23,7 +23,7 @@ BLOCKS = [
     ("leadboxer", "<!-- Leadboxer", 'leadboxer.com/?dataset=316eddd7dcb64c2d96481f90418a96c1"></script>'),
     ("leadboxer + subscribe", "<!-- Leadboxer", '<script defer src="/subscribe-form.js"></script>'),
 ]
-PAGES = ["index.html", "case-studies.html", "resources.html", "team.html", "contact.html",   # pages rebuilt on the new design system
+PAGES = ["index.html", "case-studies.html", "resources.html", "team.html",   # pages rebuilt on the new design system
          "blog/index.html", "resources/gtm-stack.html", "resources/n8n-workflows.html", "playbook.html", "tools/roi-calculator.html",
          "tools/email-verifier.html", "resources/cold-email-templates.html", "resources/clay-waterfall.html"]
 LD = re.compile(r'<script type="application/ld\+json"[^>]*>.*?</script>', re.S)

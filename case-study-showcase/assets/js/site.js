@@ -263,7 +263,7 @@
   }
 
   /* ---------- Border beams: pills get a travelling light with a staggered phase ---------- */
-  document.querySelectorAll('.eyebrow, .tag, .chip, .learn-card .free, .story__soon').forEach(function (el, i) { el.classList.add('beam'); el.style.setProperty('--n', 0); });   /* one phase for every beam: staggered lights read as noise (Max 18-10) */
+  document.querySelectorAll('.eyebrow, .tag, .chip, .learn-card .free, .story__soon, .hero__eyebrow').forEach(function (el, i) { if (el.matches('.chips--dark .chip:not(.chip--play)')) return; el.classList.add('beam'); el.style.setProperty('--n', 0); });   /* Max 19-10: no beam on the hero service pills, one on the award pill */   /* one phase for every beam: staggered lights read as noise (Max 18-10) */
   /* The beam spins on its own (CSS animation) and only pauses while the pill is off screen; observe after the classes exist */
   var beamEls = document.querySelectorAll('.beam');
   if (beamEls.length && 'IntersectionObserver' in window) { var bio = new IntersectionObserver(function (entries) { entries.forEach(function (en) { en.target.classList.toggle('beam--live', en.isIntersecting); }); }, { rootMargin: '10% 0px' }); beamEls.forEach(function (el) { bio.observe(el); }); } else { beamEls.forEach(function (el) { el.classList.add('beam--live'); }); }
@@ -303,7 +303,7 @@
       hero: [{ x: .86, y: .46, rx: .17, ry: .4 }, { x: .5, y: .97, rx: .8, ry: .1, band: 1 }, { x: .66, y: .14, rx: .09, ry: .16 }],   /* dark page heroes: a field on the right and a band along the bottom edge */
       edges: [{ x: .02, y: .5, rx: .05, ry: .42 }, { x: .98, y: .5, rx: .05, ry: .42 }],   /* thin columns in the side margins, for bands where the middle is busy */
       band: [{ x: .5, y: .9, rx: .7, ry: .14, band: 1 }],   /* one breathing band low in the section */
-      heroband: [{ x: .5, y: .985, rx: .82, ry: .075, band: 1 }, { x: .97, y: .55, rx: .05, ry: .3 }]   /* homepage hero: a band hugging the bottom edge (as on the page heroes) and a thin column on the far right */
+      heroband: [{ x: .5, y: .985, rx: .82, ry: .075, band: 1 }, { x: .97, y: .55, rx: .05, ry: .3 }, { x: .5, y: .012, rx: .82, ry: .05, band: 1 }, { x: .025, y: .45, rx: .045, ry: .34 }]   /* homepage hero: bands hugging the bottom and top edges, thin columns on the far right and left (Max 19-10: more on top and left) */
     };
     var STEPS = 14, STY = [];
     for (var q = 0; q < STEPS; q++) STY.push('rgba(114, 193, 255, ' + (.2 + .65 * q / (STEPS - 1)).toFixed(3) + ')');
