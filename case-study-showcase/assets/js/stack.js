@@ -132,7 +132,7 @@ function layout() {
   // windows: the left four-fifths, two on top (Clay, Instantly), three below (Apollo, Claude, n8n)
   const wx0 = gx, wx1 = sx0 - (narrow ? 12 : 28), wy0 = gy + (head.offsetHeight || 60) + 14, wy1 = PH - gy * .4, pg = narrow ? 8 : 14;
   const W = wx1 - wx0, H = wy1 - wy0, hTop = (H - pg) * .6, hBot = H - pg - hTop, hBig = (H - pg) * .82;   // 18-10: Clay and Instantly open big (hBig), then settle to hTop when the bottom row comes in
-  stack.classList.toggle('stack--short', hTop < 400); stack.classList.toggle('stack--xshort', hTop < 300);   // short laptops: tighter type
+  stack.classList.toggle('stack--short', hTop < 400); stack.classList.toggle('stack--xshort', hTop < 300); stack.classList.toggle('stack--tiny', hTop < 240);   // short laptops: tighter type
   const w2 = (W - pg) / 2, w3 = (W - pg * 2) / 3;
   const rects = narrow
     ? wins.map((_, i) => ({ x: wx0, y: wy0 + i * (H + pg) / 5, w: W, h: (H + pg) / 5 - pg }))
@@ -255,6 +255,9 @@ function ascii(now) {
   if (!reduce && near) requestAnimationFrame(ascii); else asciiOn = false;
 }
 addEventListener('resize', layout);
+// A classic scrollbar (Mac with 'always show scrollbars', Windows) appears once the page transition lets the page scroll: the section gets
+// 15px narrower without a resize event and the windows' right edges cut into their padding (Max 19-10). Measure again whenever the pinned frame changes size.
+if ('ResizeObserver' in window) new ResizeObserver(() => { if (G && (pin.clientWidth !== G.PW || pin.clientHeight !== G.PH)) layout(); }).observe(pin);
 document.fonts?.ready.then(layout);
 layout(); read(); p = target;
 wake();

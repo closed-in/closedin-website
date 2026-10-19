@@ -372,6 +372,12 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 .stack.stack--short .stats div { padding: 5px 8px; } .stack.stack--short .stats strong { font-size: 15px; } .stack.stack--short .stats span { font-size: 10px; }
 .stack.stack--short .clay-foot .badge { height: 36px; } .stack.stack--short .win a.cta { padding: 7px 12px; font-size: 12px; }
 .stack.stack--short .post-head img { width: 26px; height: 26px; } .stack.stack--short .post-head b { font-size: 12px; } .stack.stack--short .post-head span { display: none; }
+/* very short screens (windows under 300px high, e.g. 1366x768 laptops): drop the decorations so the quote, the numbers and the buttons keep fitting (Max 19-10) */
+.stack.stack--xshort .w-in { padding: 10px 14px; gap: 4px; } .stack.stack--xshort .w-body { gap: 5px; }
+.stack.stack--xshort .win h3 { font-size: 15px; } .stack.stack--xshort .post-head, .stack.stack--xshort .shot { display: none; }
+.stack.stack--xshort .win p { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+.stack.stack--xshort .post { padding: 8px 10px; gap: 5px; } .stack.stack--xshort .stats div { padding: 4px 8px; } .stack.stack--xshort .clay-shot { min-height: 64px; }
+.stack.stack--tiny .post blockquote { display: none; }   /* under 240px the heading already says it: Featured by Instantly as a certified expert */
 
 .stories__wrap { position: relative; }
 .stories__wrap::after { content: ""; position: absolute; top: 0; bottom: 0; right: 0; width: clamp(60px, 10vw, 160px); background: linear-gradient(90deg, rgba(244, 246, 248, 0), var(--bg) 85%); pointer-events: none; z-index: 2; transition: opacity .3s; }
