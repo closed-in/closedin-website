@@ -311,7 +311,8 @@
       corners: [{ x: .05, y: .9, rx: .2, ry: .16 }, { x: .95, y: .88, rx: .2, ry: .16 }],
       right: [{ x: .94, y: .2, rx: .16, ry: .2 }, { x: .04, y: .82, rx: .1, ry: .16 }],
       left: [{ x: .06, y: .22, rx: .16, ry: .2 }, { x: .96, y: .84, rx: .1, ry: .16 }],
-      hero: [{ x: .86, y: .46, rx: .17, ry: .4 }, { x: .5, y: .97, rx: .8, ry: .1, band: 1 }, { x: .66, y: .14, rx: .09, ry: .16 }],   /* dark page heroes: a field on the right and a band along the bottom edge */
+      hero: [{ x: .86, y: .46, rx: .17, ry: .4 }, { x: .5, y: .97, rx: .8, ry: .1, band: 1 }, { x: .66, y: .14, rx: .09, ry: .16 }, { x: .5, y: .012, rx: .82, ry: .06, band: 1 }, { x: .025, y: .5, rx: .045, ry: .34 }],   /* dark page heroes: a field on the right, bands along the bottom and top edges, a column on the left (19-10, as the homepage hero) */
+      sides: [{ x: .84, y: .045, rx: .2, ry: .05, w: .95 }, { x: .03, y: .1, rx: .055, ry: .09, w: .95 }, { x: .97, y: .3, rx: .055, ry: .09, w: .95 }, { x: .03, y: .52, rx: .055, ry: .09, w: .95 }, { x: .97, y: .74, rx: .055, ry: .09, w: .95 }, { x: .03, y: .94, rx: .055, ry: .07, w: .95 }],   /* tall light sections with cards (19-10, Max: more on the secondary pages): a field beside the section heading, then fields down both side margins where the cards leave room; a little stronger (w) than the homepage side fields */
       edges: [{ x: .02, y: .5, rx: .05, ry: .42 }, { x: .98, y: .5, rx: .05, ry: .42 }],   /* thin columns in the side margins, for bands where the middle is busy */
       band: [{ x: .5, y: .9, rx: .7, ry: .14, band: 1 }],   /* one breathing band low in the section */
       heroband: [{ x: .5, y: .985, rx: .82, ry: .075, band: 1 }, { x: .97, y: .55, rx: .05, ry: .3 }, { x: .5, y: .012, rx: .82, ry: .05, band: 1 }, { x: .025, y: .45, rx: .045, ry: .34 }]   /* homepage hero: bands hugging the bottom and top edges, thin columns on the far right and left (Max 19-10: more on top and left) */
@@ -343,7 +344,7 @@
             var sh = shapes[k]; if (!wide && !sh.band) continue;
             var dx = (px - sh.x) / sh.rx, dy = (py - sh.y) / sh.ry, d2 = dx * dx + dy * dy; if (d2 > 4) continue;
             var wave = sh.band ? .5 + .5 * Math.sin(px * 9 + tt * .2) * Math.sin(px * 3.7 - tt * .11 + 1.3) : .5 + .5 * Math.sin(tt * .3 + py * 9 + px * 20 + k);
-            v += Math.exp(-d2) * wave * (sh.band ? 1 : .7);
+            v += Math.exp(-d2) * wave * (sh.w || (sh.band ? 1 : .7));
           }
           if (v <= .1) continue;
           v = v * (.8 + .2 * hash(xi + step, yi)) - .22; if (v <= .05) continue;

@@ -349,3 +349,11 @@ Max na de Attio/Stripe/Linear-ronde: "dit is het niet", vooral tekst, spacing en
 - **Max: "How it works ronde hoeken aan de buitenkant, de binnenste vlakken mogen hoeken hebben".** De rand zit nu om `.signals__rows` (1px, radius 18px zoals het Learn-blok, `overflow: hidden`); de rijen hebben geen eigen rand meer, alleen een lijn ertussen. De lijnen tussen tekst, flow en ticker blijven recht.
 - **Max: "bij Learn op hover dat witte glow vanonder erin, iets meer engaging".** `.learn-card::before`: een witte radiale gloed die bij hover vanaf de onderrand van de screenshot 22px omhoog komt en infadet (0,5 s). Hij eindigt op de onderrand van het beeld en valt dus niet over de titel. Drie sterktes vergeleken op de donkere Vault-kaart; de lichtste gekozen (de sterkere werd een mist over de halve kaart).
 - **Checks:** trackers ALL PASS, copy PASS, geen scriptfouten.
+
+## v4.41 (19-10): meer pixelvelden (firecrawl) op de subpagina's
+
+- **Max: "op de secondary pages moeten de firecrawl-elementen nog iets meer op de achtergrond terugkomen, dat zie ik nog niet".** Gemeten: de velden stonden er, maar vooral achter de dekkend witte kaarten (Cases: een veld linksboven voor een sectie van 2.600px hoog), dus nauwelijks zichtbaar.
+- **Nieuwe preset `sides`** voor hoge lichte secties met kaarten (Cases-raster, Resources-raster, teamkaarten): een veld rechtsboven naast de sectiekop, daarna afwisselend links en rechts velden in de zijmarges, iets sterker (gewicht 0,95 in plaats van 0,7; `sh.w` per vorm in `site.js`).
+- **Preset `hero`** (donkere openingen van Cases, Resources, blog en de Resources-menupagina's) kreeg dezelfde band langs de bovenrand en kolom links als de homepage-hero.
+- **Team:** de waarden-sectie gebruikt `edges` (dunne kolommen links en rechts over de volle hoogte).
+- **Checks:** trackers ALL PASS, copy PASS; screenshots op 1440 px van team, cases en resources.
