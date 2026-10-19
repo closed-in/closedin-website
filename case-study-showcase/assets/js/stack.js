@@ -154,10 +154,13 @@ function layout() {
 
 // ── timeline ──
 // dock timeline: every icon sits in place, grey, from the start (the progress starts PRE viewports before the pin)
-// 0.05 to 0.60  Clay, Instantly, Apollo, Claude, n8n light up one by one and their window grows out of the icon
-// 0.66 to 0.82  the rest of the stack and the CRMs light up in one quick wave, top to bottom
-// 0.82 to 1.00  hold on the full picture
-const WOPEN = .07, FEAT0 = .05, FEATSTEP = .12, WAVE0 = .66, WAVE1 = .82, PRE = .3;
+// 0.06 to 0.70  Clay, Instantly, Apollo, Claude, n8n light up one by one and their window grows out of the icon
+// 0.77 to 0.96  the rest of the stack and the CRMs light up in one quick wave, top to bottom
+// 0.96 to 1.00  a short hold on the full picture, then the page scrolls on
+// 19-10 (Max): the hold used to run from 0.82 (over half a screen of scrolling where nothing moved, the site felt stuck). The section is 370vh instead of
+// 420vh (the progress range 3.0 instead of 3.5 screens) and every moment is stretched by T, so everything before keeps its pace per scrolled pixel.
+const T = 3.5 / 3.0;
+const WOPEN = .07 * T, FEAT0 = .05 * T, FEATSTEP = .12 * T, WAVE0 = .66 * T, WAVE1 = .82 * T, PRE = .3;
 const rest = [];
 [1, 2].forEach(si => snakes[si].items.forEach(it => rest.push(it)));
 rest.sort((a, b) => a.i - b.i);
@@ -205,7 +208,7 @@ function frame(now) {
   progDot.style.top = (pf * 100).toFixed(3) + '%'; APF = pf;
 
   // Clay and Instantly open big; they settle to their base size while Apollo comes in (the bottom row needs the room)
-  const settle = wins[2] ? io(ss(wins[2].landP - .03, wins[2].landP + .05, p)) : 1;
+  const settle = wins[2] ? io(ss(wins[2].landP - .03 * T, wins[2].landP + .05 * T, p)) : 1;
   // the windows grow out of their icon the moment it lands
   wins.forEach(w => {
     const e = io(ss(w.landP, w.landP + WOPEN, p)), s = w.big ? settle : 1;

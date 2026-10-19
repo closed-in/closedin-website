@@ -323,3 +323,10 @@ Max na de Attio/Stripe/Linear-ronde: "dit is het niet", vooral tekst, spacing en
 
 - **Max: "bij de watch video met de popup wil ik dat je daar met je muis naartoe kan bewegen en op play kan drukken".** De preview (`.peek`) verdween zodra de muis de pil verliet en had `pointer-events: none`. Nu: na het verlaten van de pil blijft hij 320 ms staan (genoeg om de 50 px tussen pil en kaart over te steken), blijft hij open zolang de muis erop staat (de stille preview loopt door), en een klik op de kaart opent de video zoals de pil (`trigger.click()`). De playknop wordt iets groter bij hover. Bij scrollen gaat de kaart dicht (hij staat fixed en zou van de pil wegdrijven). Alleen voor muis en trackpad (fine pointer); toetsenbord en touch gebruiken de pil zelf.
 - **Getest:** hover op de pil, langzaam omhoog naar de kaart, na 600 ms nog open en spelend, klik opent de lightbox met speler, weg met de muis sluit hem. Trackers ALL PASS, copy PASS.
+
+## v4.38 (19-10): de stack laat sneller los als de blauwe lijn onderaan is
+
+- **Max: "als de lichtgevende lijn bij the stack helemaal onderaan is duurt het nog even scrollen tot je erdoor bent, dat voelt alsof de website stilstaat".** De tijdlijn hield het volle plaatje vast van 0.82 tot 1.00 van de voortgang: 0,63 scherm (ongeveer 530 px) scrollen waarin niets bewoog.
+- **Fix:** `.stack` is 370vh in plaats van 420vh (voortgangsbereik 3,0 in plaats van 3,5 schermen) en in `stack.js` zijn alle momenten met T = 3.5 / 3.0 opgerekt (WOPEN, FEAT0, FEATSTEP, WAVE0, WAVE1 en de settle-marges). Alles daarvoor houdt zo hetzelfde tempo per gescrolde pixel.
+- **Gemeten (binair zoeken op de scrollpositie, 1413x837 en 390x844):** vijf vensters open op +1,59 scherm na de sectietop en de lijn onderaan op +2,57, allebei ongewijzigd. De sectie laat los op +2,70 in plaats van +3,20; de pauze na de lijn is 0,13 scherm (ongeveer 110 px) in plaats van 0,63.
+- **Checks:** trackers ALL PASS, copy PASS.
