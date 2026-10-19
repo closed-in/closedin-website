@@ -313,3 +313,8 @@ Max na de Attio/Stripe/Linear-ronde: "dit is het niet", vooral tekst, spacing en
 - **Glitter in het draaiende logo feller (Max).** Bump van 3.5 naar 4.6, ruwheid van de zwarte vlakken van 0.28 naar 0.2, en ongeveer 230 glitterschilfers per textuurtegel (koepeltjes van ongeveer 2 schermpixels). Fijnere korrel per texel bleek onzichtbaar: een texel is op scherm ongeveer 0,27 pixel.
 - **Video Shirin Danesh (Advantive):** Tella `vid_cmvdxwrpd000a02qrd353ftx5` (2:47, opgezocht via de Tella-API op de link d353ftx5) op de homepage en de Cases-pagina.
 - **Checks:** trackers ALL PASS (homepage plus elf pagina's), copy PASS, twaalf pagina's zonder scriptfouten en zonder link naar /contact, Tella-embed 200.
+
+## v4.36 (19-10): award-pil met dezelfde beam als de andere pills
+
+- **Max: "de lichtgevende gloed achter de Most Innovative-pil is te fel, die moet hetzelfde zijn als bij de andere pills".** De halo (`::before`, geblurde conic-gradient) en de fellere beam-kleur voor `.hero__eyebrow` zijn weg. De pil houdt de beam en gebruikt nu `.hero--dark .beam::after` (6 s, rustig licht), gemeten gelijk aan Watch the video (zelfde gradient, zelfde duur).
+- **Checks:** trackers ALL PASS, copy PASS.
