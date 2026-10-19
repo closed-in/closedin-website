@@ -1,6 +1,8 @@
 /* closed:in design system v4 (2026-10-17): light neumorphic UI (workflows.io), Dapper type with a serif accent, interaction layer (border beam, cursor, spotlight, tilt, word reveal). */
 @font-face { font-family: "Inter"; src: url("/assets/fonts/inter-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+/* the hollow footer wordmark: Inter 500 with the overlaps removed, only the letters of closed:in (1.5 KB). In the variable font the e is one self-crossing outline, which the text stroke showed as a line through the letter (19-10) */
+@font-face { font-family: "Inter Wordmark"; src: url("/assets/fonts/inter-wordmark-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
 @font-face { font-family: "Inter Fallback"; src: local("Arial"); size-adjust: 107.1%; ascent-override: 90.44%; descent-override: 22.52%; line-gap-override: 0%; }
 
 :root {
@@ -390,7 +392,7 @@ html.veil-hold .veil.on { animation: none; }
 .footer__wordmark { padding: 26px 0 30px; overflow: hidden; }
 .footer__wordmark-track { display: flex; align-items: center; width: max-content; animation: marquee 36s linear infinite; }
 .footer__wordmark .wm { display: inline-flex; align-items: baseline; font-size: clamp(96px, 15.3vw, 220px); line-height: 1; font-weight: 500; letter-spacing: -0.05em; color: #fff; white-space: nowrap; }
-.footer__wordmark .wm.is-hollow { color: transparent; -webkit-text-stroke: 2px #fff; }
+.footer__wordmark .wm.is-hollow { font-family: "Inter Wordmark", var(--font); color: transparent; -webkit-text-stroke: 2px #fff; }
 .footer__wordmark .colon { display: inline-block; width: .13em; height: .5em; margin: 0 .09em; background: linear-gradient(var(--accent), var(--accent)) top / 100% .13em no-repeat, linear-gradient(var(--accent), var(--accent)) bottom / 100% .13em no-repeat; }
 .footer__wordmark .fav { width: 120px; height: 120px; margin: 0 80px; flex: none; }
 .footer__bottom { margin: 0 var(--gutter); padding: 18px 0 22px; border-top: 1px solid rgba(255, 255, 255, .10); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: #7d838d; }
@@ -442,3 +444,27 @@ html.veil-hold .veil.on { animation: none; }
 .story__mark { width: 48px; height: 48px; border-radius: 50%; background: var(--bg); display: grid; place-items: center; color: var(--accent); box-shadow: rgba(255, 255, 255, .9) 0 0 0 1px inset; }
 .story__mark svg { width: 20px; height: 20px; }
 @media (prefers-reduced-motion: reduce) { .play::before { animation: none; } }
+
+/* Case cards and tags (moved from pages.css on 19-10: the homepage shows the written cases under the client stories too) */
+.ptag { display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border: 1px solid var(--line-2); border-radius: var(--r-pill); font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-100); background: var(--white); white-space: nowrap; }
+.ptag--accent { border-color: rgba(114, 193, 255, .7); background: rgba(114, 193, 255, .12); color: var(--ink); }
+.pcases { margin-top: 48px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.pcase { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 30px 32px 32px; background: var(--white); color: var(--ink); text-decoration: none; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; transition: background .45s var(--ease); }
+.pcase:hover { background: linear-gradient(180deg, rgba(114, 193, 255, 0) 35%, rgba(114, 193, 255, .08)); }
+.pcase__top { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 44px; }
+.pcase__logo { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.pcase__logo img { display: block; width: auto; height: auto; max-height: 34px; max-width: 170px; filter: brightness(0); opacity: .8; transition: filter .45s var(--ease), opacity .45s var(--ease); }
+.pcase:hover .pcase__logo img { filter: none; opacity: 1; }
+.pcase__logo.is-white img, .pcase:hover .pcase__logo.is-white img { filter: brightness(0); }
+.pcase__logo .wordmark { font-weight: 700; font-size: 18px; letter-spacing: .06em; color: var(--ink); }
+.pcase .alink__box { flex: none; }
+.pcase:hover .alink__box { background: var(--accent); }
+.pcase__tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.pcase h3 { margin: 0; max-width: 26ch; font-size: clamp(22px, 1.9vw, 28px); line-height: 1.15; letter-spacing: -0.015em; font-weight: 500; }
+.pcase .desc { margin: 0; max-width: 54ch; font-size: 15px; line-height: 1.55; color: var(--gray-100); }
+.pcase__stats { margin-top: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.pcase__stats > div { padding: 16px 12px 0 0; min-width: 0; }
+.pcase__stats > div + div { padding-left: 16px; border-left: 1px solid var(--line); }
+.pcase__stat-val { font-size: clamp(22px, 2vw, 28px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.pcase__stat-lbl { margin-top: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-90); }
+@media (max-width: 900px) { .pcases { grid-template-columns: 1fr; } .pcase { padding: 26px 22px 28px; } }
