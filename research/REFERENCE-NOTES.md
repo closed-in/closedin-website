@@ -283,5 +283,5 @@ Max na de Attio/Stripe/Linear-ronde: "dit is het niet", vooral tekst, spacing en
 
 ## v4.32 (19-10): services-lijst zonder Retainer en Sprint
 
-- **Max: "hier de woorden retainer en sprint weghalen".** De vier labels rechts in de services-lijst (drie keer Retainer, een keer Retainer, Sprint en een keer Sprint) zijn weg, met de stijl `.svc__tag`; de rij heeft nu twee kolommen (nummer en naam). "Clay Enrichment & RevOps" past daardoor op desktop op één regel. Het woord retainer in lopende tekst op de oude pagina's (pricing, clay-agency) is niet aangeraakt.
+- **Max: "hier de woorden retainer en sprint weghalen".** De vier labels rechts in de services-lijst (twee keer Retainer, een keer Retainer, Sprint en een keer Sprint) zijn weg, met de stijl `.svc__tag`; de rij heeft nu twee kolommen (nummer en naam). "Clay Enrichment & RevOps" past daardoor op desktop op één regel. Het woord retainer in lopende tekst op de oude pagina's (pricing, clay-agency) is niet aangeraakt.
 - **Checks:** trackers ALL PASS, copy PASS, geen scriptfouten op 1440 en 390 px.
