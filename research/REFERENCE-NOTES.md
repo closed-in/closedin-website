@@ -368,3 +368,8 @@ Max na de Attio/Stripe/Linear-ronde: "dit is het niet", vooral tekst, spacing en
   - de popup toont direct de foto van de kaart (of de VSL-poster, `data-poster`) met een laadring, en de speler fadet erover in zodra hij geladen is.
   - Gemeten van klik tot speler: 0,7 tot 1,1 s.
 - **Checks:** trackers ALL PASS, copy PASS, geen scriptfouten; drie keer achter elkaar openen en sluiten zet de achtergrond en de sluitknop telkens goed terug.
+
+## v4.43 (20-10): Visma-logo met de rode swoosh
+
+- **Max: "bij Visma moeten we dat rode dingetje nog ervoor bij het logo doen".** Het logo in de muur was alleen het woordmerk (uit het deck van het business-event, waar het merkteken al ontbrak). Visma.com voert sinds hun nieuwe huisstijl een paars VΛ-icoon zonder rood; het rode teken is de klassieke ovale swoosh vóór het woord. Officieel logo van Wikimedia Commons (`File:Visma logo.png`, 1920x1080 transparant), bijgesneden tot het logo en verkleind naar 641x120: `assets/img/logos-web/visma-sm-v2.webp` (16 KB; nieuwe naam vanwege de cache van zeven dagen). In de muur grijs zoals de andere logo's, bij hover de rode swoosh. Het oude `visma-sm.webp` blijft staan, net als bij eerdere vervangingen.
+- **Checks:** trackers ALL PASS, copy PASS.
