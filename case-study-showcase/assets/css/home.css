@@ -117,24 +117,115 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 .flow .btn-accent { position: relative; z-index: 2; margin: 10px 0; align-self: flex-start; }
 @media (max-width: 1023px) { .engine__grid { grid-template-columns: 1fr; } .engine__sticky { position: static; } }
 
-/* WHY US table */
+/* WHY US: precision grid with the closed:in column and a light sweep (design G3, Max 19-10).
+   Every row is its own grid on the same tracks (--c1 criteria, --c2 closed:in). The dark column is one layer behind the rows on the same
+   custom properties, so it lines up at every width. Below 1024px one competitor at a time, picked with the radio pills (CSS only). */
 .why { padding-top: var(--section-y); }
-.cmp { margin-top: 56px; overflow-x: auto; }
-.cmp table { width: 100%; min-width: 820px; border-collapse: separate; border-spacing: 0; font-size: 15px; border: 1px solid var(--line); background: var(--white); }
-.cmp th, .cmp td { padding: 20px 14px; text-align: center; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); }
-.cmp th:last-child, .cmp td:last-child { border-right: 0; } .cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom: 0; }
-.cmp thead th { background: var(--bg); }
-.cmp th { font-weight: 500; font-size: 15px; }
-.cmp th:first-child, .cmp td:first-child { text-align: left; font-weight: 500; width: 28%; }
-.cmp th:first-child svg, .cmp td:first-child svg { width: 16px; height: 16px; color: var(--gray-80); vertical-align: -3px; margin-right: 10px; }
-.cmp th.us, .cmp td.us { background: rgba(114, 193, 255, .10); box-shadow: none; }
-.cmp th.us { border-top: 2px solid var(--accent); background: rgba(114, 193, 255, .16); }
-.cmp th.us span { display: inline-flex; align-items: center; gap: 8px; }
-.cmp th.us img { height: 36px; width: auto; }   /* Max 18-10: the logo in the comparison head was too small */
-.cmp .yes, .cmp .no { display: inline-grid; place-items: center; width: 22px; height: 22px; }
-.cmp .yes { background: var(--ink); color: #fff; } .cmp .no { background: #e2e5e7; color: #fff; }
-.cmp .yes svg, .cmp .no svg { width: 12px; height: 12px; }
-.cmp td.txt { color: var(--gray-100); font-size: 14px; }
+.vs { --c1: 28.7%; --c2: 20.3%; --vs-line: #E1E4E9; --vs-vline: #EBEDF0; --vs-mute: #5B6472; --vs-faint: var(--gray-90); --vs-blue: 59, 140, 240; --vs-travel: 924px;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  position: relative; isolation: isolate; margin-top: clamp(84px, 8vw, 112px); }
+.vs__table, .vs__foot { position: relative; z-index: 1; }
+.vs__row { display: grid; grid-template-columns: var(--c1) var(--c2) repeat(4, minmax(0, 1fr)); }
+
+/* the closed:in column: glow behind it, dark body, blue light at the top, two dashed guides, the sweep */
+.vs__stage { position: absolute; z-index: 0; left: var(--c1); width: var(--c2); top: -28px; bottom: 0; pointer-events: none; }
+.vs__glow { position: absolute; left: -80px; right: -80px; top: -122px; height: 540px; border-radius: 50%; background: radial-gradient(ellipse at 50% 40%, rgba(var(--vs-blue), .34), rgba(var(--vs-blue), 0) 70%); filter: blur(34px); }
+.vs__col { position: absolute; inset: 0; overflow: hidden; border-radius: 18px; background: #0B0D10; border: 1px solid rgba(255, 255, 255, .12); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), 0 40px 80px -24px rgba(11, 13, 16, .5); }
+.vs__col::before { content: ""; position: absolute; left: -60px; right: -60px; top: -160px; height: 360px; border-radius: 50%; background: radial-gradient(ellipse at 50% 50%, rgba(var(--vs-blue), .5), rgba(var(--vs-blue), 0) 65%); }
+.vs__col::after { content: ""; position: absolute; inset: 0 12px; border-left: 1px dashed rgba(255, 255, 255, .08); border-right: 1px dashed rgba(255, 255, 255, .08); }
+.vs__sweep { position: absolute; left: 0; right: 0; top: 0; height: 220px; background: linear-gradient(180deg, rgba(140, 190, 255, 0), rgba(140, 190, 255, .16) 50%, rgba(140, 190, 255, 0)); animation: vs-sweep 5.5s cubic-bezier(.45, 0, .25, 1) infinite; }
+html.js .vs:not(.is-live) .vs__sweep { animation-play-state: paused; }   /* site.js runs it only while the table is on screen */
+@keyframes vs-sweep { from { transform: translateY(-66px); } to { transform: translateY(var(--vs-travel)); } }
+
+/* cells */
+.vs__lab { display: flex; align-items: center; gap: 18px; padding: 19px 24px 19px 0; font-size: 16px; font-weight: 500; line-height: 1.35; color: var(--ink); border-bottom: 1px solid var(--vs-line); }
+.vs__lab small { display: block; margin-top: 3px; font-size: 13px; font-weight: 400; color: var(--vs-mute); text-wrap: balance; }
+.vs .nw { white-space: nowrap; }
+.vs__num { flex: none; width: 22px; font-family: var(--mono); font-size: 11px; color: var(--vs-faint); transition: color .25s; }
+.vs__us { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 14px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, .07); }
+.vs__us b { font-size: 13.5px; font-weight: 600; line-height: 1.3; color: #fff; }
+.vs__us .vs__val { font-family: var(--mono); font-size: 16px; font-weight: 500; letter-spacing: 0; }
+.vs__ck { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; background: linear-gradient(180deg, #fff, #C9DCF5); color: var(--ink); box-shadow: 0 0 0 1px rgba(255, 255, 255, .3), 0 4px 12px rgba(var(--vs-blue), .4); }
+.vs__ck svg { width: 12px; height: 12px; }
+.vs__c { display: flex; align-items: center; justify-content: center; padding: 14px 12px; text-align: center; font-size: 14px; line-height: 1.35; color: var(--vs-mute); text-wrap: balance; border-bottom: 1px solid var(--vs-line); border-left: 1px solid var(--vs-vline); transition: color .25s; }
+.vs__dash { display: block; width: 12px; height: 1.5px; background: #C3C9D2; }
+.vs__us + .vs__hd, .vs__us + .vs__c { border-left: 0; }
+@media (hover: hover) { .vs__table .vs__row:not(.vs__row--head):hover .vs__c, .vs__table .vs__row:hover .vs__num { color: var(--ink); } }
+
+/* header row: mono index numbers, the wordmark between the two favicon brackets */
+.vs__row--head { min-height: 116px; }
+.vs__row--head .vs__lab { align-items: flex-end; padding-bottom: 22px; border-bottom-color: var(--ink); font-family: var(--mono); font-size: 10.5px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--vs-faint); }
+.vs__row--head .vs__us { justify-content: flex-end; gap: 10px; padding-bottom: 24px; border-bottom-color: rgba(255, 255, 255, .25); }
+.vs__idx { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; color: #7FB6F6; }
+.vs__brand { position: relative; padding: 6px 14px; font-size: 25px; font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; color: #fff; }
+.vs__brand::before, .vs__brand::after { content: ""; position: absolute; width: 11px; height: 11px; border: 0 solid #fff; transition: transform .7s var(--ease) .45s, opacity .7s var(--ease) .45s; }
+.vs__brand::before { left: 0; bottom: 0; border-width: 0 0 1.5px 1.5px; }
+.vs__brand::after { right: 0; top: 0; border-width: 1.5px 1.5px 0 0; }
+@media (prefers-reduced-motion: no-preference) {   /* the brackets close in on the wordmark once the table has risen */
+  html.js .vs:not(.in) .vs__brand::before { opacity: 0; transform: translate(-8px, 8px); }
+  html.js .vs:not(.in) .vs__brand::after { opacity: 0; transform: translate(8px, -8px); }
+}
+.vs__hd { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 8px; padding: 0 12px 22px; font-size: 14.5px; font-weight: 600; line-height: 1.25; text-align: center; color: var(--ink); border-bottom: 1px solid var(--ink); border-left: 1px solid var(--vs-vline); }
+.vs__hd span { font-family: var(--mono); font-size: 10.5px; font-weight: 400; letter-spacing: .08em; color: var(--vs-faint); }
+
+/* the call to action closes the dark column */
+.vs__foot { display: grid; grid-template-columns: var(--c1) var(--c2); }
+.vs__cta { grid-column: 2; display: flex; align-items: center; justify-content: space-between; gap: 8px; height: 46px; margin: 22px clamp(10px, 9%, 22px) 26px; padding: 0 8px 0 18px; border-radius: 12px; background: #fff; color: var(--ink); font-size: 14px; font-weight: 600; white-space: nowrap; text-decoration: none; box-shadow: 0 0 26px rgba(120, 180, 255, .45); transition: box-shadow .35s var(--ease); }
+.vs__cta:hover { box-shadow: 0 0 36px rgba(120, 180, 255, .75); }
+.vs__cta:focus-visible { border-radius: 12px; box-shadow: var(--focus), 0 0 26px rgba(120, 180, 255, .45); }
+.vs__go { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; background: var(--ink); color: #fff; }
+.vs__go svg { width: 14px; height: 14px; transition: transform .45s var(--ease); }
+.vs__cta:hover .vs__go svg { transform: translate(2px, -2px); }
+
+/* the competitor picker only exists below 1024px */
+.vs-pick { display: none; }
+
+@media (max-width: 1199px) and (min-width: 1024px) {
+  .vs { --c1: 25%; --c2: 23%; }
+  .vs__lab { font-size: 15px; }
+  .vs__c { font-size: 13.5px; }
+}
+@media (max-width: 1023px) {
+  .vs { --c1: 37%; --c2: 33%; margin-top: 76px; }
+  .vs__row { grid-template-columns: var(--c1) var(--c2) minmax(0, 1fr); }
+  .vs__row > :nth-child(n+3) { display: none; border-left: 0; animation: vs-in .45s var(--ease); }
+  .vs__row > :nth-child(5) { display: flex; }   /* Agency, the pill that starts checked: the nearest alternative to closed:in */
+  .why:has(.vs-pick [value="1"]:checked) .vs__row > :nth-child(5), .why:has(.vs-pick [value="2"]:checked) .vs__row > :nth-child(5), .why:has(.vs-pick [value="4"]:checked) .vs__row > :nth-child(5) { display: none; }
+  .why:has(.vs-pick [value="1"]:checked) .vs__row > :nth-child(3), .why:has(.vs-pick [value="2"]:checked) .vs__row > :nth-child(4), .why:has(.vs-pick [value="4"]:checked) .vs__row > :nth-child(6) { display: flex; }
+  .vs-pick { display: block; min-width: 0; margin: 44px auto 0; padding: 0; border: 0; text-align: center; }
+  .vs-pick__lab { display: block; margin: 0 auto 12px; padding: 0; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-90); }
+  .vs-pick__seg { display: inline-grid; grid-template-columns: repeat(4, auto); gap: 4px; max-width: 100%; padding: 4px; border-radius: var(--r-pill); background: var(--white); box-shadow: var(--neu-pill); }
+  .vs-pick label { position: relative; display: grid; min-width: 0; }
+  .vs-pick input { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+  .vs-pick span { display: grid; place-items: center; min-height: 40px; padding: 0 14px; border-radius: var(--r-pill); font-size: 13px; font-weight: 500; line-height: 1.15; white-space: nowrap; color: var(--gray-100); transition: background .3s var(--ease), color .3s var(--ease); }
+  .vs-pick input:checked + span { background: var(--ink); color: #fff; }
+  .vs-pick input:focus-visible + span { box-shadow: var(--focus); }
+}
+@keyframes vs-in { from { opacity: 0; transform: translateY(4px); } }
+@media (max-width: 639px) {
+  .vs { margin-top: 64px; }
+  .vs__stage { bottom: 66px; }   /* the button sits under the column on a phone: 28px gap + 52px button, the column runs 14px past the last row */
+  .vs__row--head { min-height: 96px; }
+  .vs__row--head .vs__us { padding-bottom: 18px; gap: 8px; }
+  .vs__row--head .vs__lab { padding-bottom: 18px; }
+  .vs__brand { padding: 5px 10px; font-size: 18px; }
+  .vs__brand::before, .vs__brand::after { width: 8px; height: 8px; }
+  .vs__hd { padding: 0 6px 18px; font-size: 13px; }
+  .vs__num { display: none; }
+  .vs__lab { padding: 15px 10px 15px 0; font-size: 14px; }
+  .vs__lab small { font-size: 12px; }
+  .vs__us { padding: 12px 8px; }
+  .vs__us b { font-size: 12.5px; }
+  .vs__us .vs__val { font-size: clamp(12px, 3.4vw, 13.5px); white-space: nowrap; }
+  .vs__c { padding: 12px 6px; font-size: 13px; }
+  .vs__foot { display: block; padding-top: 28px; }
+  .vs__cta { width: 100%; height: 52px; margin: 0; padding: 0 10px 0 20px; background: var(--ink); color: #fff; font-size: 15px; box-shadow: 0 18px 40px -18px rgba(var(--vs-blue), .6); }
+  .vs__go { background: #fff; color: var(--ink); }
+  .vs-pick { margin-top: 36px; }
+  .vs-pick__seg { gap: 2px; padding: 3px; overflow-x: auto; scrollbar-width: none; }
+  .vs-pick span { min-height: 38px; padding: 0 clamp(6px, 2vw, 12px); font-size: clamp(11px, 3.08vw, 13px); }
+}
+@media (prefers-reduced-motion: reduce) { .vs__sweep { animation: none; opacity: 0; } .vs__row > * { animation: none; } }
 
 /* DARK CTA GRID */
 

@@ -267,6 +267,14 @@
   var beamEls = document.querySelectorAll('.beam');
   if (beamEls.length && 'IntersectionObserver' in window) { var bio = new IntersectionObserver(function (entries) { entries.forEach(function (en) { en.target.classList.toggle('beam--live', en.isIntersecting); }); }, { rootMargin: '10% 0px' }); beamEls.forEach(function (el) { bio.observe(el); }); } else { beamEls.forEach(function (el) { el.classList.add('beam--live'); }); }
 
+  /* ---------- Comparison (why us): the light sweep runs only while the table is on screen and travels the full height of the column ---------- */
+  var vs = document.querySelector('.vs'), vsCol = vs && vs.querySelector('.vs__col');
+  if (vs && vsCol) {
+    var vsFit = function () { vs.style.setProperty('--vs-travel', vsCol.offsetHeight + 'px'); };
+    vsFit(); if ('ResizeObserver' in window) new ResizeObserver(vsFit).observe(vsCol);
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { vs.classList.toggle('is-live', en[0].isIntersecting); }, { rootMargin: '10% 0px' }).observe(vs); else vs.classList.add('is-live');
+  }
+
   /* ---------- Stories without a hosted video yet: chip instead of a play button ---------- */
   document.querySelectorAll('.story__poster[data-open-video]').forEach(function (b) { if (!b.getAttribute('data-wistia-id') && !b.getAttribute('data-mux-id') && !b.getAttribute('data-tella-id')) { b.classList.add('is-soon'); b.setAttribute('disabled', ''); } });
 
