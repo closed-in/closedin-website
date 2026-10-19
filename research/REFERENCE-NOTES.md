@@ -318,3 +318,8 @@ Max na de Attio/Stripe/Linear-ronde: "dit is het niet", vooral tekst, spacing en
 
 - **Max: "de lichtgevende gloed achter de Most Innovative-pil is te fel, die moet hetzelfde zijn als bij de andere pills".** De halo (`::before`, geblurde conic-gradient) en de fellere beam-kleur voor `.hero__eyebrow` zijn weg. De pil houdt de beam en gebruikt nu `.hero--dark .beam::after` (6 s, rustig licht), gemeten gelijk aan Watch the video (zelfde gradient, zelfde duur).
 - **Checks:** trackers ALL PASS, copy PASS.
+
+## v4.37 (19-10): de videopreview bij Watch the video is aanklikbaar
+
+- **Max: "bij de watch video met de popup wil ik dat je daar met je muis naartoe kan bewegen en op play kan drukken".** De preview (`.peek`) verdween zodra de muis de pil verliet en had `pointer-events: none`. Nu: na het verlaten van de pil blijft hij 320 ms staan (genoeg om de 50 px tussen pil en kaart over te steken), blijft hij open zolang de muis erop staat (de stille preview loopt door), en een klik op de kaart opent de video zoals de pil (`trigger.click()`). De playknop wordt iets groter bij hover. Bij scrollen gaat de kaart dicht (hij staat fixed en zou van de pil wegdrijven). Alleen voor muis en trackpad (fine pointer); toetsenbord en touch gebruiken de pil zelf.
+- **Getest:** hover op de pil, langzaam omhoog naar de kaart, na 600 ms nog open en spelend, klik opent de lightbox met speler, weg met de muis sluit hem. Trackers ALL PASS, copy PASS.

@@ -214,16 +214,26 @@
   /* ---------- Watch video: preview card follows the cursor while it hovers the trigger (fine pointers only) ---------- */
   var peek = document.querySelector('.peek'), peekVideo = peek && peek.querySelector('video');
   if (peek && fine && motion) {
-    /* The preview sits still above the trigger (no cursor following, Max 17-10) and plays muted while the pointer is on it, like workflows.io. */
-    var peekOff = function () { peek.classList.remove('is-on'); if (peekVideo) peekVideo.pause(); };
+    /* The preview sits still above the trigger (no cursor following, Max 17-10) and plays muted while the pointer is on it, like workflows.io.
+       Max 19-10: the pointer can move up onto the preview (a short grace period covers the gap) and a click on it plays the video, as the pill does. */
+    var peekFrom = null, peekT = 0;
+    var peekOff = function () { clearTimeout(peekT); peekT = 0; peek.classList.remove('is-on'); if (peekVideo) peekVideo.pause(); peekFrom = null; };
+    var peekLater = function () { clearTimeout(peekT); peekT = setTimeout(peekOff, 320); };
+    var peekStay = function () { clearTimeout(peekT); peekT = 0; };
     document.querySelectorAll('[data-peek]').forEach(function (tr) {
       tr.addEventListener('pointerenter', function () {
+        peekStay(); if (peekFrom === tr && peek.classList.contains('is-on')) return;   /* back from the preview: it keeps playing */
+        peekFrom = tr;
         var r = tr.getBoundingClientRect(); var x = Math.min(Math.max(r.left + r.width / 2, 170), innerWidth - 170);
         peek.style.left = x + 'px'; peek.style.top = (r.top - 14) + 'px'; peek.classList.add('is-on');
         if (peekVideo) { peekVideo.muted = true; try { peekVideo.currentTime = 0; } catch (err) { /* not loaded yet */ } var pr = peekVideo.play(); if (pr && pr.catch) pr.catch(function () {}); }
       });
-      tr.addEventListener('pointerleave', peekOff); tr.addEventListener('click', peekOff);
+      tr.addEventListener('pointerleave', peekLater); tr.addEventListener('click', peekOff);
     });
+    peek.addEventListener('pointerenter', peekStay);
+    peek.addEventListener('pointerleave', peekLater);
+    peek.addEventListener('click', function () { var tr = peekFrom; peekOff(); if (tr) tr.click(); });
+    window.addEventListener('scroll', function () { if (peek.classList.contains('is-on')) peekOff(); }, { passive: true });   /* fixed card: it would drift away from the pill */
   }
 
   /* ---------- FAQ: one open at a time ---------- */
