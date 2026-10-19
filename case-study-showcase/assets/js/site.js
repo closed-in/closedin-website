@@ -87,6 +87,7 @@
     window.addEventListener('scroll', setScrolled, { passive: true }); setScrolled();
     /* Black on the dark opening section, light glass once it has scrolled past the bar (Max 19-10); later dark sections keep the light glass */
     var hero = document.querySelector('main [data-nav-theme="dark"]');
+    if (hero && hero.getBoundingClientRect().top + window.scrollY > 120) hero = null;   /* it must open the page: the team page starts light (19-10), its CTA band further down keeps the light glass */
     var probe = function () { nav.classList.toggle('is-dark', !!hero && !nav.classList.contains('is-open') && hero.getBoundingClientRect().bottom > 40); };
     window.addEventListener('scroll', probe, { passive: true }); window.addEventListener('resize', probe); probe();
     var dropdowns = nav.querySelectorAll('[data-dropdown]');

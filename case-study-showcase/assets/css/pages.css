@@ -22,6 +22,14 @@ html.js .phero .hero-in { animation: hero-in 1s var(--ease) both; animation-dela
 @keyframes hero-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 html.has-veil .phero .hero-in { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { html.js .phero .hero-in { animation: none; } }
+/* Max 19-10, test on the team page: a secondary page starts light and compact, right under the nav, without the black opening screen */
+.phero--light { background: none; color: var(--ink); padding: clamp(120px, 15vh, 140px) 0 8px; }
+.phero--light::before { display: none; }
+.phero--light .phero__pill { border-color: var(--line-2); background: var(--white); color: var(--gray-100); box-shadow: var(--neu-pill); }
+.phero--light .phero__title { margin-top: 18px; font-size: clamp(36px, 4.4vw, 58px); color: var(--gray-90); }
+.phero--light .phero__title b { color: var(--ink); }
+.phero--light .phero__lead { margin-top: 16px; font-size: 17px; color: var(--gray-100); }
+.phero--light + .psec { padding-top: clamp(32px, 4vw, 52px); }   /* the content follows right away */
 
 /* ---------- Light sections ---------- */
 .psec { padding-top: var(--section-y); }

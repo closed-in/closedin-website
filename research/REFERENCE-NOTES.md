@@ -330,3 +330,16 @@ Max na de Attio/Stripe/Linear-ronde: "dit is het niet", vooral tekst, spacing en
 - **Fix:** `.stack` is 370vh in plaats van 420vh (voortgangsbereik 3,0 in plaats van 3,5 schermen) en in `stack.js` zijn alle momenten met T = 3.5 / 3.0 opgerekt (WOPEN, FEAT0, FEATSTEP, WAVE0, WAVE1 en de settle-marges). Alles daarvoor houdt zo hetzelfde tempo per gescrolde pixel.
 - **Gemeten (binair zoeken op de scrollpositie, 1413x837 en 390x844):** vijf vensters open op +1,59 scherm na de sectietop en de lijn onderaan op +2,57, allebei ongewijzigd. De sectie laat los op +2,70 in plaats van +3,20; de pauze na de lijn is 0,13 scherm (ongeveer 110 px) in plaats van 0,63.
 - **Checks:** trackers ALL PASS, copy PASS.
+
+## v4.39 (19-10): LinkedIn voor Sander en Awwal, teampagina begint licht (test), signaal-copy los van Forwarding Copilot
+
+- **Team:** LinkedIn-knop voor Awwal Garuba (linkedin.com/in/awwalgaruba) en Sander de Graaf (linkedin.com/in/sander-de-graaf-542804369), dezelfde knop als bij Jurre en Max.
+- **Lichte start, test op de teampagina (Max: "de secondary pages hebben niet zo'n zwarte bovenkant nodig, het kan gewoon gelijk beginnen").** `team.html` heeft `phero phero--light`: geen zwart vlak en geen overgang (`.fade` weg), compact direct onder het menu (padding clamp(120px, 15vh, 140px), kop 36 tot 58px in twee tonen grijs en inkt, pill in de lichte stijl), de teamkaarten volgen na 32 tot 52px. Cases en Resources hebben nog de zwarte opening; bij akkoord dezelfde modifier daar.
+- **Menubalk:** `site.js` telt een donkere sectie alleen als opening als die bovenaan de pagina begint (top minder dan 120px). Anders zou de CTA-band onderaan de teampagina de balk bovenaan zwart maken. De homepage is bovenaan nog steeds zwart (gecontroleerd).
+- **Signalen ("Outbound that starts from a buying signal"), copy los van forwardingcopilot.com, ontwerp ongewijzigd.** Rij 01 was bijna letterlijk Hugo's rij: titel "We prospect for you, signal by signal." (identiek), tekst volgde zijn zin, en de flow was dezelfde opbouw met een logistiekbeurs. Nu:
+  - label Buying signals, titel "Every buying signal starts an outreach." (parallel met rij 02 "Every reply becomes a meeting on your calendar."), eigen tekst;
+  - flow: Signal 186 firms, New sales leaders, last 60 days; Signal picked up; Fits ICP 41 en Out of scope 145; Copy 41 written, Each first line built on the signal itself; Ready to send; Outreach;
+  - ticker zonder magazijn en beurs (Closed a Series A, Opened a second office, Speaking at an industry event);
+  - rij 02 "Who else do you work with in our space?".
+- **Logistiek ook uit de feed bij Services:** "CFO, logistics" en "Head of Ops, 3PL" werden "CFO, SaaS" en "Head of Sales, IT services". Op de homepage staat nergens meer logistics, 3PL of warehouse.
+- **Checks:** trackers ALL PASS, copy PASS, teampagina zonder scriptfouten, balk licht op team en zwart bovenaan de homepage.
