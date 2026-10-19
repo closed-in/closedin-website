@@ -343,3 +343,9 @@ Max na de Attio/Stripe/Linear-ronde: "dit is het niet", vooral tekst, spacing en
   - rij 02 "Who else do you work with in our space?".
 - **Logistiek ook uit de feed bij Services:** "CFO, logistics" en "Head of Ops, 3PL" werden "CFO, SaaS" en "Head of Sales, IT services". Op de homepage staat nergens meer logistics, 3PL of warehouse.
 - **Checks:** trackers ALL PASS, copy PASS, teampagina zonder scriptfouten, balk licht op team en zwart bovenaan de homepage.
+
+## v4.40 (19-10): How it works met ronde buitenhoeken, witte gloed op de Learn-kaarten
+
+- **Max: "How it works ronde hoeken aan de buitenkant, de binnenste vlakken mogen hoeken hebben".** De rand zit nu om `.signals__rows` (1px, radius 18px zoals het Learn-blok, `overflow: hidden`); de rijen hebben geen eigen rand meer, alleen een lijn ertussen. De lijnen tussen tekst, flow en ticker blijven recht.
+- **Max: "bij Learn op hover dat witte glow vanonder erin, iets meer engaging".** `.learn-card::before`: een witte radiale gloed die bij hover vanaf de onderrand van de screenshot 22px omhoog komt en infadet (0,5 s). Hij eindigt op de onderrand van het beeld en valt dus niet over de titel. Drie sterktes vergeleken op de donkere Vault-kaart; de lichtste gekozen (de sterkere werd een mist over de halve kaart).
+- **Checks:** trackers ALL PASS, copy PASS, geen scriptfouten.

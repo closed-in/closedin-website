@@ -80,7 +80,11 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 .learn-card__go { position: absolute; right: 18px; bottom: 20px; width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid var(--line); background: var(--white); color: var(--ink); transition: background .3s, color .3s; }
 .learn-card__go svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; }
 .learn-card:hover { background: rgba(114, 193, 255, .06); } .learn-card:hover img { transform: scale(1.02); } .learn-card:hover .learn-card__go { background: var(--accent); }
-@media (max-width: 1023px) { .learn__cards { grid-template-columns: 1fr; } .learn-card { border-right: 0; border-bottom: 1px solid var(--line); } .learn-card:last-child { border-bottom: 0; } .learn-card img { height: 220px; } }
+/* Max 19-10: on hover a white glow rises from the bottom edge of the screenshot */
+.learn-card::before { content: ""; position: absolute; z-index: 1; left: 0; right: 0; top: 300px; height: 230px; transform: translateY(-100%); background: radial-gradient(62% 80% at 50% 100%, rgba(255, 255, 255, .85), rgba(255, 255, 255, .38) 42%, rgba(255, 255, 255, 0) 76%); opacity: 0; translate: 0 22px; pointer-events: none; transition: opacity .5s var(--ease), translate .8s var(--ease); }
+.learn-card:hover::before, .learn-card:focus-visible::before { opacity: 1; translate: 0 0; }
+@media (prefers-reduced-motion: reduce) { .learn-card::before { transition: none; translate: 0 0; } }
+@media (max-width: 1023px) { .learn-card::before { top: 220px; height: 180px; } .learn__cards { grid-template-columns: 1fr; } .learn-card { border-right: 0; border-bottom: 1px solid var(--line); } .learn-card:last-child { border-bottom: 0; } .learn-card img { height: 220px; } }
 
 /* DARK PROBLEM / SOLUTION */
 .engine { padding: var(--section-y) 0 40px; }
@@ -297,9 +301,9 @@ html.js .hero-in { animation: hero-in 1s var(--ease) both; animation-delay: calc
 /* SIGNALS (Forwarding Copilot): hairline columns, dot grid, animated flow, live ticker */
 .signals { padding: var(--section-y) 0 56px; background: repeating-linear-gradient(125deg, transparent 0 7px, rgba(12, 13, 14, .035) 7px 8px); }
 .signals .split-head { background: #fff; padding: 0 0 40px; }
-.signals__rows { display: flex; flex-direction: column; margin-top: 8px; }
-.sig { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 4fr) minmax(0, 3fr); background: #fff; border: 1px solid var(--line-2); border-radius: 0; }
-.sig + .sig { border-top: 0; }
+.signals__rows { display: flex; flex-direction: column; margin-top: 8px; border: 1px solid var(--line-2); border-radius: 18px; overflow: hidden; background: #fff; }   /* Max 19-10: rounded outside like the Learn block, straight lines inside */
+.sig { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 4fr) minmax(0, 3fr); background: #fff; }
+.sig + .sig { border-top: 1px solid var(--line-2); }
 .sig > * { min-width: 0; }
 .sig__text { padding: 48px 40px; display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
 .sig__eyebrow { display: flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--gray-90); margin: 0; }
