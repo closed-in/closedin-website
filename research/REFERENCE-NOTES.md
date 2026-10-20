@@ -373,3 +373,46 @@ Max na de Attio/Stripe/Linear-ronde: "dit is het niet", vooral tekst, spacing en
 
 - **Max: "bij Visma moeten we dat rode dingetje nog ervoor bij het logo doen".** Het logo in de muur was alleen het woordmerk (uit het deck van het business-event, waar het merkteken al ontbrak). Visma.com voert sinds hun nieuwe huisstijl een paars VΛ-icoon zonder rood; het rode teken is de klassieke ovale swoosh vóór het woord. Officieel logo van Wikimedia Commons (`File:Visma logo.png`, 1920x1080 transparant), bijgesneden tot het logo en verkleind naar 641x120: `assets/img/logos-web/visma-sm-v2.webp` (16 KB; nieuwe naam vanwege de cache van zeven dagen). In de muur grijs zoals de andere logo's, bij hover de rode swoosh. Het oude `visma-sm.webp` blijft staan, net als bij eerdere vervangingen.
 - **Checks:** trackers ALL PASS, copy PASS.
+
+## v4.44 (20-10, nacht 02:07 tot 08:30): nachtaudit, de hele site in één ontwerp
+
+Opdracht Max: "now make it better ... beter design, betere rendering, snellere loadspeed, betere integraties, betere video rendering, sneller ... complete website audit, dus ook de andere pages naast de landing page". Commits "Night audit 1" tot en met 8 plus losse fixes, elk met trackers ALL PASS en copy PASS.
+
+### Alle pagina's in het nieuwe ontwerp (37, alleen pipeline-demo bewust oud)
+- **Casepagina's (8)**, `scripts/build-case-pages.py` + `case.css`: lichte opening met klantlogo en tags, kerncijfers in een haarlijnkader, secties met nummerlabel en kop links en het verhaal rechts, aanpak als genummerde cellen, klantcitaat groot, resultaten als donkere tegels, gedeelde CTA-band. Watch the story (Endresz, WeTaxus, Red Fox) in dezelfde lightbox als de homepage. Tellers hebben hun eindwaarde in de HTML.
+- **Landingspagina's (6) en pricing**, `scripts/build-landing-pages.py` + `landing.css`: tweede knop See the results naar het bewijsblok, trust-bar als kerncijferkader, genummerde secties met de lead naast de kop, genummerde cellen en featurekaarten, donkere casekaarten met klantlogo, FAQ-accordeon van de homepage. Pricing: de drie engagement-vormen als tierkaarten, de middelste (waar de meeste klanten zitten, staat in de copy) donker. Het losse playbook-blok onderaan ging weg: de footer heeft hetzelfde formulier.
+- **Gated resources (5), blogartikelen (3), privacy**, `scripts/build-docs-pages-2.py` op `docs.css`: lichte opening, artikelkolom van 70 tekens met genummerde lijsten, inline signup en e-mailgates als donkere kaarten, gerelateerde posts in een raster, boolean strings met een kopieerknop. Privacy: knoppen opnieuw gestyled, ids en consent-script ongemoeid (nieuw check-blok in `check-trackers.py` dat het consent-script byte voor byte bewaakt). In het warmup-artikel werd "Findymail → Datagma → ..." "Findymail, then Datagma, then ..." (geen pijltekens in copy).
+- **Regel licht en donker:** overzichtspagina's (Cases, Resources, Blog) openen donker, detailpagina's licht zoals Max' test op Team. De zeven Resources-menu-detailpagina's van 19-10 (playbook, ROI calculator, verifier, GTM stack, n8n, templates, Clay waterfall) zijn ook licht gezet (`scripts/light-docs-heroes.py`): de tool of tabel staat nu boven de vouw. Terugdraaien is één klasse per pagina.
+- **404-pagina** (`scripts/build-404.py`): lichte opening, de zes meest bezochte pagina's als linkkaarten, CTA; absolute links (wordt op elke diepte geserveerd), noindex. Vercel toonde eerst een kale standaardpagina.
+
+### Snelheid en rendering
+- **LCP:** koppen alleen nog omhoog onder de sluier (geen fade), zodat de kop de eerste grote paint is (eerder was de cookiebanner het LCP-element). Gemeten in Chrome met 4x tragere CPU en traag 4G: kop zichtbaar na 1,5 s (team, landing) en 1,9 s (homepage). Lighthouse simuleert ongeveer 6 s door de afhankelijkheden van de trackers; zie `research/audit-2026-10-20/lighthouse-after.txt`.
+- **Lighthouse mobiel voor en na:** clay-agency 54 naar 72, pricing 63 naar 89, GTM stack 56 naar 83, Endresz-case 57 naar 72 (CLS 0,197 naar 0), blogartikel 63 naar 72; paginagewicht van de omgezette pagina's van ongeveer 900 naar 510 KB (oude fonts, vault-css en badge-PNG's van 400 KB weg). Toegankelijkheid 100 op alle 37 pagina's (n8n kreeg een kop voor schermlezers tussen titel en kaarten).
+- **Merktextuur:** het rimpel- en glitterpatroon van het 3D-merk is één keer gebakken (`assets/img/mark-bump-v1.webp`, 26 KB, `scripts/mark-bump.py`) in plaats van 2 miljoen ruisstappen per bezoek.
+- **Hero-videopreview:** de hoverclip opnieuw gesneden uit Wistia's 720p-bestand (zelfde tien seconden, 3,0 tot 13,0 s, gevonden met frame-matching) op 640x360 in plaats van 480x270; scherp op retina, 278 KB, laadt alleen bij hover; poster is het eerste frame.
+- **Video-lightbox getest:** van klik tot speler 1,2 s warm op desktop en mobiel, koud op mobiel ongeveer 4 s (Tella-spelerpagina). Op mobiel start Tella niet automatisch met geluid; één tik op play.
+
+### Integraties
+- **GA4-events** via de gtag die al op de pagina staat: `book_call_click` (plek: nav, hero, content, cta_band, footer; utm_content; label), `video_open` (titel, Tella of Wistia), `copy_search_string` (boolean-kopieerknop). Getest met een gestubde gtag.
+- **Nieuwsbrief:** zeven pagina's laadden `subscribe-form.js` niet (3 blogartikelen, blog-index, privacy, ROI calculator, verifier); hun formulieren openden Beehiiv in een nieuw tabblad zonder `newsletter_signup` (GA4) en Lead (Meta, LinkedIn). Nu inline via `/api/subscribe` zoals overal. Het script staat vóór het Leadboxer-blok, dat byte-gelijk blijft.
+- **Linkpreviews:** elke pagina een eigen beeld in de huidige stijl (`assets/img/og/*-v1.jpg`, 36 stuks van ongeveer 75 KB, `scripts/og-images.mjs` + `scripts/set-og.py`), met og:image-maten, alt en twitter:image. Eerst had alleen de homepage een beeld (nog van het oude lichte ontwerp) en toonden de andere pagina's het witte logo op transparant: leeg op LinkedIn.
+- **Blog zonder redirect:** /blog/ geeft een 308 naar /blog; canonical, og:url, sitemap en alle Blog-links wijzen nu naar /blog.
+
+### Onderhoud
+- `scripts/sync-chrome.py`: nav, footer, iconensprite en sluier vanuit `index.html` naar alle 36 andere pagina's, met absolute links waar nodig en de eigen utm_content per pagina. Droog draaien toont de verschillen; bij de eerste run: nul afwijkingen.
+- `scripts/check-links.mjs` controleert nu alle pagina's (relatieve links zoals Vercel ze serveert, ankers, redirects, elke externe link één keer): 38 pagina's en 105 externe links in orde.
+- `check-trackers.py` en `check-copy.py` dekken alle pagina's behalve pipeline-demo; de copy-check kent het artikel dat tegen open rate pleit (het onderwerp zelf).
+
+### Losse fixes uit de audit
+- Homepage tablet en telefoon: de probleemkaart boven de engine-flow stond 100px te laag over het Solution-label (sticky `top: 100px` bleef actief omdat `.frame` de kaart weer relative maakt).
+- Homepage telefoon: "Trusted by 50+ B2B companies across Europe and the US" werd afgekapt (de grid-kolom groeide mee met de logobanden); `minmax(0, 1fr)`.
+- Learn-thumbnails opnieuw gemaakt van de huidige pagina's (zonder Contact in het menu, GTM stack en n8n licht), `-v3`.
+- Footerbadges op één regel vanaf 360px.
+- Crawl van alle 37 pagina's op 1440 en 390 (en steekproef 1024 en 768): geen scriptfouten, geen 404's, geen horizontale overflow, geen afgekapte tekst; mobiel menu werkt.
+
+### Open voor Max (niet zelf aangepast)
+- **Pricing-copy** noemt een eenmalige setup fee en een standaardtermijn van 3 maanden (ook in de FAQ en de JSON-LD); sinds 7-10 werken jullie zonder setup en maandelijks opzegbaar met insteek drie maanden.
+- **Prospect Pro `css.jsapis.com/controls.css`** in het beschermde headblok is een leeg bestand (`/**/`) dat het eerste beeld van elke pagina blokkeert tot een externe server antwoordt (Lighthouse: ongeveer 0,85 s op mobiel). Met `media="print" onload="this.media='all'"` of weghalen is dat weg, maar het blok mag alleen Max wijzigen.
+- **LinkedIn Insight en Meta Pixel** staan met placeholders (`__LINKEDIN_PARTNER_ID__`, `__META_PIXEL_ID__`): ze laden scripts maar meten niets en kosten Best Practices-punten.
+- **Boekings-attributie** (de oorspronkelijke bron van een bezoeker meegeven aan de Neetocal-link) kan, maar raakt cookie-toestemming en de Neetocal-data: keuze voor Max.
+- Licht of donker voor de overzichtspagina's (Cases, Resources, Blog): nu donker, detailpagina's licht.
