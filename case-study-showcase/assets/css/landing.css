@@ -25,14 +25,14 @@
 .land-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: clamp(32px, 4vw, 48px); }
 .land-card { display: flex; flex-direction: column; gap: 12px; padding: clamp(24px, 2.6vw, 34px); border: 1px solid var(--line-2); border-radius: 18px; background: var(--white); transition: border-color .3s var(--ease), box-shadow .45s var(--ease), transform .45s var(--ease); }
 .land-card::before { content: ""; width: 8px; height: 8px; margin-bottom: 6px; background: var(--accent); }
-.land-card:hover { border-color: rgba(0, 0, 0, .18); box-shadow: 0 22px 44px -30px rgba(11, 13, 16, .32); transform: translateY(-2px); }
+@media (hover: hover) { .land-card:hover { border-color: rgba(0, 0, 0, .18); box-shadow: 0 22px 44px -30px rgba(11, 13, 16, .32); transform: translateY(-2px); } }   /* not on touch: a tapped card would stay lifted */
 .land-card h3 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.25; letter-spacing: -0.012em; }
 .land-card p { margin: 0; font-size: 15.5px; line-height: 1.62; color: var(--gray-100); }
 
 /* ---------- Pricing: the three engagement shapes, the middle one (where most engagements sit) dark ---------- */
 .land-tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: clamp(32px, 4vw, 48px); align-items: stretch; }
 .land-tier { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; gap: 12px; padding: clamp(26px, 2.8vw, 36px); border: 1px solid var(--line-2); border-radius: 22px; background: var(--white); transition: transform .45s var(--ease), box-shadow .45s var(--ease); }
-.land-tier:hover { transform: translateY(-3px); box-shadow: 0 26px 50px -34px rgba(11, 13, 16, .4); }
+@media (hover: hover) { .land-tier:hover { transform: translateY(-3px); box-shadow: 0 26px 50px -34px rgba(11, 13, 16, .4); } }
 .land-tier__price { display: flex; align-items: baseline; gap: 4px; margin: 0 0 6px; }
 .land-tier__price b { font-size: clamp(34px, 3.4vw, 46px); font-weight: 500; line-height: 1; letter-spacing: -0.035em; }
 .land-tier__price small { font-size: 15px; color: var(--gray-90); }
