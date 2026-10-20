@@ -296,7 +296,7 @@ html.js h1.hero-in { animation-name: hero-rise; }
 .wcell__read span { opacity: 0; transform: translateX(-6px); transition: opacity .2s, transform .2s; }
 .wcell--story:hover .wcell__read span { opacity: 1; transform: none; }
 .wcell__read svg { width: 10px; height: 10px; fill: none; stroke: currentColor; stroke-width: 2; }
-@media (max-width: 900px) { .strip { grid-template-columns: 1fr; grid-template-rows: auto 84px 84px; } .strip__label { grid-row: 1; border-right: 0; border-bottom: 1px solid var(--line); padding: 18px 20px; } .strip__label p { font-size: 15px; max-width: none; } .strip__rows .wall__track { grid-column: 1; height: 84px; } .wcell { width: 136px; } }
+@media (max-width: 900px) { .strip { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 84px 84px; } .strip__label { grid-row: 1; border-right: 0; border-bottom: 1px solid var(--line); padding: 18px 20px; } .strip__label p { font-size: 15px; max-width: none; } .strip__rows .wall__track { grid-column: 1; height: 84px; } .wcell { width: 136px; } }   /* minmax(0, 1fr) (20-10): with 1fr the column grew to the width of the logo tracks and cut the label on phones */
 
 @media (max-width: 767px) { .wall { margin-top: 32px; } .wcell { width: 132px; height: 90px; } .wcell img { height: 20px; max-width: 90px; } .wpop { display: none; } }
 @media (prefers-reduced-motion: reduce) { .wall__track { animation: none; } }
