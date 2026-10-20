@@ -385,7 +385,7 @@
       a.querySelectorAll('[data-letters]').forEach(function (x) { x.removeAttribute('data-letters'); });
       box.appendChild(a); nav.firstChild.appendChild(box);
     }
-    var links = nav.querySelectorAll('a'), cur = -1, ticking = false;
+    var links = nav.querySelectorAll('ol a'), cur = -1, ticking = false;   /* the section links only, not the call to action under them */
     var update = function () {
       ticking = false; var line = innerHeight * .3, k = -1;
       for (var i = 0; i < hs.length; i++) { if (hs[i].getBoundingClientRect().top < line) k = i; else break; }
