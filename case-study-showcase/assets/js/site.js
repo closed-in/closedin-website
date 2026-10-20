@@ -359,6 +359,14 @@
     });
   })();
 
+  /* ---------- Off-screen sections pause their CSS loops (20-10). The logo strips, play rings, live pings and footer bands kept running out of
+     view; the pings animate a box-shadow, which costs a style and paint pass every frame. data-off pauses every animation inside (site.css). ---------- */
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (en) { en.forEach(function (e) { e.target.toggleAttribute('data-off', !e.isIntersecting); }); }, { rootMargin: '150px 0px' });
+    document.querySelectorAll('main > *, body > footer').forEach(function (s) { io.observe(s); });
+  })();
+
   /* ---------- Word reveal: headings split into words that rise out of the line ---------- */
   (function () {
     var els = document.querySelectorAll('[data-words]'); if (!els.length) return;

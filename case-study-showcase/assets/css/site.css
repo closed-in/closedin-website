@@ -333,6 +333,7 @@ img { width: auto; height: auto; }  /* width/height attributes only feed the asp
 @media (prefers-reduced-motion: reduce) { .logo, .logo .lg { transition: none; } }
 .nav__brand .logo { --u: 76px; }
 /* Page transition (Max' specimen): the brackets close the page into the logo, hold, and open again on the next page */
+[data-off] *, [data-off] *::before, [data-off] *::after { animation-play-state: paused !important; }   /* 20-10: sections out of view pause their loops (site.js) */
 .veil { position: fixed; inset: 0; z-index: 300; pointer-events: none; visibility: hidden; }
 .veil.on { visibility: visible; pointer-events: auto; animation: veil-failsafe 0s linear 6s forwards; }
 @keyframes veil-failsafe { to { visibility: hidden; pointer-events: none; } }
