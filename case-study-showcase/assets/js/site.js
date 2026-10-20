@@ -367,6 +367,25 @@
     document.querySelectorAll('main > *, body > footer').forEach(function (s) { io.observe(s); });
   })();
 
+  /* ---------- Blog posts: an On this page list beside the article (20-10), built from its section headings; the section you are in lights up ---------- */
+  (function () {
+    var art = document.querySelector('.docs--post .article'); if (!art) return;
+    var hs = Array.prototype.slice.call(art.querySelectorAll(':scope > h2')); if (hs.length < 3) return;
+    var slug = function (s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60); };
+    var nav = document.createElement('nav'); nav.className = 'toc'; nav.setAttribute('aria-label', 'On this page');
+    var inner = '<div class="toc__in"><p class="toc__hd">On this page</p><ol>';
+    hs.forEach(function (h) { if (!h.id) h.id = slug(h.textContent); inner += '<li><a href="#' + h.id + '">' + h.textContent.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</a></li>'; });
+    nav.innerHTML = inner + '</ol></div>'; art.appendChild(nav);
+    var links = nav.querySelectorAll('a'), cur = -1, ticking = false;
+    var update = function () {
+      ticking = false; var line = innerHeight * .3, k = -1;
+      for (var i = 0; i < hs.length; i++) { if (hs[i].getBoundingClientRect().top < line) k = i; else break; }
+      if (k !== cur) { if (cur > -1) links[cur].classList.remove('is-on'); if (k > -1) links[k].classList.add('is-on'); cur = k; }
+    };
+    addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    update();
+  })();
+
   /* ---------- Word reveal: headings split into words that rise out of the line ---------- */
   (function () {
     var els = document.querySelectorAll('[data-words]'); if (!els.length) return;

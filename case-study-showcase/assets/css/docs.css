@@ -360,3 +360,19 @@ html.js .docs .hero h1.hero-in { animation-name: docs-hero-rise; }   /* painted 
 .docs .hero--light .signup-meta, .docs .hero--light .trust-label { color: var(--gray-90); }
 .docs .hero--light .trust-logos img { filter: brightness(0); opacity: .5; }
 .docs .hero--light + .section, .docs .hero--light + .calc-wrap, .docs .hero--light + .tool-wrap { padding-top: clamp(36px, 4.5vw, 56px); }
+
+/* ---------- Blog posts: On this page beside the article (20-10, site.js builds it from the h2s); only where there is room ---------- */
+.docs .toc { display: none; }
+.docs .article > h2 { scroll-margin-top: 72px; }   /* with scroll-padding-top 24px a heading lands clear of the floating nav */
+@media (min-width: 1180px) {
+  .docs--post .article { position: relative; }
+  .docs--post .article > *:not(.toc) { max-width: min(70ch, 700px); }
+  .docs .toc { display: block; position: absolute; top: clamp(36px, 4.5vw, 56px); bottom: 0; right: var(--gutter); width: 250px; }   /* top = the article's padding under the light opening */
+  .docs .toc__in { position: sticky; top: 112px; }
+  .docs .toc__hd { margin: 0; font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--gray-90); }
+  .docs .toc ol { list-style: none; margin: 14px 0 0; padding: 0; border-left: 1px solid var(--line-2); }
+  .docs .toc a { display: block; margin-left: -1px; padding: 7px 0 7px 16px; border-left: 2px solid transparent; font-size: 14px; line-height: 1.4; color: var(--gray-90); text-decoration: none; transition: color .2s, border-color .2s; }
+  .docs .toc a:hover { color: var(--ink); }
+  .docs .toc a.is-on { color: var(--ink); border-left-color: var(--accent); }
+  .docs .toc a:focus-visible { outline: none; box-shadow: var(--focus); border-radius: 4px; }
+}
