@@ -350,3 +350,13 @@ html.js .docs .hero h1.hero-in { animation-name: docs-hero-rise; }   /* painted 
 .docs--legal .revoke-btn:focus-visible { outline: none; box-shadow: var(--focus); }
 .docs--legal .revoke-status { flex: 1 0 100%; font-size: 14px; color: var(--green); }
 .docs--legal .revoke-status:empty { display: none; }
+
+/* the Resources-menu detail pages in the light opening (20-10): badges, the mini pill, the playbook's signup form and client logos */
+.docs .hero--light h1 .gradient { color: var(--accent-text); }
+.docs .hero--light .hero-badge, .docs .hero--light .hero-pill-mini { border-color: var(--line-2); background: var(--white); color: var(--gray-100); }
+.docs .hero--light .hero-badge .dcheck { color: var(--accent-text); }
+.docs .hero--light .signup-form input { border-color: var(--line-2); background: var(--white); color: var(--ink); }
+.docs .hero--light .signup-form input::placeholder { color: #8a929b; }
+.docs .hero--light .signup-meta, .docs .hero--light .trust-label { color: var(--gray-90); }
+.docs .hero--light .trust-logos img { filter: brightness(0); opacity: .5; }
+.docs .hero--light + .section, .docs .hero--light + .calc-wrap, .docs .hero--light + .tool-wrap { padding-top: clamp(36px, 4.5vw, 56px); }
