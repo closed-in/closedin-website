@@ -253,6 +253,23 @@
     });
   });
 
+  /* ---------- GA4 events (20-10): which call to action and which video get the clicks, through the gtag that is already on the page
+     (no new trackers). book_call_click carries where the button sits (nav, hero, content, cta_band, footer) and its utm_content. ---------- */
+  document.addEventListener('click', function (e) {
+    if (typeof window.gtag !== 'function' || !e.target.closest) return;
+    try {
+      var a = e.target.closest('a[href*="meeting.closedin.io"], a[href*="neetocal.com"]');
+      if (a) {
+        var where = a.closest('.nav') ? 'nav' : a.closest('.footer') ? 'footer' : a.closest('.cta-dark') ? 'cta_band' : a.closest('.hero, .phero') ? 'hero' : 'content';
+        var m = /[?&]utm_content=([^&#]+)/.exec(a.href);
+        window.gtag('event', 'book_call_click', { cta_location: where, utm_content: m ? decodeURIComponent(m[1]) : '', link_text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60) });
+        return;
+      }
+      var v = e.target.closest('[data-open-video]');
+      if (v) window.gtag('event', 'video_open', { video_title: v.getAttribute('data-caption') || '', video_provider: v.hasAttribute('data-tella-id') ? 'tella' : 'wistia' });
+    } catch (err) { /* analytics never breaks a click */ }
+  }, true);
+
   /* ---------- Wistia lightbox ---------- */
   var WISTIA_SRC = 'https://fast.wistia.com/player.js', activePlayer = null;
   function loadWistia() { if (document.querySelector('script[src="' + WISTIA_SRC + '"]')) return; var s = document.createElement('script'); s.src = WISTIA_SRC; s.async = true; document.head.appendChild(s); }
