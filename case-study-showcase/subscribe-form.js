@@ -1,4 +1,4 @@
-// subscribe-form.js — closed:in newsletter form enhancer
+// subscribe-form.js: closed:in newsletter form enhancer
 // Intercepts any <form action="...beehiiv.com/subscribe..."> on the page,
 // submits to /api/subscribe (Beehiiv proxy), and shows an inline success state
 // instead of opening a new tab. If the proxy is unavailable (not configured,
@@ -132,6 +132,9 @@
 
       var magnet = form.getAttribute('data-magnet') || deriveMagnet();
       var source = form.getAttribute('data-source') || (form.className.split(' ')[0] || 'form');
+      // 20-10: every submit is counted in GA4, also when the signup is handed to Beehiiv's page (the proxy answers 503 until the
+      // Beehiiv keys are in Vercel); newsletter_signup below still marks the inline successes only.
+      try { if (typeof window.gtag === 'function') window.gtag('event', 'newsletter_submit', { magnet: magnet, source: source }); } catch (e) { /* ignore */ }
 
       var payload = {
         email: email,
