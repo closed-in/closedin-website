@@ -379,3 +379,7 @@ html.js .docs .hero h1.hero-in { animation-name: docs-hero-rise; }   /* painted 
   .docs .toc__cta p { margin: 0 0 14px; font-size: 15px; line-height: 1.35; font-weight: 500; color: var(--ink); }
   .docs .toc .toc__cta .btn-accent { display: flex; width: 100%; justify-content: space-between; margin: 0; padding: 0 16px; border-left: 0; color: var(--accent-ink); font-size: 14.5px; }
 }
+
+/* resource pages: a button in the opening that glides to the email gate (20-10, scripts/resource-gate-button.py) */
+.docs .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.docs .gate-section { scroll-margin-top: 96px; }
