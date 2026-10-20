@@ -25,7 +25,8 @@ BLOCKS = [
 ]
 PAGES = ["index.html", "case-studies.html", "resources.html", "team.html",   # pages rebuilt on the new design system
          "blog/index.html", "resources/gtm-stack.html", "resources/n8n-workflows.html", "playbook.html", "tools/roi-calculator.html",
-         "tools/email-verifier.html", "resources/cold-email-templates.html", "resources/clay-waterfall.html"]
+         "tools/email-verifier.html", "resources/cold-email-templates.html", "resources/clay-waterfall.html",
+         "case-study-endresz.html", "case-study-gen-zero.html", "case-study-jamezz.html", "case-study-mistertafel.html", "case-study-redfox.html", "case-study-verzendbazen.html", "case-study-wetaxus.html", "case-study-zano.html"]   # case pages converted 20-10
 LD = re.compile(r'<script type="application/ld\+json"[^>]*>.*?</script>', re.S)
 def check(name, main, new):
     fails = 0

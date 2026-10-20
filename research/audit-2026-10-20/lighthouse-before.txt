@@ -1,0 +1,8 @@
+/                            perf  60 | a11y 100 | bp  77 | seo  69 | FCP   2.6 s | LCP   7.4 s | TBT   310 ms | CLS      0 | bytes Total size was 1,017 KiB
+/case-studies                perf  83 | a11y 100 | bp  77 | seo  69 | FCP   1.7 s | LCP   4.5 s | TBT    30 ms | CLS  0.011 | bytes Total size was 690 KiB
+/team                        perf  73 | a11y 100 | bp  77 | seo  69 | FCP   1.9 s | LCP   5.7 s | TBT    60 ms | CLS      0 | bytes Total size was 584 KiB
+/resources/gtm-stack         perf  56 | a11y 100 | bp  77 | seo  69 | FCP   5.4 s | LCP   8.5 s | TBT   120 ms | CLS      0 | bytes Total size was 511 KiB
+/case-study-endresz          perf  57 | a11y  94 | bp  77 | seo  69 | FCP   2.1 s | LCP   7.8 s | TBT   290 ms | CLS  0.197 | bytes Total size was 879 KiB
+/clay-agency                 perf  54 | a11y  94 | bp  77 | seo  69 | FCP   7.8 s | LCP  11.5 s | TBT   160 ms | CLS      0 | bytes Total size was 904 KiB
+/pricing                     perf  63 | a11y  94 | bp  77 | seo  69 | FCP   4.3 s | LCP   8.0 s | TBT    90 ms | CLS      0 | bytes Total size was 909 KiB
+/blog/cold-email-warmup-schedule perf  63 | a11y  86 | bp  77 | seo  69 | FCP   4.0 s | LCP   6.4 s | TBT   180 ms | CLS      0 | bytes Total size was 466 KiB
