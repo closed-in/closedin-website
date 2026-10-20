@@ -56,26 +56,33 @@
 .land-case::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(110% 80% at 100% 0%, rgba(114, 193, 255, .2), rgba(114, 193, 255, 0) 58%); opacity: .8; transition: opacity .5s var(--ease); pointer-events: none; }
 .land-case:hover { transform: translateY(-3px); }
 .land-case:hover::before { opacity: 1; }
-.land-case:focus-visible { outline: none; box-shadow: var(--focus); }
+.land-case:has(.land-case__link:focus-visible) { box-shadow: var(--focus); }
+.land-case__link { color: inherit; text-decoration: none; outline: none; }
+.land-case__link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }   /* the title link covers the card; the video button sits above it */
 .land-case__top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
 .land-case__logo { display: block; height: 26px; width: auto; max-width: 150px; object-fit: contain; filter: brightness(0) invert(1); opacity: .92; }
 .land-case__go { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: rgba(255, 255, 255, .72); transition: color .3s, gap .4s var(--ease); white-space: nowrap; }
 .land-case__go svg { width: 14px; height: 14px; }
 .land-case:hover .land-case__go { color: var(--accent); gap: 12px; }
 .land-case__client { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255, 255, 255, .55); }
-.land-case__title { display: block; max-width: 24ch; font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; line-height: 1.2; letter-spacing: -0.018em; }
+.land-case__title { display: block; margin: 0; color: #fff; max-width: 24ch; font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; line-height: 1.2; letter-spacing: -0.018em; }
 .land-case__desc { display: block; max-width: 58ch; font-size: 15.5px; line-height: 1.62; color: rgba(255, 255, 255, .66); }
 .land-case__stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: auto; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, .12); }
 .land-case__desc + .land-case__stats { margin-top: 18px; }
 .land-case__stats b { display: block; font-size: clamp(26px, 2.6vw, 38px); font-weight: 500; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
 .land-case__stats small { display: block; margin-top: 10px; font-size: 12.5px; line-height: 1.35; color: rgba(255, 255, 255, .58); }
+.land-case__play { position: relative; z-index: 2; align-self: flex-start; justify-self: start; display: inline-flex; align-items: center; gap: 10px; height: 44px; margin-top: 4px; padding: 0 16px 0 6px; border: 1px solid rgba(255, 255, 255, .18); border-radius: var(--r-pill); background: rgba(255, 255, 255, .06); color: #fff; font: 500 14.5px/1 var(--font); cursor: pointer; transition: background-color .25s, border-color .25s; }
+.land-case__play:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .3); }
+.land-case__play:focus-visible { outline: none; box-shadow: var(--focus); }
+.land-case__play-ic { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); }
+.land-case__play-ic svg { width: 12px; height: 12px; margin-left: 2px; }
 /* one case: wide, the story left and the numbers right */
 .land-cases--1 { grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 1024px) {
-  .land-cases--1 .land-case { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-rows: auto auto auto 1fr; column-gap: clamp(32px, 5vw, 80px); }
+  .land-cases--1 .land-case { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-rows: auto auto auto auto 1fr; column-gap: clamp(32px, 5vw, 80px); }
   .land-cases--1 .land-case > * { grid-column: 1; }
   .land-cases--1 .land-case__top { grid-column: 1 / -1; }
-  .land-cases--1 .land-case__stats { grid-column: 2; grid-row: 2 / 5; align-self: end; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 0; row-gap: 26px; }
+  .land-cases--1 .land-case__stats { grid-column: 2; grid-row: 2 / 6; align-self: end; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 0; row-gap: 26px; }
 }
 
 /* ---------- FAQ: the homepage accordion ---------- */
@@ -103,6 +110,7 @@
   .land-cards, .land-cases { grid-template-columns: 1fr; }
   .land-head__lead { font-size: 17px; }
   .land-case__stats { gap: 12px; }
+  .land-case__stats:has(> :nth-child(4)) { grid-template-columns: 1fr 1fr; row-gap: 18px; }   /* four numbers: two by two */
   .land-faq .faq-item summary { padding: 20px 14px; font-size: 17px; }
   .land-faq .faq-answer { padding: 0 14px 20px; }
 }

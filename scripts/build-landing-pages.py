@@ -51,6 +51,7 @@ def build(slug):
     href = btn.group(1).replace("&utm", "&amp;utm")
     trust = re.findall(r'<div class="trust-num">(.*?)</div><div class="trust-lbl">(.*?)</div>', hero, re.S)
     assert len(trust) == 4, (slug, len(trust))
+    video_flag = []
     out = ["\n".join([
         '<section class="phero phero--light land-hero" id="hero" data-glyphs="right">', '    <div class="container phero__in">',
         f'        <p class="phero__pill hero-in" style="--i:0"><i></i>{pill}</p>',
@@ -91,9 +92,17 @@ def build(slug):
                 client = text(re.search(r'<div class="case-spot-client">(.*?)</div>', inner, re.S).group(1))
                 t = text(re.search(r"<h3>(.*?)</h3>", inner, re.S).group(1)); p = text(re.search(r"<p>(.*?)</p>", inner, re.S).group(1))
                 stats = re.findall(r'<div class="case-spot-stat-val">(.*?)</div><div class="case-spot-stat-lbl">(.*?)</div>', inner, re.S)
-                cards.append(f'<a class="land-case" href="{link}" data-reveal><span class="land-case__top"><img class="land-case__logo" src="{src}" alt="{alt}" width="{w}" height="{h}" loading="lazy" decoding="async"><span class="land-case__go">Read the case<svg aria-hidden="true"><use href="#i-e"/></svg></span></span>'
-                             f'<span class="land-case__client">{client}</span><span class="land-case__title">{t}</span><span class="land-case__desc">{p}</span>'
-                             f'<span class="land-case__stats">' + "".join(f"<span><b>{text(v)}</b><small>{text(l)}</small></span>" for v, l in stats) + "</span></a>")
+                # 20-10: the card is an article whose title link covers it, so a client with a video testimonial can have a Watch the story button
+                # beside the link (no button inside a link); the video opens in the homepage lightbox
+                vid = bc.story_video({"redfox": "Red Fox", "wetaxus": "WeTaxus"}.get(cslug, alt))
+                play = ""
+                if vid:
+                    tid, cap, poster = vid; video_flag.append(1)
+                    play = (f'<button class="land-case__play" type="button" data-open-video data-tella-id="{tid}" data-aspect="16/9" data-caption="{cap}" data-poster="{poster}">'
+                            '<span class="land-case__play-ic" aria-hidden="true"><svg><use href="#i-play"/></svg></span>Watch the story</button>')
+                cards.append(f'<article class="land-case" data-reveal><span class="land-case__top"><img class="land-case__logo" src="{src}" alt="{alt}" width="{w}" height="{h}" loading="lazy" decoding="async"><span class="land-case__go" aria-hidden="true">Read the case<svg><use href="#i-e"/></svg></span></span>'
+                             f'<span class="land-case__client">{client}</span><h3 class="land-case__title"><a class="land-case__link" href="{link}">{t}</a></h3><span class="land-case__desc">{p}</span>{play}'
+                             f'<span class="land-case__stats">' + "".join(f"<span><b>{text(v)}</b><small>{text(l)}</small></span>" for v, l in stats) + "</span></article>")
             sec.append(f'        <div class="land-cases land-cases--{len(cards)}">' + "".join(cards) + "</div>")
         elif re.search(r'<div class="info-num">EUR', s):   # pricing: the three engagement shapes as tier cards, the middle one (where most engagements sit) drawn dark
             tiers = re.findall(r'<div class="info-card[^"]*"[^>]*>\s*<div class="info-num">(EUR[^<]*)</div>\s*<h3>(.*?)</h3>\s*<p[^>]*>(.*?)</p>\s*<p[^>]*>(.*?)</p>\s*</div>', s, re.S)
@@ -128,6 +137,7 @@ def build(slug):
     doc_open = old[: old.index("<head>")].replace('<html lang="en">', '<html lang="en" data-theme="light">', 1)
     assert 'data-theme="light"' in doc_open
     page = "\n".join(['<body class="land">', bp.VEIL, bp.NOSCRIPT, bp.SKIP, "", bp.SPRITE.rstrip("\n"), "", bp.nav_for(cta_slug), "", '<main id="main">', main, "</main>", "", bp.FOOTER, ""])
+    if video_flag: page += bp.between(bp.INDEX, '<dialog class="lightbox" id="lightbox"', "</dialog>") + "\n"
     page += bp.tail_blocks(old) + "\n</body>\n</html>\n"
     return doc_open + new_head(old) + "\n" + page
 
