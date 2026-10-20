@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js')</script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
@@ -86,256 +87,69 @@
       ]
     }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="vault-premium.css">
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --bg: #050505; --card: #0A0A0A; --border: rgba(255,255,255,0.06); --border-hover: rgba(255,255,255,0.12); --text: #fff; --muted: rgba(255,255,255,0.4); --dim: rgba(255,255,255,0.6); --accent: #7877C6; --accent-glow: rgba(120,119,198,0.15); }
-        html { scroll-behavior: smooth; overflow-x: clip; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; overflow-x: clip; }
-        body::after { content: ''; position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 128px; }
-        .cursor-glow { position: fixed; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(120,119,198,0.05) 0%, transparent 60%); pointer-events: none; z-index: 0; transform: translate(-50%, -50%); transition: left 0.7s cubic-bezier(0.16,1,0.3,1), top 0.7s cubic-bezier(0.16,1,0.3,1); }
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 9999; padding: 10px 48px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; background: rgba(5,5,5,0.6); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
-        .logo { display: flex; align-items: center; text-decoration: none; }
-        .logo img { height: 88px; }
-        .nav-links { display: flex; gap: 32px; align-items: center; justify-self: center; }
-        .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color 0.3s; font-weight: 500; }
-        .nav-links a:hover { color: var(--text); }
-        .nav-cta { font-size: 13px; font-weight: 600; padding: 12px 28px; background: var(--text); color: var(--bg); border-radius: 100px; text-decoration: none; transition: all 0.4s cubic-bezier(0.16,1,0.3,1); justify-self: end; }
-        .nav-cta:hover { transform: scale(1.06); box-shadow: 0 0 40px rgba(255,255,255,0.15); }
-        .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 101; }
-        .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
-        .hero { min-height: auto; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 180px 40px 60px; position: relative; overflow: hidden; }
-        .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(120,119,198,0.15), transparent); }
-        .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse at 50% 30%, black 10%, transparent 60%); -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 10%, transparent 60%); }
-        .hero-label { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; position: relative; z-index: 2; }
-        .hero-label::before, .hero-label::after { content: ''; width: 28px; height: 2px; background: var(--accent); border-radius: 2px; }
-        .hero h1 { font-family: 'Satoshi', sans-serif; font-size: clamp(48px, 7vw, 88px); font-weight: 900; line-height: 0.95; letter-spacing: -0.04em; margin-bottom: 24px; max-width: 980px; position: relative; z-index: 2; }
-        .hero h1 .gradient { background: linear-gradient(135deg, #fff 30%, var(--accent) 70%, #6366f1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% 200%; animation: gradShift 4s ease-in-out infinite; }
-        .hero p { font-size: 18px; color: var(--muted); max-width: 620px; line-height: 1.7; margin-bottom: 36px; position: relative; z-index: 2; }
-        @keyframes gradShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-        .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 18px 40px; background: var(--text); color: var(--bg); font-family: 'Satoshi', sans-serif; font-size: 15px; font-weight: 700; border-radius: 100px; text-decoration: none; transition: all 0.4s cubic-bezier(0.16,1,0.3,1); position: relative; z-index: 2; }
-        .btn-primary:hover { transform: scale(1.06); box-shadow: 0 0 60px rgba(255,255,255,0.15); }
-        .trust-bar { max-width: 1100px; margin: 40px auto 0; padding: 0 40px; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; position: relative; z-index: 2; }
-        .trust-stat { text-align: center; }
-        .trust-num { font-family: 'Satoshi', sans-serif; font-size: 36px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
-        .trust-lbl { font-size: 12px; color: var(--muted); margin-top: 6px; letter-spacing: 0.05em; text-transform: uppercase; }
-        .section { max-width: 1100px; margin: 0 auto; padding: 100px 40px; }
-        .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
-        .section-label::before { content: ''; width: 28px; height: 2px; background: var(--accent); border-radius: 2px; }
-        .section h2 { font-family: 'Satoshi', sans-serif; font-size: clamp(32px, 4vw, 52px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 24px; }
-        .section .lead { font-size: 17px; color: var(--dim); line-height: 1.7; max-width: 720px; margin-bottom: 48px; }
-        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-        .info-card { padding: 32px 28px; background: var(--card); border: 1px solid var(--border); border-radius: 24px; transition: transform 0.55s cubic-bezier(0.22,1,0.36,1), box-shadow 0.55s cubic-bezier(0.22,1,0.36,1), border-color 0.4s; position: relative; --mx: 50%; --my: 50%; box-shadow: inset 5px 5px 12px 0 rgba(0,0,0,0.35), inset -5px -5px 16px 0 rgba(255,255,255,0.035), 0 6px 22px 0 rgba(0,0,0,0.25); }
-        .info-card:hover { border-color: rgba(168,85,247,0.25); transform: translate3d(0,-6px,0); box-shadow: inset 5px 5px 12px 0 rgba(0,0,0,0.42), inset -5px -5px 16px 0 rgba(255,255,255,0.045), 0 18px 50px 0 rgba(0,0,0,0.45), 0 0 48px 0 rgba(168,85,247,0.28), 0 0 14px 0 rgba(255,255,255,0.04); }
-        .info-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--accent), transparent); opacity: 0; transition: opacity 0.3s; border-radius: 3px 0 0 3px; }
-        .info-card::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity 0.5s; background: radial-gradient(circle 260px at var(--mx) var(--my), rgba(168,85,247,0.16), transparent 55%), radial-gradient(circle 150px at var(--mx) var(--my), rgba(255,255,255,0.04), transparent 60%); }
-        .info-card:hover::before, .info-card:hover::after { opacity: 1; }
-        .info-card > * { position: relative; z-index: 1; }
-        .info-num { font-family: 'Satoshi', sans-serif; font-size: 32px; font-weight: 900; color: rgba(120,119,198,0.2); margin-bottom: 14px; line-height: 1; }
-        .info-card h3 { font-family: 'Satoshi', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
-        .info-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
-        .case-spotlight { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-        .case-spot { padding: 32px; background: var(--card); border: 1px solid var(--border); border-radius: 24px; text-decoration: none; color: inherit; display: block; transition: all 0.4s cubic-bezier(0.16,1,0.3,1); }
-        .case-spot:hover { border-color: rgba(120,119,198,0.2); transform: translateY(-6px); box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 60px var(--accent-glow); }
-        .case-spot-client { font-family: 'Satoshi', sans-serif; font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
-        .case-spot h3 { font-family: 'Satoshi', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.3; margin-bottom: 16px; }
-        .case-spot p { font-size: 14px; color: var(--dim); line-height: 1.65; margin-bottom: 24px; }
-        .case-spot-stats { display: flex; gap: 24px; padding-top: 20px; border-top: 1px solid var(--border); }
-        .case-spot-stat-val { font-family: 'Satoshi', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
-        .case-spot-stat-lbl { font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 0.05em; }
-        .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 860px; }
-        .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.3s; }
-        .faq-item:hover { border-color: rgba(120,119,198,0.2); }
-        .faq-item summary { cursor: pointer; padding: 24px 28px; font-family: 'Satoshi', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px; transition: color 0.3s; }
-        .faq-item summary::-webkit-details-marker { display: none; }
-        .faq-item summary::after { content: '+'; font-family: 'Satoshi', sans-serif; font-size: 28px; font-weight: 300; color: var(--accent); transition: transform 0.3s; flex-shrink: 0; }
-        .faq-item[open] summary::after { transform: rotate(45deg); }
-        .faq-item[open] summary { color: var(--accent); }
-        .faq-answer { padding: 0 28px 24px; font-size: 15px; color: var(--dim); line-height: 1.7; }
-        .cta-section { text-align: center; padding: 100px 40px 140px; position: relative; }
-        .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(120,119,198,0.1), transparent); pointer-events: none; }
-        .cta-section h2 { font-family: 'Satoshi', sans-serif; font-size: clamp(36px, 5vw, 56px); font-weight: 900; letter-spacing: -0.04em; line-height: 0.95; margin-bottom: 20px; position: relative; }
-        .cta-section p { font-size: 16px; color: var(--muted); max-width: 480px; margin: 0 auto 36px; line-height: 1.6; position: relative; }
-        .reveal { opacity: 0; transform: translateY(50px); transition: opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1); }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        .premium-footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 80px 48px 40px; position: relative; }
-        .premium-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(120,119,198,0.2), transparent); }
-        .footer-inner { max-width: 1100px; margin: 0 auto; }
-        .footer-top { display: flex; justify-content: space-between; gap: 60px; margin-bottom: 60px; }
-        .footer-brand { max-width: 280px; }
-        .footer-logo { height: 80px; margin-bottom: 16px; display: block; }
-        .footer-tagline { font-size: 14px; color: rgba(255,255,255,0.35); line-height: 1.6; }
-        .footer-links { display: flex; gap: 60px; }
-        .footer-col { display: flex; flex-direction: column; gap: 12px; }
-        .footer-col h4 { font-family: 'Satoshi', sans-serif; font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.8); margin-bottom: 4px; letter-spacing: -0.01em; }
-        .footer-col a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.3s; }
-        .footer-col a:hover { color: rgba(120,119,198,0.8); }
-        .footer-badges { display: flex; gap: 24px; align-items: center; justify-content: center; padding: 40px 0; }
-        .footer-badges a { transition: transform 0.3s, opacity 0.3s; opacity: 0.85; }
-        .footer-badges a:hover { transform: translateY(-3px); opacity: 1; }
-        .footer-badges img { height: 80px; object-fit: contain; }
-        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 12px; color: rgba(255,255,255,0.2); }
-        .footer-bottom a { color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.3s; }
-        .footer-bottom a:hover { color: rgba(255,255,255,0.5); }
-        @media (max-width: 768px) {
-            .grid-4, .grid-3, .grid-2, .case-spotlight { grid-template-columns: 1fr; }
-            nav { padding: 14px 20px; }
-            .nav-links, .nav-cta { display: none; }
-            .hamburger { display: flex; }
-            .mobile-menu { display: none; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.98); z-index: 999; padding: 100px 40px 40px; align-items: center; justify-content: center; gap: 32px; backdrop-filter: blur(24px); }
-            .mobile-menu.open { display: flex; }
-            .mobile-menu a { font-family: 'Satoshi', sans-serif; font-size: 28px; font-weight: 700; color: rgba(255,255,255,0.6); text-decoration: none; }
-            .mobile-menu .mobile-cta { font-size: 15px; font-weight: 700; padding: 18px 40px; background: #fff; color: #050505; border-radius: 100px; text-decoration: none; margin-top: 16px; }
-            .mobile-menu-close { position: absolute; top: 24px; right: 24px; width: 44px; height: 44px; background: none; border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-            .mobile-menu-close span { display: block; width: 20px; height: 2px; background: #fff; position: relative; transform: rotate(45deg); }
-            .mobile-menu-close span::after { content: ''; position: absolute; width: 20px; height: 2px; background: #fff; transform: rotate(-90deg); }
-            .hero { padding: 140px 20px 40px; }
-            .section { padding: 60px 20px; }
-            .trust-bar { gap: 32px; }
-            .footer-top { flex-direction: column; gap: 40px; }
-            .footer-links { flex-direction: column; gap: 32px; }
-            .premium-footer { padding: 60px 20px 32px; }
-            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-        }
-    
-        /* ═══ FOOTER SIGNUP ═══ */
-        .footer-signup { background: linear-gradient(180deg, transparent 0%, rgba(120,119,198,0.04) 100%); padding: 100px 40px; text-align: center; position: relative; border-top: 1px solid rgba(255,255,255,0.06); }
-        .footer-signup::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(120,119,198,0.08), transparent); pointer-events: none; }
-        .footer-signup-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
-        .footer-signup-label { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-        .footer-signup h2 { font-family: 'Satoshi', sans-serif; font-size: clamp(28px, 4vw, 44px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; }
-        .footer-signup p { font-size: 15px; color: var(--muted); margin-bottom: 32px; }
-        .footer-signup-benefits { list-style: none; padding: 0; margin: 0 auto 28px; max-width: 520px; display: flex; flex-direction: column; gap: 10px; text-align: left; }
-        .footer-signup-benefits li { font-size: 14px; color: var(--dim); display: flex; align-items: flex-start; gap: 10px; padding-left: 0; }
-        .footer-signup-benefits li::before { content: ''; flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%; background: rgba(120,119,198,0.15); border: 1px solid rgba(120,119,198,0.4); display: flex; align-items: center; justify-content: center; margin-top: 1px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%237877C6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3,8 6.5,11.5 13,5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; background-size: 11px; }
-        .footer-signup-form { display: flex; gap: 8px; max-width: 480px; margin: 0 auto; }
-        .footer-signup-form input[type="email"] { flex: 1; padding: 16px 22px; background: var(--card); border: 1px solid var(--border); border-radius: 100px; color: var(--text); font-family: 'Inter', sans-serif; font-size: 14px; outline: none; transition: border-color 0.3s; }
-        .footer-signup-form input[type="email"]:focus { border-color: rgba(120,119,198,0.4); }
-        .footer-signup-form input[type="email"]::placeholder { color: var(--muted); }
-        .footer-signup-form button { padding: 16px 28px; background: var(--text); color: var(--bg); font-family: 'Satoshi', sans-serif; font-size: 14px; font-weight: 700; border: none; border-radius: 100px; cursor: pointer; transition: all 0.4s cubic-bezier(0.16,1,0.3,1); white-space: nowrap; }
-        .footer-signup-form button:hover { transform: scale(1.04); box-shadow: 0 0 40px rgba(255,255,255,0.15); }
-        @media (max-width: 768px) { .footer-signup { padding: 60px 20px; } .footer-signup-form { flex-direction: column; } }
-    
-        /* ═══ STICKY BANNER ═══ */
-        .sticky-banner { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(180%); width: calc(100% - 40px); max-width: 780px; background: rgba(10,10,10,0.94); border: 1px solid rgba(120,119,198,0.25); border-radius: 24px; padding: 18px 22px; display: flex; align-items: center; gap: 18px; box-shadow: 0 24px 70px rgba(0,0,0,0.6), 0 0 50px rgba(120,119,198,0.12); z-index: 9000; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
-        .sticky-banner.visible { transform: translateX(-50%) translateY(0); }
-        .sticky-banner-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(120,119,198,0.12); border: 1px solid rgba(120,119,198,0.3); display: flex; align-items: center; justify-content: center; color: rgba(120,119,198,1); flex-shrink: 0; }
-        .sticky-banner-text { flex: 1; line-height: 1.4; min-width: 0; }
-        .sticky-banner-title { font-size: 14px; color: #fff; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 3px; }
-        .sticky-banner-title strong { font-family: 'Satoshi', sans-serif; font-weight: 700; }
-        .sticky-banner-pill { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(120,119,198,1); background: rgba(120,119,198,0.12); border: 1px solid rgba(120,119,198,0.3); padding: 2px 8px; border-radius: 100px; }
-        .sticky-banner-sub { font-size: 12px; color: rgba(255,255,255,0.55); }
-        .sticky-banner-form { display: flex; gap: 6px; flex-shrink: 0; }
-        .sticky-banner-form input { padding: 11px 16px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; color: #fff; font-family: 'Inter', sans-serif; font-size: 13px; outline: none; min-width: 220px; transition: border-color 0.3s; }
-        .sticky-banner-form input:focus { border-color: rgba(120,119,198,0.5); }
-        .sticky-banner-form input::placeholder { color: rgba(255,255,255,0.4); }
-        .sticky-banner-form button { padding: 11px 22px; background: #fff; color: #050505; font-family: 'Satoshi', sans-serif; font-size: 13px; font-weight: 700; border: none; border-radius: 100px; cursor: pointer; white-space: nowrap; transition: all 0.3s; }
-        .sticky-banner-form button:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255,255,255,0.2); }
-        .sticky-banner-close { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 50%; width: 28px; height: 28px; color: rgba(255,255,255,0.5); cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; }
-        .sticky-banner-close:hover { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.15); }
-        @media (max-width: 880px) { .sticky-banner { flex-wrap: wrap; padding: 14px 16px; gap: 12px; } .sticky-banner-icon { width: 36px; height: 36px; } .sticky-banner-text { flex: 1 1 calc(100% - 80px); } .sticky-banner-form { flex: 1 1 100%; order: 3; } .sticky-banner-form input { min-width: 0; flex: 1; } .sticky-banner-sub { font-size: 11px; } }
-        @media (max-width: 540px) { .sticky-banner-icon { display: none; } .sticky-banner-text { flex: 1 1 calc(100% - 40px); } }
-    
-/* === nav-dropdown styles === */
-.nav-dropdown { position: relative; }
-.nav-dropdown > button { font-size: 14px; color: rgba(255,255,255,0.4); background: none; border: none; cursor: pointer; font-family: inherit; padding: 0; font-weight: 500; transition: color 0.3s; display: inline-flex; align-items: center; gap: 4px; }
-.nav-dropdown > button:hover { color: #fff; }
-.nav-dropdown > button svg { transition: transform 0.3s; }
-.nav-dropdown:hover > button svg { transform: rotate(180deg); }
-.nav-dropdown-panel { position: absolute; top: calc(100% + 18px); left: 50%; transform: translateX(-50%) translateY(-8px); width: 760px; padding: 26px 28px; background: rgba(10,10,12,0.98); backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px); border: 1px solid rgba(255,255,255,0.12); border-radius: 24px; box-shadow: 0 30px 80px rgba(0,0,0,0.6); opacity: 0; pointer-events: none; transition: all 0.35s cubic-bezier(0.16,1,0.3,1); display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; z-index: 9999; } .nav-dropdown-panel::before { content: ''; position: absolute; left: -24px; right: -24px; top: -24px; height: 36px; }
-.nav-dropdown:hover .nav-dropdown-panel { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
-.nav-dropdown-col { display: flex; flex-direction: column; gap: 4px; }
-.nav-dropdown-col h5 { font-family: 'Satoshi', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 14px; padding-left: 14px; }
-.nav-dropdown-item { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 12px; text-decoration: none; transition: background 0.25s; }
-.nav-dropdown-item:hover { background: rgba(255,255,255,0.035); }
-.nav-dropdown-item-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); transition: all 0.25s; }
-.nav-dropdown-item-icon svg { width: 18px; height: 18px; stroke-width: 1.7; }
-.nav-dropdown-item-icon img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.1); }
-.nav-dropdown-icon-logo { background: transparent; border-color: transparent; }
-.nav-dropdown-item:hover .nav-dropdown-item-icon { color: #fff; background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.14); }
-.nav-dropdown-item-text { display: flex; flex-direction: column; gap: 2px; }
-.nav-dropdown-item-text strong { font-family: 'Satoshi', sans-serif; font-size: 14px; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
-.nav-dropdown-item-text > span:not(.nav-dropdown-item-icon) { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: -0.005em; }
-@media (max-width: 1024px) { .nav-dropdown-panel { width: 560px; } }
-@media (max-width: 768px) { .nav-dropdown { display: none; } }
-
-/* nav-dropdown click toggle */
-.nav-dropdown.is-open .nav-dropdown-panel { opacity: 1 !important; pointer-events: auto !important; transform: translateX(-50%) translateY(0) !important; }
-.nav-dropdown.is-open > button svg { transform: rotate(180deg); }
-
-/* === mobile-nav-polish === */
-@media (max-width: 768px) {
-  nav {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    padding: 6px 16px !important;
-    grid-template-columns: none !important;
-  }
-  nav .hamburger {
-    order: -1 !important;
-    display: flex !important;
-    padding: 8px !important;
-    margin-left: -4px !important;
-    position: relative !important;
-    z-index: 1100 !important;
-  }
-  nav .hamburger span { transition: transform 0.3s, opacity 0.3s !important; }
-  nav .logo { order: 1 !important; }
-  nav .logo img { height: 52px !important; }
-  /* Hamburger morphs into X when menu is open */
-  body:has(.mobile-menu.open) .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg) !important; }
-  body:has(.mobile-menu.open) .hamburger span:nth-child(2) { opacity: 0 !important; }
-  body:has(.mobile-menu.open) .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg) !important; }
-}
-
-        /* === wf-gap-fill: applied === */
-        /* Workflows.io signature soft white double-halo: appears on hover for buttons, pills, CTAs */
-        @keyframes wfPulse { 0%,100% { opacity: 0.65; } 50% { opacity: 1; } }
-        .wf-halo-hover { transition: box-shadow 0.4s cubic-bezier(0.22,1,0.36,1); }
-        .wf-halo-hover:hover { box-shadow: 0 0 48px rgba(255,255,255,0.10), 0 0 16px rgba(255,255,255,0.08); }
-        /* Apply WF halo on common interactive elements (combined with existing shadows where present) */
-        .nav-cta { transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s cubic-bezier(0.22,1,0.36,1); }
-        .nav-cta:hover { box-shadow: 0 0 48px rgba(255,255,255,0.12), 0 0 16px rgba(255,255,255,0.08), 0 0 40px rgba(255,255,255,0.15); }
-        .magnetic-btn { transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s cubic-bezier(0.22,1,0.36,1); }
-        .magnetic-btn:hover { box-shadow: 0 0 48px rgba(255,255,255,0.10), 0 0 16px rgba(255,255,255,0.08); }
-        .filter-pill:hover { box-shadow: 0 0 36px rgba(255,255,255,0.08), 0 0 12px rgba(255,255,255,0.05); }
-        .filter-pill.active { box-shadow: 0 0 36px rgba(120,119,198,0.18), 0 0 12px rgba(120,119,198,0.10); }
-        .hero-pill { transition: box-shadow 0.4s cubic-bezier(0.22,1,0.36,1); }
-        .hero-pill:hover { box-shadow: 0 0 36px rgba(255,255,255,0.10), 0 0 12px rgba(255,255,255,0.06); }
-        .hero-label { transition: box-shadow 0.4s cubic-bezier(0.22,1,0.36,1); }
-        .hero-label:hover { box-shadow: 0 0 36px rgba(120,119,198,0.20), 0 0 12px rgba(120,119,198,0.12); }
-        .partner-badge:hover { box-shadow: 0 0 48px rgba(255,255,255,0.08), 0 0 16px rgba(255,255,255,0.06); }
-        /* Will-change perf hints on commonly animated elements */
-        .case-card, .vault-cell, .info-card, .process-card, .partner-badge, .magnetic-btn, .nav-cta { will-change: transform; }
-        /* === wf-gap-fill end === */
-    </style>
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin-wght-normal.woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/vendor/lenis-1.3.26/lenis.css">
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <link rel="stylesheet" href="/assets/css/pages.css">
+    <link rel="stylesheet" href="/assets/css/case.css">
+    <link rel="stylesheet" href="/assets/css/landing.css">
+    <script defer src="/assets/js/veil.js"></script>
+    <script defer src="/assets/vendor/gsap-3.15.0/gsap.min.js"></script>
+    <script defer src="/assets/vendor/gsap-3.15.0/ScrollTrigger.min.js"></script>
+    <script defer src="/assets/vendor/lenis-1.3.26/lenis.min.js"></script>
+    <script defer src="/assets/js/site.js"></script>
     <!-- Prospect Pro – Bedrijfsherkenning -->
     <link rel="stylesheet" href="https://css.jsapis.com/controls.css">
     <script async src='https://cdn.prppr.nl/jq_bde1886c.js'></script>
     <!-- Stairoids: website visitor tracking (gebruikt dezelfde stylesheet als Prospect Pro hierboven) -->
     <script async src='https://y.strds.nl/jq_950354e1.js'></script>
 </head>
-<body>
-<div class="cursor-glow" id="cursorGlow"></div>
+<body class="land">
+<div class="veil on" id="veil" aria-hidden="true"><div class="shade"></div><i class="dot"></i><i class="dot"></i><div class="hook"></div><div class="hook"></div></div>
+<noscript><style>.veil { display: none !important; }</style></noscript>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<nav>
-    <a href="/" class="logo"><img src="closedin-logo.png" alt="closed:in"></a>
-    <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="case-studies">Case Studies</a>
-        <div class="nav-dropdown">
-            <button>Resources <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <div class="nav-dropdown-panel">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mark" viewBox="0 0 500 500"><path d="M250 90H410V250H370V130H250Z"/><path d="M250 410H90V250H130V370H250Z"/><rect x="230" y="180" width="40" height="40"/><rect x="230" y="280" width="40" height="40"/></symbol>
+  <symbol id="i-ne" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4M5 4h7v7"/></symbol>
+  <symbol id="i-e" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9 3l5 5-5 5"/></symbol>
+  <symbol id="i-w" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8H2M7 3 2 8l5 5"/></symbol>
+  <symbol id="i-s" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v12M3 9l5 5 5-5"/></symbol>
+  <symbol id="i-play" viewBox="0 0 16 16"><path d="M3 3.24C3 2.47 3.84 1.99 4.51 2.38l7.62 4.47a1.5 1.5 0 0 1 0 2.59l-7.62 4.47C3.84 14.3 3 13.82 3 13.05V3.24z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 8h12"/><path class="v" d="M8 2v12"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 11h18"/></symbol>
+  <symbol id="i-slack" viewBox="0 0 24 24"><path fill="#E01E5A" d="M5.04 15.12a2.52 2.52 0 1 1-2.52-2.52h2.52zM6.3 15.12a2.52 2.52 0 0 1 5.04 0v6.3a2.52 2.52 0 0 1-5.04 0z"/><path fill="#36C5F0" d="M8.82 5.04a2.52 2.52 0 1 1 2.52-2.52v2.52zM8.82 6.3a2.52 2.52 0 0 1 0 5.04h-6.3a2.52 2.52 0 0 1 0-5.04z"/><path fill="#2EB67D" d="M18.96 8.82a2.52 2.52 0 1 1 2.52 2.52h-2.52zM17.7 8.82a2.52 2.52 0 0 1-5.04 0v-6.3a2.52 2.52 0 0 1 5.04 0z"/><path fill="#ECB22E" d="M15.18 18.96a2.52 2.52 0 1 1-2.52 2.52v-2.52zM15.18 17.7a2.52 2.52 0 0 1 0-5.04h6.3a2.52 2.52 0 0 1 0 5.04z"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9zM19 15l.9 2.6L22.5 18.5l-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9z"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><circle cx="3" cy="17" r="1.6" fill="currentColor"/><circle cx="9" cy="11" r="1.6" fill="currentColor"/><circle cx="13" cy="15" r="1.6" fill="currentColor"/><circle cx="21" cy="7" r="1.6" fill="currentColor"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+  <symbol id="i-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 9a3 3 0 1 1 4.5 2.6c-.9.5-1.5 1.3-1.5 2.4"/><circle cx="12" cy="18" r=".8" fill="currentColor"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></symbol>
+  <symbol id="i-tagp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V3h8z"/><circle cx="7.5" cy="7.5" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+</svg>
+
+<header class="nav" id="nav" data-nav>
+    <div class="nav__row">
+        <a href="/" class="nav__brand" aria-label="closed:in home"><span class="logo logo--center" data-logo aria-hidden="true"><img class="lg lg-bl" src="/assets/brand/logo-parts/bl.png" alt="" width="65" height="62" decoding="async"><img class="lg lg-closed" src="/assets/brand/logo-parts/closed.png" alt="" width="188" height="53" decoding="async"><img class="lg lg-colon" src="/assets/brand/logo-parts/colon.png" alt="" width="9" height="39" decoding="async"><img class="lg lg-in" src="/assets/brand/logo-parts/in.png" alt="" width="45" height="54" decoding="async"><img class="lg lg-br" src="/assets/brand/logo-parts/br.png" alt="" width="65" height="64" decoding="async"><img class="lg lg-fav" src="/assets/brand/logo-parts/fav.png" alt="" width="240" height="240" decoding="async"></span><span class="sr-only">closed:in, home</span></a>
+        <nav class="nav__links" aria-label="Primary">
+            <a href="/">Services</a>
+            <a href="case-studies">Cases</a>
+            <div class="nav__dropdown" data-dropdown>
+                <button type="button" aria-expanded="false" aria-controls="resources-menu"><span>Resources</span> <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="nav-dropdown-panel" id="resources-menu">
                 <div class="nav-dropdown-col">
-                    <h5>Resources</h5>
+                    <p class="nav-dropdown-heading">Resources</p>
                     <a class="nav-dropdown-item" href="blog/"><span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><span class="nav-dropdown-item-text"><strong>Blog</strong><span>One tactical post per week</span></span></a>
                     <a class="nav-dropdown-item" href="resources"><span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/></svg></span><span class="nav-dropdown-item-text"><strong>The Vault</strong><span>13 free templates &amp; tools</span></span></a>
                     <a class="nav-dropdown-item" href="resources/gtm-stack"><span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span><span class="nav-dropdown-item-text"><strong>The GTM Stack</strong><span>32 tools, real cost, honest take</span></span></a>
@@ -343,312 +157,137 @@
                     <a class="nav-dropdown-item" href="playbook"><span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="nav-dropdown-item-text"><strong>The Playbook</strong><span>1-page infra checklist</span></span></a>
                 </div>
                 <div class="nav-dropdown-col">
-                    <h5>Free tools</h5>
+                    <p class="nav-dropdown-heading">Free tools</p>
                     <a class="nav-dropdown-item" href="tools/roi-calculator"><span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/></svg></span><span class="nav-dropdown-item-text"><strong>ROI Calculator</strong><span>Pipeline projection</span></span></a>
                     <a class="nav-dropdown-item" href="tools/email-verifier"><span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span><span class="nav-dropdown-item-text"><strong>Email Verifier</strong><span>500 emails, zero credits</span></span></a>
                     <a class="nav-dropdown-item" href="resources/cold-email-templates"><span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><polyline points="2 7 12 13 22 7"/></svg></span><span class="nav-dropdown-item-text"><strong>Cold email templates</strong><span>12, real reply rates</span></span></a>
                     <a class="nav-dropdown-item" href="resources/clay-waterfall"><span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18"/><path d="M5 12h14"/><path d="M8 17h8"/></svg></span><span class="nav-dropdown-item-text"><strong>Clay waterfall</strong><span>10-provider waterfall, 95% find rate</span></span></a>
                 </div>
             </div>
-        </div>
-        <a href="team">Team</a>
-        <a href="contact">Contact</a>
-    </div>
-    <a href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=gtm-engineering-agency" target="_blank" class="nav-cta" rel="noopener"><span class="pill-text-wrap"><span class="pt-a">Book Meeting</span><span class="pt-b">Book Meeting</span></span></a>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu"><span></span></button>
-    <a href="/">Home</a>
-    <a href="case-studies">Case Studies</a>
-    <a href="team">Team</a>
-    <a href="contact">Contact</a>
-    <a href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=gtm-engineering-agency" target="_blank" class="mobile-cta" rel="noopener">Book Meeting</a>
-</div>
-
-<section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <div class="hero-label reveal">GTM Engineering Agency</div>
-    <h1 class="reveal">Sales as a<br><span class="gradient">system</span></h1>
-    <p class="reveal" style="transition-delay: 0.15s;">closed:in is a GTM engineering agency. We engineer the full go-to-market system: enriched data, multi-channel outbound, CRM automation and pipeline analytics. The output is a repeatable revenue engine, built on infrastructure rather than headcount.</p>
-    <a href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=gtm-engineering-agency" target="_blank" class="btn-primary reveal" style="transition-delay: 0.3s;" rel="noopener">Book a 30 min call →</a>
-    <div class="trust-bar reveal" style="transition-delay: 0.45s;">
-        <div class="trust-stat"><div class="trust-num">50+</div><div class="trust-lbl">Systems built</div></div>
-        <div class="trust-stat"><div class="trust-num">1,000+</div><div class="trust-lbl">Campaigns</div></div>
-        <div class="trust-stat"><div class="trust-num">20+</div><div class="trust-lbl">Meetings/mo avg</div></div>
-        <div class="trust-stat"><div class="trust-num">98%</div><div class="trust-lbl">Deliverability</div></div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="section-label reveal">What is GTM engineering</div>
-    <h2 class="reveal">From manual sales<br>to engineered revenue.</h2>
-    <p class="lead reveal">A GTM engineering agency treats go-to-market as a system to be designed. Instead of buying more SDRs, you build the data, outbound, CRM and analytics infrastructure that makes outbound predictable. Once running, the system produces meetings consistently across reps.</p>
-    <div class="grid-4">
-        <div class="info-card reveal">
-            <div class="info-num">01</div>
-            <h3>Data layer</h3>
-            <p>Clay-based enrichment, signal scoring, ICP fit detection. Your prospect data becomes a competitive advantage.</p>
-        </div>
-        <div class="info-card reveal" style="transition-delay: 0.07s;">
-            <div class="info-num">02</div>
-            <h3>Outbound layer</h3>
-            <p>Email infrastructure, multi-step sequences, LinkedIn outreach, copy that respects the buyer's time.</p>
-        </div>
-        <div class="info-card reveal" style="transition-delay: 0.14s;">
-            <div class="info-num">03</div>
-            <h3>CRM layer</h3>
-            <p>Reply handling, pipeline automation, meeting booking flows. Replies turn into qualified opportunities automatically.</p>
-        </div>
-        <div class="info-card reveal" style="transition-delay: 0.21s;">
-            <div class="info-num">04</div>
-            <h3>Analytics layer</h3>
-            <p>Weekly reporting on reply rates, opportunity counts, pipeline value and conversion. Decisions backed by data.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="section-label reveal">How we work</div>
-    <h2 class="reveal">Three phases.<br>Two to three weeks to launch.</h2>
-    <div class="grid-3">
-        <div class="info-card reveal">
-            <div class="info-num">01</div>
-            <h3>Diagnose</h3>
-            <p>Week 1. We map your current GTM stack, ICP definition, sales cycle and pipeline goals. Output: a written system design.</p>
-        </div>
-        <div class="info-card reveal" style="transition-delay: 0.1s;">
-            <div class="info-num">02</div>
-            <h3>Build</h3>
-            <p>Weeks 2-3. We set up infrastructure, build Clay tables, write copy, configure CRM and warm up sending capacity.</p>
-        </div>
-        <div class="info-card reveal" style="transition-delay: 0.2s;">
-            <div class="info-num">03</div>
-            <h3>Run</h3>
-            <p>Week 4 onwards. Live campaigns. Weekly reporting. Iteration on copy, lists and sequences. First meetings booked.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="section-label reveal">Proof</div>
-    <h2 class="reveal">Systems that produce.</h2>
-    <div class="case-spotlight">
-        <a href="case-study-endresz" class="case-spot reveal">
-            <div class="case-spot-client">Endresz · Creative agency · Multi-market</div>
-            <h3>247 boutique conversations across Europe</h3>
-            <p>Multi-market GTM system across NL, France, Poland and London with localized messaging that produced USD 128K+ pipeline in 6 weeks.</p>
-            <div class="case-spot-stats">
-                <div><div class="case-spot-stat-val">247</div><div class="case-spot-stat-lbl">Opportunities</div></div>
-                <div><div class="case-spot-stat-val">6 wk</div><div class="case-spot-stat-lbl">Timeline</div></div>
-                <div><div class="case-spot-stat-val">12%</div><div class="case-spot-stat-lbl">Reply rate</div></div>
             </div>
-        </a>
-        <a href="case-study-verzendbazen" class="case-spot reveal" style="transition-delay: 0.15s;">
-            <div class="case-spot-client">Verzendbazen · NL/BE · E-commerce fulfillment</div>
-            <h3>78 opportunities with a 13.9% reply rate</h3>
-            <p>Complete outbound engine built with Clay and Instantly to generate qualified e-commerce leads and create EUR 1.56M in pipeline.</p>
-            <div class="case-spot-stats">
-                <div><div class="case-spot-stat-val">78</div><div class="case-spot-stat-lbl">Opportunities</div></div>
-                <div><div class="case-spot-stat-val">€1.56M</div><div class="case-spot-stat-lbl">Pipeline</div></div>
-                <div><div class="case-spot-stat-val">13.9%</div><div class="case-spot-stat-lbl">Reply rate</div></div>
-            </div>
-        </a>
+            <a href="team">Team</a>
+        </nav>
+        <a href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=gtm-engineering-agency" target="_blank" rel="noopener" class="nav__cta alink"><span class="alink__t" data-letters>Get In Touch</span><span class="btn-accent btn-accent--sq" aria-hidden="true"><span class="ico"><svg><use href="#i-ne"/></svg></span></span></a>
+        <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-burger><span></span><span></span></button>
+    </div>
+    <div class="nav__sheet" id="mobile-menu" hidden>
+        <a href="/">Home</a><a href="/">Services</a><a href="case-studies">Cases</a><a href="resources">Resources</a><a href="blog/">Blog</a><a href="team">Team</a>
+        <a href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=gtm-engineering-agency" target="_blank" rel="noopener" class="btn-accent"><span class="txt">Get In Touch</span></a>
+    </div>
+</header>
+
+<main id="main">
+<section class="phero phero--light land-hero" id="hero" data-glyphs="right">
+    <div class="container phero__in">
+        <p class="phero__pill hero-in" style="--i:0"><i></i>GTM Engineering Agency</p>
+        <h1 class="phero__title hero-in" style="--i:1">Sales as a<br><b>system</b></h1>
+        <p class="phero__lead hero-in" style="--i:2">closed:in is a GTM engineering agency. We engineer the full go-to-market system: enriched data, multi-channel outbound, CRM automation and pipeline analytics. The output is a repeatable revenue engine, built on infrastructure rather than headcount.</p>
+        <div class="phero__actions hero-in" style="--i:3"><a class="btn-accent" href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&amp;utm_medium=cta&amp;utm_content=gtm-engineering-agency" target="_blank" rel="noopener"><span class="txt" data-letters>Book a 30 min call</span><span class="ico"><svg><use href="#i-e"/></svg></span></a><a class="land-btn-line" href="#proof"><span>See the results</span><svg aria-hidden="true"><use href="#i-s"/></svg></a></div>
     </div>
 </section>
-
-<section class="section">
-    <div class="section-label reveal">Frequently asked</div>
-    <h2 class="reveal">Questions, answered.</h2>
-    <div class="faq-list reveal">
-        <details class="faq-item">
-            <summary>What is GTM engineering?</summary>
-            <div class="faq-answer">GTM engineering means treating your go-to-market function as an engineered system rather than a manual sales process. A GTM engineering agency designs and builds the data layer (enrichment, signals), the outbound layer (email, LinkedIn, sequences), the CRM layer (pipeline automation, reply handling), and the analytics layer (reporting, attribution). The goal is a repeatable revenue engine.</div>
-        </details>
-        <details class="faq-item">
-            <summary>How is a GTM engineering agency different from a traditional sales agency?</summary>
-            <div class="faq-answer">A traditional sales or cold email agency sends emails on your behalf. A GTM engineering agency builds the underlying system: enriched lead data, signal scoring, multi-channel sequences, CRM automation and analytics. You end up with an asset you own.</div>
-        </details>
-        <details class="faq-item">
-            <summary>Who hires a GTM engineering agency?</summary>
-            <div class="faq-answer">B2B SaaS founders, recruitment and PE firms, agencies and product companies selling into mid-market and enterprise. Typically EUR 5K+ ACV businesses that need predictable outbound but do not want to hire an in-house revenue operations team.</div>
-        </details>
-        <details class="faq-item">
-            <summary>Which tools do GTM engineering agencies typically use?</summary>
-            <div class="faq-answer">closed:in's core stack: Clay for enrichment and orchestration, Instantly for cold email, Close CRM for pipeline management, Apollo and Sales Navigator for sourcing, LinkedIn for direct outreach, and n8n for custom automation. We are a Clay Solutions Partner, Instantly Certified Expert and Apollo Partner.</div>
-        </details>
-        <details class="faq-item">
-            <summary>How long does a GTM engineering engagement take?</summary>
-            <div class="faq-answer">Initial system build runs 3 to 6 weeks depending on scope. Most clients are live with running campaigns and integrated CRM within 2-3 weeks. Ongoing optimization continues over the 3-month minimum engagement, after which clients either renew or take the system in-house.</div>
-        </details>
-        <details class="faq-item">
-            <summary>Do you train my team or do everything for us?</summary>
-            <div class="faq-answer">Both options exist. Full done-for-you means we run campaigns end-to-end and report weekly. Done-with-you means we build the system, train your team, and hand over with documentation. Choice depends on whether you want to keep delivery in-house long-term.</div>
-        </details>
+<section class="case-stats land-stats" aria-label="Key numbers">
+    <div class="container"><div class="case-stats__grid">
+            <div class="case-stat" data-reveal><b>50+</b><span>Systems built</span></div>
+            <div class="case-stat" data-reveal><b>1,000+</b><span>Campaigns</span></div>
+            <div class="case-stat" data-reveal><b>20+</b><span>Meetings/mo avg</span></div>
+            <div class="case-stat" data-reveal><b>98%</b><span>Deliverability</span></div>
+    </div></div>
+</section>
+<section class="psec land-sec" aria-labelledby="land-sec-1" data-glyphs="left">
+    <div class="container">
+        <div class="land-head land-head--lead"><div data-reveal><p class="case-sec__label"><span>01</span>What is GTM engineering</p><h2 id="land-sec-1" class="h2">From manual sales<br>to engineered revenue.</h2></div><p class="land-head__lead" data-reveal>A GTM engineering agency treats go-to-market as a system to be designed. Instead of buying more SDRs, you build the data, outbound, CRM and analytics infrastructure that makes outbound predictable. Once running, the system produces meetings consistently across reps.</p></div>
+        <div class="case-steps case-steps--4"><article class="case-step" data-reveal><span class="case-step__num">01</span><h3>Data layer</h3><p>Clay-based enrichment, signal scoring, ICP fit detection. Your prospect data becomes a competitive advantage.</p></article><article class="case-step" data-reveal><span class="case-step__num">02</span><h3>Outbound layer</h3><p>Email infrastructure, multi-step sequences, LinkedIn outreach, copy that respects the buyer's time.</p></article><article class="case-step" data-reveal><span class="case-step__num">03</span><h3>CRM layer</h3><p>Reply handling, pipeline automation, meeting booking flows. Replies turn into qualified opportunities automatically.</p></article><article class="case-step" data-reveal><span class="case-step__num">04</span><h3>Analytics layer</h3><p>Weekly reporting on reply rates, opportunity counts, pipeline value and conversion. Decisions backed by data.</p></article></div>
     </div>
 </section>
-
-<section class="cta-section">
-    <div class="reveal">
-        <h2>Ready to engineer<br>your pipeline?</h2>
-        <p>Book a 30 minute discovery call. We will review your ICP, current stack and pipeline goals, and tell you whether closed:in is a fit.</p>
-        <a href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=gtm-engineering-agency" target="_blank" class="btn-primary" rel="noopener"><span class="pill-text-wrap"><span class="pt-a">Book a 30 min call →</span><span class="pt-b">Book a 30 min call →</span></span></a>
+<section class="psec land-sec" aria-labelledby="land-sec-2" data-glyphs="right">
+    <div class="container">
+        <div class="land-head"><div data-reveal><p class="case-sec__label"><span>02</span>How we work</p><h2 id="land-sec-2" class="h2">Three phases.<br>Two to three weeks to launch.</h2></div></div>
+        <div class="case-steps case-steps--3"><article class="case-step" data-reveal><span class="case-step__num">01</span><h3>Diagnose</h3><p>Week 1. We map your current GTM stack, ICP definition, sales cycle and pipeline goals. Output: a written system design.</p></article><article class="case-step" data-reveal><span class="case-step__num">02</span><h3>Build</h3><p>Weeks 2-3. We set up infrastructure, build Clay tables, write copy, configure CRM and warm up sending capacity.</p></article><article class="case-step" data-reveal><span class="case-step__num">03</span><h3>Run</h3><p>Week 4 onwards. Live campaigns. Weekly reporting. Iteration on copy, lists and sequences. First meetings booked.</p></article></div>
     </div>
 </section>
-
-<section class="footer-signup">
-    <div class="footer-signup-inner">
-        <div class="footer-signup-label">The closed:in playbook</div>
-        <h2>1 email per week.<br>Real outbound tactics from live campaigns.</h2>
-        <p>Free 1-page infrastructure checklist on signup. Built by founders who run cold email daily.</p>
-        <ul class="footer-signup-benefits">
-            <li>The 1-page cold email infrastructure checklist (instant PDF)</li>
-            <li>Weekly tactics from live closed:in client campaigns</li>
-            <li>Real numbers: reply rates, opportunities, pipeline value per case</li>
-        </ul>
-        <form class="footer-signup-form" action="https://closedins-newsletter.beehiiv.com/subscribe" method="GET" target="_blank">
-            <input type="email" name="email" placeholder="you@yourcompany.com" required>
-            <button type="submit">Get the playbook</button>
-        </form>
+<section class="psec land-sec" id="proof" aria-labelledby="land-sec-3" data-glyphs="left">
+    <div class="container">
+        <div class="land-head"><div data-reveal><p class="case-sec__label"><span>03</span>Proof</p><h2 id="land-sec-3" class="h2">Systems that produce.</h2></div></div>
+        <div class="land-cases land-cases--2"><a class="land-case" href="case-study-endresz" data-reveal><span class="land-case__top"><img class="land-case__logo" src="/assets/img/logos-web/endresz-sm.webp" alt="Endresz" width="240" height="49" loading="lazy" decoding="async"><span class="land-case__go">Read the case<svg aria-hidden="true"><use href="#i-e"/></svg></span></span><span class="land-case__client">Endresz · Creative agency · Multi-market</span><span class="land-case__title">247 boutique conversations across Europe</span><span class="land-case__desc">Multi-market GTM system across NL, France, Poland and London with localized messaging that produced USD 128K+ pipeline in 6 weeks.</span><span class="land-case__stats"><span><b>247</b><small>Opportunities</small></span><span><b>6 wk</b><small>Timeline</small></span><span><b>12%</b><small>Reply rate</small></span></span></a><a class="land-case" href="case-study-verzendbazen" data-reveal><span class="land-case__top"><img class="land-case__logo" src="/assets/img/logos-web/verzendbazen-sm.webp" alt="Verzendbazen" width="240" height="24" loading="lazy" decoding="async"><span class="land-case__go">Read the case<svg aria-hidden="true"><use href="#i-e"/></svg></span></span><span class="land-case__client">Verzendbazen · NL/BE · E-commerce fulfillment</span><span class="land-case__title">78 opportunities with a 13.9% reply rate</span><span class="land-case__desc">Complete outbound engine built with Clay and Instantly to generate qualified e-commerce leads and create EUR 1.56M in pipeline.</span><span class="land-case__stats"><span><b>78</b><small>Opportunities</small></span><span><b>€1.56M</b><small>Pipeline</small></span><span><b>13.9%</b><small>Reply rate</small></span></span></a></div>
     </div>
 </section>
-
-<footer class="premium-footer">
-    <div class="footer-inner">
-        <div class="footer-top">
-            <div class="footer-brand">
-                <img src="closedin-logo.png" alt="closed:in" class="footer-logo">
-                <p class="footer-tagline">Your B2B Go-To-Market Partner</p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-col">
-                    <h4>Navigate</h4>
-                    <a href="/">Home</a>
-                    <a href="case-studies">Case Studies</a>
-                    <a href="resources">Resources</a>
-                    <a href="blog/">Blog</a>
-                    <a href="pricing">Pricing</a>
-                    <a href="team">Team</a>
-                    <a href="contact">Contact</a>
-                    <a href="https://follow-up-dashboard-delta.vercel.app" target="_blank" rel="noopener">Partner login</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <a href="mailto:info@closedin.io">info@closedin.io</a>
-                    <a href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&utm_medium=cta&utm_content=gtm-engineering-agency" target="_blank" rel="noopener">Book a Call</a>
-                    <a href="https://www.linkedin.com/company/closedin" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://maps.google.com/?q=Jodenbreestraat+25,+Amsterdam" target="_blank" rel="noopener">Jodenbreestraat 25, Amsterdam</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <a href="playbook">The Playbook (free)</a>
-                    <a href="cold-email-agency-amsterdam">Cold email NL/EU</a>
-                    <a href="cold-email-agency-saas">Cold email SaaS</a>
-                    <a href="clay-agency">Clay agency</a>
-                    <a href="gtm-engineering-agency">GTM engineering</a>
-                    <a href="outbound-agency-uk">Outbound UK</a>
-                    <a href="outbound-agency-us">Outbound US</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Partners</h4>
-                    <a href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener">Clay Solutions Partner</a>
-                    <a href="https://instantly.ai/experts" target="_blank" rel="noopener">Instantly Expert</a>
-                    <a href="https://www.apollo.io/" target="_blank" rel="noopener">Apollo Partner</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-badges">
-            <a href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener"><img src="badge-clay.png" alt="Clay Artisan Solutions Partner 2026"></a>
-            <a href="https://instantly.ai/experts" target="_blank" rel="noopener"><img src="badge-instantly.png" alt="Instantly Certified Expert"></a>
-            <a href="https://www.apollo.io/" target="_blank" rel="noopener"><img src="badge-apollo.png" alt="Apollo Partner"></a>
-            <a href="https://www.s-bb.nl/" target="_blank" rel="noopener"><img src="badge-sbb.png" alt="SBB Accredited Work Placement Company"></a>
-            <a href="https://www.utrechtbusiness.nl/ZO!_utrecht" target="_blank" rel="noopener"><img src="badge-zo-utrecht.png" alt="ZO! Utrecht Business Member"></a>
-        </div>
-        <div class="footer-bottom">
-            <span>&copy; 2026 closed:in. All rights reserved.</span>
-            <a href="privacy">Privacy Policy</a>
+<section class="psec land-faq" id="faq" aria-labelledby="land-sec-4" data-glyphs="corners">
+    <div class="container faq__grid">
+        <div class="faq__left" data-reveal><p class="case-sec__label"><span>04</span>Frequently asked</p><h2 id="land-sec-4" class="h2">Questions, answered.</h2></div>
+        <div class="faq__list" data-reveal>
+            <details class="faq-item" open>
+                <summary><span>What is GTM engineering?</span><span class="pm" aria-hidden="true"><svg><use href="#i-plus"/></svg></span></summary>
+                <div class="faq-answer">GTM engineering means treating your go-to-market function as an engineered system rather than a manual sales process. A GTM engineering agency designs and builds the data layer (enrichment, signals), the outbound layer (email, LinkedIn, sequences), the CRM layer (pipeline automation, reply handling), and the analytics layer (reporting, attribution). The goal is a repeatable revenue engine.</div>
+            </details>
+            <details class="faq-item">
+                <summary><span>How is a GTM engineering agency different from a traditional sales agency?</span><span class="pm" aria-hidden="true"><svg><use href="#i-plus"/></svg></span></summary>
+                <div class="faq-answer">A traditional sales or cold email agency sends emails on your behalf. A GTM engineering agency builds the underlying system: enriched lead data, signal scoring, multi-channel sequences, CRM automation and analytics. You end up with an asset you own.</div>
+            </details>
+            <details class="faq-item">
+                <summary><span>Who hires a GTM engineering agency?</span><span class="pm" aria-hidden="true"><svg><use href="#i-plus"/></svg></span></summary>
+                <div class="faq-answer">B2B SaaS founders, recruitment and PE firms, agencies and product companies selling into mid-market and enterprise. Typically EUR 5K+ ACV businesses that need predictable outbound but do not want to hire an in-house revenue operations team.</div>
+            </details>
+            <details class="faq-item">
+                <summary><span>Which tools do GTM engineering agencies typically use?</span><span class="pm" aria-hidden="true"><svg><use href="#i-plus"/></svg></span></summary>
+                <div class="faq-answer">closed:in's core stack: Clay for enrichment and orchestration, Instantly for cold email, Close CRM for pipeline management, Apollo and Sales Navigator for sourcing, LinkedIn for direct outreach, and n8n for custom automation. We are a Clay Solutions Partner, Instantly Certified Expert and Apollo Partner.</div>
+            </details>
+            <details class="faq-item">
+                <summary><span>How long does a GTM engineering engagement take?</span><span class="pm" aria-hidden="true"><svg><use href="#i-plus"/></svg></span></summary>
+                <div class="faq-answer">Initial system build runs 3 to 6 weeks depending on scope. Most clients are live with running campaigns and integrated CRM within 2-3 weeks. Ongoing optimization continues over the 3-month minimum engagement, after which clients either renew or take the system in-house.</div>
+            </details>
+            <details class="faq-item">
+                <summary><span>Do you train my team or do everything for us?</span><span class="pm" aria-hidden="true"><svg><use href="#i-plus"/></svg></span></summary>
+                <div class="faq-answer">Both options exist. Full done-for-you means we run campaigns end-to-end and report weekly. Done-with-you means we build the system, train your team, and hand over with documentation. Choice depends on whether you want to keep delivery in-house long-term.</div>
+            </details>
         </div>
     </div>
+</section>
+<section class="cta-dark theme-dark" data-nav-theme="dark" aria-labelledby="cta-title">
+    <div class="cta-dark__grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="container cta-dark__in">
+        <h2 id="cta-title" class="cta-dark__title" data-words>Ready to engineer<br>your pipeline?</h2>
+        <p class="cta-dark__lead" data-reveal>Book a 30 minute discovery call. We will review your ICP, current stack and pipeline goals, and tell you whether closed:in is a fit.</p>
+        <div class="cta-dark__actions" data-reveal>
+            <a class="btn-accent" href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&amp;utm_medium=cta&amp;utm_content=gtm-engineering-agency" target="_blank" rel="noopener"><span class="txt" data-letters>Book a 30 min call</span><span class="ico"><svg><use href="#i-e"/></svg></span></a>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer class="footer theme-dark" id="contact-cta" data-nav-theme="dark">
+    <div class="footer__top">
+        <div class="footer__lead">
+            <p class="footer__pill"><i aria-hidden="true"></i>Book your strategy call</p>
+            <p class="footer__statement">Scale your outreach<br><span>without scaling your team.</span></p>
+            <div class="footer__actions">
+                <a class="footer__btn footer__btn--accent" href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&amp;utm_medium=cta&amp;utm_content=footer" target="_blank" rel="noopener">Request Call <svg aria-hidden="true"><use href="#i-e"/></svg></a>
+                <a class="footer__btn footer__btn--ghost" href="resources/gtm-stack">Check out our GTM stack</a>
+            </div>
+            <form class="footer__subscribe" action="https://closedins-newsletter.beehiiv.com/subscribe" method="GET" target="_blank" data-magnet="homepage">
+                <label><span class="sr-only">Email address</span><input type="email" name="email" placeholder="Email*" autocomplete="email" required></label>
+                <button type="submit">Get the playbook</button>
+            </form>
+            <small class="footer__note">1 email per week with outbound tactics from live campaigns, plus the 1-page infrastructure checklist on signup.</small>
+        </div>
+        <nav class="footer__nav" aria-label="Footer">
+            <div class="footer__col"><p class="hd">Navigate</p><ul><li><a href="/">Home</a></li><li><a href="case-studies">Case Studies</a></li><li><a href="resources">Resources</a></li><li><a href="blog/">Blog</a></li><li><a href="pricing">Pricing</a></li><li><a href="team">Team</a></li><li><a href="https://follow-up-dashboard-delta.vercel.app" target="_blank" rel="noopener">Partner login</a></li></ul></div>
+            <div class="footer__col"><p class="hd">Services</p><ul><li><a href="playbook">The Playbook (free)</a></li><li><a href="cold-email-agency-amsterdam">Cold email NL/EU</a></li><li><a href="cold-email-agency-saas">Cold email SaaS</a></li><li><a href="clay-agency">Clay agency</a></li><li><a href="gtm-engineering-agency">GTM engineering</a></li><li><a href="outbound-agency-uk">Outbound UK</a></li><li><a href="outbound-agency-us">Outbound US</a></li></ul></div>
+            <div class="footer__col"><p class="hd">Contact</p><ul><li><a href="mailto:info@closedin.io">info@closedin.io</a></li><li><a href="https://meeting.closedin.io/discovery-call?utm_source=closedin.io&amp;utm_medium=cta&amp;utm_content=footer" target="_blank" rel="noopener">Book a Call</a></li><li><a href="https://www.linkedin.com/company/closedin" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://maps.google.com/?q=Jodenbreestraat+25,+Amsterdam" target="_blank" rel="noopener">Jodenbreestraat 25, Amsterdam</a></li></ul></div>
+            <div class="footer__col"><p class="hd">Partners</p><ul><li><a href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener">Clay Solutions Partner</a></li><li><a href="https://instantly.ai/experts/max-munstermann" target="_blank" rel="noopener">Instantly Expert</a></li><li><a href="https://www.apollo.io" target="_blank" rel="noopener">Apollo Partner</a></li></ul></div>
+        </nav>
+    </div>
+    <div class="footer__badges">
+        <a class="award" href="https://www.acquisition-international.com/winners/closedin/" target="_blank" rel="noopener"><img src="/assets/img/logos-web/award-2026.webp" alt="Most Innovative B2B GTM Engineering Agency 2026, Acquisition International" width="320" height="320" loading="lazy" decoding="async"></a>
+        <a href="https://www.clay.com/experts/partner/closedin" target="_blank" rel="noopener"><img src="/assets/img/logos-web/clay.webp" alt="Clay Solutions Partner" width="240" height="182" loading="lazy" decoding="async"></a>
+        <a href="https://instantly.ai/experts/max-munstermann" target="_blank" rel="noopener"><img src="/assets/img/logos-web/instantly.webp" alt="Instantly Certified Expert" width="143" height="160" loading="lazy" decoding="async"></a>
+        <a href="https://www.apollo.io" target="_blank" rel="noopener"><img src="/assets/img/logos-web/apollo.webp" alt="Apollo Partner" width="360" height="134" loading="lazy" decoding="async"></a>
+        <a href="https://www.s-bb.nl/" target="_blank" rel="noopener"><img src="/assets/img/logos-web/sbb.webp" alt="SBB Accredited Work Placement Company" width="171" height="160" loading="lazy" decoding="async"></a>
+        <a href="https://www.utrechtbusiness.nl/ZO!_utrecht" target="_blank" rel="noopener"><img src="/assets/img/logos-web/zo-utrecht.webp" alt="ZO! Utrecht Business Member" width="160" height="160" loading="lazy" decoding="async"></a>
+    </div>
+    <div class="footer__ribbon" aria-hidden="true"><div class="footer__ribbon-track"><span class="rb"><b>&euro;1.56M</b><span>pipeline in 8 weeks</span></span><i></i><span class="rb"><b>142</b><span>opportunities in 13 weeks</span></span><i></i><span class="rb"><b>13.9%</b><span>reply rate, double the industry average</span></span><i></i><span class="rb"><b>247</b><span>conversations across NL, FR, PL and London</span></span><i></i><span class="rb"><b>35%+</b><span>reply rate in under 30 days</span></span><i></i><span class="rb"><b>&euro;1.56M</b><span>pipeline in 8 weeks</span></span><i></i><span class="rb"><b>142</b><span>opportunities in 13 weeks</span></span><i></i><span class="rb"><b>13.9%</b><span>reply rate, double the industry average</span></span><i></i><span class="rb"><b>247</b><span>conversations across NL, FR, PL and London</span></span><i></i><span class="rb"><b>35%+</b><span>reply rate in under 30 days</span></span><i></i></div></div>
+    <div class="footer__wordmark" role="img" aria-label="closed:in"><div class="footer__wordmark-track" aria-hidden="true"><span class="wm"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg><span class="wm is-hollow"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg><span class="wm"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg><span class="wm is-hollow"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg><span class="wm"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg><span class="wm is-hollow"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg><span class="wm"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg><span class="wm is-hollow"><span>closed</span><span class="colon"></span><span>in</span></span><svg class="fav" viewBox="0 0 500 500" aria-hidden="true"><path fill="#fff" d="M267 105H395V229H386V114H267Z"/><path fill="#fff" d="M233 395H105V271H114V386H233Z"/><rect fill="#72C1FF" x="242" y="206" width="15" height="15"/><rect fill="#72C1FF" x="242" y="267" width="15" height="15"/></svg></div></div>
+    <div class="footer__bottom"><span>&copy; 2026 closed:in &middot; Amsterdam</span><div><a href="privacy">Privacy Policy</a><a href="#main">Back to top</a></div></div>
 </footer>
-
-<script>
-document.addEventListener('mousemove', e => { const g = document.getElementById('cursorGlow'); g.style.left = e.clientX + 'px'; g.style.top = e.clientY + 'px'; });
-const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-(function() {
-    const btn = document.getElementById("hamburgerBtn");
-    const menu = document.getElementById("mobileMenu");
-    const closeBtn = document.getElementById("mobileMenuClose");
-    if (!btn || !menu) return;
-    btn.addEventListener("click", function(e) { e.stopPropagation(); var isOpen = menu.classList.contains("open"); if (isOpen) { menu.classList.remove("open"); document.body.style.overflow = ""; } else { menu.classList.add("open"); document.body.style.overflow = "hidden"; } });
-    function closeMenu() { menu.classList.remove("open"); document.body.style.overflow = ""; }
-    closeBtn.addEventListener("click", closeMenu);
-    menu.querySelectorAll("a").forEach(function(a) { a.addEventListener("click", closeMenu); });
-})();
-</script>
-
-<div class="sticky-banner" id="stickyBanner">
-    <div class="sticky-banner-icon" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
-    </div>
-    <div class="sticky-banner-text">
-        <div class="sticky-banner-title"><strong>The closed:in playbook</strong> <span class="sticky-banner-pill">Free PDF</span></div>
-        <div class="sticky-banner-sub">Cold email infrastructure checklist + weekly tactics from 1,000+ live campaigns.</div>
-    </div>
-    <form class="sticky-banner-form" action="https://closedins-newsletter.beehiiv.com/subscribe" method="GET" target="_blank">
-        <input type="email" name="email" placeholder="you@yourcompany.com" required>
-        <button type="submit">Get it</button>
-    </form>
-    <button class="sticky-banner-close" id="stickyBannerClose" aria-label="Close">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-</div>
-
-
-<script>
-(function() {
-    if (localStorage.getItem('si_banner_dismissed')) return;
-    var banner = document.getElementById('stickyBanner');
-    var closeBtn = document.getElementById('stickyBannerClose');
-    if (!banner || !closeBtn) return;
-    var shown = false;
-    function show() { if (shown) return; banner.classList.add('visible'); shown = true; }
-    setTimeout(show, 30000);
-    window.addEventListener('scroll', function() {
-        var sd = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
-        if (sd > 0.4) show();
-    });
-    closeBtn.addEventListener('click', function() {
-        banner.classList.remove('visible');
-        localStorage.setItem('si_banner_dismissed', '1');
-    });
-    var form = banner.querySelector('form');
-    if (form) form.addEventListener('submit', function() { localStorage.setItem('si_banner_dismissed', '1'); });
-})();
-</script>
-<script>
-// nav-dropdown click toggle
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
-        var btn = dd.querySelector('button');
-        if (!btn) return;
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            var isOpen = dd.classList.contains('is-open');
-            document.querySelectorAll('.nav-dropdown.is-open').forEach(function(o) { o.classList.remove('is-open'); });
-            if (!isOpen) dd.classList.add('is-open');
-        });
-    });
-    document.addEventListener('click', function(e) {
-        document.querySelectorAll('.nav-dropdown.is-open').forEach(function(dd) {
-            if (!dd.contains(e.target)) dd.classList.remove('is-open');
-        });
-    });
-});
-</script>
     <!-- Leadboxer – Bedrijfsherkenning -->
     <script type="text/javascript" defer="defer" src="//script.leadboxer.com/?dataset=316eddd7dcb64c2d96481f90418a96c1"></script>
 

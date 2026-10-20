@@ -1,0 +1,91 @@
+/* closed:in service and market landing pages (2026-10-20, night audit): Clay agency, cold email NL/EU and SaaS, GTM engineering,
+   outbound UK and US, in the site language. Builds on case.css (light opening, key numbers frame, numbered labels and cells);
+   adds the section heads with their lead, the feature cards, the dark case cards with the client logo and the FAQ accordion
+   of the homepage. */
+
+/* ---------- Opening ---------- */
+.land-hero .phero__title { max-width: 19ch; }
+.land-hero .phero__lead { max-width: 64ch; }
+.land-hero .phero__actions { margin-top: 30px; align-items: center; }
+.land-btn-line { display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 20px; border: 1px solid var(--line-2); border-radius: var(--r-md); background: var(--white); color: var(--ink); font-size: 16px; text-decoration: none; transition: border-color .3s var(--ease), box-shadow .4s var(--ease); }
+.land-btn-line svg { width: 14px; height: 14px; transition: transform .45s var(--ease); }
+.land-btn-line:hover, .land-btn-line:focus-visible { border-color: rgba(0, 0, 0, .22); box-shadow: 0 10px 26px -18px rgba(11, 13, 16, .35); }
+.land-btn-line:hover svg { transform: translateY(3px); }
+.land-btn-line:focus-visible { outline: none; box-shadow: var(--focus); }
+
+/* the key numbers here are words as often as figures (Partner, Daily, 2-3 wk): proportional digits keep 2-3 tight */
+.land-stats .case-stat b { font-variant-numeric: normal; }
+
+/* ---------- Section heads: number label and head, with the lead beside it ---------- */
+.land-head .h2 { max-width: 18ch; }
+.land-head--lead { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px clamp(32px, 5vw, 80px); align-items: end; }
+.land-head__lead { margin: 0; font-size: 18px; line-height: 1.62; color: var(--gray-100); max-width: 62ch; }
+
+/* ---------- Feature cards: two by two, white on the page ---------- */
+.land-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: clamp(32px, 4vw, 48px); }
+.land-card { display: flex; flex-direction: column; gap: 12px; padding: clamp(24px, 2.6vw, 34px); border: 1px solid var(--line-2); border-radius: 18px; background: var(--white); transition: border-color .3s var(--ease), box-shadow .45s var(--ease), transform .45s var(--ease); }
+.land-card::before { content: ""; width: 8px; height: 8px; margin-bottom: 6px; background: var(--accent); }
+.land-card:hover { border-color: rgba(0, 0, 0, .18); box-shadow: 0 22px 44px -30px rgba(11, 13, 16, .32); transform: translateY(-2px); }
+.land-card h3 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.25; letter-spacing: -0.012em; }
+.land-card p { margin: 0; font-size: 15.5px; line-height: 1.62; color: var(--gray-100); }
+
+/* ---------- Proof: dark case cards with the client logo, linking to the case ---------- */
+.land-cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: clamp(32px, 4vw, 48px); }
+.land-case { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; gap: 14px; padding: clamp(26px, 3vw, 40px); border-radius: 22px; background: var(--dark); color: #fff; text-decoration: none; transition: transform .5s var(--ease); }
+.land-case::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(110% 80% at 100% 0%, rgba(114, 193, 255, .2), rgba(114, 193, 255, 0) 58%); opacity: .8; transition: opacity .5s var(--ease); pointer-events: none; }
+.land-case:hover { transform: translateY(-3px); }
+.land-case:hover::before { opacity: 1; }
+.land-case:focus-visible { outline: none; box-shadow: var(--focus); }
+.land-case__top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.land-case__logo { display: block; height: 26px; width: auto; max-width: 150px; object-fit: contain; filter: brightness(0) invert(1); opacity: .92; }
+.land-case__go { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: rgba(255, 255, 255, .72); transition: color .3s, gap .4s var(--ease); white-space: nowrap; }
+.land-case__go svg { width: 14px; height: 14px; }
+.land-case:hover .land-case__go { color: var(--accent); gap: 12px; }
+.land-case__client { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255, 255, 255, .55); }
+.land-case__title { display: block; max-width: 24ch; font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; line-height: 1.2; letter-spacing: -0.018em; }
+.land-case__desc { display: block; max-width: 58ch; font-size: 15.5px; line-height: 1.62; color: rgba(255, 255, 255, .66); }
+.land-case__stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: auto; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, .12); }
+.land-case__desc + .land-case__stats { margin-top: 18px; }
+.land-case__stats b { display: block; font-size: clamp(26px, 2.6vw, 38px); font-weight: 500; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.land-case__stats small { display: block; margin-top: 10px; font-size: 12.5px; line-height: 1.35; color: rgba(255, 255, 255, .58); }
+/* one case: wide, the story left and the numbers right */
+.land-cases--1 { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1024px) {
+  .land-cases--1 .land-case { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-rows: auto auto auto 1fr; column-gap: clamp(32px, 5vw, 80px); }
+  .land-cases--1 .land-case > * { grid-column: 1; }
+  .land-cases--1 .land-case__top { grid-column: 1 / -1; }
+  .land-cases--1 .land-case__stats { grid-column: 2; grid-row: 2 / 5; align-self: end; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 0; row-gap: 26px; }
+}
+
+/* ---------- FAQ: the homepage accordion ---------- */
+.land-faq .faq__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; align-items: start; }
+.land-faq .faq__left .h2 { max-width: 14ch; }
+.land-faq .faq-item { border-bottom: 1px solid var(--line); border-radius: var(--r-md); transition: background-color .4s var(--ease), box-shadow .4s var(--ease), padding .4s var(--ease), margin .4s var(--ease); }
+.land-faq .faq-item[open] { background: var(--white); box-shadow: var(--neu-card); padding: 0 8px; margin: 0 -8px 8px; border-bottom-color: transparent; }
+.land-faq .faq-item summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 24px 20px; font-size: 18px; font-weight: 500; color: var(--ink); }
+.land-faq .faq-item summary::-webkit-details-marker { display: none; }
+.land-faq .faq-item summary:focus-visible { outline: none; box-shadow: var(--focus); border-radius: var(--r-md); }
+.land-faq .faq-item summary .pm { flex: none; width: 40px; height: 40px; border-radius: var(--r-xs); background: var(--bg); display: grid; place-items: center; transition: background-color .3s, transform .4s var(--ease); }
+.land-faq .faq-item summary .pm svg { width: 16px; height: 16px; }
+.land-faq .faq-item summary .pm .v { transition: transform .4s var(--ease); transform-origin: center; }
+.land-faq .faq-item[open] summary .pm { background: #fff; box-shadow: var(--neu-pill); transform: rotate(90deg); }
+.land-faq .faq-item[open] summary .pm .v { transform: scaleY(0); }
+.land-faq .faq-answer { padding: 0 20px 24px; color: var(--gray-100); font-size: 16px; line-height: 1.6; max-width: 66ch; }
+
+/* ---------- Narrow screens ---------- */
+@media (max-width: 1023px) {
+  .land-head--lead, .land-faq .faq__grid { grid-template-columns: 1fr; }
+  .land-head--lead { align-items: start; gap: 18px; }
+  .land-faq .faq__grid { gap: 24px; }
+}
+@media (max-width: 767px) {
+  .land-cards, .land-cases { grid-template-columns: 1fr; }
+  .land-head__lead { font-size: 17px; }
+  .land-case__stats { gap: 12px; }
+  .land-faq .faq-item summary { padding: 20px 14px; font-size: 17px; }
+  .land-faq .faq-answer { padding: 0 14px 20px; }
+}
+@media (max-width: 420px) {
+  .land-hero .phero__actions > * { width: 100%; justify-content: center; }
+  .land-case__stats b { font-size: 24px; }
+}

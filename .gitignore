@@ -14,3 +14,9 @@ research/reference-sites/
 .vercel/
 .vercel
 .env*
+
+# generator previews and raw Lighthouse reports (night audit 20-10), lokaal
+scripts/case-out/
+scripts/landing-out/
+scripts/*-out/
+research/audit-2026-10-20/*.json
