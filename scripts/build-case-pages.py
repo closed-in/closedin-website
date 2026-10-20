@@ -12,6 +12,7 @@ bp = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(bp)
 ROOT = bp.ROOT
 SRC_REV = "fada808"
 SLUGS = ["endresz", "gen-zero", "jamezz", "mistertafel", "redfox", "verzendbazen", "wetaxus", "zano"]
+NEXT_ORDER = ["gen-zero", "zano", "verzendbazen", "jamezz", "mistertafel", "endresz", "redfox", "wetaxus"]   # the written cases in the order of the Cases page, then the ones with a video; the last points back to the first
 INDEX = bp.INDEX
 
 HEAD_LINKS = '''    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin-wght-normal.woff2" crossorigin>
@@ -55,6 +56,27 @@ def story_video(name):
     """Tella id, caption and poster of the client's story card on the homepage, if there is one"""
     m = re.search(r'<button class="story__poster" type="button" data-open-video data-tella-id="([^"]+)" data-aspect="16/9" data-caption="([^"]*' + re.escape(name) + r'[^"]*)"><span class="sr-only">[^<]*</span><img src="([^"]+)"', INDEX, re.I)
     return (m.group(1), m.group(2), m.group(3)) if m else None
+
+
+def case_title(slug):
+    """the headline of a case page as its hero shows it (two tones: <b> for the strong part)"""
+    old = subprocess.run(["git", "-C", str(ROOT.parent), "show", f"{SRC_REV}:case-study-showcase/case-study-{slug}.html"], capture_output=True, text=True, check=True).stdout
+    h1 = re.search(r"<h1>(.*?)</h1>", re.search(r'<section class="hero" id="hero">(.*?)</section>', old, re.S).group(1), re.S).group(1)
+    h1 = re.sub(r'<span class="gradient">(.*?)</span>', r"<b>\1</b>", h1, flags=re.S)
+    h1 = re.sub(r'<span class="fade-up"[^>]*>', "", h1).replace("</span>", " ")
+    h1 = text(h1).replace(" </b>", "</b> ").replace("<b> ", " <b>")
+    return re.sub(r"\s+", " ", h1).strip()
+
+
+def next_case(slug):
+    """20-10: a card to the next case before the call to action, so a reader goes on to another story"""
+    n = NEXT_ORDER[(NEXT_ORDER.index(slug) + 1) % len(NEXT_ORDER)]
+    src, alt, w, h = wall_logo(n)
+    return (f'<section class="psec case-next" aria-label="Next case">\n    <div class="container">\n'
+            f'        <a class="case-next__card" href="/case-study-{n}" data-reveal><span class="case-next__top"><span class="case-next__label">Next case</span>'
+            f'<img class="case-next__logo" src="{src}" alt="{alt}" width="{w}" height="{h}" loading="lazy" decoding="async"></span>'
+            f'<span class="case-next__title">{case_title(n)}</span><span class="case-next__go">Read the case<svg aria-hidden="true"><use href="#i-e"/></svg></span></a>\n'
+            f'        <a class="case-next__all" href="/case-studies">All case studies</a>\n    </div>\n</section>')
 
 
 def counter(el_inner, attrs):
@@ -142,6 +164,7 @@ def build(slug):
     h2 = text(re.search(r"<h2>(.*?)</h2>", cta, re.S).group(1)); lead = text(re.search(r"<p>(.*?)</p>", cta, re.S).group(1))
     a = re.search(r'<a href="([^"]+)" target="_blank" class="magnetic-btn"[^>]*>.*?<span class="pt-a">(.*?)</span>', cta, re.S)
     href = a.group(1).replace("&utm", "&amp;utm") if "&amp;" not in a.group(1) else a.group(1)
+    out.append(next_case(slug))
     out.append(bp.cta_band(h2, lead, text(a.group(2)), href))
     main = "\n".join(out)
     bad = [x for x in ("→", "✓", "★", "pill-text-wrap", 'class="reveal', "transition-delay", "fade-up", "gradient") if x in main]
