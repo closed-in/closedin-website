@@ -15,7 +15,7 @@ bc = importlib.util.module_from_spec(_spec2); _spec2.loader.exec_module(bc)
 
 ROOT = bp.ROOT
 SRC_REV = "fada808"
-SLUGS = ["clay-agency", "cold-email-agency-amsterdam", "cold-email-agency-saas", "gtm-engineering-agency", "outbound-agency-uk", "outbound-agency-us"]
+SLUGS = ["clay-agency", "cold-email-agency-amsterdam", "cold-email-agency-saas", "gtm-engineering-agency", "outbound-agency-uk", "outbound-agency-us", "pricing"]   # pricing has the same build, with six sections and the three engagement shapes as tier cards
 HEAD_LINKS = bc.HEAD_LINKS.replace('<link rel="stylesheet" href="/assets/css/case.css">', '<link rel="stylesheet" href="/assets/css/case.css">\n    <link rel="stylesheet" href="/assets/css/landing.css">')
 
 
@@ -63,8 +63,8 @@ def build(slug):
                + "\n    </div></div>\n</section>")
     # ---- the four content sections
     secs = re.findall(r'<section class="section">(.*?)</section>', body, re.S)
-    assert len(secs) == 4, (slug, len(secs))
-    glyphs = ["left", "right", "left", "corners"]
+    assert len(secs) in (4, 6), (slug, len(secs))
+    glyphs = ["left", "right", "left", "right", "left", "corners"][-len(secs):] if len(secs) == 6 else ["left", "right", "left", "corners"]
     for n, s in enumerate(secs, 1):
         lab = re.search(r'<div class="section-label[^"]*">(.*?)</div>', s, re.S).group(1)
         h2 = text(re.search(r"<h2[^>]*>(.*?)</h2>", s, re.S).group(1))
@@ -95,6 +95,19 @@ def build(slug):
                              f'<span class="land-case__client">{client}</span><span class="land-case__title">{t}</span><span class="land-case__desc">{p}</span>'
                              f'<span class="land-case__stats">' + "".join(f"<span><b>{text(v)}</b><small>{text(l)}</small></span>" for v, l in stats) + "</span></a>")
             sec.append(f'        <div class="land-cases land-cases--{len(cards)}">' + "".join(cards) + "</div>")
+        elif re.search(r'<div class="info-num">EUR', s):   # pricing: the three engagement shapes as tier cards, the middle one (where most engagements sit) drawn dark
+            tiers = re.findall(r'<div class="info-card[^"]*"[^>]*>\s*<div class="info-num">(EUR[^<]*)</div>\s*<h3>(.*?)</h3>\s*<p[^>]*>(.*?)</p>\s*<p[^>]*>(.*?)</p>\s*</div>', s, re.S)
+            assert len(tiers) == 3, (slug, len(tiers))
+            cards = []
+            for k, (price, name_, desc, inc) in enumerate(tiers):
+                amount, per = (price.split("/", 1) + [""])[:2]
+                inc = re.sub(r'<strong style="[^"]*">', "<strong>", text(inc))
+                cards.append(f'<article class="land-tier{" land-tier--pop" if k == 1 else ""}" data-reveal><p class="land-tier__price"><b>{text(amount)}</b>' + (f"<small>/{per}</small>" if per else "") + f'</p><h3>{text(name_)}</h3><p class="land-tier__desc">{text(desc)}</p><p class="land-tier__inc">{inc}</p></article>')
+            sec.append('        <div class="land-tiers">' + "".join(cards) + "</div>")
+            note = re.search(r'<p style="text-align: center;[^"]*">(.*?)</p>', s, re.S)
+            if note:
+                note_html = re.sub(r'<a href="([^"]+)" style="[^"]*">', r'<a href="\1">', text(note.group(1)))
+                sec.append(f'        <p class="land-note" data-reveal>{note_html}</p>')
         else:
             cards = re.findall(r'<div class="info-card[^"]*"[^>]*>\s*(?:<div class="info-num">(.*?)</div>\s*)?<h3>(.*?)</h3>\s*<p>(.*?)</p>\s*</div>', s, re.S)
             assert cards, (slug, n)

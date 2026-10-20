@@ -28,7 +28,7 @@ PAGES = ["index.html", "case-studies.html", "resources.html", "team.html",   # p
          "blog/index.html", "resources/gtm-stack.html", "resources/n8n-workflows.html", "playbook.html", "tools/roi-calculator.html",
          "tools/email-verifier.html", "resources/cold-email-templates.html", "resources/clay-waterfall.html",
          "case-study-endresz.html", "case-study-gen-zero.html", "case-study-jamezz.html", "case-study-mistertafel.html", "case-study-redfox.html", "case-study-verzendbazen.html", "case-study-wetaxus.html", "case-study-zano.html",   # case pages converted 20-10
-         "clay-agency.html", "cold-email-agency-amsterdam.html", "cold-email-agency-saas.html", "gtm-engineering-agency.html", "outbound-agency-uk.html", "outbound-agency-us.html",   # landing pages converted 20-10
+         "clay-agency.html", "cold-email-agency-amsterdam.html", "cold-email-agency-saas.html", "gtm-engineering-agency.html", "outbound-agency-uk.html", "outbound-agency-us.html", "pricing.html",   # landing pages converted 20-10
          "resources/apollo-booleans.html", "resources/sales-nav-booleans.html", "resources/claude-code-sales.html", "resources/icp-scorecard.html", "resources/pre-launch-audit.html",
          "blog/cold-email-open-rate-vanity-metric.html", "blog/cold-email-warmup-schedule.html", "blog/finding-prospects-not-in-apollo.html", "privacy.html"]   # detail pages converted 20-10
 LD = re.compile(r'<script type="application/ld\+json"[^>]*>.*?</script>', re.S)
