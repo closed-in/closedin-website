@@ -60,23 +60,14 @@ export function init(host, opts = {}) {
   });
   scene.environment = pmrem.fromScene(envScene, 0.03).texture; pmrem.dispose();
 
-  /* liquid ripple as bump and roughness map, plus glitter flakes (Max 19-10: more and brighter glitter): small domes about 2 screen pixels wide that catch the key light as the mark turns */
-  const FLAKES = 1 / 1150, FLAKE_H = 135;
-  const perm = Array.from({ length: 256 }, () => Math.random());
-  const vnoise = (x, y) => { const xi = Math.floor(x), yi = Math.floor(y), fx = x - xi, fy = y - yi; const r = (a, b) => perm[(((a & 255) * 31) + (b & 255)) & 255]; const sx = fx * fx * (3 - 2 * fx), sy = fy * fy * (3 - 2 * fy); return (r(xi, yi) * (1 - sx) + r(xi + 1, yi) * sx) * (1 - sy) + (r(xi, yi + 1) * (1 - sx) + r(xi + 1, yi + 1) * sx) * sy; };
-  const fbm = (x, y) => vnoise(x, y) * 0.5 + vnoise(x * 2, y * 2) * 0.25 + vnoise(x * 4, y * 4) * 0.125 + vnoise(x * 8, y * 8) * 0.0625;
-  { const n = isMobile ? 256 : 512, c = document.createElement('canvas'); c.width = c.height = n; const g = c.getContext('2d'); const img = g.createImageData(n, n), d = img.data, sc = 512 / n;
-    for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) { const X = x * sc, Y = y * sc; const f = fbm(X * 0.012, Y * 0.012); const v = Math.max(0, Math.min(255, 128 + Math.sin(f * 14 + X * 0.02) * 60 + (fbm(X * 0.05, Y * 0.05) - 0.5) * 60)); const i = (y * n + x) * 4; d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = 255; }
-    for (let k = 0, m = Math.round(n * n * FLAKES); k < m; k++) {
-      const cx = Math.random() * n, cy = Math.random() * n, r = (2.5 + Math.random() * 2) * n / 512, R = Math.ceil(r * 2);
-      for (let y = Math.floor(cy) - R; y <= Math.floor(cy) + R; y++) for (let x = Math.floor(cx) - R; x <= Math.floor(cx) + R; x++) {
-        const dd = ((x - cx) * (x - cx) + (y - cy) * (y - cy)) / (r * r); if (dd > 4) continue;
-        const i = ((((y % n) + n) % n) * n + (((x % n) + n) % n)) * 4; d[i] = d[i + 1] = d[i + 2] = Math.min(255, d[i] + FLAKE_H * Math.exp(-dd));
-      }
-    }
-    g.putImageData(img, 0, 0); const tex = new THREE.CanvasTexture(c); tex.wrapS = tex.wrapT = THREE.RepeatWrapping; tex.repeat.set(2, 2);
+  /* liquid ripple as bump and roughness map, with the glitter flakes (Max 19-10). Computed once (scripts/mark-bump.py, 512x512) instead of on every visit:
+     the per-texel noise loop was about 0.8 s of main-thread work on a throttled phone (night audit 20-10). */
+  const bumpReady = new Promise((done) => {
+    const tex = new THREE.TextureLoader().load('/assets/img/mark-bump-v1.webp', () => done(), undefined, () => done());
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping; tex.repeat.set(2, 2);
     ALL.forEach((m) => { m.bumpMap = tex; m.bumpScale = BUMP; m.roughnessMap = tex; m.roughness = 0.06; m.clearcoatRoughness = 0.02; m.envMapIntensity = 0.9 * LIGHT; });
-    [inkMat, dotMat].forEach((m) => { m.metalness = 0.65; m.roughness = 0.2; }); }
+    [inkMat, dotMat].forEach((m) => { m.metalness = 0.65; m.roughness = 0.2; });
+  });
 
   /* lights (three 0.186 uses physical light units, so the artifact's r128 intensities are scaled by pi) */
   scene.add(new THREE.HemisphereLight(0xffffff, 0x3a4250, 0.12 * LIGHT * PI));
@@ -141,6 +132,6 @@ export function init(host, opts = {}) {
   function dispose() { if (disposed) return; disposed = true; ro.disconnect(); io.disconnect(); window.removeEventListener('pointermove', onPointer); host.classList.remove('is-live'); scene.traverse((o) => { if (o.geometry) o.geometry.dispose(); if (o.material) (Array.isArray(o.material) ? o.material : [o.material]).forEach((m) => m.dispose()); }); renderer.dispose(); if (canvas.parentNode) canvas.parentNode.removeChild(canvas); }
   /* 19-10: compile the shaders before the first frame (in parallel where the driver allows it), so the first frame does not block the page */
   const start = () => { if (!disposed) requestAnimationFrame(frame); };
-  if (renderer.compileAsync) renderer.compileAsync(scene, camera).then(start, start); else start();
+  Promise.all([renderer.compileAsync ? renderer.compileAsync(scene, camera).catch(() => {}) : null, bumpReady]).then(start, start);   /* first frame with the texture in place: no flat-to-glitter pop */
   return { dispose };
 }
