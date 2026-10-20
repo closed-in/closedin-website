@@ -269,6 +269,7 @@ a:hover > .lh .ch, button:hover > .lh .ch, .lh-host:hover .lh .ch { transform: t
 .cookie-banner-buttons { display: flex; gap: 8px; }
 .cookie-btn { height: 38px; padding: 0 16px; border-radius: var(--r-xs); border: 0; cursor: pointer; font-size: 14px; font-weight: 400; }
 .cookie-btn-accept { background: var(--accent); color: var(--ink); } .cookie-btn-reject { background: var(--bg); color: var(--ink); box-shadow: var(--neu-pill); }
+@media (max-width: 600px) { .cookie-banner { bottom: 12px; left: 12px; right: 12px; padding: 14px 16px; } .cookie-banner p { font-size: 13px; line-height: 1.45; margin-bottom: 10px; } .cookie-btn { height: 34px; padding: 0 14px; font-size: 13.5px; } }   /* 20-10: compacter on phones, it covered the name and email fields of the homepage form */
 
 /* Reveal (their keyframes) */
 @keyframes rise { 0% { opacity: 0; transform: translateY(12px); } 100% { opacity: 1; transform: none; } }
