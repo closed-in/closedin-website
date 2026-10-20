@@ -260,7 +260,7 @@
     try {
       var a = e.target.closest('a[href*="meeting.closedin.io"], a[href*="neetocal.com"]');
       if (a) {
-        var where = a.closest('.nav') ? 'nav' : a.closest('.footer') ? 'footer' : a.closest('.cta-dark') ? 'cta_band' : a.closest('.hero, .phero') ? 'hero' : 'content';
+        var where = a.closest('.nav') ? 'nav' : a.closest('.footer') ? 'footer' : a.closest('.cta-dark') ? 'cta_band' : a.closest('.toc') ? 'toc' : a.closest('.hero, .phero') ? 'hero' : 'content';
         var m = /[?&]utm_content=([^&#]+)/.exec(a.href);
         window.gtag('event', 'book_call_click', { cta_location: where, utm_content: m ? decodeURIComponent(m[1]) : '', link_text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60) });
         return;
@@ -376,6 +376,15 @@
     var inner = '<div class="toc__in"><p class="toc__hd">On this page</p><ol>';
     hs.forEach(function (h) { if (!h.id) h.id = slug(h.textContent); inner += '<li><a href="#' + h.id + '">' + h.textContent.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</a></li>'; });
     nav.innerHTML = inner + '</ol></div>'; art.appendChild(nav);
+    /* under the list, the article's own closing call to action (its heading and button from the CTA band), tagged utm_content ...-toc */
+    var band = document.querySelector('.cta-dark'), bh = band && band.querySelector('.cta-dark__title'), ba = band && band.querySelector('a.btn-accent[href*="meeting.closedin.io"]');
+    if (bh && ba) {
+      var box = document.createElement('div'); box.className = 'toc__cta';
+      var q = document.createElement('p'); q.textContent = bh.textContent.trim(); box.appendChild(q);
+      var a = ba.cloneNode(true); a.className = 'btn-accent btn-accent--sm'; a.setAttribute('href', ba.getAttribute('href').replace(/utm_content=([^&#]+)/, 'utm_content=$1-toc'));
+      a.querySelectorAll('[data-letters]').forEach(function (x) { x.removeAttribute('data-letters'); });
+      box.appendChild(a); nav.firstChild.appendChild(box);
+    }
     var links = nav.querySelectorAll('a'), cur = -1, ticking = false;
     var update = function () {
       ticking = false; var line = innerHeight * .3, k = -1;

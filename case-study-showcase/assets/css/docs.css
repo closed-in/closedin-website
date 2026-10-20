@@ -375,4 +375,7 @@ html.js .docs .hero h1.hero-in { animation-name: docs-hero-rise; }   /* painted 
   .docs .toc a:hover { color: var(--ink); }
   .docs .toc a.is-on { color: var(--ink); border-left-color: var(--accent); }
   .docs .toc a:focus-visible { outline: none; box-shadow: var(--focus); border-radius: 4px; }
+  .docs .toc__cta { margin-top: 28px; padding: 18px; border: 1px solid var(--line-2); border-radius: 14px; background: var(--white); }
+  .docs .toc__cta p { margin: 0 0 14px; font-size: 15px; line-height: 1.35; font-weight: 500; color: var(--ink); }
+  .docs .toc .toc__cta .btn-accent { display: flex; width: 100%; justify-content: space-between; margin: 0; padding: 0 16px; border-left: 0; color: var(--accent-ink); font-size: 14.5px; }
 }
