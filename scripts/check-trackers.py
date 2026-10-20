@@ -20,6 +20,7 @@ BLOCKS = [
     ("prospect pro + stairoids", "<!-- Prospect Pro", "jq_950354e1.js'></script>"),
     ("stairoids", "<!-- Stairoids", "jq_950354e1.js'></script>"),
     ("cookie banner + claydar", '<div class="cookie-banner" id="cookie-banner">', "})();\n</script>"),
+    ("cookie banner + consent script (privacy: also runs the revoke and grant buttons)", "<!-- Cookie Consent Banner -->", ("// Mobile menu", "</script>")),
     ("leadboxer", "<!-- Leadboxer", 'leadboxer.com/?dataset=316eddd7dcb64c2d96481f90418a96c1"></script>'),
     ("leadboxer + subscribe", "<!-- Leadboxer", '<script defer src="/subscribe-form.js"></script>'),
 ]
@@ -27,7 +28,9 @@ PAGES = ["index.html", "case-studies.html", "resources.html", "team.html",   # p
          "blog/index.html", "resources/gtm-stack.html", "resources/n8n-workflows.html", "playbook.html", "tools/roi-calculator.html",
          "tools/email-verifier.html", "resources/cold-email-templates.html", "resources/clay-waterfall.html",
          "case-study-endresz.html", "case-study-gen-zero.html", "case-study-jamezz.html", "case-study-mistertafel.html", "case-study-redfox.html", "case-study-verzendbazen.html", "case-study-wetaxus.html", "case-study-zano.html",   # case pages converted 20-10
-         "clay-agency.html", "cold-email-agency-amsterdam.html", "cold-email-agency-saas.html", "gtm-engineering-agency.html", "outbound-agency-uk.html", "outbound-agency-us.html"]   # landing pages converted 20-10
+         "clay-agency.html", "cold-email-agency-amsterdam.html", "cold-email-agency-saas.html", "gtm-engineering-agency.html", "outbound-agency-uk.html", "outbound-agency-us.html",   # landing pages converted 20-10
+         "resources/apollo-booleans.html", "resources/sales-nav-booleans.html", "resources/claude-code-sales.html", "resources/icp-scorecard.html", "resources/pre-launch-audit.html",
+         "blog/cold-email-open-rate-vanity-metric.html", "blog/cold-email-warmup-schedule.html", "blog/finding-prospects-not-in-apollo.html", "privacy.html"]   # detail pages converted 20-10
 LD = re.compile(r'<script type="application/ld\+json"[^>]*>.*?</script>', re.S)
 def check(name, main, new):
     fails = 0

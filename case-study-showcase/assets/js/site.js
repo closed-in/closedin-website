@@ -323,6 +323,25 @@
   /* ---------- Stories without a hosted video yet: chip instead of a play button ---------- */
   document.querySelectorAll('.story__poster[data-open-video]').forEach(function (b) { if (!b.getAttribute('data-wistia-id') && !b.getAttribute('data-mux-id') && !b.getAttribute('data-tella-id')) { b.classList.add('is-soon'); b.setAttribute('disabled', ''); } });
 
+  /* ---------- Copy buttons on the boolean search strings (Apollo and Sales Navigator resources, 20-10) ---------- */
+  (function () {
+    var els = document.querySelectorAll('.boolean-string'); if (!els.length || !navigator.clipboard) return;
+    els.forEach(function (el) {
+      var txt = el.textContent.trim(), card = el.closest('.boolean-card'), h = card && card.querySelector('h3');
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'boolean-copy'; b.textContent = 'Copy';
+      b.setAttribute('aria-label', 'Copy this search string' + (h ? ': ' + h.textContent.trim() : ''));
+      var t0;
+      b.addEventListener('click', function () {
+        navigator.clipboard.writeText(txt).then(function () {
+          b.innerHTML = '<svg aria-hidden="true"><use href="#i-check"/></svg>Copied'; b.classList.add('is-done');
+          clearTimeout(t0); t0 = setTimeout(function () { b.textContent = 'Copy'; b.classList.remove('is-done'); }, 1800);
+          if (typeof window.gtag === 'function') window.gtag('event', 'copy_search_string', { item_name: h ? h.textContent.trim() : '', page_path: location.pathname });
+        }, function () { b.textContent = 'Select and copy'; });
+      });
+      el.classList.add('has-copy'); el.appendChild(b);
+    });
+  })();
+
   /* ---------- Word reveal: headings split into words that rise out of the line ---------- */
   (function () {
     var els = document.querySelectorAll('[data-words]'); if (!els.length) return;

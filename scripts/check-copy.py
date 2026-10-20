@@ -9,10 +9,14 @@ PAGES = ["index.html", "case-studies.html", "resources.html", "team.html", "blog
          "resources/n8n-workflows.html", "playbook.html", "tools/roi-calculator.html", "tools/email-verifier.html", "resources/cold-email-templates.html",
          "resources/clay-waterfall.html",
          "case-study-endresz.html", "case-study-gen-zero.html", "case-study-jamezz.html", "case-study-mistertafel.html", "case-study-redfox.html", "case-study-verzendbazen.html", "case-study-wetaxus.html", "case-study-zano.html",   # case pages converted 20-10
-         "clay-agency.html", "cold-email-agency-amsterdam.html", "cold-email-agency-saas.html", "gtm-engineering-agency.html", "outbound-agency-uk.html", "outbound-agency-us.html"]   # landing pages converted 20-10
+         "clay-agency.html", "cold-email-agency-amsterdam.html", "cold-email-agency-saas.html", "gtm-engineering-agency.html", "outbound-agency-uk.html", "outbound-agency-us.html",   # landing pages converted 20-10
+         "resources/apollo-booleans.html", "resources/sales-nav-booleans.html", "resources/claude-code-sales.html", "resources/icp-scorecard.html", "resources/pre-launch-audit.html",
+         "blog/cold-email-open-rate-vanity-metric.html", "blog/cold-email-warmup-schedule.html", "blog/finding-prospects-not-in-apollo.html", "privacy.html"]   # detail pages converted 20-10
 files = [root / p for p in PAGES] + [root / "assets/css" / c for c in ("site.css", "home.css", "pages.css", "docs.css", "case.css", "landing.css")] + [root / "assets/js" / j for j in ("site.js", "pages.js", "mark-3d.js", "mark-dark.js", "stack.js")]
 files = [f for f in files if f.exists()]
-ALLOW = ("Apple killed open rate. Most agencies still report on it.", "closed:in dropped open rate from client reports two years ago.")
+ALLOW = ("Apple killed open rate. Most agencies still report on it.", "closed:in dropped open rate from client reports two years ago.",
+         "Apple killed open rate. Most cold email agencies still report on it.")   # the post that argues against the metric, and links to it
+ALLOW_FILES = ("blog/cold-email-open-rate-vanity-metric.html",)   # that post itself: its subject is why open rate is not a metric
 hits = 0
 emoji = re.compile(r"[\U0001F000-\U0001FAFF☀-➿⭐✅⬆↔-⇿]")
 for f in files:
@@ -26,7 +30,7 @@ for f in files:
                        (re.compile(r"framerusercontent"), "framer-hosted image"), (re.compile(r"fast\.wistia\.com/player\.js"), "wistia player in initial html")):
         if f.suffix == ".html" or label in ("open rate", "plynq"):
             for i, line in enumerate(text.splitlines(), 1):
-                if pat.search(line) and not (label == "wistia player in initial html" and f.suffix == ".js") and not (label == "open rate" and any(a in line for a in ALLOW)):
+                if pat.search(line) and not (label == "wistia player in initial html" and f.suffix == ".js") and not (label == "open rate" and (any(a in line for a in ALLOW) or str(f.relative_to(root)) in ALLOW_FILES)):
                     print(f"{f.relative_to(root)}:{i}: {label}: {line.strip()[:120]}"); hits += 1
 print("copy check:", "PASS" if hits == 0 else f"FAIL ({hits})")
 sys.exit(1 if hits else 0)
