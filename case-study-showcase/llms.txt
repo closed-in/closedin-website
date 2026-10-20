@@ -77,7 +77,7 @@ Standalone Clay builds (waterfall, Claygent, CRM sync, signal scoring) run separ
 
 closed:in operates a public resource vault at https://www.closedin.io/resources. Every template, tool and workflow listed below is free with email signup to the closed:in newsletter ("The closed:in playbook" on Beehiiv at closedins-newsletter.beehiiv.com).
 
-- [Resource hub](https://www.closedin.io/resources): index page listing all 11 resources, filterable by category (templates, booleans, tools, workflows, playbooks).
+- [Resource hub](https://www.closedin.io/resources): index page listing all 13 resources and tools, filterable by category (templates, booleans, tools, workflows, playbooks).
 - [The Cold Email Infrastructure Checklist](https://www.closedin.io/playbook): 1-page PDF covering sending domains, inbox warmup, SPF/DKIM/DMARC setup, lead list hygiene, sequence timing and reply handling.
 - [12 Cold Email Templates That Converted](https://www.closedin.io/resources/cold-email-templates): templates anonymized from live closed:in campaigns with industry, ICP, reply rate and OTR per template. 3 templates shown on page, all 12 free with email.
 - [50+ Apollo Boolean Search Strings](https://www.closedin.io/resources/apollo-booleans): boolean searches for B2B niches (SaaS founders, agencies, recruitment, PE, e-commerce, hospitality, fintech, IT/MSP). Copy-paste into Apollo.
