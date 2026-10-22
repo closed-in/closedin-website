@@ -203,12 +203,13 @@ def json_s(s):
 def build(slug):
     c = CASES[slug]; src, alt, lw, lh = bc.EXTRA_LOGOS[slug]
     tid, cap, poster = c["video"]
-    parts = ['<section class="phero phero--light case-hero" id="hero" data-glyphs="right">', '    <div class="container phero__in">',
+    parts = ['<section class="phero phero--light case-hero case-hero--video" id="hero" data-glyphs="right">', '    <div class="container phero__in">',
              '        <a class="case-back hero-in" style="--i:0" href="/case-studies"><svg aria-hidden="true"><use href="#i-w"/></svg>Back to case studies</a>',
              f'        <div class="case-meta hero-in" style="--i:1"><img class="case-logo" src="{src}" alt="{alt}" width="{lw}" height="{lh}" decoding="async"><span class="case-tags">' + "".join(f'<span class="ptag">{t}</span>' for t in c["tags"]) + '</span></div>',
              f'        <h1 class="phero__title hero-in" style="--i:2">{c["h1"]}</h1>',
              f'        <p class="phero__lead hero-in" style="--i:3">{c["lead"]}</p>',
              f'        <div class="phero__actions hero-in" style="--i:4"><button class="btn-accent" type="button" data-open-video data-tella-id="{tid}" data-aspect="16/9" data-caption="{cap}" data-poster="{poster}"><span class="txt">Watch the story</span><span class="ico"><svg><use href="#i-play"/></svg></span></button></div>',
+             bc.POSTER.format(tid=tid, cap=cap, poster=poster, logo=src, lw=lw, lh=lh),
              "    </div>", "</section>"]
     out = ["\n".join(parts)]
     out.append('<section class="case-stats" aria-label="Key numbers">\n    <div class="container"><div class="case-stats__grid">\n' + "\n".join(f'            <div class="case-stat" data-reveal><b>{v}</b><span>{l}</span></div>' for v, l in c["stats"]) + "\n    </div></div>\n</section>")

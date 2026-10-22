@@ -470,6 +470,7 @@ html.veil-hold .veil.on { animation: none; }
 .ipill.beam::after { background: conic-gradient(from var(--beam), transparent 0deg 250deg, rgba(255, 255, 255, .25) 300deg, rgba(255, 255, 255, .85) 338deg, #fff 352deg, transparent 360deg); }
 .story__ext { position: relative; z-index: 2; align-self: flex-start; }
 .story--text .story__logo { height: auto; max-height: 34px; max-width: 150px; opacity: .85; }   /* 22-10 (Max): no initials disc on the written cards, the client logo bigger instead */
+.story--text .story__logo-top { display: block; align-self: flex-start; width: auto; height: auto; max-height: 44px; max-width: 220px; object-fit: contain; filter: brightness(0); opacity: .9; margin-top: auto; }   /* 22-10 (Max): the client logo large at the top of a written card, so it reads as a business */
 @media (prefers-reduced-motion: reduce) { .play::before { animation: none; } }
 
 /* Tags (shared: team cards, the vault, the written cases on the cases page) */

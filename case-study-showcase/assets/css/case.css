@@ -13,6 +13,18 @@
 .case-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 26px; }
 .case-logo { display: block; height: 30px; width: auto; max-width: 170px; object-fit: contain; filter: brightness(0); opacity: .82; }
 .case-tags { display: inline-flex; flex-wrap: wrap; gap: 8px; }
+/* 22-10 (Max): cases with a video open with the founder's face and a play button next to the copy (the story card poster, a size up) */
+.phero__media { margin-top: 32px; width: 100%; max-width: 720px; border-radius: 22px; box-shadow: 0 30px 70px rgba(12, 13, 14, .14); }
+.phero__media > img:first-of-type { transition: transform 1.2s var(--ease); }
+.phero__media:hover > img:first-of-type { transform: scale(1.04); }
+.phero__media .story__brand { left: 22px; bottom: 24px; max-width: 40%; max-height: 44px; }
+.phero__media .play { right: 22px; bottom: 22px; width: 72px; height: 72px; }
+.phero__media .play svg { width: 24px; height: 24px; }
+@media (min-width: 1024px) {
+  .case-hero--video .phero__in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, 44%); column-gap: clamp(40px, 5vw, 72px); align-items: center; }
+  .case-hero--video .phero__in > * { grid-column: 1; }
+  .case-hero--video .phero__media { grid-column: 2; grid-row: 1 / span 5; margin-top: 0; justify-self: end; }
+}
 
 /* ---------- Key numbers ---------- */
 .case-stats { padding-top: clamp(32px, 4.5vw, 56px); }

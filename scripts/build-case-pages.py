@@ -97,6 +97,9 @@ def ext_line(slug):
             f'<span>Instantly case study</span><svg class="ipill__ne" aria-hidden="true"><use href="#i-ne"/></svg></a>')
 
 
+POSTER = '        <button class="phero__media story__poster hero-in" style="--i:5" type="button" data-open-video data-tella-id="{tid}" data-aspect="16/9" data-caption="{cap}" data-poster="{poster}"><span class="sr-only">Play video: {cap}</span><img src="{poster}" width="880" height="495" alt="" decoding="async" fetchpriority="high"><span class="story__shade" aria-hidden="true"></span><img class="story__brand" src="{logo}" alt="" width="{lw}" height="{lh}" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span></button>'
+
+
 def next_case(slug):
     """20-10: a card to the next case before the call to action, so a reader goes on to another story"""
     n = NEXT_ORDER[(NEXT_ORDER.index(slug) + 1) % len(NEXT_ORDER)]
@@ -140,7 +143,7 @@ def build(slug):
     logo_src, logo_alt, lw, lh = wall_logo(slug)
     client = logo_alt
     vid = story_video({"redfox": "Red Fox", "wetaxus": "WeTaxus"}.get(slug, client))
-    parts = [f'<section class="phero phero--light case-hero" id="hero" data-glyphs="right">', '    <div class="container phero__in">',
+    parts = [f'<section class="phero phero--light case-hero{" case-hero--video" if vid else ""}" id="hero" data-glyphs="right">', '    <div class="container phero__in">',
              f'        <a class="case-back hero-in" style="--i:0" href="/case-studies"><svg aria-hidden="true"><use href="#i-w"/></svg>Back to case studies</a>',
              f'        <div class="case-meta hero-in" style="--i:1"><img class="case-logo" src="{logo_src}" alt="{logo_alt}" width="{lw}" height="{lh}" decoding="async"><span class="case-tags">' + "".join(f'<span class="ptag">{t}</span>' for t in tags) + '</span></div>',
              f'        <h1 class="phero__title hero-in" style="--i:2">{h1}</h1>',
@@ -148,6 +151,8 @@ def build(slug):
     if vid:
         tid, cap, poster = vid
         parts.append(f'        <div class="phero__actions hero-in" style="--i:4"><button class="btn-accent" type="button" data-open-video data-tella-id="{tid}" data-aspect="16/9" data-caption="{cap}" data-poster="{poster}"><span class="txt">Watch the story</span><span class="ico"><svg><use href="#i-play"/></svg></span></button></div>')
+        # 22-10 (Max): the founder's face with a play button in the opening, the story card poster a size up
+        parts.append(POSTER.format(tid=tid, cap=cap, poster=poster, logo=logo_src, lw=lw, lh=lh))
     parts += ["    </div>", "</section>"]
     out = ["\n".join(parts)]
     # ---- stats ribbon
