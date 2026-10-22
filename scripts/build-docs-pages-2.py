@@ -17,8 +17,15 @@ PAGES = ["resources/apollo-booleans.html", "resources/sales-nav-booleans.html", 
          "blog/finding-prospects-not-in-apollo.html", "privacy.html"]
 
 
-def new_head(old):
-    """bd.new_head, but the privacy page never had the font preconnects"""
+def new_head(old, name=None):
+    """bd.new_head, but the privacy page never had the font preconnects; blog pages get the feed link (22-10)"""
+    h = _new_head(old)
+    if name and name.startswith("blog/"):
+        h = h.replace('<link rel="canonical"', '<link rel="alternate" type="application/rss+xml" title="closed:in blog" href="https://www.closedin.io/blog/feed.xml">\n    <link rel="canonical"', 1)
+    return h
+
+
+def _new_head(old):
     if 'rel="preconnect" href="https://fonts.googleapis.com"' in old: return bd.new_head(old)
     patched = old.replace('    <link href="https://fonts.googleapis.com/css2', '    <link rel="preconnect" href="https://fonts.googleapis.com">\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n    <link href="https://fonts.googleapis.com/css2', 1)
     return bd.new_head(patched)
@@ -57,6 +64,11 @@ def page_specific(name, c):
         h = re.search(r"<h3>.*?</h3>", sec, re.S).group(0)
         cards = re.findall(r'<a href="[^"]+" class="related-card">.*?</a>', sec, re.S)
         assert len(cards) == 3, name
+        # 22-10 (SEO round): the service page that fits the post, as a fourth card
+        svc = {"blog/cold-email-open-rate-vanity-metric.html": ("/outbound-agency", "Service", "Outbound agency: cold email, LinkedIn and Clay as one system"),
+               "blog/cold-email-warmup-schedule.html": ("/cold-email-agency-amsterdam", "Service", "Cold email agency: infrastructure, warmup and campaigns, run for you"),
+               "blog/finding-prospects-not-in-apollo.html": ("/clay-agency", "Service", "Clay agency: custom sourcing and enrichment for hard ICPs")}[name]
+        cards.append(f'<a href="{svc[0]}" class="related-card"><div class="related-card-meta">{svc[1]}</div><h4>{svc[2]}</h4></a>')
         cards = [re.sub(r'<a href="(?!/|https?:)([^"]+)"', lambda m: f'<a href="{"/" + m.group(1)[3:] if m.group(1).startswith("../") else "/blog/" + m.group(1)}"', x) for x in cards]
         sec = '<section class="related">\n    ' + h + '\n    <div class="related-grid">\n        ' + "\n        ".join(cards) + "\n    </div>\n</section>"
         c = c[:rs] + sec + c[re_:]
@@ -109,9 +121,10 @@ def build(name):
     bad = [x for x in ("→", "✓", "★", "pill-text-wrap", 'class="reveal', "transition-delay") if x in c]
     assert not bad, (name, bad)
     kind = "docs docs--post" if name.startswith("blog/") else "docs docs--legal" if name == "privacy.html" else "docs docs--res"
-    body = "\n".join([f'<body class="{kind}">', bp.VEIL, bp.NOSCRIPT, bp.SKIP, "", bp.SPRITE.rstrip("\n"), "", nav, "", '<main id="main">', c, "</main>", "", bd.FOOTER, ""])
+    body = "\n".join([f'<body class="{kind}">', bp.VEIL, bp.NOSCRIPT, bp.SKIP, "", bp.SPRITE.rstrip("\n"), "", nav, "", '<main id="main">', c, "</main>", "", bd.FOOTER,
+                      '<script defer src="/subscribe-form.js"></script>   <!-- 20-10: the signup forms on this page post to /api/subscribe inline, like on every other page -->', ""])
     body += (privacy_tail(old) if name == "privacy.html" else bd.tail(old)) + "\n</body>\n</html>\n"
-    return doc_open + new_head(old) + "\n" + body
+    return doc_open + new_head(old, name) + "\n" + body
 
 
 if __name__ == "__main__":

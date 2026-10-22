@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>closed:in blog</title>
+  <link>https://www.closedin.io/blog</link>
+  <atom:link href="https://www.closedin.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Tactics, teardowns and numbers from B2B outbound campaigns closed:in runs: cold email, Clay workflows, deliverability, GTM engineering.</description>
+  <language>en</language>
+  <lastBuildDate>Thu, 22 Oct 2026 10:52:45 +0000</lastBuildDate>
+  <item>
+    <title>Apple killed open rate. Most agencies still report on it.</title>
+    <link>https://www.closedin.io/blog/cold-email-open-rate-vanity-metric</link>
+    <guid isPermaLink="true">https://www.closedin.io/blog/cold-email-open-rate-vanity-metric</guid>
+    <pubDate>Fri, 22 May 2026 09:00:00 +0000</pubDate>
+    <category>Deliverability</category>
+    <description>Since iOS 15 Mail Privacy Protection launched in 2021, roughly 60-65% of email "opens" are fake pre-loads by Apple. closed:in dropped open rate from client reports two years ago. Here is what we use instead.</description>
+  </item>
+  <item>
+    <title>The cold email warmup schedule that actually works in 2026</title>
+    <link>https://www.closedin.io/blog/cold-email-warmup-schedule</link>
+    <guid isPermaLink="true">https://www.closedin.io/blog/cold-email-warmup-schedule</guid>
+    <pubDate>Fri, 22 May 2026 09:00:00 +0000</pubDate>
+    <category>Infrastructure</category>
+    <description>Skip warmup or run it wrong and your domain reputation is dead before you send the first real email. The exact 21-day warmup schedule closed:in uses on every client inbox, plus the 4 traps that wreck deliverability.</description>
+  </item>
+  <item>
+    <title>How to find prospects who are not in Apollo or ZoomInfo</title>
+    <link>https://www.closedin.io/blog/finding-prospects-not-in-apollo</link>
+    <guid isPermaLink="true">https://www.closedin.io/blog/finding-prospects-not-in-apollo</guid>
+    <pubDate>Fri, 22 May 2026 09:00:00 +0000</pubDate>
+    <category>Sourcing</category>
+    <description>Niche B2B ICPs (boutique retailers, hospitality operators, local service businesses) often do not appear in standard B2B databases. The custom data sourcing pipeline closed:in built for Jamezz that produced 81 qualified leads in 60 days.</description>
+  </item>
+</channel>
+</rss>

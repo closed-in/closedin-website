@@ -118,3 +118,13 @@
   .land-hero .phero__actions > * { width: 100%; justify-content: center; }
   .land-case__stats b { font-size: 24px; }
 }
+
+/* ---------- Hub page: the market pages as link cards (22-10) ---------- */
+.land-card--link { color: var(--ink); text-decoration: none; }
+.land-card--link h3 { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.land-card--link h3 svg { flex: none; width: 16px; height: 16px; transition: transform .45s var(--ease); }
+.land-card--link:hover h3 svg { transform: translateX(3px); }
+.land-card--link:focus-visible { outline: none; box-shadow: var(--focus); }
+.land-cards--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1023px) { .land-cards--3 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 767px) { .land-cards--3 { grid-template-columns: 1fr; } }

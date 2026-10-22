@@ -1,0 +1,1039 @@
+# closed:in, full text of the key pages
+
+Curated index: https://www.closedin.io/llms.txt. Generated from the pages; the pages are the source of truth.
+
+
+---
+
+## closed:in | Creative GTM Engineering Agency for B2B Outbound
+URL: https://www.closedin.io/
+
+# Creative outbound , engineered for predictable B2B pipeline
+Cold email, LinkedIn and Clay enrichment, run as one engine inside your CRM. Creative where it counts: the list, the angle, the first line.
+Trusted by 50+ B2B companies across Europe and the US
+Client stories
+## Founders on what changed after closed:in
+Founders and marketers who run their outbound through us, on video. Their words, their numbers.
+> The first week we already had amazing results. Reply rate went through the roof.
+Ronne van Rijn Marketing, Endresz
+> I really like your hands-on approach. Digging in, trying to really understand the business and then finding creative ways to reach customers.
+4% positive reply rate and 500+ positive replies to refine the offer
+Mikel Palokaj Co-founder, True Performance Network
+> It brought about clarity in the early discovery phase. Definitely.
+Validation and a clear ICP for a new developer matchmaking service
+Leva Konaté Founder, Sankore Labs
+> I really noticed that you simply wanted to deliver quality and go all in for it.
+From loose Excel lists to one HubSpot system with thousands of new contacts and phone numbers
+Laura Wolf Event manager, Sustainable Motion · translated from Dutch
+> I have worked with so many vendors, so I know what good looks like. These guys just know how to run and lead an engagement.
+Partner for the outbound of her consultancy's clients in financial services, fintech and tech
+Shirin Danesh Founder, Advantive Advisory
+> You were definitely willing to go the extra step, and to think creatively about solutions.
+Nick Verhulsdonck Co-Owner, WeTaxus · translated from Dutch
+> We tried outbound ourselves for months with minimal results. closed:in came in, rebuilt everything from scratch, and within 4 weeks we had qualified meetings on the calendar.
+Zen Alex Founder, Red Fox Agency
+The stack
+## The tools we run on, and the CRMs we plug into.
+### Clay Artisan Solutions Partner, 2026.
+### Featured by Instantly as a certified expert.
+> “Max Münstermann is a co-founder of closedin.io and a certified Instantly expert.”
+### Apollo partner for sourcing at volume.
+Volume sourcing and email enrichment in one place. We use it to source, and keep verification for the end of the waterfall.
+### The AI behind our copy, research and code.
+Used daily for sales copy and automation, Claude Code for engineering, and the API powers research prompts inside Clay.
+### The glue between Clay, Close and Instantly.
+Also: Most Innovative B2B GTM Engineering Agency 2026, Acquisition International SBB accredited work placement company ZO! Utrecht business member
+## Our services
+- 01 Cold Email Outbound End-to-end cold email campaigns that book qualified meetings for you. Lists, copy, sending and the replies, handled. Explore cold email
+- 02 LinkedIn Outreach Connection and message sequences that run next to email, from your own profiles, in one cadence. Explore LinkedIn outreach
+- 03 Clay Enrichment & RevOps GTM engineering as a service: lists, enrichment and CRM orchestration on Clay, with 120+ data providers behind it. Explore Clay enrichment
+- 04 Deliverability & Infrastructure Domains, inboxes, warmup and monitoring, set up to land in the inbox from week one. Explore deliverability
+- New sales call booked now
+- Positive reply: CFO, SaaS 2m
+- Meeting booked for Tuesday 9m
+- Reply: send me the deck 14m
+- Positive reply: Head of Sales, IT services 21m
+- Mon 10 invites sent, 7 accepted
+- Tue 11 invites sent, 2 replies
+- Wed 12 invites sent, 1 meeting
+- Thu email follow-up to the accepted
+- TAM sourcing 120+ data providers
+- Signal scoring Claygent research per account
+- Decision makers found and verified
+- CRM sync HubSpot, Close, Salesforce
+- Domains SPF, DKIM, DMARC set
+- Inbox placement 98% deliverability
+- Warmup day 14 of 14
+- Monitoring blacklists and bounces, daily
+How it works
+## Outbound that starts from a buying signal
+Signals in your market trigger the outreach. Replies turn into meetings in your calendar and records in your CRM.
+[01] Buying signals
+### Every buying signal starts an outreach.
+A new sales leader, a funding round, a move into a new market: we catch the moment a company is ready to talk, and write the first line from what just happened.
+- Closed a Series A
+- Opened a second office
+- Job post: first SDR
+- Entered a new market
+- Speaking at an industry event
+- Visited your pricing page
+- New CFO appointed
+[02] Reply to meeting
+### Every reply becomes a meeting on your calendar.
+Interested replies get answered within the hour, objections get a second angle, and every outcome lands in your CRM. Your team walks into the meeting with the context.
+- Send me a one-pager first
+- Who else do you work with in our space?
+- Not now, try again in Q1
+- Loop in our CFO
+- Which data do you use?
+- Let's do a short call
+- Yes, send the invite
+Learn
+## The closed:in resource vault
+For B2B companies
+## The problem with outbound in 2026
+- Limited internal bandwidth (time)
+- Lists that match a database, your ICP less so (data)
+- Tools that were bought but never wired together (tech)
+- A partner that runs the engine for you
+- Clay-native data, verified before anything is sent
+- One system inside your CRM, measured weekly
+Solution
+## The closed:in outbound engine
+## Ready to build?
+30 minutes with Max or Jurre, the founders.
+Testimonials
+## The word that keeps coming back: creative
+The longer version, in their own words.
+> The first week we already had amazing results. Reply rate went through the roof. Over the period we got around 250 separate boutiques interested in putting Endresz in their store.
+> What really stood out, compared to other partners we work with, is the level of creativity in finding the list. Digging in, understanding the business and then finding creative ways to reach customers. We have a 4% positive reply rate from all the outreach.
+> You were definitely willing to go the extra step, and to think creatively about solutions. The price for the whole project was a lot lower than what we spent on Meta in that period. Everything is spot on.
+> We went from loose Excel lists to one uniform HubSpot system we can now work in comfortably, with thousands of new potential clients and their phone numbers.
+> It brought about clarity in the early discovery phase. Definitely. We now know exactly which developers to match with which companies.
+> Working with closed:in was a seamless experience. Their ability to merge outreach with functionality resulted in opportunities that not only filled our pipeline but also converted.
+FAQs
+## Frequently Asked Questions
+**Q:** What does closed:in do?
+**Q:** How is closed:in different from a traditional cold email agency?
+**Q:** What kind of companies do you work with?
+**Q:** How fast do you deliver results?
+**Q:** Which tools and platforms does closed:in use?
+**Q:** Where is closed:in based and which regions do you serve?
+**Q:** How do I get started?
+
+
+---
+
+## Outbound Agency for B2B | Cold Email, LinkedIn and Clay as One System | closed:in
+URL: https://www.closedin.io/outbound-agency
+
+Outbound agency for B2B
+# Outbound agency for B2B: cold email, LinkedIn and Clay, run as one system
+closed:in is an outbound agency in Amsterdam. We build and run the whole outbound engine for B2B companies in Europe, the UK and the US: the list, the enrichment, the copy, the sending infrastructure, the LinkedIn touches and the reply handling, inside your CRM. Qualified meetings on your calendar in two to three weeks, measured weekly.
+01 What an outbound agency does
+## From a list to a booked meeting.
+Outbound is four jobs that have to work together: who you contact, how you reach them, what you say, and what happens when they reply. Most teams buy a tool for each job and never wire them up. An outbound agency owns the chain end to end. closed:in builds it on Clay, Instantly and your CRM, and runs it for you.
+### List and signals
+Companies that fit your ICP, from Clay, niche directories and buying signals such as a new sales leader or a funding round. Not a database export.
+### Enrichment and verification
+The right people at those companies, with emails and LinkedIn profiles found through a waterfall of 120+ providers and verified before anything is sent.
+### Copy and sequences
+Plain-text emails and LinkedIn messages written per segment, from the signal that put the company on the list, tested weekly.
+### Infrastructure and replies
+Dedicated domains, warmed inboxes, deliverability monitoring, and every reply answered and routed into your CRM as a qualified opportunity.
+02 What we run for you
+## Every part of outbound, as one engine.
+### Cold email outbound
+End-to-end campaigns: domains, inboxes, warmup, lists, copy, sending and reply handling. 98% deliverability across our client infrastructure.
+### LinkedIn outreach
+Connection requests and messages from your own profiles, in the same sequence as the email, so a prospect sees one conversation instead of two channels.
+### Clay enrichment and RevOps
+We are a Clay Solutions Partner. Waterfall enrichment, Claygent research, signal scoring and the sync into Close, HubSpot, Salesforce or Pipedrive.
+### Reporting and iteration
+A weekly report on replies, positive replies, opportunities and pipeline value, and a copy or list change every week based on it. 10% average reply rate across campaigns.
+03 Where we run it
+## One engine, four markets.
+The system is the same everywhere. What changes is the language of the copy, the sending windows, the data sources and the rules. Each market has its own page with the details and the cases that match.
+### Cold email agency, NL and EU
+GDPR-proof outbound for Dutch and European B2B companies, with the local market knowledge that cold email across borders needs.
+### Outbound agency UK
+Cold email and LinkedIn for UK B2B companies and for European companies selling into London and the UK.
+### Outbound agency US
+Outbound into the US mid-market: CAN-SPAM compliant infrastructure, US time zones, European pricing.
+### Cold email agency for SaaS
+Qualified demos from your exact ICP for B2B SaaS founders and sales leaders.
+04 Proof
+## Documented pipeline, case by case.
+### 78 opportunities with a 13.9% reply rate
+### 247 boutique conversations across Europe
+All eight written cases and seven client videos are on the case studies page .
+05 Frequently asked
+## Questions, answered.
+**Q:** What does an outbound agency do?
+**Q:** What does an outbound agency cost?
+**Q:** Outbound agency or hiring SDRs?
+**Q:** Which channels does closed:in run?
+**Q:** How fast do you deliver results?
+**Q:** Where do you run outbound?
+## Ready to run outbound as a system?
+Book a 30 minute discovery call. We will walk through your ICP, your channels and your CRM, and tell you whether closed:in is a fit.
+
+
+---
+
+## GTM Engineering Agency | Go-to-Market as a System | closed:in
+URL: https://www.closedin.io/gtm-engineering-agency
+
+GTM Engineering Agency
+# GTM engineering agency: go-to-market as a system
+closed:in is a GTM engineering agency in Amsterdam. We engineer the full go-to-market system: enriched data, multi-channel outbound, CRM automation and pipeline analytics. The output is a repeatable revenue engine, built on infrastructure rather than headcount.
+01 What is GTM engineering
+## What is GTM engineering? Go-to-market as a system.
+A GTM engineering agency treats go-to-market as a system to be designed. Instead of buying more SDRs, you build the data, outbound, CRM and analytics infrastructure that makes outbound predictable. Once running, the system produces meetings consistently across reps.
+### Data layer
+Clay-based enrichment, signal scoring, ICP fit detection. Your prospect data becomes a competitive advantage.
+### Outbound layer
+Email infrastructure, multi-step sequences, LinkedIn outreach, copy that respects the buyer's time.
+### CRM layer
+Reply handling, pipeline automation, meeting booking flows. Replies turn into qualified opportunities automatically.
+### Analytics layer
+Weekly reporting on reply rates, opportunity counts, pipeline value and conversion. Decisions backed by data.
+02 How we work
+## Three phases. Two to three weeks to launch.
+### Diagnose
+Week 1. We map your current GTM stack, ICP definition, sales cycle and pipeline goals. Output: a written system design.
+### Build
+Weeks 2-3. We set up infrastructure, build Clay tables, write copy, configure CRM and warm up sending capacity.
+### Run
+Week 4 onwards. Live campaigns. Weekly reporting. Iteration on copy, lists and sequences. First meetings booked.
+03 Proof
+## Systems that produce.
+### 247 boutique conversations across Europe
+### 78 opportunities with a 13.9% reply rate
+04 Frequently asked
+## Questions, answered.
+**Q:** What is GTM engineering?
+**Q:** How is a GTM engineering agency different from a traditional sales agency?
+**Q:** Who hires a GTM engineering agency?
+**Q:** Which tools do GTM engineering agencies typically use?
+**Q:** How long does a GTM engineering engagement take?
+**Q:** Do you train my team or do everything for us?
++ Also from closed:in
+## Related services.
+### Outbound agency
+Cold email, LinkedIn and Clay as one system, for B2B in Europe, the UK and the US.
+### Clay agency
+Clay Solutions Partner: waterfalls, Claygent prompts and CRM orchestration.
+### Cold email for SaaS
+Qualified demos from your exact ICP for B2B SaaS.
+## Ready to engineer your pipeline?
+Book a 30 minute discovery call. We will review your ICP, current stack and pipeline goals, and tell you whether closed:in is a fit.
+
+
+---
+
+## Clay Agency | Solutions Partner | closed:in
+URL: https://www.closedin.io/clay-agency
+
+Clay Agency · Solutions Partner
+# The Clay agency that ships, not just sets up
+closed:in is an official Clay Solutions Partner. We build production-ready Clay workflows, waterfall enrichment, Claygent prompts and CRM orchestration for B2B teams that want enriched data without the learning curve.
+01 Why we built this practice
+## Most teams buy Clay and never ship.
+Clay is powerful, but the learning curve is real. Most teams sign up, build a few tables, burn through credits on enrichment that does not match their ICP, and abandon it within a quarter. A specialist Clay agency removes that risk. closed:in runs Clay daily for our own outbound and for every client engagement, so the workflows we ship for you are battle-tested in production.
+### Official Solutions Partner
+Listed on Clay's official partner directory. Vetted and certified to build production Clay workflows for clients.
+### We use Clay daily
+Clay is our primary enrichment layer for every client. We know which providers return data versus burn credits, and which Claygent prompts actually work in production.
+### End-to-end deployment
+Not just setup. We build the tables, write the Claygent prompts, wire Clay into your CRM, and document everything so your team can take over.
+02 What we ship
+## Clay workflows that run in production.
+### Waterfall enrichment
+Email and phone waterfalls across Apollo, Findymail, Datagma, Hunter and other providers, sequenced for hit rate and cost. We tune for your specific ICP.
+### Custom Claygent prompts
+AI agents that scrape websites, LinkedIn profiles and news for the exact data points you need. Job changes, tech stack, hiring signals, ICP fit scoring.
+### Signal-based lead scoring
+Multi-signal stacking across job changes, funding events, hiring patterns, content engagement and tech stack changes. Highest-intent leads bubble to the top.
+### Clay-to-CRM orchestration
+Clay tables wired into Close, HubSpot, Salesforce or Pipedrive. Enriched data flows automatically, reply handling triggers next-step automation.
+03 Proof
+## Clay workflows in action.
+### 81 qualified leads from an unreachable ICP in 60 days
+### 78 opportunities with a 13.9% reply rate
+04 Frequently asked
+## Questions, answered.
+**Q:** What does a Clay agency do?
+**Q:** What is a Clay Solutions Partner?
+**Q:** How is closed:in different from other Clay agencies?
+**Q:** Do I need my own Clay subscription?
+**Q:** How much does a Clay engagement cost?
+**Q:** Which CRMs do you integrate Clay with?
+**Q:** How long does a Clay project take?
++ Also from closed:in
+## Related services.
+### Outbound agency
+Cold email, LinkedIn and Clay as one system, for B2B in Europe, the UK and the US.
+### GTM engineering agency
+Go-to-market as a system: data, outbound, CRM and analytics.
+### Cold email for SaaS
+Qualified demos from your exact ICP for B2B SaaS.
+## Ready to actually ship your Clay workflows?
+Book a 30 minute discovery call. We will review your data goals, ICP and current Clay setup, and tell you whether closed:in is a fit.
+
+
+---
+
+## Cold Email Agency Amsterdam | closed:in
+URL: https://www.closedin.io/cold-email-agency-amsterdam
+
+Cold Email Agency Amsterdam
+# The cold email agency built for European B2B
+closed:in is an Amsterdam-based cold email agency. We build outbound sales systems for B2B service companies in the Netherlands, Belgium and across Europe. Qualified meetings on your calendar within 2-3 weeks.
+01 Why companies hire us
+## Outbound, done right from Amsterdam.
+Most cold email agencies sell volume. We sell a system. Every campaign we ship is grounded in clean data from Clay, deliverable infrastructure built on Instantly, and copy that respects the Dutch and European B2B buying culture. The end result is meetings booked.
+### Local market expertise
+We know how Dutch, Belgian, German and UK buyers actually read outbound. Tone, brevity, and respect for time. We do not copy-paste US templates.
+### GDPR-compliant by default
+B2B legitimate-interest framing, verified business emails, clear opt-outs, no spray-and-pray. Every campaign is set up to be compliant from day one.
+### Clay Solutions Partner
+We are an official Clay Solutions Partner and Instantly Certified Expert. The enrichment and infrastructure layers are not outsourced, they are our core stack.
+02 What you get
+## A full outbound engine, not just emails.
+### Deliverability infrastructure
+Dedicated sending domains, properly warmed inboxes, SPF/DKIM/DMARC configured, deliverability monitored continuously. The plumbing is the foundation.
+### Targeted lead lists
+Sales Navigator + Clay waterfall enrichment. We build verified, ICP-fit lists with the right buying signals, not bulk scraped data.
+### Multi-channel sequences
+Cold email and LinkedIn outreach combined, with reply handling and meeting booking integrated. Channels reinforce each other, not compete.
+### CRM and reporting
+Replies wired straight into Close, HubSpot or Salesforce. Weekly client reports with reply rates, opportunity counts and pipeline value.
+03 Proof
+## Real outbound results for Dutch and European B2B.
+### 78 opportunities with a 13.9% reply rate
+### 96 retail opportunities in under 30 days
+04 Frequently asked
+## Questions, answered.
+**Q:** What does a cold email agency in Amsterdam actually do?
+**Q:** Why pick an Amsterdam-based cold email agency over a US one?
+**Q:** How much does cold email outreach cost in the Netherlands?
+**Q:** How fast will I see results from cold email campaigns?
+**Q:** Is cold email still legal under GDPR?
+**Q:** Do you also handle LinkedIn outreach, or only cold email?
+**Q:** Which industries do you typically work with?
++ Also from closed:in
+## Related services.
+### Outbound agency
+Cold email, LinkedIn and Clay as one system, for B2B in Europe, the UK and the US.
+### Outbound agency UK
+Cold email and LinkedIn for UK pipeline.
+### Clay agency
+Clay Solutions Partner: waterfalls, Claygent prompts and CRM orchestration.
+## Ready to launch outbound from Amsterdam?
+Book a 30 minute discovery call. We will review your ICP, current setup and goals, and tell you whether closed:in is a fit.
+
+
+---
+
+## Cold Email Agency for B2B SaaS | Qualified Demos from Your ICP | closed:in
+URL: https://www.closedin.io/cold-email-agency-saas
+
+Cold Email Agency for SaaS
+# Cold email agency for B2B SaaS: qualified demos from your exact ICP
+closed:in is a cold email agency built for B2B SaaS. We help SaaS founders and sales leaders book qualified demos from their exact ICP within 2-3 weeks. Clay-enriched lists, Instantly infrastructure, signal-based targeting.
+01 SaaS outbound is different
+## Generic agencies treat SaaS like a list size.
+B2B SaaS sales cycles are faster than enterprise services. The buyer is often technical. The ICP is narrower than most agencies assume. Copy that works for staffing companies will get ignored by SaaS founders. closed:in builds outbound systems tuned specifically for SaaS sales motion: tight ICP segmentation, product-aware copy, integration-led narratives, and demo booking flows that respect the buyer's time.
+### Narrow ICP, signal-led
+We do not blast a 50K list. We find your 2,000 real-fit accounts using firmographic filters, tech stack signals and intent data.
+### Product-aware copy
+Outbound that names the problem your product solves, references their actual stack, and frames the demo as a 15 minute decision.
+### Demo-booking integration
+Calendly, Chili Piper or Neetocal wired straight into your sequences. Qualified replies become booked demos automatically.
+02 What you get
+## A demo-booking machine.
+### Tech-stack signals
+We detect prospects already using competitors or complementary tools through Clay enrichment. Hot leads bubble to the top of the list.
+### Multi-channel sequences
+Cold email plus LinkedIn DMs plus founder-led content amplification. The buyer sees you three times before the meeting.
+### Reply-to-demo automation
+Positive replies trigger calendar links. Objections route to your inbox with full conversation history. No manual follow-up gaps.
+### SaaS-tuned reporting
+Weekly reports on demos booked, ICP fit per booking, no-show rate, and pipeline value.
+03 Proof
+## SaaS clients shipped.
+### 81 qualified leads from an unreachable ICP in 60 days
+### 78 opportunities with a 13.9% reply rate
+04 Frequently asked
+## Questions, answered.
+**Q:** Why does B2B SaaS need a specialist cold email agency?
+**Q:** What kind of SaaS companies do you work with?
+**Q:** How do you find buyers who are not in standard databases?
+**Q:** How is cold email for SaaS priced?
+**Q:** How fast do SaaS clients see qualified demos?
+**Q:** Do you integrate with our CRM and demo booking tool?
++ Also from closed:in
+## Related services.
+### Outbound agency
+Cold email, LinkedIn and Clay as one system, for B2B in Europe, the UK and the US.
+### Clay agency
+Clay Solutions Partner: waterfalls, Claygent prompts and CRM orchestration.
+### GTM engineering agency
+Go-to-market as a system: data, outbound, CRM and analytics.
+## Ready to book qualified SaaS demos?
+Book a 30 minute discovery call. We will review your ICP, ACV and pipeline goals, and tell you whether closed:in is a fit for your SaaS.
+
+
+---
+
+## Outbound Agency UK | Cold Email & LinkedIn | closed:in
+URL: https://www.closedin.io/outbound-agency-uk
+
+Outbound Agency · United Kingdom
+# Outbound that books UK pipeline
+closed:in is an outbound sales agency for UK B2B companies. Cold email and LinkedIn campaigns tuned for the UK market, with documented results in multi-market European outbound including London, B2B SaaS, professional services and agencies.
+01 Why UK B2B hires us
+## An outbound partner that knows the UK market.
+We are based in Amsterdam but a large share of our work touches the UK. B2B SaaS targeting UK mid-market, agencies running London campaigns, professional services and PE-backed businesses. We write in British English, we know how UK buyers read outbound, and we tune sequencing for UK time zones and bank holidays. The output is qualified meetings in your CRM.
+### UK-tuned copy
+British English, direct value framing, no US hype. Specifically crafted for UK B2B buyers across SaaS, professional services and agencies.
+### UK GDPR + PECR compliant
+Compliant outbound to business addresses. Legitimate interest framing, clear identification and opt-out paths built into every sequence.
+### Multi-market expertise
+We have run simultaneous campaigns across NL, France, Poland and London with localised messaging per market. Documented in our Endresz case study.
+02 What we ship for UK clients
+## A full outbound stack, built for UK pipeline.
+### UK-grade deliverability
+Dedicated sending domains, properly warmed inboxes, SPF/DKIM/DMARC, monitoring. Inbox placement is the difference between meetings and silence.
+### UK-specific lead lists
+Sales Navigator with UK boolean filters, Companies House data enrichment, Clay waterfalls tuned for UK databases. No spray-and-pray.
+### LinkedIn + email combined
+UK B2B buyers respond well to LinkedIn touches alongside email. Multi-channel sequencing built into one CRM workflow.
+### Pipeline reporting in your tools
+Replies wired into Close, HubSpot, Salesforce or Pipedrive. Weekly reports on reply rates, opportunities and pipeline value in GBP.
+03 Proof
+## Documented UK pipeline.
+### 247 boutique conversations across Europe for a high-end fashion brand
+04 Frequently asked
+## Questions, answered.
+**Q:** Do you work with UK clients even though you are based in Amsterdam?
+**Q:** What kind of UK companies do you typically work with?
+**Q:** How is UK cold email different from US or European outbound?
+**Q:** Can you run multi-market campaigns that include the UK?
+**Q:** Do I need to be GDPR-compliant for UK outbound?
+**Q:** How much does outbound for a UK company cost?
++ Also from closed:in
+## Related services.
+### Outbound agency
+Cold email, LinkedIn and Clay as one system, for B2B in Europe, the UK and the US.
+### Outbound agency US
+Outbound into the US mid-market, CAN-SPAM compliant.
+### Cold email, NL and EU
+GDPR-proof cold email for Dutch and European B2B.
+## Ready to build UK pipeline?
+Book a 30 minute discovery call. We will review your UK ICP, current setup and goals, and tell you whether closed:in is a fit.
+
+
+---
+
+## Outbound Agency US | Cold Email & LinkedIn | closed:in
+URL: https://www.closedin.io/outbound-agency-us
+
+Outbound Agency · United States
+# Outbound for B2B teams selling into the US
+closed:in is an outbound sales agency for B2B companies targeting the United States. Cold email, LinkedIn and signal-based plays tuned for US buyers, with CAN-SPAM compliant infrastructure and time-zone aware sequencing.
+01 Why US-targeting B2B hires us
+## European precision, US sales tempo.
+We are an Amsterdam-based agency that runs outbound into the US for European B2B teams expanding stateside and for US-based companies that want a senior, Clay-native outbound partner without Bay Area agency pricing. Our morning overlaps with US East Coast pre-market hours, our copy is native English, and our infrastructure handles US time zone send windows automatically.
+### US-tuned copy
+Direct value framing, pattern interrupts and tighter sequences that match US B2B reading patterns. No European understatement, no Bay Area hype.
+### CAN-SPAM compliant
+Valid physical address, accurate sender identification, working unsubscribe, no deceptive subject lines. Every campaign passes US compliance by default.
+### Time-zone aware
+Send windows configured per US time zone (ET, CT, MT, PT). Amsterdam morning hits the US East Coast prime open window without anyone losing sleep.
+02 What we ship for US-targeting clients
+## A US-ready outbound stack.
+### US-grade deliverability
+Dedicated US sending infrastructure, properly warmed inboxes, SPF/DKIM/DMARC, deliverability monitored continuously. The plumbing is the foundation.
+### US-specific lead lists
+Sales Navigator with US boolean filters, Clay waterfall enrichment tuned for US databases, signal stacking across funding events, tech stack changes and hiring patterns.
+### Multi-channel sequences
+Cold email plus LinkedIn outreach combined. US B2B buyers expect multiple touches across channels. We engineer the sequencing.
+### CRM and reporting in your tools
+Replies wired into Close, HubSpot, Salesforce or Pipedrive. Weekly reports on reply rates, opportunities and pipeline value in USD.
+03 Proof
+## Multi-market campaigns, battle-tested methodology.
+### 247 boutique conversations across Europe for a high-end fashion brand
+04 Frequently asked
+## Questions, answered.
+**Q:** Can a European agency run outbound into the US market?
+**Q:** What kind of US-targeting companies do you work with?
+**Q:** How is US cold email different from European outbound?
+**Q:** Is cold email legal in the US?
+**Q:** Do you handle US time zones?
+**Q:** How much does outbound for US-targeting companies cost?
++ Also from closed:in
+## Related services.
+### Outbound agency
+Cold email, LinkedIn and Clay as one system, for B2B in Europe, the UK and the US.
+### Outbound agency UK
+Cold email and LinkedIn for UK pipeline.
+### Cold email for SaaS
+Qualified demos from your exact ICP for B2B SaaS.
+## Ready to build US pipeline?
+Book a 30 minute discovery call. We will review your US ICP, current setup and goals, and tell you whether closed:in is a fit.
+
+
+---
+
+## Pricing | closed:in
+URL: https://www.closedin.io/pricing
+
+Pricing
+# EUR 4K to 8K per month. Priced by complexity, not seat count.
+Every closed:in engagement is a managed outbound system: Clay-based enrichment, cold email infrastructure, multi-channel sequences and CRM orchestration. Where you land in the range depends on four drivers below. Standard engagement length is 3 months.
+01 Four pricing drivers
+## Why pricing is a range, not a fixed number.
+Two clients on paper sending the same email volume can require very different work. A SaaS company with a clean Apollo ICP and HubSpot already wired up is a different build than a recruitment firm targeting PE-backed portfolio CFOs across 4 countries with custom Clay sourcing and a Close CRM rebuild. These four drivers decide where you land between EUR 4K and EUR 8K.
+### ICP complexity (Clay)
+Standard ICPs that sit cleanly in Apollo or Sales Navigator are at the lower end. Custom ICPs like hospitality, boutique retail, M&A advisory or niche industrials require a custom Clay table with Google Maps scraping, website parsing or Claygent prompts. The deeper the Clay engineering, the higher in the range.
+### Sending volume
+More sending volume means more domains, more inboxes and more deliverability monitoring. A standard 3-step campaign at 1,000 emails per day is roughly 7,000 unique prospects per month. Higher volume tiers add infrastructure cost that flows into the monthly fee.
+### Channels (email, LinkedIn, multi-channel)
+Cold email only sits at the lower end. Adding LinkedIn outbound (connection requests, DMs, content amplification) or multi-channel sequences with signal-based plays adds engineering and ongoing management. Multi-channel engagements typically sit in the upper half of the range.
+### CRM depth
+Light reporting into a Google Sheet is at the lower end. Full pipeline orchestration with reply handling, lead scoring and stage automation wired into Close, HubSpot, Salesforce or Pipedrive adds setup time and ongoing maintenance.
+02 Three engagement shapes
+## What EUR 4K, 6K and 8K actually buy.
+These are typical shapes, not fixed plans. Every engagement is quoted after a 30 minute discovery call. The constant across all three: Clay enrichment, full sending infrastructure, weekly reporting and reply handling are included from day one.
+EUR 4K /mo
+### Foundation
+Cold email only. Standard ICP that maps cleanly to Apollo or Sales Navigator. Light CRM integration. Best for B2B SaaS or service companies with a defined ICP that want a clean, predictable engine.
+Includes: Dedicated sending infrastructure, Clay waterfall enrichment, multi-step sequence, weekly reports, reply handling, Close or HubSpot light sync.
+EUR 6K /mo
+### Growth
+Multi-channel: cold email plus LinkedIn outbound. Mid-complexity ICP, may need custom Claygent prompts. Full CRM orchestration. Most closed:in engagements sit here.
+Includes Foundation plus: LinkedIn DMs and connection requests, custom Claygent prompts, signal-based scoring, full Close or HubSpot pipeline orchestration, A/B testing.
+EUR 8K /mo
+### Enterprise
+Custom ICP that requires bespoke Clay sourcing (Google Maps, website scraping, custom datasets). Multi-channel with signal-based plays. Deep CRM rebuild or Salesforce integration. Typical for recruitment, M&A advisory, multi-country campaigns.
+Includes Growth plus: Custom Clay sourcing pipelines, RB2B website visitor identification, multi-country sequences, Salesforce integration, weekly strategy calls.
+Standalone Clay builds (waterfall, Claygent, CRM sync, signal scoring) run separately from EUR 2K to EUR 6K. See the Clay agency page for scope.
+03 Always included
+## What every engagement ships with.
+No matter which tier, every closed:in engagement starts with the same baseline. The differences above are about depth and channels, not about whether the foundation is solid.
+### Clay enrichment
+Clay is the orchestration layer of every engagement. Lead sourcing across 120+ providers, waterfall email finding, signal capture and Claygent personalisation. As an official Clay Solutions Partner we run Clay daily for our own outbound and for every client.
+### Full sending infrastructure
+Alternate sending domains, inbox configuration, SPF/DKIM/DMARC records, 14-21 day warmup and continuous deliverability monitoring. Your primary domain stays clean for transactional and customer communication.
+### Multi-step sequence and copy
+3 to 5 step sequences written for your ICP and tone. Iterated based on reply data. Plain text by default, A/B tested across subject lines, openers and CTAs.
+### Weekly reporting and reply handling
+Every Sunday you get a structured weekly report: replies, qualified opportunities, pipeline value and copy iterations. Replies are routed into your CRM with full context so your sales team picks up where the conversation left off.
+04 Setup and billing
+## How payment works.
+### One-time setup fee at kickoff
+Domain purchase, inbox configuration, 14-21 day warmup, Clay table build and copy framework. Setup fee plus Month 1 are paid together at kickoff so the engine is live from day one.
+### Month 2 and 3 at start of month
+Standard term is 3 months. Month 2 and Month 3 are billed at the start of each month. No surprise charges, no per-meeting fees.
+### Month 4 onward is optional
+Most clients continue past the initial 3 months as performance compounds. After Month 3 the engagement converts to month-to-month with 30 days notice either side.
+05 Proof
+## Real outcomes at this price point.
+### 81 qualified leads from an unreachable ICP in 60 days
+### 78 opportunities with a 13.9% reply rate
+06 Frequently asked
+## Questions, answered.
+**Q:** How much does closed:in cost?
+**Q:** What is included in the monthly retainer?
+**Q:** Is there a setup fee?
+**Q:** Why does Clay drive a lot of the pricing?
+**Q:** Why is pricing a range and not a fixed number?
+**Q:** What is the minimum engagement length?
+**Q:** Do you offer Clay-only or consulting engagements?
+**Q:** Do you offer performance-based pricing?
++ Also from closed:in
+## Related services.
+### Outbound agency
+Cold email, LinkedIn and Clay as one system, for B2B in Europe, the UK and the US.
+### Clay agency
+Clay Solutions Partner: waterfalls, Claygent prompts and CRM orchestration.
+### GTM engineering agency
+Go-to-market as a system: data, outbound, CRM and analytics.
+## Get a tailored quote in 30 minutes.
+Book a discovery call. We will review your ICP, channels, current CRM and goals, and quote a specific number within the EUR 4K to 8K range before sending a proposal.
+
+
+---
+
+## Case Studies | closed:in
+URL: https://www.closedin.io/case-studies
+
+Real results from real campaigns
+# Where outbound becomes pipeline
+We don't just send emails. We engineer meetings. Here's the proof.
+Client stories
+## Founders on what changed after closed:in
+Founders and marketers who run their outbound through us, on video. Their words, their numbers.
+> The first week we already had amazing results. Reply rate went through the roof.
+Ronne van Rijn Marketing, Endresz
+> I really like your hands-on approach. Digging in, trying to really understand the business and then finding creative ways to reach customers.
+4% positive reply rate and 500+ positive replies to refine the offer
+Mikel Palokaj Co-founder, True Performance Network
+> It brought about clarity in the early discovery phase. Definitely.
+Validation and a clear ICP for a new developer matchmaking service
+Leva Konaté Founder, Sankore Labs
+> I really noticed that you simply wanted to deliver quality and go all in for it.
+From loose Excel lists to one HubSpot system with thousands of new contacts and phone numbers
+Laura Wolf Event manager, Sustainable Motion · translated from Dutch
+> You were definitely willing to go the extra step, and to think creatively about solutions.
+Nick Verhulsdonck Co-Owner, WeTaxus · translated from Dutch
+> I have worked with so many vendors, so I know what good looks like. These guys just know how to run and lead an engagement.
+Partner for the outbound of her consultancy's clients in financial services, fintech and tech
+Shirin Danesh Founder, Advantive Advisory
+> We tried outbound ourselves for months with minimal results. closed:in came in, rebuilt everything from scratch, and within 4 weeks we had qualified meetings on the calendar.
+Zen Alex Founder, Red Fox Agency
+### 142 opportunities from 27,455 contacts in 13 weeks
+A market everyone said was saturated, cracked. closed:in built a custom KVK-anchored data engine, ran it on Instantly, and recouped the investment in under 2 months.
+### 2,253 verified buyers engineered from 17,213 domains
+An audience no vendor sells. closed:in built a custom discovery, qualification and enrichment pipeline and handed over a ready-to-run targeting layer of crypto operators.
+### 78 opportunities with a 13.9% reply rate
+Built a complete outbound engine using Clay and Instantly to generate qualified e-commerce leads and create €1.56M in pipeline.
+### 81 qualified leads from an unreachable ICP in 60 days
+Built a custom outbound system using Google Maps, Clay, and scraping tools to reach hospitality entrepreneurs invisible in B2B databases.
+### 96 retail opportunities in under 30 days from just 900 contacts
+B2C founder with zero B2B experience. Built the outbound engine from scratch, achieving 35%+ reply rate and 10% opportunity rate.
+## Ready to fill your pipeline?
+See how we can generate qualified meetings for your business within 2-3 weeks.
+
+
+---
+
+## Verzendbazen Case Study | closed:in
+URL: https://www.closedin.io/case-study-verzendbazen
+
+# How Verzendbazen generated 78 opportunities with a 13.9% reply rate
+Verzendbazen had no outbound systems in place. We built a complete engine using Clay, Instantly, and personalized sequencing to create a predictable pipeline of e-commerce leads.
+01 The Challenge
+## No systems, no process, no predictable pipeline
+Verzendbazen.nl is a Dutch fulfillment company specializing in storage, pick & pack, and shipping services for e-commerce businesses. Their target market: fast-growing online stores in the Netherlands and Belgium that need reliable, scalable fulfillment.
+Before working with closed:in, outreach was ad hoc with limited targeting and poor results. They lacked proper domain setups, warmup, and deliverability management. Without predictable sales conversations, their growth was capped, and they needed a way to systematically fill the pipeline without hiring an expensive in-house outbound team.
+02 The Solution
+## A complete outbound engine from scratch
+We built a full outbound system combining ICP identification, Clay worktable building, and technical infrastructure setup to generate qualified conversations at scale.
+### ICP Identification
+Ran a deep dive session to define Verzendbazen's ideal client profile based on sector, company size, geography, and tech stack.
+### Clay Worktable Build
+Using Clay, we scraped and enriched leads across 100+ sources, filtering by ICP attributes to build highly targeted lead lists.
+### Technical Infrastructure
+Set up and monitored domains, inboxes, DKIM/SPF/DMARC, and warming systems to maximize deliverability throughout the campaigns.
+### Messaging, Sequencing & Campaign Management
+Crafted personalized cold email sequences designed to resonate with e-commerce founders. Monitored replies, managed inboxes, and optimized campaigns continuously.
+> closed:in built us an outbound machine we could never have created internally. Within weeks we had conversations booked with exactly the type of e-commerce founders we wanted to reach. The campaigns performed so well that we had to expand our team just to keep up with demand.
+Founder, Verzendbazen
+03 The Results
+## From ad hoc outreach to a predictable growth engine
+The campaign volume was so successful that Verzendbazen had to hire a new team member just to handle the incoming requests. Outbound went from an afterthought to their primary growth channel.
+All case studies Service: Cold email agency, NL and EU
+## Want results like these?
+Book a free strategy call and discover how we can build a predictable outbound pipeline for your business.
+
+
+---
+
+## Jamezz Case Study | closed:in
+URL: https://www.closedin.io/case-study-jamezz
+
+# How Jamezz reached an unreachable ICP in 60 days
+Jamezz's ideal buyers, local restaurant and fast-food entrepreneurs, aren't on LinkedIn. We built a custom outbound system using Google Maps, Clay, and scraping tools to unlock $190K+ in pipeline.
+01 The Challenge
+## Reaching an ICP that doesn't exist in B2B databases
+Jamezz is a hospitality SaaS provider offering self-order solutions like QR ordering, self-service kiosks, and tablet ordering. Their ideal buyers are local restaurant owners, hotel operators, and fast-food entrepreneurs , a segment that is highly fragmented and nearly invisible in traditional B2B prospecting tools.
+These business owners aren't active on LinkedIn and don't show up in standard databases. Jamezz lacked a structured outbound process and wanted to validate international demand, but first needed a way to systematically reach thousands of small local entrepreneurs across fragmented markets.
+02 The Solution
+## A complete outbound system built from scratch
+We built a full outbound engine combining creative data sourcing with battle-tested infrastructure and AI-powered personalization to reach decision-makers that most outbound teams simply can't access.
+### ICP Definition
+Worked with Jamezz to clearly define their ideal customer profile: restaurant owners, hotel operators, and fast-food entrepreneurs across multiple markets.
+### Local Data Sourcing
+Instead of relying on LinkedIn or traditional databases, we built lead lists using Google Maps, Apify, Clay, and Yellow Pages scraping to reach decision-makers who are typically invisible in B2B tools.
+### Technical Infrastructure
+Managed domain setup, inbox warmup, SPF/DKIM/DMARC configuration, and ongoing deliverability monitoring to ensure emails landed in the inbox.
+### AI-Powered Personalization & Campaign Management
+Crafted dynamic first lines and tailored messaging that resonated with hospitality entrepreneurs. Launched and optimized sequences while continuously monitoring replies and refining targeting.
+> closed:in unlocked an ICP we couldn't reach through normal channels. The pipeline volume was so high that we delayed international expansion just to handle the demand.
+Founder, Jamezz
+03 The Results
+## $190K+ pipeline from an "unreachable" market
+In just 60 days, Jamezz went from no structured outbound to a full pipeline of qualified hospitality leads. The pipeline volume was so high that they delayed international expansion to handle demand.
+All case studies Service: Clay agency
+## Want results like these?
+Book a free strategy call and discover how we can build a predictable outbound pipeline for your business.
+
+
+---
+
+## Endresz Case Study | closed:in
+URL: https://www.closedin.io/case-study-endresz
+
+# How Endresz generated 247 boutique conversations across Europe
+Endresz, a high-end women's fashion brand, wanted to scale partnerships with independent designer boutiques across Europe. We built a multi-market outbound system that generated 247 qualified conversations and $128K+ in pipeline.
+01 The Challenge
+## Cracking an extremely niche ICP
+Endresz is a Dutch women's fashion brand specializing in timeless, high-quality designs produced in small batches. They wanted to scale partnerships with independent designer boutiques across Europe.
+The challenge: this ICP is extremely niche and hard to qualify. Many boutiques don't list themselves on LinkedIn or major databases, and not all shops fit Endresz's strict criteria (premium, multi-brand, high-end positioning). Expanding into multiple European regions required copywriting in local languages and different outreach strategies per market.
+02 The Solution
+## Multi-market boutique acquisition engine
+We built a multi-market outbound system across the Netherlands, France, Poland, London, and select global markets. Campaigns were personalized in local languages, with messaging crafted to resonate with boutique owners.
+### ICP Refinement & Sourcing
+Iterated through Apollo lookalike lists, Clay filters, and Deepseek enrichment. The breakthrough: Apollo keyword search ("boutique") delivered the most accurate ICP list, outperforming advanced sourcing methods.
+### Data Enrichment & Filtering
+Clay filters refined lists by store size, product category, and brand mix. Key learning: personal email addresses outperform general inboxes for boutique owners.
+### Localized Messaging
+Campaigns written in Dutch, French, Polish, and English. The Netherlands campaign used a highly personal approach that resonated strongly with boutique owners, achieving a 28.3% reply rate.
+### Multi-Market Execution
+Launched campaigns across NL, France, Poland, London, and global markets simultaneously. Continuous A/B testing on subject lines, copy, and list sources per market.
+> closed:in helped us reach the right boutiques at scale, a challenge we'd been wrestling with for years. The replies weren't just volume, they were qualified conversations with exactly the kind of stores we want to stock our products. The Netherlands and France campaigns were so strong they gave us real traction across Europe.
+Founder, Endresz
+03 The Results
+## A predictable boutique acquisition channel
+Over 6 months, Endresz turned outbound into a predictable growth channel for boutique acquisition. The Netherlands campaign had the strongest performance with 28.3% reply rate and 91 opportunities. Localization in France (26.6%) and Poland (19.4%) proved the power of native-language outreach.
+All case studies Service: Outbound agency
+## Want results like these?
+Book a free strategy call and discover how we can build a predictable outbound pipeline for your business.
+
+
+---
+
+## Gen-Zero Case Study | closed:in
+URL: https://www.closedin.io/case-study-gen-zero
+
+# Turning a saturated market into 142 opportunities for Gen-Zero
+Gen-Zero helps businesses cut their energy bill by buying energy collectively. closed:in built their entire Dutch prospecting engine, custom KVK-anchored data, signal-based segmentation and Instantly infrastructure, and turned a market everyone calls saturated into a predictable pipeline. The investment paid for itself in under two months.
+01 The Challenge
+## Winning a market everyone else is already fighting over
+Gen-Zero helps businesses cut one of their largest fixed costs by buying energy collectively. By pooling demand, it locks in fixed rates ahead of the market and secures pricing structurally below what a single business could negotiate alone. The service is free to the customer, and Gen-Zero is paid on commission by the supplier.
+Before closed:in, acquisition was entirely manual: self-sent cold emails, cold calls, and lead lists pieced together by hand. The market itself was never the problem. Effectively every business needs an energy contract, so the addressable market is enormous. That size is exactly the trap. The obvious high-consumption niches are saturated and over-pitched, which turns outbound into a price war in the inbox. The brief to closed:in was simple, and hard: find a niche with high energy use and low competition, and do something nobody else is doing.
+02 The Solution
+## A custom data engine, run on Instantly
+closed:in does not buy lists and blast them. For Gen-Zero, they engineered the entire Dutch prospecting layer from scratch, then ran it on Instantly's sending infrastructure.
+### KVK-anchored data engine
+Anchored the hospitality segment on the official Dutch business registry (KVK), filtered on the SBI codes that legally define horeca, then triangulated coverage across OpenStreetMap, the Yellow Pages, restaurant directories and map data, down to one clean record per business.
+### Custom enrichment, in code
+A free-first Python pipeline verified each company domain by actually connecting to it, harvested a real contact email, pulled owner names off about pages, and automatically removed businesses that had permanently closed.
+### Signal-based segmentation
+Prospects were split into niches the message could speak to: energy-intensive cuisines and multi-location chains on the hospitality side, and on the grower side, high-gas-usage areas flagged with real CBS government data plus sites already mentioning solar panels and heat pumps.
+### Sending on Instantly
+Plain-text, multi-step sequences ran on Instantly across 40 to 60 inboxes and 20-plus domains, with replies routed straight into the CRM. Bounce held under 1% and inboxes stayed at full warmup throughout.
+> With that first list, it just worked really well. 35 opportunities out of it. That is a lot, and that is just good. We can see it just works now.
+Daniel, Gen-Zero
+03 The Results
+## 142 opportunities from 27,455 contacts
+In about 13 weeks, the system produced 142 opportunities from 27,455 businesses contacted, a steady rate of one opportunity for roughly every 193 reached. With the conversion proven and the unit economics healthy, scaling was the obvious move: closed:in increased volume 50%, from 1,000 to 1,500 emails a day, and the conversion held. Across those opportunities, at Gen-Zero's deal economics, the program represents a six-figure potential in annual contract value, and the investment paid for itself within the first two months.
+All case studies Service: Cold email agency, NL and EU
+## Want results like these?
+Book a free strategy call and discover how we can build a predictable outbound pipeline for your business.
+
+
+---
+
+## Mistertafel Case Study | closed:in
+URL: https://www.closedin.io/case-study-mistertafel
+
+# How Mistertafel went from zero B2B to 96 opportunities in under 30 days
+Mistertafel is a B2C home interior brand whose founder had no B2B experience. We built the outbound engine from scratch and opened physical retail as a channel: 96 retail opportunities from just 900 contacts, at a 35% reply rate.
+01 The Challenge
+## A B2C brand with no B2B motion at all
+Mistertafel sells home interior products directly to consumers in the Netherlands. The founder wanted to open a second channel by selling into physical retail stores, but had never run a B2B campaign and had no list, no infrastructure and no messaging to start from.
+The challenge: retail buyers are hard to reach. Store owners and purchasing managers are rarely active on LinkedIn, stores are not cleanly listed in any B2B database, and the buying decision happens inside the store rather than through a public procurement process. Getting this wrong at volume burns the market, so the list had to be small and exactly right.
+02 The Solution
+## Building the entire outbound engine from scratch
+Jurre and the team at closed:in built the entire outbound engine from scratch. ICP analysis, lead sourcing, infrastructure setup, and a short personal messaging structure that works extremely well in retail outreach.
+### ICP Analysis & Store Targeting
+Analyzed store types, revenue ranges, and buyer roles to define exactly which retail stores were the right fit. Mapped the purchasing decision process inside physical stores.
+### Lead Sourcing & Verification
+Built accurate lead lists targeting store owners and purchasing managers directly. Only 900 individual contacts were needed to generate massive results.
+### Short & Personal Messaging
+Used a short and personal messaging structure that works extremely well in retail. The first line explains why we're reaching out, the second offers a brief intro, and the final line contains a clear call to action.
+### Continuous Optimization
+Optimized outbound continuously which improved results week after week. A/B tested subject lines, copy angles, and sending schedules using Instantly as the backbone for fast testing and safe scaling.
+> closed:in cracked the part of our market we couldn't reach on our own: physical retail stores. They turned a slow word-of-mouth channel into a predictable pipeline of purchasing managers booking meetings every week. Within months we had real traction across the Netherlands.
+Founder, Mistertafel
+03 The Results
+## 96 opportunities from 900 contacts in 30 days
+In less than 30 days, Mistertafel went from zero outbound to 96 retail opportunities. From just 1,800 emails sent to 900 individual contacts, achieving a 35%+ reply rate and 10% opportunity rate. Proof that outbound works even if you've never done B2B, with the right systems.
+All case studies Service: Cold email agency, NL and EU
+## Want results like these?
+Book a free strategy call and discover how we can build a predictable outbound pipeline for your business.
+
+
+---
+
+## Redfox Case Study | closed:in
+URL: https://www.closedin.io/case-study-redfox
+
+# Finding an audience that lives in no database for Redfox
+Redfox is a full-service agency that builds and manages models and digital creators as brands. The photographers who could refer talent exist in no database and cannot be bought as a list. closed:in sourced them by walking the social graph, turned it into a repeatable list, and ran a referral campaign that produced 33 opportunities at an 8.47% reply rate.
+01 The Challenge
+## An audience invisible to every database
+Redfox grows through people who already sit next to the right talent, and the single best referral source is photographers: the people who shoot models and creators every day and know dozens of them.
+The problem is that this audience is invisible to normal prospecting. There is no filter for "photographer who shoots models and creators." They are not tagged by job title, not concentrated in any industry list, and not sold by any data vendor. They are findable only by who they are connected to. On top of that, the outreach has to read like a peer reaching out about a partnership, not an agency running a pitch. So the hard part of this project was never the email. It was the data: how do you build a clean, targeted list of an audience that exists in no database?
+02 The Solution
+## Sourcing an audience from the social graph
+This is where the work got creative, and it is the part worth showing. Rather than search for the photographers directly, which does not work, closed:in found them through the people they are connected to.
+### Find the audience through who they are connected to
+closed:in identified large, established creator and model profiles on Instagram, the accounts these photographers orbit, then walked the follow-graph outward: who those profiles follow, who shows up repeatedly, who the photographers in that network actually are. Repeat across enough seeds and a hidden audience becomes a visible, named list.
+### Turn it into a clean, repeatable list
+The raw discovery was de-duplicated and structured into a usable target list, kept deliberately to a roughly 50/50 UK and US split for the first wave, so the campaign worked from real, verified people rather than a scrape full of noise.
+### A referral-first offer, run on Instantly
+The campaign did not pitch a service. The entry point was a low-friction ask: a short call about referring the creators a photographer already works with. That matched how this network actually moves, on warm introductions, and gave each photographer a reason to reply that cost them nothing.
+03 The Results
+## 33 conversations, and a channel proven from zero
+The channel produced 33 opportunities from 6,800 emails at an 8.47% reply rate. For a cold campaign into an audience that had to be assembled by hand from the social graph, that reply rate is a strong result: it means the sourcing worked, the list was made of genuinely relevant people, and a meaningful share were open to a referral conversation. Just as important, the project proved a channel that did not exist before. Redfox's photographer outreach had been entirely manual, one profile at a time. closed:in turned it into a repeatable system: a defined way to source the audience, a tested referral offer, and a sending setup that can be reopened and scaled on demand.
+All case studies Service: Outbound agency UK
+## Need an audience no one else can reach?
+Book a free strategy call and discover how we source buyers that exist in no database.
+
+
+---
+
+## Wetaxus Case Study | closed:in
+URL: https://www.closedin.io/case-study-wetaxus
+
+# Two channels into a hard market for Wetaxus
+Wetaxus is an Amsterdam accountancy and tax firm. Switching bookkeeper is one of the highest-trust decisions in B2B. closed:in ran two channels at once, an outbound cold email engine and a website visitor identification layer, to surface and warm up demand in roughly six weeks, in a market where buyers rarely switch.
+01 The Challenge
+## Selling into one of B2B's hardest markets
+Wetaxus is an Amsterdam accountancy and tax firm serving Dutch entrepreneurs and SMEs: bookkeeping, tax advice, and pricing tailored by entity type. It competes in one of the most relationship-driven categories in B2B.
+Selling accountancy cold is genuinely hard, and it is worth being honest about why. Switching bookkeeper is a high-trust, high-friction decision: it touches a business's finances, it usually waits for the end of a fiscal year, and most owners stay put unless something is actively wrong. A cold email rarely closes that gap on its own. The job was to generate qualified interest in a market where the default answer is "not right now."
+02 The Solution
+## Two channels, run together
+closed:in did not rely on a single play. Two channels ran in parallel, each feeding the same goal: an outbound engine to create new conversations, and a warm channel to catch demand already circling the brand.
+### Cold email outbound engine
+closed:in built an ICP matrix and ran plain-text, multi-step sequences to Dutch businesses, positioning Wetaxus as the switch. Every positive reply was logged into a shared opportunity sheet with contact details and status.
+### Website visitor de-anonymisation
+Alongside the outbound, closed:in set up a visitor identification layer on the Wetaxus site. Instead of letting anonymous traffic bounce, it surfaced which companies were on the site, their size and revenue band, and the pages they viewed, including high-intent pricing and contact pages, turning passive traffic into a named, warm follow-up list.
+### Logged opportunities and calling handover
+Positive replies and identified visitors were handed to Wetaxus to call and close, with the follow-up tracked call by call, so the team always knew who to chase and when.
+03 The Results
+## Two channels, and an honest read
+Across roughly six weeks the program logged around 48 opportunities and, on top of that, a steady stream of named website visitors that turned anonymous traffic into a warm follow-up list. The honest read on a market like this: switching accountant is a slow, high-trust decision, so raw reply volume always overstates how ready buyers are. The value closed:in delivered was the system itself, an outbound engine and a web-intent layer running together, plus the discipline of logging and chasing every signal, rather than any single headline number.
+All case studies Service: GTM engineering agency
+## Selling into a tough market?
+Book a free strategy call and discover how we pair outbound with warm, intent-based channels.
+
+
+---
+
+## Zano Case Study | closed:in
+URL: https://www.closedin.io/case-study-zano
+
+# From 17,000 raw domains to 2,253 verified buyers for Zano
+Zano is a privacy-focused crypto project that needed to reach online gambling operators accepting cryptocurrency, an audience no data vendor sells. closed:in engineered a custom discovery, qualification and enrichment pipeline that turned a 17,213-domain universe into 2,253 verified decision-maker emails, with a market forecast the build then validated almost to the number.
+01 The Challenge
+## An audience that cannot be bought as a list
+Zano is a privacy-focused cryptocurrency. To grow real-world usage, the project wanted to be accepted as a payment and deposit option on online gambling platforms, with the strongest fit among privacy-coin friendly and no-KYC operators. That audience is valuable and notoriously hard to reach. There is no clean list to buy.
+Three things make this market resistant to normal prospecting. Coverage: operators are scattered across gambling-specific domain extensions but plenty of the best sit on plain .com, .io or .gg, so a single source misses most of them. Qualification: a gambling domain is not proof of an active site, and an active site is not proof it takes crypto, both have to be verified at the page level across thousands of sites. Contactability: even once confirmed, most operators block scrapers and publish no contact data. closed:in's brief was not to run a campaign, it was to engineer the targeting layer itself and hand it over for Zano to run.
+02 The Solution
+## A multi-source data engine, built in code
+closed:in does not buy a list and hope. For Zano, the entire targeting layer was built from public sources, in code, in five stages, and sized with a TAM analysis before any scraping began.
+### Build the universe (about 17,000 domains)
+A broad starting set was assembled from the TLD registry (every domain on .casino, .bet, .poker, .bingo, .games, .win), curated operator and affiliate directories, and a manual seed list. After deduplication: 17,213 domains.
+### Confirm it is actually gambling
+Each domain was visited and scanned for gambling signals (betting, wagering, casino, slots, odds). Parked and inactive domains were flagged and dropped, leaving 5,582 confirmed gambling sites.
+### Confirm it accepts crypto
+Confirmed sites were re-scanned for crypto signals (Bitcoin, Ethereum, USDT, Monero, no-KYC, anonymous deposit, and Zano itself). After re-verification and a parked-domain filter: 1,791 high-confidence core targets, each scored 1 to 5 on crypto-confidence by keyword depth.
+### Expand beyond gambling TLDs
+To catch operators on .com and .io, closed:in fed 100 confirmed targets into Exa's find-similar engine, pulled related sites, deduplicated against the existing 17k, and ran every candidate through the same pipeline. That added 430 more, bringing the final set to 2,230 confirmed crypto operators.
+### Find the people, in Clay
+A people lookup per domain surfaced 14,106 employees, filtered to 4,198 decision makers by title. A manual domain-quality review removed wrong matches (a pub, a forum, a press wire, a newspaper, a land-based resort), leaving 3,134 decision makers. An email waterfall validated with Million Verifier and re-checked with Bounceban produced 2,253 verified, deliverable emails.
+03 The Results
+## A targeting asset that could not be bought
+The headline is not a reply rate, it is an asset that did not exist before: 2,230 confirmed crypto-gambling operators and 2,253 verified decision-maker emails, distilled from a 17,213-domain universe. What makes it credible is that closed:in sized it first and then hit the number. The TAM run before any scraping predicted 980 to 2,350 priority crypto-accepting platforms, the build found 2,230, at the top of that range. The TAM predicted 70 to 80% email findability, the actual rate was 72%, dead centre. The deliverable was handed over as a structured, two-sheet file, segmented and ready to load straight into Clay and Instantly, with a recommended sequencing plan by crypto-confidence score.
+All case studies Service: Clay agency
+## Need data that doesn't exist yet?
+Book a free strategy call and discover how we engineer targeting layers other teams cannot buy.
+
+
+---
+
+## Team | closed:in
+URL: https://www.closedin.io/team
+
+Meet the Team
+# The people behind your pipeline
+Two founders and a growing team of GTM engineers. One mission: creative outbound engines that deliver predictable pipeline for B2B companies across Europe.
+## What drives us
+### Results over vanity
+We measure one thing: qualified meetings on your calendar, with the pipeline value they create. Everything softer is noise.
+### Systems over shortcuts
+Every campaign we build is designed to be repeatable and scalable. No hacks, no tricks. Just solid infrastructure.
+### Precision over volume
+We'd rather send 1,000 perfectly targeted emails than 10,000 generic ones. Quality data leads to quality conversations.
+## Want to work with us?
+Book a free strategy call and discover how we can build a predictable outbound pipeline for your business.
+
+
+---
+
+## Apple Killed Open Rate. Most Cold Email Agencies Still Report On It. | closed:in
+URL: https://www.closedin.io/blog/cold-email-open-rate-vanity-metric
+
+# Apple killed open rate. Most cold email agencies still report on it.
+Open rate used to be the leading indicator of cold email deliverability. Then Apple Mail Privacy Protection happened. Now ~60-65% of pixel opens are fake. Here is why we dropped open rate from closed:in client reports, and what we use instead.
+If your outbound dashboard still leads with open rate, your team is optimising for a metric that does not exist anymore.
+This is not hyperbole. In September 2021, Apple launched Mail Privacy Protection in iOS 15. Every time a Mail.app user opens any email, their device pre-loads all tracking pixels in the background, regardless of whether they opened the email. The provider sending the email sees an "open" event for every Apple Mail user, whether or not the email was actually opened. Apple documents this as a privacy feature that hides the recipient's IP address and prevents senders from knowing when (or whether) an email was opened.
+Within 6 months of launch, the share of Apple Mail users with MPP enabled crossed 90%. Today it is the default, and adoption keeps climbing as iOS users upgrade.
+## What this means for cold email
+Your reported open rate is now a mix of three things:
+- Real opens : the email was read by a human. Useful signal.
+- Apple MPP pre-loads : the email landed on an Apple Mail device. Counted as opened, but the user may not have read it (or may not have even seen the subject line in their inbox).
+- Bot opens : corporate email security scanners and inbox preview engines that automatically load pixels before a human ever sees the email.
+For typical B2B cold campaigns, around 50-65% of reported opens are now non-human . The exact share depends on how Apple-heavy your target audience is (US-based founders skew higher, European IT departments lower).
+A campaign reporting 70% opens probably has 25-30% real opens. The other 40+ percentage points are noise.
+## What does still work as a metric
+Three categories of cold email metrics are reliable in 2026:
+### 1. Bounces
+Hard bounces and soft bounces. These come back from the receiving mail server and are entirely server-to-server. No pixel involved. Bounce rate above 5% is a deliverability emergency. Aim for below 3%. Gmail Postmaster Tools exposes domain-level reputation and spam-rate signals for the same reason: server-side feedback is the only deliverability data you can trust.
+### 2. Reply rate
+A reply is a human action that travels back to your sender inbox. Cannot be faked by pre-loading. Use this as your top-of-funnel signal.
+### 3. Positive reply rate (PRR)
+Of all replies, the share that signal interest. The rest are unsubscribes, out-of-office, wrong-person, or angry "remove me". PRR catches list quality issues that reply rate alone hides. closed:in benchmark: 33% PRR is healthy.
+One tactical post per week from a live client campaign. Plus the 1-page Cold Email Infrastructure Checklist on signup.
+## The metric we report instead: opportunity-to-reply ratio (OTR)
+The single most useful cold email metric is OTR: qualified opportunities divided by total replies. It catches the failure mode that reply rate alone hides.
+A campaign with a 30% reply rate sounds amazing. Until you find out 90% of those replies are "not interested" or "remove me". Your SDRs spend their day reading no's. Pipeline does not move.
+A campaign with a 5% reply rate and 50% OTR generates more revenue than the 30% reply / 5% OTR campaign. Same input cost, very different output.
+Real numbers from a closed:in client (Verzendbazen):
+- 9,500 emails sent
+- 13.9% reply rate
+- 78 qualified opportunities from ~1,300 replies
+- 6% OTR
+- €1.56M pipeline
+For reference, agencies that obsess over reply rate alone often report 0.5-2% OTR. They are running fast on the wrong metric.
+## What to do tomorrow
+- Remove open rate from any dashboard your sales team looks at daily. It is noise.
+- Add OTR as a tracked metric. Pipe positive replies into your CRM and count qualified opps weekly.
+- If you have to report on open-related stats , use unique opens not total opens, and put a footnote explaining MPP inflation.
+- For deliverability monitoring , watch bounce rate and reply rate as your two leading indicators. If bounces creep up, your list hygiene is slipping. If replies drop, your copy or list is degrading.
+The teams still leading dashboards with open rate are not lying intentionally. They just have not noticed the metric stopped working. If you are paying an agency that reports on it, ask them about MPP and watch the response.
+### Related
+## Want closed:in to fix your outbound metrics?
+30 min discovery call. We review your dashboard, ICP and current numbers.
+
+
+---
+
+## The Cold Email Warmup Schedule That Actually Works in 2026 | closed:in
+URL: https://www.closedin.io/blog/cold-email-warmup-schedule
+
+# The cold email warmup schedule that actually works in 2026
+Most teams that try cold email and quit blame the copy. The actual killer is upstream: skipped or rushed warmup. Here is the exact 21-day warmup we run on every closed:in client inbox, plus the 4 traps that wreck deliverability.
+You buy an alternate domain. You set up two inboxes. You write copy in 20 minutes. You export a list. You hit send on 200 emails on day one. Two days later your bounce rate is 12% and your reply rate is 0.3%. You conclude cold email is dead.
+What actually happened: Gmail and Microsoft saw a brand new domain hit 200 inboxes from zero history. That is a textbook spam pattern. Both providers publish sender requirements that explicitly cover this. Google's email sender guidelines require authenticated domains, low spam-complaint rates and gradual volume ramps, and Microsoft's sender policy sets the same expectations. New domains that ignore those rules land in spam. Recipients never see them. No opens, no replies, no signal back to you that anything is wrong.
+The fix is unglamorous: 14-21 days of warmup before you touch a real prospect.
+## What warmup actually does
+Warmup tools (Instantly, Smartlead, Warmbox, MailReach) connect your inbox to a network of other inboxes also running warmup. They:
+- Send fake emails between participating accounts
+- Each fake email is automatically opened, marked "important", and sometimes replied to
+- If the email lands in spam, it is automatically moved to inbox
+From Gmail's perspective, your new inbox has human-like behaviour: people open your emails, mark them important, reply, and pull them out of spam if they land wrong. That builds sender reputation , which is the score Gmail (and Microsoft) use to decide whether your future emails go to inbox or spam.
+## The 21-day schedule we use
+Below is the exact schedule closed:in runs on every new client inbox. All days have warmup running. The "live send" column is what you can do on top of warmup with real cold emails.
+### Days 1-7: foundation
+- Warmup running, no live sends
+- Daily warmup volume: start at 5 emails/day, increment by 2 per day
+- Day 7 ends at: ~19 warmup emails/day
+### Days 8-14: pressure test
+- Warmup continues, scaling up
+- Daily warmup volume: continue incrementing
+- Day 14 ends at: ~30 warmup emails/day
+- Live sends still zero. We know you want to go faster. Do not.
+### Days 15-21: gradual live sends
+- Warmup continues at 30/day
+- Live sends: start at 5/day, increment by 3 per day
+- Day 21 ends at: 25 live emails/day, full cap reached
+### Day 22 onwards: steady state
+- Warmup stays on, drops to 15-20/day to leave room
+- Live sends: 25-30/day per inbox, never more
+- Sender reputation is healthy. Cold campaigns can run indefinitely.
+One tactical post per week from a live client campaign. Plus the 1-page Cold Email Infrastructure Checklist on signup.
+## The 4 warmup traps that wreck deliverability
+### 1. Turning warmup off after launch
+Many teams treat warmup as a setup step: turn it on for 2 weeks, then off when they start sending. Wrong. Warmup signals (other inboxes engaging with your sends) are part of what keeps your reputation healthy. Turn it off and your sender score slowly degrades over months.
+### 2. Sending past 50 emails/day per inbox
+The threshold where Gmail and Microsoft start to treat you as a bulk sender. Once flagged, you cannot recover within the same inbox. We cap at 25-30 forever, even after months of clean sending.
+### 3. Putting more than 2 inboxes on the same domain
+Domain-level sender reputation gets noisy with more inboxes. 2 is the sweet spot. If you need more sending capacity, buy another domain.
+### 4. Using shared warmup networks for client work
+The shared warmup pools that come with cheap warmup tools often include sketchy senders, churn-and-burn affiliates and bottom-tier spammers. Your reputation gets associated with theirs. Use Instantly or Smartlead with their curated networks, or run private warmup if you can.
+## How to check if your warmup is actually working
+Two tests we run after every 21-day warmup cycle:
+- mail-tester.com . Send a test email from each warmed inbox. Should score 10/10. Anything below 9/10 means SPF/DKIM/DMARC are misconfigured or content is too spammy.
+- The inbox placement test . Send 3 test emails to a Gmail address and 3 to a Microsoft address you control. Check "Promotions" tab, "Updates" tab and Spam folder. All 6 should land in Primary Inbox. If any lands in Promotions or Spam, fix before going live.
+If both tests pass, you are ready. If either fails, the problem is upstream (DNS or content), not warmup. Adding more warmup time will not fix it.
+## Why this matters in 2026 more than ever
+Gmail and Microsoft tightened their bulk sender requirements in 2024 and again in 2025. Senders without strong SPF/DKIM/DMARC + low spam complaints + consistent sender reputation get throttled or rejected outright. The warmup period is when you build that reputation. There is no shortcut.
+If you are starting outbound today, build in the 21 days. If you are already running and reply rates are mysteriously low, run the inbox placement test. Most of the time the problem is reputation, not copy.
+### Related
+## Skip the 21-day setup, hire closed:in
+We run warmup, infrastructure and live campaigns end-to-end.
+
+
+---
+
+## How to Find Prospects Not in Apollo or ZoomInfo | closed:in
+URL: https://www.closedin.io/blog/finding-prospects-not-in-apollo
+
+# How to find prospects who are not in Apollo or ZoomInfo
+Apollo, ZoomInfo and Sales Navigator are great for tech-adjacent B2B but they fail on the long tail: boutique retailers, hospitality operators, local service businesses, niche manufacturers. Here is the custom data sourcing pipeline closed:in built for Jamezz that produced 81 qualified leads in 60 days from an "unreachable" ICP.
+Apollo has roughly 275M contacts. ZoomInfo has more. Sales Navigator has the largest B2B graph in the world. Yet for certain B2B ICPs, all three return mostly noise:
+- Boutique retailers (independent fashion, home interior, jewellery)
+- Hospitality operators (restaurants, cafes, hotels, bars)
+- Local service businesses (dentists, salons, repair shops, agencies under 5 employees)
+- Niche manufacturers in specific industries (specialty food, B2B components)
+- Sole traders and family businesses in any vertical
+These ICPs share traits: small teams, often no formal LinkedIn presence beyond a personal profile, no corporate email setup (they use Gmail or business-domain personal email), and they do not voluntarily submit their info to B2B databases.
+If your client targets one of these ICPs and your sales team is "running outbound on Apollo lists", you are losing 70-80% of your TAM to a sourcing problem you did not know you had.
+## The Jamezz case study
+Jamezz is a Dutch hospitality SaaS targeting restaurant operators in NL and Belgium. Restaurant operators do not show up cleanly in Apollo. Their company emails are often info@restaurant-name.nl that bounce. Their LinkedIn profiles, if they exist, often say "Owner" without a clear job-history trail.
+Standard B2B outreach got Jamezz nowhere. So we built a custom sourcing pipeline.
+### Step 1: Google Maps scraping
+Google Maps has nearly every restaurant in the NL with name, address, phone, website, and category. We scraped Google Maps results for "restaurant" within Dutch postal codes using Outscraper (you could also use SerpAPI or a custom Apify actor). Output: a CSV of ~12,000 restaurants with website URLs.
+### Step 2: Website parsing with Claygent
+For each restaurant URL, we ran a Claygent prompt (Clay's AI agent) that visited the homepage and contact page and extracted:
+- Owner or manager name (often in "About us" or "Contact" section)
+- Email address (if listed publicly)
+- Whether they list multiple locations (signal for ICP fit: chain vs single venue)
+- Their current ordering or POS system (visible in checkout flows or footer logos)
+This worked for ~70% of restaurants. The other 30% had no useful information on their websites.
+One tactical post per week from a live client campaign. Plus the 1-page Cold Email Infrastructure Checklist on signup.
+### Step 3: Email waterfall on the names we found
+For restaurants where we got an owner/manager name but no email, we ran our standard Clay email waterfall (Findymail, then Datagma, then Apollo, then Hunter verification). For sole-proprietor restaurants this hit at ~50%. For chain restaurants with proper corporate setups it hit at ~85%.
+### Step 4: ICP scoring before campaign
+We scored each restaurant on 6 signals: location quality (city center vs suburb), social proof (review count and rating), existing tech stack visible on website, number of locations, cuisine type, and likely revenue band. We dropped the bottom 60% and kept ~3,400 high-fit restaurants for the campaign.
+### Step 5: Cold email with restaurant-specific personalisation
+Each email referenced something concrete from the data we scraped:
+- "Saw {{restaurant_name}} uses {{competitor_pos}}"
+- "Your {{cuisine_type}} menu at {{location}}"
+- "{{review_count}} reviews and a {{rating}} on Google"
+Real signal, not template fill-in. Reply rate hit 11.4% across the campaign, well above the 3% benchmark Jamezz had seen from generic outreach.
+## Result
+81 qualified leads from an unreachable ICP in 60 days. USD 190K+ pipeline. The full case study is here .
+## How to apply this to your own outbound
+The general pattern works for any "unreachable" ICP:
+- Find a public directory or map service that catalogues your ICP. Google Maps for retailers/restaurants. Industry association membership lists. Niche directories (Houzz for home services, Tripadvisor for tourism, Yell for UK trades).
+- Scrape that directory at scale. Outscraper, Apify, custom Selenium. Cost: usually €50-200 for tens of thousands of records.
+- Visit each result's website with AI agents to extract data not in the directory.
+- Run your email waterfall on the names you collected, expecting a lower hit rate than corporate B2B.
+- Score before campaigning , accepting that you will drop a big share. The remaining list is gold.
+This is more upfront work than a 5-minute Apollo search. It produces 5x the hit rate on the right ICP. If your TAM is in this long tail, the math always works in favour of custom sourcing.
+## What we will not do (and you should not either)
+- Buying scraped lists from list resellers. Quality is uniformly bad and you are paying for data you could collect cleanly yourself in a day.
+- Scraping LinkedIn directly. LinkedIn ToS, ban risk on your sourcing account. Use PhantomBuster for legitimate Sales Nav exports if needed, not direct LinkedIn scraping.
+- Spamming role-based emails ( info@ , contact@ ). High bounce rate, often goes nowhere. Better to invest in finding the personal email of the actual decision maker.
+The unreachable ICP problem is solvable. It just requires recognising that your sourcing layer is the bottleneck, not your copy or your sequencing. Most teams blame the wrong thing.
+### Related
+## Want closed:in to source your unreachable ICP?
+We build custom sourcing pipelines as part of every client engagement.

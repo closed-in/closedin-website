@@ -38,6 +38,10 @@ closed:in clients average 20+ qualified sales meetings per month, with most enga
 - [Case study: Zano](https://www.closedin.io/case-study-zano): targeting layer for a crypto company, a 17,213-domain universe narrowed to 2,253 verified decision-maker emails.
 - [Case study: Red Fox](https://www.closedin.io/case-study-redfox): an audience that exists in no database, found via social-graph discovery, then a referral campaign: 33 opportunities at an 8.47% reply rate.
 - [Case study: WeTaxus](https://www.closedin.io/case-study-wetaxus): cold email plus website visitor de-anonymisation for an accountancy firm, around 48 opportunities and booked meetings in a high-trust market.
+- [Case study: TPN](https://www.closedin.io/case-study-tpn): cold email for an AI model benchmarking platform, from 12 replies on the first campaign to 466 interested prospects out of 7,128 in four weeks after a new signal and a free first step.
+- [Case study: Sankore Labs](https://www.closedin.io/case-study-sankore): outbound as a discovery engine for a new developer matchmaking service, clarity on ICP and offer before scaling.
+- [Case study: Sustainable Motion](https://www.closedin.io/case-study-sustainable-motion): one-off data build for a career events organiser, 2,121 organisations and 3,215 validated contacts delivered in HubSpot.
+- [Case study: Advantive Advisory](https://www.closedin.io/case-study-advantive): outbound delivery partner of a go-to-market consultancy, campaigns for the consultancy and its clients in financial services, fintech and tech.
 - [Team](https://www.closedin.io/team): about Max Münstermann and Jurre Groot.
 - [Pipeline demo](https://www.closedin.io/pipeline-demo): interactive walkthrough of the outbound engine.
 - [Book a discovery call](https://meeting.closedin.io/discovery-call): 30 minutes with Max or Jurre, the founders.
@@ -66,6 +70,7 @@ Standalone Clay builds (waterfall, Claygent, CRM sync, signal scoring) run separ
 
 ## Specialised service pages
 
+- [Outbound agency for B2B](https://www.closedin.io/outbound-agency): the hub page. Cold email, LinkedIn and Clay enrichment run as one system inside your CRM, for B2B companies in Europe, the UK and the US; the market pages below are its specialisations.
 - [Cold email agency Amsterdam](https://www.closedin.io/cold-email-agency-amsterdam): cold email services for Dutch and European B2B companies, GDPR-compliant infrastructure, local market expertise.
 - [Clay agency · Solutions Partner](https://www.closedin.io/clay-agency): official Clay Solutions Partner. Production-ready Clay tables, waterfall enrichment, Claygent prompts, CRM orchestration.
 - [GTM engineering agency](https://www.closedin.io/gtm-engineering-agency): full-system go-to-market engineering across data, outbound, CRM and analytics layers.

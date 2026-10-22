@@ -383,3 +383,6 @@ html.js .docs .hero h1.hero-in { animation-name: docs-hero-rise; }   /* painted 
 /* resource pages: a button in the opening that glides to the email gate (20-10, scripts/resource-gate-button.py) */
 .docs .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .docs .gate-section { scroll-margin-top: 96px; }
+.docs--post .related-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }   /* 22-10: three posts plus the service page */
+@media (max-width: 1100px) { .docs--post .related-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .docs--post .related-grid { grid-template-columns: 1fr; } }

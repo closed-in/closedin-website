@@ -19,6 +19,31 @@ SLUGS = ["clay-agency", "cold-email-agency-amsterdam", "cold-email-agency-saas",
 HEAD_LINKS = bc.HEAD_LINKS.replace('<link rel="stylesheet" href="/assets/css/case.css">', '<link rel="stylesheet" href="/assets/css/case.css">\n    <link rel="stylesheet" href="/assets/css/landing.css">')
 
 
+# 22-10 (SEO round): the keyword that the page is for in its title and H1 (Max approved the strings in the plan); the rest of the copy is unchanged
+OVERRIDES = {
+    "gtm-engineering-agency": dict(title="GTM Engineering Agency | Go-to-Market as a System | closed:in", h1="GTM engineering agency: <b>go-to-market as a system</b>",
+                                   lead="closed:in is a GTM engineering agency in Amsterdam. We engineer the full go-to-market system: enriched data, multi-channel outbound, CRM automation and pipeline analytics. The output is a repeatable revenue engine, built on infrastructure rather than headcount.",
+                                   h2={"From manual sales<br>to engineered revenue.": "What is GTM engineering?<br>Go-to-market as a system."}),
+    "cold-email-agency-saas": dict(title="Cold Email Agency for B2B SaaS | Qualified Demos from Your ICP | closed:in", h1="Cold email agency for B2B SaaS: <b>qualified demos from your exact ICP</b>"),
+}
+# the sister services under every landing page (hub and spokes, 22-10)
+RELATED = {"clay-agency": ["outbound-agency", "gtm-engineering-agency", "cold-email-agency-saas"], "cold-email-agency-amsterdam": ["outbound-agency", "outbound-agency-uk", "clay-agency"],
+           "cold-email-agency-saas": ["outbound-agency", "clay-agency", "gtm-engineering-agency"], "gtm-engineering-agency": ["outbound-agency", "clay-agency", "cold-email-agency-saas"],
+           "outbound-agency-uk": ["outbound-agency", "outbound-agency-us", "cold-email-agency-amsterdam"], "outbound-agency-us": ["outbound-agency", "outbound-agency-uk", "cold-email-agency-saas"],
+           "pricing": ["outbound-agency", "clay-agency", "gtm-engineering-agency"]}
+NAMES = {"outbound-agency": ("Outbound agency", "Cold email, LinkedIn and Clay as one system, for B2B in Europe, the UK and the US."), "gtm-engineering-agency": ("GTM engineering agency", "Go-to-market as a system: data, outbound, CRM and analytics."),
+         "clay-agency": ("Clay agency", "Clay Solutions Partner: waterfalls, Claygent prompts and CRM orchestration."), "cold-email-agency-saas": ("Cold email for SaaS", "Qualified demos from your exact ICP for B2B SaaS."),
+         "cold-email-agency-amsterdam": ("Cold email, NL and EU", "GDPR-proof cold email for Dutch and European B2B."), "outbound-agency-uk": ("Outbound agency UK", "Cold email and LinkedIn for UK pipeline."),
+         "outbound-agency-us": ("Outbound agency US", "Outbound into the US mid-market, CAN-SPAM compliant.")}
+
+def related_row(slug):
+    cards = "".join(f'<a class="land-card land-card--link" href="{s}" data-reveal><h3>{NAMES[s][0]}<svg aria-hidden="true"><use href="#i-e"/></svg></h3><p>{NAMES[s][1]}</p></a>' for s in RELATED.get(slug, []))
+    if not cards: return ""
+    return ('<section class="psec land-sec land-related" aria-labelledby="land-related-title" data-glyphs="edges">\n    <div class="container">\n'
+            '        <div class="land-head"><div data-reveal><p class="case-sec__label"><span>+</span>Also from closed:in</p><h2 id="land-related-title" class="h2">Related services.</h2></div></div>\n'
+            f'        <div class="land-cards land-cards--3">{cards}</div>\n    </div>\n</section>')
+
+
 def new_head(old):
     head = bc.new_head(old)
     return head.replace(bc.HEAD_LINKS, HEAD_LINKS, 1)
@@ -47,6 +72,8 @@ def build(slug):
     h1 = re.search(r"<h1[^>]*>(.*?)</h1>", hero, re.S).group(1)
     h1 = text(re.sub(r'<span class="gradient">(.*?)</span>', r"<b>\1</b>", h1, flags=re.S))
     lead = text(re.search(r"</h1>\s*<p[^>]*>(.*?)</p>", hero, re.S).group(1))
+    ov = OVERRIDES.get(slug, {})
+    h1 = ov.get("h1", h1); lead = ov.get("lead", lead)
     btn = re.search(r'<a href="([^"]+)" target="_blank" class="btn-primary[^"]*"[^>]*>(.*?)</a>', hero, re.S)
     href = btn.group(1).replace("&utm", "&amp;utm")
     trust = re.findall(r'<div class="trust-num">(.*?)</div><div class="trust-lbl">(.*?)</div>', hero, re.S)
@@ -69,6 +96,7 @@ def build(slug):
     for n, s in enumerate(secs, 1):
         lab = re.search(r'<div class="section-label[^"]*">(.*?)</div>', s, re.S).group(1)
         h2 = text(re.search(r"<h2[^>]*>(.*?)</h2>", s, re.S).group(1))
+        h2 = OVERRIDES.get(slug, {}).get("h2", {}).get(h2, h2)
         lead_m = re.search(r'<p class="lead[^"]*">(.*?)</p>', s, re.S)
         sid = f"land-sec-{n}"
         if "faq-list" in s:
@@ -130,12 +158,16 @@ def build(slug):
     cta = re.search(r'<section class="cta-section">(.*?)</section>', body, re.S).group(1)
     h2 = text(re.search(r"<h2>(.*?)</h2>", cta, re.S).group(1)); cl = text(re.search(r"<p>(.*?)</p>", cta, re.S).group(1))
     a = re.search(r'<a href="([^"]+)" target="_blank" class="btn-primary"[^>]*>.*?<span class="pt-a">(.*?)</span>', cta, re.S)
+    if related_row(slug): out.append(related_row(slug))
     out.append(bp.cta_band(h2, cl, arrowless(a.group(2)), a.group(1).replace("&utm", "&amp;utm")))
     main = "\n".join(out)
     bad = [x for x in ("→", "✓", "★", "pill-text-wrap", 'class="reveal', "transition-delay", "gradient", "info-card", "case-spot") if x in main]
     assert not bad, (slug, bad)
     doc_open = old[: old.index("<head>")].replace('<html lang="en">', '<html lang="en" data-theme="light">', 1)
     assert 'data-theme="light"' in doc_open
+    if "title" in ov:
+        old_title = re.search(r"<title>(.*?)</title>", old).group(1)
+        old = old.replace(f"<title>{old_title}</title>", f"<title>{ov['title']}</title>").replace(f'<meta property="og:title" content="{old_title}">', f'<meta property="og:title" content="{ov["title"]}">')
     page = "\n".join(['<body class="land">', bp.VEIL, bp.NOSCRIPT, bp.SKIP, "", bp.SPRITE.rstrip("\n"), "", bp.nav_for(cta_slug), "", '<main id="main">', main, "</main>", "", bp.FOOTER, ""])
     if video_flag: page += bp.between(bp.INDEX, '<dialog class="lightbox" id="lightbox"', "</dialog>") + "\n"
     page += bp.tail_blocks(old) + "\n</body>\n</html>\n"
