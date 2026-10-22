@@ -461,11 +461,15 @@ html.veil-hold .veil.on { animation: none; }
 .story__mark svg { width: 20px; height: 20px; }
 .story__mark b { font-size: 36px; line-height: 1; font-weight: 500; transform: translateY(8px); }   /* 22-10: typographic opening quote on the written cards */
 .story--text .story__mark { margin-top: auto; }   /* written cards sit at the height of the video cards: the text floats centred, the name stays at the foot */
-/* 22-10: a card whose case Instantly featured links to that post (above the card's own link layer) */
-.story__ext { position: relative; z-index: 2; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--gray-100); text-decoration: none; transition: color .3s var(--ease); }
-.story__ext:hover { color: var(--ink); }
-.story__ext-in { width: 16px; height: 16px; color: #0a66c2; } .story__ext-ne { width: 12px; height: 12px; transition: transform .45s var(--ease); }
-.story__ext:hover .story__ext-ne { transform: translate(2px, -2px); }
+/* 22-10 (Max): the Instantly case study pill, Instantly blue with a glow behind it and the border beam; on the story card above the card's own link layer */
+.ipill { display: inline-flex; align-items: center; gap: 8px; height: 34px; padding: 0 12px 0 11px; border-radius: var(--r-pill); background: linear-gradient(135deg, #3485FA, #1F5FDC); color: #fff; font-size: 12.5px; font-weight: 500; letter-spacing: .01em; text-decoration: none; box-shadow: 0 10px 26px -4px rgba(37, 99, 235, .6), 0 1px 0 rgba(255, 255, 255, .22) inset; transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+.ipill:hover { transform: translateY(-1px); box-shadow: 0 14px 32px -4px rgba(37, 99, 235, .7), 0 1px 0 rgba(255, 255, 255, .22) inset; }
+.ipill__bolt { width: 11px; height: 14px; display: block; }
+.ipill__ne { width: 12px; height: 12px; transition: transform .45s var(--ease); }
+.ipill:hover .ipill__ne { transform: translate(2px, -2px); }
+.ipill.beam::after { background: conic-gradient(from var(--beam), transparent 0deg 250deg, rgba(255, 255, 255, .25) 300deg, rgba(255, 255, 255, .85) 338deg, #fff 352deg, transparent 360deg); }
+.story__ext { position: relative; z-index: 2; align-self: flex-start; }
+.story--text .story__logo { height: auto; max-height: 34px; max-width: 150px; opacity: .85; }   /* 22-10 (Max): no initials disc on the written cards, the client logo bigger instead */
 @media (prefers-reduced-motion: reduce) { .play::before { animation: none; } }
 
 /* Tags (shared: team cards, the vault, the written cases on the cases page) */

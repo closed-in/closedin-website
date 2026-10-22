@@ -16,7 +16,7 @@ NEXT_ORDER = ["gen-zero", "zano", "verzendbazen", "jamezz", "mistertafel", "endr
 # 22-10: the four cases written from the video testimonials (build-case-pages-extra.py) are not in git's old pages; their titles and logos live here so Next case can point at them
 EXTRA_TITLES = {"tpn": "How TPN got <b>500+ positive replies</b> from cold email", "sankore": "Validation before scale: <b>a clear ICP</b> for Sankore Labs",
                 "sustainable-motion": "From loose Excel lists to <b>one HubSpot system</b> for Sustainable Motion", "advantive": "The outbound partner behind <b>a go-to-market consultancy</b>"}
-EXTRA_LOGOS = {"tpn": ("/assets/img/logos-web/tpn-sm-v2.webp", "TPN", "315", "120"), "sankore": ("/assets/img/logos-web/sankore-sm.webp", "Sankore Labs", "400", "49"),
+EXTRA_LOGOS = {"tpn": ("/assets/img/logos-web/tpn-sm-v3.webp", "TPN", "315", "120"), "sankore": ("/assets/img/logos-web/sankore-sm.webp", "Sankore Labs", "400", "49"),
                "sustainable-motion": ("/assets/img/logos-web/sustainable-motion-sm.webp", "Sustainable Motion", "339", "120"), "advantive": ("/assets/img/logos-web/advantive-sm-v2.webp", "Advantive Advisory", "363", "143")}
 # 22-10 (Bing: "many of your page titles are too short"): what the case delivered, in the title
 CASE_TITLES = {"endresz": "Endresz Case Study: 247 Boutique Conversations Across Europe | closed:in", "gen-zero": "Gen-Zero Case Study: 142 Opportunities in 13 Weeks | closed:in",
@@ -93,8 +93,8 @@ EXT_LABEL = 'Featured by Instantly as a case study'
 def ext_line(slug):
     u = EXT_POSTS.get(slug)
     if not u: return ""
-    return (f'<a class="case-quote__ext" href="{u}" target="_blank" rel="noopener"><svg class="case-quote__ext-in" aria-hidden="true"><use href="#i-in"/></svg>'
-            f'<span>{EXT_LABEL}</span><svg class="case-quote__ext-ne" aria-hidden="true"><use href="#i-ne"/></svg></a>')
+    return (f'<a class="case-quote__ext ipill beam" href="{u}" target="_blank" rel="noopener"><img class="ipill__bolt" src="/assets/img/logos-web/instantly-bolt.webp" alt="" width="52" height="64">'
+            f'<span>Instantly case study</span><svg class="ipill__ne" aria-hidden="true"><use href="#i-ne"/></svg></a>')
 
 
 def next_case(slug):
