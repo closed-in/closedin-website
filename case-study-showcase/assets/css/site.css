@@ -461,6 +461,11 @@ html.veil-hold .veil.on { animation: none; }
 .story__mark svg { width: 20px; height: 20px; }
 .story__mark b { font-size: 36px; line-height: 1; font-weight: 500; transform: translateY(8px); }   /* 22-10: typographic opening quote on the written cards */
 .story--text .story__mark { margin-top: auto; }   /* written cards sit at the height of the video cards: the text floats centred, the name stays at the foot */
+/* 22-10: a card whose case Instantly featured links to that post (above the card's own link layer) */
+.story__ext { position: relative; z-index: 2; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--gray-100); text-decoration: none; transition: color .3s var(--ease); }
+.story__ext:hover { color: var(--ink); }
+.story__ext-in { width: 16px; height: 16px; color: #0a66c2; } .story__ext-ne { width: 12px; height: 12px; transition: transform .45s var(--ease); }
+.story__ext:hover .story__ext-ne { transform: translate(2px, -2px); }
 @media (prefers-reduced-motion: reduce) { .play::before { animation: none; } }
 
 /* Tags (shared: team cards, the vault, the written cases on the cases page) */

@@ -85,6 +85,18 @@ def case_title(slug):
     return re.sub(r"\s+", " ", h1).strip()
 
 
+# 22-10 (Max): the cases Instantly featured link to that LinkedIn post, on the card and under the quote
+EXT_POSTS = {'gen-zero': 'https://www.linkedin.com/posts/max-m%C3%BCnstermann-instantly-case-study-ugcPost-7470923379399901184-qDbT/', 'jamezz': 'https://www.linkedin.com/posts/max-m%C3%BCnstermann-instantly-case-study-ugcPost-7379479814598180864-dqWC/'}
+EXT_LABEL = 'Featured by Instantly as a case study'
+
+
+def ext_line(slug):
+    u = EXT_POSTS.get(slug)
+    if not u: return ""
+    return (f'<a class="case-quote__ext" href="{u}" target="_blank" rel="noopener"><svg class="case-quote__ext-in" aria-hidden="true"><use href="#i-in"/></svg>'
+            f'<span>{EXT_LABEL}</span><svg class="case-quote__ext-ne" aria-hidden="true"><use href="#i-ne"/></svg></a>')
+
+
 def next_case(slug):
     """20-10: a card to the next case before the call to action, so a reader goes on to another story"""
     n = NEXT_ORDER[(NEXT_ORDER.index(slug) + 1) % len(NEXT_ORDER)]
@@ -175,7 +187,7 @@ def build(slug):
         sec += ["    </div>", "</section>"]
         out.append("\n".join(sec))
         if n == 2 and quote:
-            out.append(f'<section class="psec case-quote" aria-label="What the client says">\n    <div class="container">\n        <figure class="case-quote__card" data-reveal><svg class="case-quote__mark" aria-hidden="true" viewBox="0 0 32 24"><path d="M0 24V14C0 6 4 1 12 0l1 3c-4 1.4-6 4.4-6 8h5v13H0Zm19 0V14c0-8 4-13 12-14l1 3c-4 1.4-6 4.4-6 8h5v13H19Z" fill="currentColor"/></svg><blockquote>{text(quote.group(1))}</blockquote><figcaption>{text(quote.group(2))}</figcaption></figure>\n    </div>\n</section>')
+            out.append(f'<section class="psec case-quote" aria-label="What the client says">\n    <div class="container">\n        <figure class="case-quote__card" data-reveal><svg class="case-quote__mark" aria-hidden="true" viewBox="0 0 32 24"><path d="M0 24V14C0 6 4 1 12 0l1 3c-4 1.4-6 4.4-6 8h5v13H0Zm19 0V14c0-8 4-13 12-14l1 3c-4 1.4-6 4.4-6 8h5v13H19Z" fill="currentColor"/></svg><blockquote>{text(quote.group(1))}</blockquote><figcaption>{text(quote.group(2))}</figcaption>{ext_line(slug)}</figure>\n    </div>\n</section>')
     # ---- call to action
     cta = re.search(r'<section class="bottom-cta">(.*?)</section>', body, re.S).group(1)
     h2 = text(re.search(r"<h2>(.*?)</h2>", cta, re.S).group(1)); lead = text(re.search(r"<p>(.*?)</p>", cta, re.S).group(1))
