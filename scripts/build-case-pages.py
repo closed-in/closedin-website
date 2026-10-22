@@ -12,7 +12,17 @@ bp = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(bp)
 ROOT = bp.ROOT
 SRC_REV = "fada808"
 SLUGS = ["endresz", "gen-zero", "jamezz", "mistertafel", "redfox", "verzendbazen", "wetaxus", "zano"]
-NEXT_ORDER = ["gen-zero", "zano", "verzendbazen", "jamezz", "mistertafel", "endresz", "redfox", "wetaxus"]   # the written cases in the order of the Cases page, then the ones with a video; the last points back to the first
+NEXT_ORDER = ["gen-zero", "zano", "verzendbazen", "jamezz", "mistertafel", "endresz", "tpn", "sankore", "sustainable-motion", "advantive", "redfox", "wetaxus"]   # the written cases in the order of the Cases page, then the ones with a video (22-10: plus the four new video cases); the last points back to the first
+# 22-10: the four cases written from the video testimonials (build-case-pages-extra.py) are not in git's old pages; their titles and logos live here so Next case can point at them
+EXTRA_TITLES = {"tpn": "How TPN got <b>500+ positive replies</b> from cold email", "sankore": "Validation before scale: <b>a clear ICP</b> for Sankore Labs",
+                "sustainable-motion": "From loose Excel lists to <b>one HubSpot system</b> for Sustainable Motion", "advantive": "The outbound partner behind <b>a go-to-market consultancy</b>"}
+EXTRA_LOGOS = {"tpn": ("/assets/img/logos-web/tpn-sm-v2.webp", "TPN", "315", "120"), "sankore": ("/assets/img/logos-web/sankore-sm.webp", "Sankore Labs", "400", "49"),
+               "sustainable-motion": ("/assets/img/logos-web/sustainable-motion-sm.webp", "Sustainable Motion", "339", "120"), "advantive": ("/assets/img/logos-web/advantive-sm-v2.webp", "Advantive Advisory", "363", "143")}
+# 22-10 (SEO round): the service page that fits each case, linked under Next case
+SERVICE = {"endresz": ("/outbound-agency", "Outbound agency"), "gen-zero": ("/cold-email-agency-amsterdam", "Cold email agency, NL and EU"), "jamezz": ("/clay-agency", "Clay agency"),
+           "mistertafel": ("/cold-email-agency-amsterdam", "Cold email agency, NL and EU"), "redfox": ("/outbound-agency-uk", "Outbound agency UK"), "verzendbazen": ("/cold-email-agency-amsterdam", "Cold email agency, NL and EU"),
+           "wetaxus": ("/gtm-engineering-agency", "GTM engineering agency"), "zano": ("/clay-agency", "Clay agency"), "tpn": ("/outbound-agency", "Outbound agency"),
+           "sankore": ("/gtm-engineering-agency", "GTM engineering agency"), "sustainable-motion": ("/clay-agency", "Clay agency"), "advantive": ("/outbound-agency-us", "Outbound agency US")}
 INDEX = bp.INDEX
 
 HEAD_LINKS = '''    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin-wght-normal.woff2" crossorigin>
@@ -47,6 +57,7 @@ def text(s):
 
 def wall_logo(slug):
     """the client logo, as the homepage wall shows it"""
+    if slug in EXTRA_LOGOS: return EXTRA_LOGOS[slug]
     m = re.search(r'<a class="wcell[^"]*" href="case-study-' + re.escape(slug) + r'"><img src="([^"]+)" alt="([^"]*)" loading="lazy" width="(\d+)" height="(\d+)">', INDEX)
     assert m, slug
     return m.group(1), m.group(2), m.group(3), m.group(4)
@@ -60,6 +71,7 @@ def story_video(name):
 
 def case_title(slug):
     """the headline of a case page as its hero shows it (two tones: <b> for the strong part)"""
+    if slug in EXTRA_TITLES: return EXTRA_TITLES[slug]
     old = subprocess.run(["git", "-C", str(ROOT.parent), "show", f"{SRC_REV}:case-study-showcase/case-study-{slug}.html"], capture_output=True, text=True, check=True).stdout
     h1 = re.search(r"<h1>(.*?)</h1>", re.search(r'<section class="hero" id="hero">(.*?)</section>', old, re.S).group(1), re.S).group(1)
     h1 = re.sub(r'<span class="gradient">(.*?)</span>', r"<b>\1</b>", h1, flags=re.S)
@@ -76,7 +88,7 @@ def next_case(slug):
             f'        <a class="case-next__card" href="/case-study-{n}" data-reveal><span class="case-next__top"><span class="case-next__label">Next case</span>'
             f'<img class="case-next__logo" src="{src}" alt="{alt}" width="{w}" height="{h}" loading="lazy" decoding="async"></span>'
             f'<span class="case-next__title">{case_title(n)}</span><span class="case-next__go">Read the case<svg aria-hidden="true"><use href="#i-e"/></svg></span></a>\n'
-            f'        <a class="case-next__all" href="/case-studies">All case studies</a>\n    </div>\n</section>')
+            f'        <p class="case-next__links"><a class="case-next__all" href="/case-studies">All case studies</a><span class="case-next__sep" aria-hidden="true">&middot;</span><span class="case-next__svc">Service: <a class="case-next__all" href="{SERVICE[slug][0]}">{SERVICE[slug][1]}</a></span></p>\n    </div>\n</section>')
 
 
 def counter(el_inner, attrs):

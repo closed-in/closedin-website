@@ -471,3 +471,10 @@ html.veil-hold .veil.on { animation: none; }
 .story__outcome-go::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; transition: transform .42s var(--ease); }
 .story__outcome--link:hover .story__outcome-go::before { transform: scaleX(1); }
 .story__outcome-go svg { width: 13px; height: 13px; }
+/* 22-10: the body of a video testimonial card links to the written case (the play button on the poster still opens the video) */
+.story__body { position: relative; }
+.story__link { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.story__link:focus-visible { outline: none; box-shadow: var(--focus); }
+.story__read { display: inline-flex; align-items: center; gap: 8px; margin-top: 2px; font-size: 14px; font-weight: 500; color: var(--ink); }
+.story__read svg { width: 14px; height: 14px; transition: transform .45s var(--ease); }
+.story:hover .story__read svg { transform: translateX(3px); }

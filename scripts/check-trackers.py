@@ -31,6 +31,9 @@ PAGES = ["index.html", "case-studies.html", "resources.html", "team.html",   # p
          "clay-agency.html", "cold-email-agency-amsterdam.html", "cold-email-agency-saas.html", "gtm-engineering-agency.html", "outbound-agency-uk.html", "outbound-agency-us.html", "pricing.html",   # landing pages converted 20-10
          "resources/apollo-booleans.html", "resources/sales-nav-booleans.html", "resources/claude-code-sales.html", "resources/icp-scorecard.html", "resources/pre-launch-audit.html",
          "blog/cold-email-open-rate-vanity-metric.html", "blog/cold-email-warmup-schedule.html", "blog/finding-prospects-not-in-apollo.html", "privacy.html"]   # detail pages converted 20-10
+# 22-10: pages that do not exist on main yet; their tracker, cookie and Leadboxer blocks are compared with this reference page from main
+REF = {"case-study-tpn.html": "case-study-endresz.html", "case-study-sankore.html": "case-study-endresz.html", "case-study-sustainable-motion.html": "case-study-endresz.html",
+       "case-study-advantive.html": "case-study-endresz.html", "outbound-agency.html": "outbound-agency-uk.html"}
 LD = re.compile(r'<script type="application/ld\+json"[^>]*>.*?</script>', re.S)
 def check(name, main, new):
     fails = 0
@@ -45,7 +48,7 @@ def check(name, main, new):
             if a and b:
                 import difflib
                 for line in list(difflib.unified_diff(a.splitlines(), b.splitlines(), "main", "new", lineterm=""))[:40]: print("   ", line)
-    if name != "index.html":
+    if name != "index.html" and name not in REF:
         ok = LD.findall(main) == LD.findall(new)
         print(f"{'PASS' if ok else 'FAIL'}  {name}: json-ld blocks  ({len(LD.findall(main))} in main, {len(LD.findall(new))} in new)")
         fails += 0 if ok else 1
@@ -55,8 +58,8 @@ if len(sys.argv) > 2 and sys.argv[1] == "--url":
     main = subprocess.run(["git", "-C", str(root), "show", "main:case-study-showcase/index.html"], capture_output=True, text=True, check=True).stdout
     fails += check("index.html", main, urllib.request.urlopen(sys.argv[2], timeout=20).read().decode("utf-8"))
 else:
-    for name in PAGES:
-        main = subprocess.run(["git", "-C", str(root), "show", f"main:case-study-showcase/{name}"], capture_output=True, text=True, check=True).stdout
+    for name in PAGES + [n for n in REF if (root / "case-study-showcase" / n).exists()]:
+        main = subprocess.run(["git", "-C", str(root), "show", f"main:case-study-showcase/{REF.get(name, name)}"], capture_output=True, text=True, check=True).stdout
         fails += check(name, main, (root / "case-study-showcase" / name).read_text(encoding="utf-8"))
 print("ALL PASS" if not fails else f"{fails} FAILED")
 sys.exit(1 if fails else 0)

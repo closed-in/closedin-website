@@ -11,7 +11,8 @@ PAGES = ["index.html", "case-studies.html", "resources.html", "team.html", "blog
          "case-study-endresz.html", "case-study-gen-zero.html", "case-study-jamezz.html", "case-study-mistertafel.html", "case-study-redfox.html", "case-study-verzendbazen.html", "case-study-wetaxus.html", "case-study-zano.html",   # case pages converted 20-10
          "clay-agency.html", "cold-email-agency-amsterdam.html", "cold-email-agency-saas.html", "gtm-engineering-agency.html", "outbound-agency-uk.html", "outbound-agency-us.html", "pricing.html",   # landing pages converted 20-10
          "resources/apollo-booleans.html", "resources/sales-nav-booleans.html", "resources/claude-code-sales.html", "resources/icp-scorecard.html", "resources/pre-launch-audit.html",
-         "blog/cold-email-open-rate-vanity-metric.html", "blog/cold-email-warmup-schedule.html", "blog/finding-prospects-not-in-apollo.html", "privacy.html"]   # detail pages converted 20-10
+         "blog/cold-email-open-rate-vanity-metric.html", "blog/cold-email-warmup-schedule.html", "blog/finding-prospects-not-in-apollo.html", "privacy.html",   # detail pages converted 20-10
+         "case-study-tpn.html", "case-study-sankore.html", "case-study-sustainable-motion.html", "case-study-advantive.html"]   # video cases written 22-10
 files = [root / p for p in PAGES] + [root / "assets/css" / c for c in ("site.css", "home.css", "pages.css", "docs.css", "case.css", "landing.css")] + [root / "assets/js" / j for j in ("site.js", "pages.js", "mark-3d.js", "mark-dark.js", "stack.js")]
 files = [f for f in files if f.exists()]
 ALLOW = ("Apple killed open rate. Most agencies still report on it.", "closed:in dropped open rate from client reports two years ago.",

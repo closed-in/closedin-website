@@ -70,7 +70,9 @@
 .case-next__go { display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 22px; border-radius: var(--r-md); background: var(--accent); color: var(--accent-ink); font-size: 16px; white-space: nowrap; }
 .case-next__go svg { width: 16px; height: 16px; transition: transform .45s var(--ease); }
 .case-next__card:hover .case-next__go svg { transform: translateX(3px); }
-.case-next__all { display: inline-block; margin-top: 18px; font-size: 15px; color: var(--gray-100); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; transition: color .2s; }
+.case-next__links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 18px 0 0; font-size: 15px; color: var(--gray-100); }
+.case-next__sep { color: var(--gray-90); }
+.case-next__all { display: inline-block; font-size: 15px; color: var(--gray-100); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; transition: color .2s; }
 .case-next__all:hover { color: var(--ink); }
 
 /* ---------- Narrow screens ---------- */
