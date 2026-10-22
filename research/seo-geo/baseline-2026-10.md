@@ -5,6 +5,7 @@ Gestart 22 oktober 2026. Doel: hoger op "GTM engineering agency", "go-to-market"
 ## 0. Stand 22-10 (uit Max' schermafbeeldingen)
 
 - Search Console en Bing Webmaster Tools zijn al gekoppeld. Sitemap ingediend op 5 mei 2026, laatst gelezen 14 oktober, 37 pagina's ontdekt, 21 geïndexeerd, 167 niet geïndexeerd. Bing: 318 vertoningen en 0 klikken sinds augustus; waarschuwingen: IndexNow niet ingesteld (de sleutel staat op de branch, live na de merge), te weinig inkomende links van goede domeinen (off-site), veel te korte paginatitels (22-10 verlengd).
+- Bing AI Performance (Copilot en partners, 3 maanden t/m 22-10): 149 citaties, de eerste half augustus, piek eind september. 133 van de 149 gaan naar /resources/gtm-stack, de rest naar apollo-booleans (6), sales-nav-booleans (5) en /clay-agency (5); geen andere dienstpagina wordt geciteerd. De vragen waarop Copilot ons aanhaalt: "2026 pricing GTM stack tools enrichment" (38 citaties, aandeel 38,78%) en "best GTM stack tools 2026 pricing enrichment" (7, aandeel 24,14%). Bing deelt de site in bij het onderwerp Enterprise Software (ERP, CRM) en stelt als kansen alleen CRM-software-zoekopdrachten voor: dat is de classificatie van de stackpagina, niet onze markt, dus niet najagen. Les: concrete tool- en prijslijsten worden geciteerd, dienstpagina's niet. Daarom kreeg de stackpagina 22-10 kaarten naar de GTM-dienst, de Clay-dienst en pricing, en is de tooltelling rechtgezet (24, niet 32).
 - Gevonden bij het nalopen: `closedin.io` zonder www geeft een 200 in plaats van een redirect naar `www.closedin.io`, dus elke pagina bestaat voor Google twee keer. Redirect toegevoegd in `vercel.json` (live na de merge); in het Vercel-dashboard kan hij eerder (Domains, closedin.io, Redirect to www.closedin.io).
 - Nog uit te zoeken: de redenen achter de 167 niet-geïndexeerde URL's (Search Console, Pagina's, Volledig rapport). Verwacht: dubbele niet-www-pagina's, oude `.html`- en `/blog/`-adressen die doorverwijzen, oude Framer-adressen die 404 geven.
 
@@ -41,12 +42,16 @@ Gestart 22 oktober 2026. Doel: hoger op "GTM engineering agency", "go-to-market"
 | Gemiddelde positie van /gtm-engineering-agency en /outbound-agency | Search Console, Pagina's | | | |
 | Pagina's geïndexeerd (Google) | Search Console, Pagina's | | | |
 | Pagina's geïndexeerd (Bing) | Bing Webmaster, Site Explorer | | | |
+| Citaties door Copilot, 3 maanden | Bing Webmaster, AI Performance, Citations & Pages | 149 | | |
+| Pagina's die Copilot citeert | idem, lijst Pages | 4 (gtm-stack 133) | | |
 | Sessies uit kanaal "AI" | GA4, Verkeersacquisitie | | | |
 | Boekingsklikken uit kanaal "AI" | GA4, event book_call_click, dimensie kanaal | | | |
 
 ## 3. Maandelijkse AI-check (eerste werkdag van de maand, een kwartier)
 
 Stel elke vraag in ChatGPT (met zoeken aan), Perplexity en Google AI Mode. Noteer: wordt closed:in genoemd (ja/nee), op welke plek, en welke bron de tool citeert. Nieuwe venster of incognito, zodat de geschiedenis niet meespeelt.
+
+Noteer dezelfde dag ook de Bing-cijfers: Bing Webmaster Tools, AI Performance, tabblad Citations & Pages, periode 30 D: totaal citaties en de lijst Pages (welke pagina's Copilot aanhaalt). Dat is de enige harde teller voor AI-vermeldingen die we hebben; de rest is handwerk.
 
 1. What is a GTM engineering agency and which ones are good in Europe?
 2. Best GTM engineering agency in the Netherlands

@@ -173,6 +173,27 @@ def glyph_wrap(s, start_marker, preset, nth=0):
     return s[:idx] + f'<div class="dglyph" data-glyphs="{preset}">\n' + block + "\n</div>" + s[idx + span[1]:]
 
 
+GTM_STACK_RELATED = '''<div class="dglyph" data-glyphs="corners">
+<section class="related">
+    <h3>Related</h3>
+    <div class="related-grid">
+        <a href="/gtm-engineering-agency" class="related-card">
+            <div class="related-card-meta">Service</div>
+            <h4>GTM engineering agency: this stack, built and run for your ICP</h4>
+        </a>
+        <a href="/clay-agency" class="related-card">
+            <div class="related-card-meta">Service</div>
+            <h4>Clay agency: the enrichment and orchestration layer of the stack</h4>
+        </a>
+        <a href="/pricing" class="related-card">
+            <div class="related-card-meta">Pricing</div>
+            <h4>Outbound from EUR 4K to 8K per month, priced by complexity, not seat count</h4>
+        </a>
+    </div>
+</section>
+</div>'''   # 22-10 (SEO round): Copilot cites this page more than all others together (Bing AI Performance), so the service pages and pricing sit next to it
+
+
 def page_specific(name, c):
     if name == "blog/index.html":
         c = c.replace('<span class="post-cta">Read post →</span>', '<span class="post-cta">Read post<span class="alink__box" aria-hidden="true"><svg><use href="#i-e"/></svg></span></span>')
@@ -203,6 +224,9 @@ def page_specific(name, c):
         c = glyph_wrap(c, '<section class="related">', "corners")
         a = c.index('<div class="hero-meta'); b = c.index("</div>", a)
         c = c[:a] + c[a:b].replace("<span>·</span>", '<span class="sep" aria-hidden="true">·</span>') + c[b:]
+    if name == "resources/gtm-stack.html":
+        assert c.count('<section class="cta-dark theme-dark"') == 1
+        c = c.replace('<section class="cta-dark theme-dark"', GTM_STACK_RELATED + '\n\n<section class="cta-dark theme-dark"')
     if name == "playbook.html":
         c = glyph_wrap(c, '<section class="section">', "right", nth=1)
     return c
@@ -244,7 +268,12 @@ def build(name):
     body = "\n".join(['<body class="docs">', bp.VEIL, bp.NOSCRIPT, bp.SKIP, "", bp.SPRITE.rstrip("\n"), "", nav, "", '<main id="main">', c, "</main>", "", FOOTER, ""])
     if scripts: body += scripts + "\n"
     body += tail(old) + "\n</body>\n</html>\n"
-    return doc_open + new_head(old) + "\n" + body
+    head = new_head(old)
+    if name == "resources/gtm-stack.html":   # 22-10: the page lists 24 tools (the old description said 32); the schema carries the date of that correction
+        for a, b in [("AI. 32 tools.", "AI. 24 tools."), ('"datePublished": "2026-05-22", "inLanguage"', '"datePublished": "2026-05-22", "dateModified": "2026-10-22", "inLanguage"')]:
+            assert head.count(a) == 1, a
+            head = head.replace(a, b)
+    return doc_open + head + "\n" + body
 
 
 if __name__ == "__main__":
