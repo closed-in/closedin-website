@@ -529,3 +529,13 @@ html.js h1.hero-in { animation-name: hero-rise; }
 /* hero pills: one shared beam phase and a calmer light on black (the staggered, bright beams were distracting) */
 .hero--dark .beam::after { animation-delay: 0s; animation-duration: 6s; background: conic-gradient(from var(--beam), transparent 0deg 262deg, rgba(114, 193, 255, .18) 310deg, rgba(114, 193, 255, .6) 342deg, rgba(255, 255, 255, .45) 355deg, transparent 360deg); }
 /* the award pill has the same beam as the other hero pills (Max 19-10: the halo was too bright); the service pills under the form have none (site.js) */
+
+/* Mid-page call (22-10): one card between the services and how it works, light, the same pill, button and link as the rest */
+.cta-mid { padding: clamp(24px, 4vw, 48px) 0 0; }
+.cta-mid__card { display: flex; align-items: center; justify-content: space-between; gap: 32px 48px; padding: clamp(28px, 4vw, 48px); border-radius: 24px; background: var(--white); box-shadow: var(--neu-card); }
+.cta-mid__copy { max-width: 56ch; }
+.cta-mid__copy .h2 { margin: 16px 0 0; font-size: clamp(26px, 3vw, 40px); max-width: 18ch; }
+.cta-mid__copy .small { margin: 14px 0 0; }
+.cta-mid__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 26px; flex: none; }
+@media (max-width: 860px) { .cta-mid__card { flex-direction: column; align-items: flex-start; } }
+
