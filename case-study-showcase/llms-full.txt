@@ -13,25 +13,35 @@ Cold email, LinkedIn and Clay enrichment, run as one engine inside your CRM. Cre
 Trusted by 50+ B2B companies across Europe and the US
 Client stories
 ## Founders on what changed after closed:in
-Founders and marketers who run their outbound through us, on video. Their words, their numbers.
-> The first week we already had amazing results. Reply rate went through the roof.
-Ronne van Rijn Marketing, Endresz
+Founders and marketers who run their outbound through us, on video and in writing. Their words, their numbers.
 > I really like your hands-on approach. Digging in, trying to really understand the business and then finding creative ways to reach customers.
 4% positive reply rate and 500+ positive replies to refine the offer
 Mikel Palokaj Co-founder, True Performance Network
-> It brought about clarity in the early discovery phase. Definitely.
-Validation and a clear ICP for a new developer matchmaking service
-Leva Konaté Founder, Sankore Labs
-> I really noticed that you simply wanted to deliver quality and go all in for it.
-From loose Excel lists to one HubSpot system with thousands of new contacts and phone numbers
-Laura Wolf Event manager, Sustainable Motion · translated from Dutch
+> The first week we already had amazing results. Reply rate went through the roof.
+Ronne van Rijn Marketing, Endresz
 > I have worked with so many vendors, so I know what good looks like. These guys just know how to run and lead an engagement.
 Partner for the outbound of her consultancy's clients in financial services, fintech and tech
 Shirin Danesh Founder, Advantive Advisory
+> It brought about clarity in the early discovery phase. Definitely.
+Validation and a clear ICP for a new developer matchmaking service
+Leva Konaté Founder, Sankore Labs
 > You were definitely willing to go the extra step, and to think creatively about solutions.
 Nick Verhulsdonck Co-Owner, WeTaxus · translated from Dutch
+> I really noticed that you simply wanted to deliver quality and go all in for it.
+From loose Excel lists to one HubSpot system with thousands of new contacts and phone numbers
+Laura Wolf Event manager, Sustainable Motion · translated from Dutch
 > We tried outbound ourselves for months with minimal results. closed:in came in, rebuilt everything from scratch, and within 4 weeks we had qualified meetings on the calendar.
 Zen Alex Founder, Red Fox Agency
+> With that first list, it just worked really well. 35 opportunities out of it. That is a lot, and that is just good. We can see it just works now.
+DT Daniel Tholenaar Gen-Zero
+An audience no data vendor sells: online gambling operators that accept crypto. Found, qualified and verified from scratch.
+Z Zano Written case
+> closed:in built us an outbound machine we could never have created internally. Within weeks we had conversations booked with exactly the type of e-commerce founders we wanted to reach. The campaigns performed so well that we had to expand our team just to keep up with demand.
+V Verzendbazen Founder
+> closed:in unlocked an ICP we couldn't reach through normal channels. The pipeline volume was so high that we delayed international expansion just to handle the demand.
+J Jamezz Founder
+> closed:in cracked the part of our market we couldn't reach on our own: physical retail stores. They turned a slow word-of-mouth channel into a predictable pipeline of purchasing managers booking meetings every week. Within months we had real traction across the Netherlands.
+M Mistertafel Founder
 The stack
 ## The tools we run on, and the CRMs we plug into.
 ### Clay Artisan Solutions Partner, 2026.
@@ -166,7 +176,7 @@ Qualified demos from your exact ICP for B2B SaaS founders and sales leaders.
 ## Documented pipeline, case by case.
 ### 78 opportunities with a 13.9% reply rate
 ### 247 boutique conversations across Europe
-All eight written cases and seven client videos are on the case studies page .
+All eight written cases and six client videos are on the case studies page .
 05 Frequently asked
 ## Questions, answered.
 **Q:** What does an outbound agency do?
@@ -575,23 +585,23 @@ Real results from real campaigns
 We don't just send emails. We engineer meetings. Here's the proof.
 Client stories
 ## Founders on what changed after closed:in
-Founders and marketers who run their outbound through us, on video. Their words, their numbers.
-> The first week we already had amazing results. Reply rate went through the roof.
-Ronne van Rijn Marketing, Endresz
+Founders and marketers who run their outbound through us, on video and in writing. Their words, their numbers.
 > I really like your hands-on approach. Digging in, trying to really understand the business and then finding creative ways to reach customers.
 4% positive reply rate and 500+ positive replies to refine the offer
 Mikel Palokaj Co-founder, True Performance Network
-> It brought about clarity in the early discovery phase. Definitely.
-Validation and a clear ICP for a new developer matchmaking service
-Leva Konaté Founder, Sankore Labs
-> I really noticed that you simply wanted to deliver quality and go all in for it.
-From loose Excel lists to one HubSpot system with thousands of new contacts and phone numbers
-Laura Wolf Event manager, Sustainable Motion · translated from Dutch
-> You were definitely willing to go the extra step, and to think creatively about solutions.
-Nick Verhulsdonck Co-Owner, WeTaxus · translated from Dutch
+> The first week we already had amazing results. Reply rate went through the roof.
+Ronne van Rijn Marketing, Endresz
 > I have worked with so many vendors, so I know what good looks like. These guys just know how to run and lead an engagement.
 Partner for the outbound of her consultancy's clients in financial services, fintech and tech
 Shirin Danesh Founder, Advantive Advisory
+> It brought about clarity in the early discovery phase. Definitely.
+Validation and a clear ICP for a new developer matchmaking service
+Leva Konaté Founder, Sankore Labs
+> You were definitely willing to go the extra step, and to think creatively about solutions.
+Nick Verhulsdonck Co-Owner, WeTaxus · translated from Dutch
+> I really noticed that you simply wanted to deliver quality and go all in for it.
+From loose Excel lists to one HubSpot system with thousands of new contacts and phone numbers
+Laura Wolf Event manager, Sustainable Motion · translated from Dutch
 > We tried outbound ourselves for months with minimal results. closed:in came in, rebuilt everything from scratch, and within 4 weeks we had qualified meetings on the calendar.
 Zen Alex Founder, Red Fox Agency
 ### 142 opportunities from 27,455 contacts in 13 weeks

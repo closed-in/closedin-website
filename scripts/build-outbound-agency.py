@@ -77,7 +77,7 @@ def main_html():
     out.append("\n".join(['<section class="psec land-sec" id="proof" aria-labelledby="land-sec-4" data-glyphs="right">', '    <div class="container">',
         '        <div class="land-head"><div data-reveal><p class="case-sec__label"><span>04</span>Proof</p><h2 id="land-sec-4" class="h2">Documented pipeline,<br>case by case.</h2></div></div>',
         '        <div class="land-cases land-cases--2">' + "".join(cases) + '</div>',
-        '        <p class="land-note" data-reveal>All eight written cases and seven client videos are on the <a href="case-studies">case studies page</a>.</p>',
+        '        <p class="land-note" data-reveal>All eight written cases and six client videos are on the <a href="case-studies">case studies page</a>.</p>',
         '    </div>', '</section>']))
     # 05 faq
     faq = "\n".join(f'            <details class="faq-item"{" open" if k == 0 else ""}>\n                <summary><span>{q}</span><span class="pm" aria-hidden="true"><svg><use href="#i-plus"/></svg></span></summary>\n                <div class="faq-answer">{a}</div>\n            </details>' for k, (q, a) in enumerate(FAQ))

@@ -456,8 +456,11 @@ html.veil-hold .veil.on { animation: none; }
 .story__logo { height: 18px; width: auto; filter: brightness(0); opacity: .7; }
 .story--text .story__body { padding-top: 26px; gap: 20px; }
 .story--text .story__quote { font-size: 21px; }
+.story__quote--plain::before, .story__quote--plain::after { content: none; }   /* 22-10: a written case in the story rail is a sentence, not a quotation */
 .story__mark { width: 48px; height: 48px; border-radius: 50%; background: var(--bg); display: grid; place-items: center; color: var(--accent); box-shadow: rgba(255, 255, 255, .9) 0 0 0 1px inset; }
 .story__mark svg { width: 20px; height: 20px; }
+.story__mark b { font-size: 36px; line-height: 1; font-weight: 500; transform: translateY(8px); }   /* 22-10: typographic opening quote on the written cards */
+.story--text .story__mark { margin-top: auto; }   /* written cards sit at the height of the video cards: the text floats centred, the name stays at the foot */
 @media (prefers-reduced-motion: reduce) { .play::before { animation: none; } }
 
 /* Tags (shared: team cards, the vault, the written cases on the cases page) */
