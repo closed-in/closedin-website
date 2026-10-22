@@ -84,7 +84,7 @@ CASES = {
     tags=["Career events", "Netherlands", "Data and CRM"],
     h1="From loose Excel lists to <b>one HubSpot system</b> for Sustainable Motion",
     lead="Sustainable Motion has organised the Netherlands' sustainability career events for sixteen years, two fairs a year. A small team, a warm network, and no capacity to find and approach cold organisations. closed:in rebuilt their market as one database: 2,121 organisations in three tiers, 3,215 validated contacts and 252 new mobile numbers, delivered in HubSpot so their own team runs the outreach.",
-    video=("vid_cmvjjk7hr007508l7b6fb2fee", "Laura Wolf, Sustainable Motion", "/assets/img/stories/sustainable-motion-photo.webp"),
+    video=("vid_cmvjm3i60033a02mb3hwagt3z", "Laura Wolf, Sustainable Motion", "/assets/img/stories/sustainable-motion-photo.webp"),
     stats=[("2,121", "Organisations in three tiers"), ("3,215", "Contacts, every email validated"), ("252", "New mobile numbers"), ("1", "HubSpot system instead of 8 Excel files")],
     sections=[
         dict(label="The challenge", title="Cold acquisition without a team for it", glyphs="left", paras=[
