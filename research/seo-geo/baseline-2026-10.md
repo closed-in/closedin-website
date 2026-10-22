@@ -2,7 +2,13 @@
 
 Gestart 22 oktober 2026. Doel: hoger op "GTM engineering agency", "go-to-market" en "outbound agency", beter geïndexeerd, vaker genoemd en aanbevolen door AI-tools. Wat er op de site is gedaan staat in `research/REFERENCE-NOTES.md` (v4.45).
 
-## 1. Eenmalig inrichten (Max, klikpaden)
+## 0. Stand 22-10 (uit Max' schermafbeeldingen)
+
+- Search Console en Bing Webmaster Tools zijn al gekoppeld. Sitemap ingediend op 5 mei 2026, laatst gelezen 14 oktober, 37 pagina's ontdekt, 21 geïndexeerd, 167 niet geïndexeerd. Bing: 318 vertoningen en 0 klikken sinds augustus; waarschuwingen: IndexNow niet ingesteld (de sleutel staat op de branch, live na de merge), te weinig inkomende links van goede domeinen (off-site), veel te korte paginatitels (22-10 verlengd).
+- Gevonden bij het nalopen: `closedin.io` zonder www geeft een 200 in plaats van een redirect naar `www.closedin.io`, dus elke pagina bestaat voor Google twee keer. Redirect toegevoegd in `vercel.json` (live na de merge); in het Vercel-dashboard kan hij eerder (Domains, closedin.io, Redirect to www.closedin.io).
+- Nog uit te zoeken: de redenen achter de 167 niet-geïndexeerde URL's (Search Console, Pagina's, Volledig rapport). Verwacht: dubbele niet-www-pagina's, oude `.html`- en `/blog/`-adressen die doorverwijzen, oude Framer-adressen die 404 geven.
+
+## 1. Eenmalig inrichten (Max, klikpaden; grotendeels al gedaan)
 
 **Google Search Console**
 1. Ga naar search.google.com/search-console, klik linksboven op het property-menu, "Property toevoegen".

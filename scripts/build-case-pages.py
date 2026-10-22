@@ -18,6 +18,11 @@ EXTRA_TITLES = {"tpn": "How TPN got <b>500+ positive replies</b> from cold email
                 "sustainable-motion": "From loose Excel lists to <b>one HubSpot system</b> for Sustainable Motion", "advantive": "The outbound partner behind <b>a go-to-market consultancy</b>"}
 EXTRA_LOGOS = {"tpn": ("/assets/img/logos-web/tpn-sm-v2.webp", "TPN", "315", "120"), "sankore": ("/assets/img/logos-web/sankore-sm.webp", "Sankore Labs", "400", "49"),
                "sustainable-motion": ("/assets/img/logos-web/sustainable-motion-sm.webp", "Sustainable Motion", "339", "120"), "advantive": ("/assets/img/logos-web/advantive-sm-v2.webp", "Advantive Advisory", "363", "143")}
+# 22-10 (Bing: "many of your page titles are too short"): what the case delivered, in the title
+CASE_TITLES = {"endresz": "Endresz Case Study: 247 Boutique Conversations Across Europe | closed:in", "gen-zero": "Gen-Zero Case Study: 142 Opportunities in 13 Weeks | closed:in",
+               "jamezz": "Jamezz Case Study: 81 Leads from an Unreachable ICP | closed:in", "mistertafel": "Mistertafel Case Study: 96 Opportunities in 30 Days | closed:in",
+               "redfox": "Red Fox Case Study: 33 Opportunities, 8.47% Reply Rate | closed:in", "verzendbazen": "Verzendbazen Case Study: 78 Opportunities, 13.9% Reply Rate | closed:in",
+               "wetaxus": "WeTaxus Case Study: Two Channels into a Hard Market | closed:in", "zano": "Zano Case Study: 2,253 Verified Buyers from 17,000 Domains | closed:in"}
 # 22-10 (SEO round): the service page that fits each case, linked under Next case
 SERVICE = {"endresz": ("/outbound-agency", "Outbound agency"), "gen-zero": ("/cold-email-agency-amsterdam", "Cold email agency, NL and EU"), "jamezz": ("/clay-agency", "Clay agency"),
            "mistertafel": ("/cold-email-agency-amsterdam", "Cold email agency, NL and EU"), "redfox": ("/outbound-agency-uk", "Outbound agency UK"), "verzendbazen": ("/cold-email-agency-amsterdam", "Cold email agency, NL and EU"),
@@ -184,6 +189,9 @@ def build(slug):
     # ---- page
     doc_open = old[: old.index("<head>")].replace('<html lang="en">', '<html lang="en" data-theme="light">', 1)
     assert 'data-theme="light"' in doc_open
+    if slug in CASE_TITLES:
+        old_title = re.search(r"<title>(.*?)</title>", old).group(1)
+        old = old.replace(f"<title>{old_title}</title>", f"<title>{CASE_TITLES[slug]}</title>").replace(f'<meta property="og:title" content="{old_title}">', f'<meta property="og:title" content="{CASE_TITLES[slug]}">')
     lightbox = bp.between(INDEX, '<dialog class="lightbox" id="lightbox"', "</dialog>") if vid else ""
     page = "\n".join(['<body class="case">', bp.VEIL, bp.NOSCRIPT, bp.SKIP, "", bp.SPRITE.rstrip("\n"), "", bp.nav_for(cta_slug), "", '<main id="main">', main, "</main>", "", bp.FOOTER, ""])
     if lightbox: page += lightbox + "\n"

@@ -25,6 +25,8 @@ OVERRIDES = {
                                    lead="closed:in is a GTM engineering agency in Amsterdam. We engineer the full go-to-market system: enriched data, multi-channel outbound, CRM automation and pipeline analytics. The output is a repeatable revenue engine, built on infrastructure rather than headcount.",
                                    h2={"From manual sales<br>to engineered revenue.": "What is GTM engineering?<br>Go-to-market as a system."}),
     "cold-email-agency-saas": dict(title="Cold Email Agency for B2B SaaS | Qualified Demos from Your ICP | closed:in", h1="Cold email agency for B2B SaaS: <b>qualified demos from your exact ICP</b>"),
+    "cold-email-agency-amsterdam": dict(title="Cold Email Agency Amsterdam: Dutch and European B2B | closed:in"),
+    "pricing": dict(title="Pricing: Outbound from EUR 4K to 8K per Month | closed:in"),
 }
 # the sister services under every landing page (hub and spokes, 22-10)
 RELATED = {"clay-agency": ["outbound-agency", "gtm-engineering-agency", "cold-email-agency-saas"], "cold-email-agency-amsterdam": ["outbound-agency", "outbound-agency-uk", "clay-agency"],
