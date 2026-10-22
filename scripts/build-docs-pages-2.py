@@ -22,6 +22,10 @@ def new_head(old, name=None):
     h = _new_head(old)
     if name and name.startswith("blog/"):
         h = h.replace('<link rel="canonical"', '<link rel="alternate" type="application/rss+xml" title="closed:in blog" href="https://www.closedin.io/blog/feed.xml">\n    <link rel="canonical"', 1)
+        # 22-10 (schema, Max' go): the author as a recognisable person, with job title and LinkedIn
+        a = '"author": { "@type": "Person", "name": "Max Münstermann", "url": "https://www.closedin.io/team" }'
+        assert a in h, name
+        h = h.replace(a, '"author": { "@type": "Person", "name": "Max Münstermann", "jobTitle": "Founder & Sales Lead", "url": "https://www.closedin.io/team", "sameAs": ["https://www.linkedin.com/in/maxmunstermann"] }')
     return h
 
 

@@ -449,8 +449,10 @@ Vraag Max: hoger op GTM, go-to-market en outbound, beter geïndexeerd, vaker gev
 - **TPN-logo:** nieuw horizontaal logo (schild met kubus plus woordmerk, `tpn-sm-v2.webp`, 315x120) in de muur, de kaarten en de casepagina.
 - **Checks:** `check-trackers.py` vergelijkt nieuwe pagina's met een referentiepagina uit main (`REF`); `check-copy.py` en `check-schema.py` dekken alles; 42 pagina's.
 
+### Schema-verrijking (22-10, 13:00, met Max' go)
+- Homepage-feitenblok: `award` (Most Innovative B2B GTM Engineering Agency 2026 (Netherlands), Acquisition International), Jurre als co-founder met LinkedIn-`sameAs`, United States bij `areaServed` van Organization en ProfessionalService (US-code), Sortlist-profiel bij `sameAs`. Team: Jurre met `sameAs`. De drie oude blogposts: auteur met functie en LinkedIn (in `build-docs-pages-2.py`, dus herhaalbaar). `check-trackers.py` vergelijkt de JSON-LD niet meer byte voor byte; `check-schema.py` eist nu award, oprichters met sameAs, VS en auteur-sameAs. Niets zichtbaars veranderd.
+
 ### Nog aan Max
-- Go voor de schema-verrijking (beschermd JSON-LD-blok): award, Jurre's LinkedIn, VS in areaServed, auteur-sameAs op de drie oude posts, Jurre's sameAs op team. Daarna de JSON-LD-pariteit uit `check-trackers.py` (check-schema.py neemt het over).
 - Search Console- en Bing-codes; GA4-kanaal "AI" (klikpaden in het meetplan).
 - Sankore: cijfers als hij ze op de pagina wil (nu woorden); TPN: Mikels "500+" naast onze 466 van 13-10.
 - Eerste ruwe input voor de vier geplande stukken.

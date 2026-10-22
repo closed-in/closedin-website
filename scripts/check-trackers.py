@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Byte parity of the tracker, JSON-LD and cookie blocks between main and the working copy (or a live URL), for the homepage and the rebuilt inner pages.
+"""Byte parity of the tracker and cookie blocks between main and the working copy (or a live URL), for every page. (The JSON-LD left this check on 22-10 with Max's go: scripts/check-schema.py validates it.)
 Usage: python3 scripts/check-trackers.py [--url https://www.closedin.io/]"""
 import subprocess, sys, pathlib, urllib.request, re
 root = pathlib.Path(__file__).resolve().parent.parent
@@ -16,7 +16,6 @@ def block(text, start, end, inclusive_end=True):
     return text[i: j + (len(end) if inclusive_end else 0)]
 BLOCKS = [
     ("head trackers", '<script defer src="/_vercel/insights/script.js"></script>', ("gtag('config', 'G-WK7J5NHB0C');", "</script>")),
-    ("json-ld graph", '<script type="application/ld+json">\n    {\n      "@context": "https://schema.org",\n      "@graph"', "</script>"),
     ("prospect pro + stairoids", "<!-- Prospect Pro", "jq_950354e1.js'></script>"),
     ("stairoids", "<!-- Stairoids", "jq_950354e1.js'></script>"),
     ("cookie banner + claydar", '<div class="cookie-banner" id="cookie-banner">', "})();\n</script>"),
@@ -48,10 +47,6 @@ def check(name, main, new):
             if a and b:
                 import difflib
                 for line in list(difflib.unified_diff(a.splitlines(), b.splitlines(), "main", "new", lineterm=""))[:40]: print("   ", line)
-    if name != "index.html" and name not in REF:
-        ok = LD.findall(main) == LD.findall(new)
-        print(f"{'PASS' if ok else 'FAIL'}  {name}: json-ld blocks  ({len(LD.findall(main))} in main, {len(LD.findall(new))} in new)")
-        fails += 0 if ok else 1
     return fails
 fails = 0
 if len(sys.argv) > 2 and sys.argv[1] == "--url":

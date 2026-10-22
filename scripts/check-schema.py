@@ -43,8 +43,14 @@ for f in files:
                 if "dateModified" not in n: print(f"WARN {f}: Article without dateModified (sitemap uses datePublished)")
                 elif n["dateModified"] < n.get("datePublished", ""): print(f"FAIL {f}: dateModified before datePublished"); fails += 1
                 a = n.get("author");
-                if isinstance(a, dict) and a.get("@type") == "Person" and not a.get("sameAs"): print(f"WARN {f}: author Person without sameAs")
-            if ty == "Organization" and n.get("@id", "").endswith("#organization") and f == "index.html" and not n.get("sameAs"): print(f"FAIL {f}: Organization without sameAs"); fails += 1
+                if isinstance(a, dict) and a.get("@type") == "Person" and not a.get("sameAs"): print(f"FAIL {f}: author Person without sameAs"); fails += 1
+            if ty == "Organization" and n.get("@id", "").endswith("#organization") and f == "index.html":
+                if not n.get("sameAs"): print(f"FAIL {f}: Organization without sameAs"); fails += 1
+                if not n.get("award"): print(f"FAIL {f}: Organization without award"); fails += 1
+                for fo in n.get("founder", []):
+                    if not fo.get("sameAs"): print(f"FAIL {f}: founder {fo.get('name')} without sameAs"); fails += 1
+                if "United States" not in json.dumps(n.get("areaServed", [])): print(f"FAIL {f}: areaServed without United States (there is a US page)"); fails += 1
+            if ty == "Person" and f == "team.html" and n.get("jobTitle") and not n.get("sameAs"): print(f"FAIL {f}: {n.get('name')} without sameAs"); fails += 1
             if ty == "FAQPage":
                 qs = [q.get("name", "") for q in n.get("mainEntity", [])]
                 vis = html.unescape(re.sub(r"<[^>]+>", "", t))
