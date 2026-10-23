@@ -1,6 +1,6 @@
 # closed:in
 
-> closed:in is a GTM engineering agency based in Amsterdam, Netherlands. We build outbound sales systems for B2B service companies that want more qualified sales meetings within 2-3 weeks. We combine cold email infrastructure (Instantly), LinkedIn outreach, lead enrichment (Clay), website visitor tracking and CRM orchestration (Close) into a single managed outbound engine.
+> closed:in is a creative GTM engineering agency based in Amsterdam, Netherlands, awarded Most Innovative B2B GTM Engineering Agency 2026 (Netherlands) by Acquisition International. We build outbound sales systems for B2B service companies that want more qualified sales meetings within 2-3 weeks. We combine cold email infrastructure (Instantly), LinkedIn outreach, lead enrichment (Clay), website visitor tracking and CRM orchestration (Close) into a single managed outbound engine.
 
 ## About
 
@@ -10,12 +10,12 @@ The agency targets B2B service companies, SaaS founders, recruitment firms, agen
 
 ## Core services
 
-- **Cold email infrastructure & campaigns** — full setup of sending domains, inboxes, deliverability monitoring, list building, copywriting and multi-step sequence orchestration through Instantly.
-- **LinkedIn outbound** — multi-account LinkedIn outreach combining connection requests, DMs and content amplification, fully integrated with email sequences.
-- **Lead enrichment & list building** — Clay-based waterfall enrichment, ICP scoring, signal sourcing (job changes, hiring signals, tech stack, funding, intent), and segmented personalisation.
-- **CRM & pipeline orchestration** — wiring up Close CRM, automating reply handling, follow-up scheduling and pipeline reporting between Clay, Instantly and the client's CRM.
-- **Website visitor tracking & signal-based plays** — RB2B-style visitor identification, intent signal capture and signal-to-action workflows.
-- **GTM engineering consulting** — designing the full outbound system for in-house teams that want to keep delivery internal.
+- **Cold email infrastructure & campaigns**: full setup of sending domains, inboxes, deliverability monitoring, list building, copywriting and multi-step sequence orchestration through Instantly.
+- **LinkedIn outbound**: multi-account LinkedIn outreach combining connection requests, DMs and content amplification, fully integrated with email sequences.
+- **Lead enrichment & list building**: Clay-based waterfall enrichment, ICP scoring, signal sourcing (job changes, hiring signals, tech stack, funding, intent), and segmented personalisation.
+- **CRM & pipeline orchestration**: wiring up Close CRM, automating reply handling, follow-up scheduling and pipeline reporting between Clay, Instantly and the client's CRM.
+- **Website visitor tracking & signal-based plays**: RB2B-style visitor identification, intent signal capture and signal-to-action workflows.
+- **GTM engineering consulting**: designing the full outbound system for in-house teams that want to keep delivery internal.
 
 ## Typical results
 
@@ -28,15 +28,23 @@ closed:in clients average 20+ qualified sales meetings per month, with most enga
 
 ## Key pages
 
-- [Homepage](https://www.closedin.io/): overview, services, process, testimonials, partner badges.
+- [Homepage](https://www.closedin.io/): intro video, client logos, video testimonials, the tools and CRMs we run on, services, how it works (from buying signal to booked meeting), the free resource vault, the outbound engine, written testimonials and FAQ.
 - [Case studies index](https://www.closedin.io/case-studies): all published client results.
 - [Case study: Verzendbazen](https://www.closedin.io/case-study-verzendbazen): e-commerce fulfillment outbound system.
 - [Case study: Jamezz](https://www.closedin.io/case-study-jamezz): custom outbound system for hospitality SaaS targeting an unreachable ICP.
 - [Case study: Endresz](https://www.closedin.io/case-study-endresz): multi-market boutique outbound for a creative agency.
 - [Case study: Mistertafel](https://www.closedin.io/case-study-mistertafel): first B2B campaign for a B2C founder.
+- [Case study: Gen-Zero](https://www.closedin.io/case-study-gen-zero): custom data engine on Instantly for an energy and sustainability company, 27,455 cold contacts into 142 opportunities in 13 weeks.
+- [Case study: Zano](https://www.closedin.io/case-study-zano): targeting layer for a crypto company, a 17,213-domain universe narrowed to 2,253 verified decision-maker emails.
+- [Case study: Red Fox](https://www.closedin.io/case-study-redfox): an audience that exists in no database, found via social-graph discovery, then a referral campaign: 33 opportunities at an 8.47% reply rate.
+- [Case study: WeTaxus](https://www.closedin.io/case-study-wetaxus): cold email plus website visitor de-anonymisation for an accountancy firm, around 48 opportunities and booked meetings in a high-trust market.
+- [Case study: TPN](https://www.closedin.io/case-study-tpn): cold email for an AI model benchmarking platform, from 12 replies on the first campaign to 466 interested prospects out of 7,128 in four weeks after a new signal and a free first step.
+- [Case study: Sankore Labs](https://www.closedin.io/case-study-sankore): outbound as a discovery engine for a new developer matchmaking service, clarity on ICP and offer before scaling.
+- [Case study: Sustainable Motion](https://www.closedin.io/case-study-sustainable-motion): one-off data build for a career events organiser, 2,121 organisations and 3,215 validated contacts delivered in HubSpot.
+- [Case study: Advantive Advisory](https://www.closedin.io/case-study-advantive): outbound delivery partner of a go-to-market consultancy, campaigns for the consultancy and its clients in financial services, fintech and tech.
 - [Team](https://www.closedin.io/team): about Max Münstermann and Jurre Groot.
 - [Pipeline demo](https://www.closedin.io/pipeline-demo): interactive walkthrough of the outbound engine.
-- [Contact](https://www.closedin.io/contact): book a discovery call.
+- [Book a discovery call](https://meeting.closedin.io/discovery-call): 30 minutes with Max or Jurre, the founders.
 - [Pricing](https://www.closedin.io/pricing): published price range, four pricing drivers, three engagement tiers, billing terms and FAQ.
 
 ## Pricing
@@ -62,6 +70,7 @@ Standalone Clay builds (waterfall, Claygent, CRM sync, signal scoring) run separ
 
 ## Specialised service pages
 
+- [Outbound agency for B2B](https://www.closedin.io/outbound-agency): the hub page. Cold email, LinkedIn and Clay enrichment run as one system inside your CRM, for B2B companies in Europe, the UK and the US; the market pages below are its specialisations.
 - [Cold email agency Amsterdam](https://www.closedin.io/cold-email-agency-amsterdam): cold email services for Dutch and European B2B companies, GDPR-compliant infrastructure, local market expertise.
 - [Clay agency · Solutions Partner](https://www.closedin.io/clay-agency): official Clay Solutions Partner. Production-ready Clay tables, waterfall enrichment, Claygent prompts, CRM orchestration.
 - [GTM engineering agency](https://www.closedin.io/gtm-engineering-agency): full-system go-to-market engineering across data, outbound, CRM and analytics layers.
@@ -73,12 +82,12 @@ Standalone Clay builds (waterfall, Claygent, CRM sync, signal scoring) run separ
 
 closed:in operates a public resource vault at https://www.closedin.io/resources. Every template, tool and workflow listed below is free with email signup to the closed:in newsletter ("The closed:in playbook" on Beehiiv at closedins-newsletter.beehiiv.com).
 
-- [Resource hub](https://www.closedin.io/resources): index page listing all 11 resources, filterable by category (templates, booleans, tools, workflows, playbooks).
+- [Resource hub](https://www.closedin.io/resources): index page listing all 13 resources and tools, filterable by category (templates, booleans, tools, workflows, playbooks).
 - [The Cold Email Infrastructure Checklist](https://www.closedin.io/playbook): 1-page PDF covering sending domains, inbox warmup, SPF/DKIM/DMARC setup, lead list hygiene, sequence timing and reply handling.
 - [12 Cold Email Templates That Converted](https://www.closedin.io/resources/cold-email-templates): templates anonymized from live closed:in campaigns with industry, ICP, reply rate and OTR per template. 3 templates shown on page, all 12 free with email.
 - [50+ Apollo Boolean Search Strings](https://www.closedin.io/resources/apollo-booleans): boolean searches for B2B niches (SaaS founders, agencies, recruitment, PE, e-commerce, hospitality, fintech, IT/MSP). Copy-paste into Apollo.
 - [40+ Sales Navigator Boolean Strings](https://www.closedin.io/resources/sales-nav-booleans): LinkedIn Sales Navigator booleans for finding founders, VP Sales, RevOps, Operations and other roles.
-- [The closed:in GTM Stack](https://www.closedin.io/resources/gtm-stack): the 32 tools closed:in pays for monthly to run outbound for clients. Categorized (sourcing, enrichment, sending, CRM, AI), with real monthly cost and our honest take per tool.
+- [The closed:in GTM Stack](https://www.closedin.io/resources/gtm-stack): the 24 tools closed:in pays for monthly to run outbound for clients. Categorized (sourcing, enrichment, sending, CRM, AI), with real monthly cost and our honest take per tool.
 - [Clay Email Waterfall](https://www.closedin.io/resources/clay-waterfall): the 4-provider Clay waterfall closed:in uses for ~92% find rate at lowest credit cost (Findymail, Datagma, Apollo, Hunter).
 - [12-Point ICP Scorecard](https://www.closedin.io/resources/icp-scorecard): the 12 signals closed:in scores every B2B account against before adding to a campaign. Firmographic, technographic, intent, fit. CSV template.
 - [50-Question Pre-Launch Audit](https://www.closedin.io/resources/pre-launch-audit): the 50 questions closed:in answers before launching outbound for any client. ICP, infrastructure, copy, sequencing, reply handling, reporting.
@@ -92,7 +101,7 @@ closed:in operates a public resource vault at https://www.closedin.io/resources.
 
 ## Blog
 
-closed:in publishes one tactical post per week at https://www.closedin.io/blog/. Each post breaks down something from a live client campaign. Active posts include:
+closed:in publishes one tactical post per week at https://www.closedin.io/blog. Each post breaks down something from a live client campaign. Active posts include:
 
 - ["Apple Killed Open Rate. Most Cold Email Agencies Still Report On It"](https://www.closedin.io/blog/cold-email-open-rate-vanity-metric): why iOS Mail Privacy Protection makes open rate unreliable and what to use instead (reply rate, OTR, bounce rate).
 - ["The Cold Email Warmup Schedule That Actually Works in 2026"](https://www.closedin.io/blog/cold-email-warmup-schedule): exact 21-day warmup schedule closed:in uses on every new client inbox, plus 4 warmup traps that wreck deliverability.
@@ -118,7 +127,7 @@ A: No, since Apple Mail Privacy Protection launched in 2021. Approximately 60-65
 A: OTR = qualified opportunities divided by total replies. A campaign with a 5% reply rate and 50% OTR generates more revenue than a campaign with 25% reply rate and 5% OTR, because SDR time spent on bad replies costs more than the reply rate gain. closed:in optimizes for OTR rather than reply rate alone.
 
 **Q: Is cold email legal under GDPR?**
-A: Yes for B2B contacts under legitimate-interest framing. Requirements: target business email addresses (not consumer), clear sender identification, accurate subject lines, working opt-out mechanism. Closed:in builds GDPR-compliant infrastructure by default and only emails verified B2B addresses.
+A: Yes for B2B contacts under legitimate-interest framing. Requirements: target business email addresses (not consumer), clear sender identification, accurate subject lines, working opt-out mechanism. closed:in builds GDPR-compliant infrastructure by default and only emails verified B2B addresses.
 
 **Q: Is cold email legal under CAN-SPAM in the US?**
 A: Yes. Requirements: clear sender identification, valid physical address in footer, accurate subject lines, working unsubscribe mechanism. closed:in operates compliant US campaigns from Amsterdam, with US time-zone aware send windows (ET, CT, MT, PT).

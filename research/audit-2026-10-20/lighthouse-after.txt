@@ -1,0 +1,31 @@
+Lighthouse mobile (simulated slow 4G, 4x CPU), preview after the night audit of 20-10 (commit ed83448). Before: lighthouse-before.txt.
+
+/                            perf  60 | a11y 100 | bp  77 | seo  69 | FCP   3.7 s | LCP   7.5 s | TBT   200 ms | CLS      0 | bytes Total size was 1,043 KiB
+/case-studies                perf  70 | a11y 100 | bp  77 | seo  69 | FCP   3.1 s | LCP   6.2 s | TBT    20 ms | CLS      0 | bytes Total size was 692 KiB
+/team                        perf  71 | a11y 100 | bp  77 | seo  69 | FCP   2.1 s | LCP   6.1 s | TBT    30 ms | CLS      0 | bytes Total size was 587 KiB
+/resources/gtm-stack         perf  83 | a11y 100 | bp  77 | seo  69 | FCP   1.7 s | LCP   4.3 s | TBT    20 ms | CLS  0.011 | bytes Total size was 510 KiB
+/case-study-endresz          perf  72 | a11y 100 | bp  77 | seo  69 | FCP   1.9 s | LCP   6.0 s | TBT    40 ms | CLS      0 | bytes Total size was 514 KiB
+/clay-agency                 perf  72 | a11y 100 | bp  77 | seo  69 | FCP   1.9 s | LCP   6.0 s | TBT    50 ms | CLS      0 | bytes Total size was 529 KiB
+/pricing                     perf  89 | a11y 100 | bp  77 | seo  69 | FCP   1.7 s | LCP   3.5 s | TBT    20 ms | CLS  0.011 | bytes Total size was 515 KiB
+/blog/cold-email-warmup-schedule perf  72 | a11y 100 | bp  77 | seo  69 | FCP   2.0 s | LCP   6.0 s | TBT    30 ms | CLS      0 | bytes Total size was 506 KiB
+
+
+Observed in Chrome with 4x CPU and slow 4G emulated (lcp.mjs, first contentful paint and largest contentful paint):
+/team         FCP 1.5 s, LCP 1.5 s (headline), 2.35 s (team photo)
+/clay-agency  FCP 1.5 s, LCP 1.5 s (headline)
+/             FCP 1.9 s, LCP 1.9 s (headline)
+
+The simulated LCP of about 6 s comes from the dependency graph Lighthouse builds (third-party scripts GA4, Meta, LinkedIn, Prospect Pro, Stairoids, Leadboxer, and the render-blocking css.jsapis.com/controls.css, which is an empty file of 5 bytes, /**/, that blocks the first paint for a third-party connection, about 0.85 s per page). Best practices 77 is third-party cookies and the placeholder pixel ids; SEO 69 is the noindex header on previews.
+
+
+Final run at the end of the night (all night-audit commits deployed):
+/                            perf  59 | a11y 100 | bp  77 | seo  69 | FCP   1.9 s | LCP   6.0 s | TBT   550 ms | CLS  0.012 | bytes Total size was 1,067 KiB
+/case-studies                perf  72 | a11y 100 | bp  77 | seo  69 | FCP   1.9 s | LCP   6.1 s | TBT    40 ms | CLS      0 | bytes Total size was 693 KiB
+/team                        perf  75 | a11y 100 | bp  77 | seo  69 | FCP   1.7 s | LCP   6.0 s | TBT    50 ms | CLS  0.007 | bytes Total size was 588 KiB
+/resources/gtm-stack         perf  72 | a11y 100 | bp  77 | seo  69 | FCP   2.0 s | LCP   6.1 s | TBT    40 ms | CLS      0 | bytes Total size was 512 KiB
+/case-study-endresz          perf  89 | a11y 100 | bp  77 | seo  69 | FCP   1.6 s | LCP   3.5 s | TBT    30 ms | CLS  0.012 | bytes Total size was 515 KiB
+/clay-agency                 perf  72 | a11y 100 | bp  77 | seo  69 | FCP   2.0 s | LCP   6.1 s | TBT    30 ms | CLS      0 | bytes Total size was 531 KiB
+/pricing                     perf  89 | a11y 100 | bp  77 | seo  69 | FCP   1.6 s | LCP   3.5 s | TBT    20 ms | CLS  0.011 | bytes Total size was 517 KiB
+/blog/cold-email-warmup-schedule perf  73 | a11y 100 | bp  77 | seo  69 | FCP   1.9 s | LCP   5.9 s | TBT    40 ms | CLS      0 | bytes Total size was 511 KiB
+
+Run-to-run spread with the third-party scripts on board is large: /case-studies scored 70, 90 and 72 in three runs without any change to the page; homepage TBT 200 to 550 ms.

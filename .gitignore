@@ -1,0 +1,22 @@
+.DS_Store
+review/
+scripts/node_modules/
+case-study-showcase/index-light.html
+case-study-showcase/wall/src/
+mock-claycup-inspiration.html
+research/reference-sites/
+
+# lokale Claude-instellingen en macOS-bestanden horen niet in de repo
+.claude/settings.local.json
+.DS_Store
+
+# Vercel CLI link, lokaal
+.vercel/
+.vercel
+.env*
+
+# generator previews and raw Lighthouse reports (night audit 20-10), lokaal
+scripts/case-out/
+scripts/landing-out/
+scripts/*-out/
+research/audit-2026-10-20/*.json

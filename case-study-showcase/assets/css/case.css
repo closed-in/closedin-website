@@ -1,0 +1,107 @@
+/* closed:in case-study detail pages (2026-10-20, night audit): the eight written cases in the site language.
+   Light opening right under the nav with the client logo and the tags, the key numbers in one hairline frame,
+   each section as label and head on the left with the story on the right, the approach as numbered cells,
+   the client quote large, the results as dark tiles, then the shared CTA band and footer (site.css). */
+
+/* ---------- Opening ---------- */
+.case-hero .phero__title { margin-top: 20px; max-width: 21ch; }
+.case-hero .phero__lead { max-width: 62ch; }
+.case-hero .phero__actions { margin-top: 28px; }
+.case-back { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--gray-90); text-decoration: none; transition: color .25s var(--ease), gap .35s var(--ease); }
+.case-back svg { width: 14px; height: 14px; }
+.case-back:hover, .case-back:focus-visible { color: var(--ink); gap: 12px; }
+.case-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 26px; }
+.case-logo { display: block; height: 30px; width: auto; max-width: 170px; object-fit: contain; filter: brightness(0); opacity: .82; }
+.case-tags { display: inline-flex; flex-wrap: wrap; gap: 8px; }
+/* 22-10 (Max): cases with a video open with the founder's face and a play button next to the copy (the story card poster, a size up) */
+.phero__media { margin-top: 32px; width: 100%; max-width: 720px; border-radius: 22px; box-shadow: 0 30px 70px rgba(12, 13, 14, .14); }
+.phero__media > img:first-of-type { transition: transform 1.2s var(--ease); }
+.phero__media:hover > img:first-of-type { transform: scale(1.04); }
+.phero__media .story__brand { left: 22px; bottom: 24px; max-width: 40%; max-height: 44px; }
+.phero__media .play { right: 22px; bottom: 22px; width: 72px; height: 72px; }
+.phero__media .play svg { width: 24px; height: 24px; }
+@media (min-width: 1024px) {
+  .case-hero--video .phero__in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, 44%); column-gap: clamp(40px, 5vw, 72px); align-items: center; }
+  .case-hero--video .phero__in > * { grid-column: 1; }
+  .case-hero--video .phero__media { grid-column: 2; grid-row: 1 / span 5; margin-top: 0; justify-self: end; }
+}
+
+/* ---------- Key numbers ---------- */
+.case-stats { padding-top: clamp(32px, 4.5vw, 56px); }
+.case-stats__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line-2); border-radius: 18px; background: var(--white); overflow: hidden; }
+.case-stat { padding: clamp(20px, 2.4vw, 30px) clamp(18px, 2vw, 28px); border-left: 1px solid var(--line-2); }
+.case-stat:first-child { border-left: 0; }
+.case-stat b, .case-result b { display: block; font-weight: 500; letter-spacing: -0.035em; line-height: 1; font-variant-numeric: tabular-nums; }
+.case-stat b { font-size: clamp(30px, 3.4vw, 46px); color: var(--ink); }
+.case-stat span { display: block; margin-top: 12px; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-90); }
+
+/* ---------- Sections: label and head left, the story right ---------- */
+.case-sec__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px clamp(32px, 5vw, 80px); align-items: start; }
+.case-sec__label { display: flex; align-items: center; gap: 12px; margin: 0 0 18px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--gray-90); }
+.case-sec__label span { display: inline-grid; place-items: center; min-width: 30px; height: 24px; padding: 0 6px; border: 1px solid var(--line-2); border-radius: 6px; background: var(--white); color: var(--ink); }
+.case-sec__head .h2 { max-width: 17ch; }
+.case-sec__body { padding-top: 4px; }
+.case-sec__body p { margin: 0; font-size: 18px; line-height: 1.62; color: var(--gray-100); max-width: 62ch; }
+.case-sec__body p + p { margin-top: 18px; }
+
+/* the approach: numbered cells in one hairline frame (rows fill the width, also with three or five steps) */
+.case-steps { display: flex; flex-wrap: wrap; gap: 1px; margin-top: clamp(32px, 4vw, 48px); border: 1px solid var(--line-2); border-radius: 18px; background: var(--line-2); overflow: hidden; }
+.case-step { flex: 1 1 300px; display: flex; flex-direction: column; gap: 12px; padding: clamp(22px, 2.4vw, 32px); background: var(--white); transition: background-color .3s var(--ease); }
+.case-steps--4 .case-step { flex-basis: 40%; }
+@media (hover: hover) { .case-step:hover { background: #fbfcfd; } }
+.case-step__num { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; color: var(--gray-90); }
+.case-step__num::before { content: ""; width: 8px; height: 8px; background: var(--accent); }
+.case-step h3 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.25; letter-spacing: -0.012em; }
+.case-step p { margin: 0; font-size: 15.5px; line-height: 1.62; color: var(--gray-100); }
+
+/* ---------- The client quote ---------- */
+.case-quote__card { position: relative; margin: 0; padding: clamp(32px, 5vw, 64px); border: 1px solid var(--line-2); border-radius: 22px; background: var(--white); overflow: hidden; }
+.case-quote__card::after { content: ""; position: absolute; right: -120px; top: -120px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(114, 193, 255, .16), rgba(114, 193, 255, 0) 70%); pointer-events: none; }
+.case-quote__mark { display: block; width: 34px; height: 26px; color: var(--accent); }
+.case-quote blockquote { position: relative; margin: 22px 0 0; max-width: 38ch; font-size: clamp(22px, 2.5vw, 34px); line-height: 1.32; font-weight: 400; letter-spacing: -0.018em; color: var(--ink); }
+.case-quote figcaption { margin-top: 24px; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gray-90); }
+.case-quote__ext { margin-top: 26px; }   /* 22-10: the Instantly case study pill (styles in site.css) */
+
+/* ---------- Results: dark tiles, like the case cards on the overview ---------- */
+.case-results { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: clamp(32px, 4vw, 48px); }
+.case-result { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; min-height: 168px; padding: clamp(22px, 2.4vw, 30px); border-radius: 18px; background: var(--dark); color: #fff; }
+.case-result::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(120% 90% at 100% 0%, rgba(114, 193, 255, .22), rgba(114, 193, 255, 0) 55%); pointer-events: none; }
+.case-result b { font-size: clamp(32px, 3.4vw, 48px); }
+.case-result span { font-size: 13.5px; line-height: 1.45; color: rgba(255, 255, 255, .68); }
+
+/* ---------- Next case (20-10): one card to the next story before the call to action ---------- */
+.case-next__card { position: relative; isolation: isolate; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 22px 40px; padding: clamp(28px, 3.4vw, 48px); border: 1px solid var(--line-2); border-radius: 22px; background: var(--white); color: var(--ink); text-decoration: none; transition: border-color .3s var(--ease), box-shadow .45s var(--ease), transform .45s var(--ease); }
+.case-next__card::after { content: ""; position: absolute; right: -140px; top: -140px; z-index: -1; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(114, 193, 255, .16), rgba(114, 193, 255, 0) 70%); pointer-events: none; transition: transform .6s var(--ease); }
+.case-next__card:hover { border-color: rgba(114, 193, 255, .8); box-shadow: 0 26px 50px -34px rgba(11, 13, 16, .35); transform: translateY(-2px); }
+.case-next__card:hover::after { transform: scale(1.15); }
+.case-next__card:focus-visible { outline: none; box-shadow: var(--focus); }
+.case-next__top { grid-column: 1 / -1; display: flex; align-items: center; gap: 16px; }
+.case-next__label { font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--gray-90); }
+.case-next__logo { display: block; height: 28px; width: auto; max-width: 150px; object-fit: contain; filter: brightness(0); opacity: .8; }
+.case-next__title { display: block; max-width: 26ch; font-size: clamp(26px, 3vw, 40px); line-height: 1.12; font-weight: 400; letter-spacing: -0.028em; color: var(--gray-90); text-wrap: balance; }
+.case-next__title b { font-weight: 600; color: var(--ink); }
+.case-next__go { display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 22px; border-radius: var(--r-md); background: var(--accent); color: var(--accent-ink); font-size: 16px; white-space: nowrap; }
+.case-next__go svg { width: 16px; height: 16px; transition: transform .45s var(--ease); }
+.case-next__card:hover .case-next__go svg { transform: translateX(3px); }
+.case-next__links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 18px 0 0; font-size: 15px; color: var(--gray-100); }
+.case-next__sep { color: var(--gray-90); }
+.case-next__all { display: inline-block; font-size: 15px; color: var(--gray-100); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; transition: color .2s; }
+.case-next__all:hover { color: var(--ink); }
+
+/* ---------- Narrow screens ---------- */
+@media (max-width: 1023px) {
+  .case-sec__grid { grid-template-columns: 1fr; }
+  .case-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .case-next__card { grid-template-columns: 1fr; }
+  .case-next__go { justify-self: start; }
+  .case-stats__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-stat:nth-child(3) { border-left: 0; }
+  .case-stat:nth-child(n+3) { border-top: 1px solid var(--line-2); }
+  .case-sec__body p { font-size: 17px; }
+  .case-steps .case-step { flex-basis: 100%; }
+  .case-result { min-height: 136px; }
+  .case-logo { height: 26px; }
+}
+@media (max-width: 420px) { .case-results { grid-template-columns: 1fr; } }
