@@ -39,9 +39,10 @@
   var show = function (t) { var g = geo || (geo = dims()), f = frameAt(t, g); draw(g, f[0], f[1], f[2], f[3]); };
   var hideVeil = function () { veil.classList.remove('on'); html.classList.remove('has-veil'); busyVeil = false; arrive(); };
   var busyVeil = false, hold = /[?&]veil=hold/.test(location.search);
-  var playVeil = function (from, to, onPass, passAt, onDone) { busyVeil = true; veil.classList.add('on'); html.classList.add('has-veil'); var start = performance.now(), passed = false; show(from); var tick = function (now) { var t = from + (now - start); if (!passed && passAt != null && t >= passAt) { passed = true; onPass && onPass(); } if (t >= to) { show(to); onDone && onDone(); return; } show(t); requestAnimationFrame(tick); }; requestAnimationFrame(tick); };
+  var playVeil = function (from, to, onPass, passAt, onDone) { busyVeil = true; veil.classList.add('on'); html.classList.add('has-veil'); var start = performance.now(), passed = false, lastNow = start, waited = 0; show(from); var tick = function (now) { var dt = now - lastNow; lastNow = now; var tt = from + (now - start); if (window.__veilWait && tt >= vt3 && tt < vt4 && waited < 900 && window.__veilWait()) { start += dt; waited += dt; } var t = from + (now - start); if (!passed && passAt != null && t >= passAt) { passed = true; onPass && onPass(); } if (t >= to) { show(to); onDone && onDone(); return; } show(t); requestAnimationFrame(tick); }; requestAnimationFrame(tick); };
   if (reduce) { hideVeil(); }
   else if (hold) { veil.classList.add('on'); html.classList.add('has-veil', 'veil-hold'); show(vt2); arrive(); }
+  /* 23-10 (Max): the logo hold can wait (at most 900 ms) for whoever registers window.__veilWait, so the hero's moving mark is live before the page shows; without a hook the timing is unchanged */
   else { playVeil(vt2, vt5, function () { html.classList.remove('has-veil'); }, vt4, hideVeil); }   /* arrival: the logo holds, closes and the brackets open out; the page wakes up as they open */
   window.addEventListener('pageshow', function (e) { if (e.persisted) hideVeil(); });
   window.__veil.show = show; window.__veil.t = { t1: vt1, t2: vt2, t3: vt3, t4: vt4, t5: vt5 };

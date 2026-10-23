@@ -501,9 +501,11 @@
   var darkBox = document.querySelector('[data-mark-dark]');
   if (darkBox && motion && !(navigator.connection && navigator.connection.saveData) && (navigator.deviceMemory || 4) >= 2 && !/[?&]mark=poster/.test(location.search) && ('WebGLRenderingContext' in window)) {
     /* 19-10: the WebGL support test used to create a throwaway context (a long task during the arrival animation); three.js now throws on its own when WebGL is missing and the SVG mark stays.
-       The modules download and compile right away (modulepreload), the scene starts once the veil is gone, in idle time; the canvas fades in over the SVG mark. */
-    ['/assets/vendor/three-0.186.1/three.core.min.js', '/assets/vendor/three-0.186.1/three.module.min.js', '/assets/js/mark-dark.js'].forEach(function (href) { var l = document.createElement('link'); l.rel = 'modulepreload'; l.href = href; l.fetchPriority = 'low'; document.head.appendChild(l); });   /* low: the font and the images above the fold go first */
-    afterArrival(function () { whenIdle(function () { import('/assets/js/mark-dark.js').then(function (m) { return m.init(darkBox, { isMobile: !desktop() || !fine }); }).catch(function (err) { if (window.console) console.warn('mark-dark', err); }); }, 700); });
+       The modules download and compile right away (modulepreload, high priority) and the scene starts at once (23-10, was: after the veil, in idle time); the canvas fades in over the SVG mark. */
+    ['/assets/vendor/three-0.186.1/three.core.min.js', '/assets/vendor/three-0.186.1/three.module.min.js', '/assets/js/mark-dark.js'].forEach(function (href) { var l = document.createElement('link'); l.rel = 'modulepreload'; l.href = href; l.fetchPriority = 'high'; document.head.appendChild(l); }); /* low: the font and the images above the fold go first */
+    /* 23-10 (Max): the moving mark has to be there from the first frame, so the scene starts right away, under the veil, instead of after arrival and idle time; the SVG mark only covers the gap until the first frame. */
+    window.__veilWait = function () { return !darkBox.classList.contains('is-live'); };   /* the veil holds its logo pose until the first frame is drawn (capped in veil.js) */
+    import('/assets/js/mark-dark.js').then(function (m) { return m.init(darkBox, { isMobile: !desktop() || !fine }); }).catch(function (err) { if (window.console) console.warn('mark-dark', err); });
   }
 
   /* ---------- Services console: hover or focus picks a service, auto-advances while in view ---------- */
