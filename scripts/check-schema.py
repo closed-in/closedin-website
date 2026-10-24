@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Checks the JSON-LD on every page (22-10-2026): it parses, carries no em or en dash, spells the brand closed:in, and Articles have a
-headline, datePublished, dateModified (not before datePublished) and an author; Organization blocks have sameAs. Replaces the byte
+headline, datePublished, dateModified (not before datePublished) and an author; Organization blocks have sameAs; VideoObjects have name, thumbnailUrl and uploadDate. Replaces the byte
 comparison of the JSON-LD against main (check-trackers.py still compares the tracker, cookie and Leadboxer blocks byte for byte).
 Usage: python3 scripts/check-schema.py"""
 import re, json, sys, pathlib, subprocess, html
@@ -51,6 +51,13 @@ for f in files:
                     if not fo.get("sameAs"): print(f"FAIL {f}: founder {fo.get('name')} without sameAs"); fails += 1
                 if "United States" not in json.dumps(n.get("areaServed", [])): print(f"FAIL {f}: areaServed without United States (there is a US page)"); fails += 1
             if ty == "Person" and f == "team.html" and n.get("jobTitle") and not n.get("sameAs"): print(f"FAIL {f}: {n.get('name')} without sameAs"); fails += 1
+            if ty == "VideoObject":   # 24-10: Search Console flagged the homepage video for a missing uploadDate; Google requires name, thumbnailUrl and uploadDate
+                for k in ("name", "thumbnailUrl", "uploadDate"):
+                    if not n.get(k): print(f"FAIL {f}: VideoObject without {k}"); fails += 1
+                thumbs = n.get("thumbnailUrl") if isinstance(n.get("thumbnailUrl"), list) else [n.get("thumbnailUrl")]
+                if any(not str(u).startswith("https://") for u in thumbs if u): print(f"FAIL {f}: VideoObject thumbnailUrl not absolute"); fails += 1
+                if n.get("uploadDate") and not re.match(r"^\d{4}-\d{2}-\d{2}", str(n["uploadDate"])): print(f"FAIL {f}: VideoObject uploadDate not ISO 8601: {n['uploadDate']}"); fails += 1
+                if not n.get("description"): print(f"WARN {f}: VideoObject without description")
             if ty == "FAQPage":
                 qs = [q.get("name", "") for q in n.get("mainEntity", [])]
                 vis = html.unescape(re.sub(r"<[^>]+>", "", t))
