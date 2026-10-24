@@ -34,6 +34,19 @@ Lees dit zo:
 - **Zonder JavaScript:** hun diagram bestaat niet in de HTML. Google rendert JavaScript wel, maar de AI-crawlers die we juist willen (ChatGPT, Perplexity, Copilot) lezen meestal de kale HTML: daar staat bij hen alleen de kop en de alinea, bij ons de hele flow met alle labels. Voor het SEO/GEO-plan is dat een echt nadeel van hun aanpak.
 - **Mobiel:** zij schalen het desktopdiagram met een transform naar de smalle kolom, waardoor de tekst onder de 10 px komt, en de rail met signalen verdwijnt (109 elementen in plaats van 307). Wij laten de kaarten herindelen op volle breedte, leesbaar, maar de sectie is daardoor lang (3.425 px).
 
+### Paginaniveau, ter context (Lighthouse op de livesites, 24-10)
+
+| | closed:in mobiel | closed:in desktop | forwardingcopilot mobiel | forwardingcopilot desktop |
+|---|---|---|---|---|
+| Performance | 83 | 99 | 97 | 100 |
+| LCP | 3,4 s | 0,8 s | 2,1 s | 0,6 s |
+| Blokkeertijd (TBT) | 142 ms | 0 | 24 ms | 0 |
+| JavaScript | 626 KB | 626 KB | 208 KB | 217 KB |
+| Totaal gewicht | 1,07 MB | 1,06 MB | 382 KB | 397 KB |
+| Toegankelijkheid | 100 | 100 | 96 | 96 |
+
+Hun pagina is als geheel lichter en scoort op mobiel hoger. Dat komt niet uit de sectie: het verschil van 400 KB JavaScript zit in onze trackers (GA4, Meta- en LinkedIn-pixel, Prospect Pro, Stairoids, Vercel-analytics: samen ruim 300 KB) en in het 3D-merk dat sinds 23-10 direct bij laden start (op jouw verzoek, boven laadsnelheid). Zonder die twee zit onze homepage op het niveau van de lokale meting van 22-10 (95 mobiel). Wat daaraan te doen is staat in `audit-2026-10-22.md` (pixels achter de cookiekeuze of eruit zolang ze placeholder-ID's hebben).
+
 ## 3. Ontwerp
 
 Zelfde ontwerptaal, want de een komt van de ander. Verschillen die je ziet:
