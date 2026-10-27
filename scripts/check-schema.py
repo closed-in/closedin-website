@@ -56,7 +56,7 @@ for f in files:
                     if not n.get(k): print(f"FAIL {f}: VideoObject without {k}"); fails += 1
                 thumbs = n.get("thumbnailUrl") if isinstance(n.get("thumbnailUrl"), list) else [n.get("thumbnailUrl")]
                 if any(not str(u).startswith("https://") for u in thumbs if u): print(f"FAIL {f}: VideoObject thumbnailUrl not absolute"); fails += 1
-                if n.get("uploadDate") and not re.match(r"^\d{4}-\d{2}-\d{2}", str(n["uploadDate"])): print(f"FAIL {f}: VideoObject uploadDate not ISO 8601: {n['uploadDate']}"); fails += 1
+                if n.get("uploadDate") and not re.match(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(Z|[+-]\d{2}:\d{2})$", str(n["uploadDate"])): print(f"FAIL {f}: VideoObject uploadDate must be a full ISO 8601 date-time with a time zone (Search Console 27-10): {n['uploadDate']}"); fails += 1
                 if not n.get("description"): print(f"WARN {f}: VideoObject without description")
             if ty == "FAQPage":
                 qs = [q.get("name", "") for q in n.get("mainEntity", [])]

@@ -23,6 +23,7 @@ CASES = {
     h1="How TPN got <b>500+ positive replies</b> from cold email",
     lead="True Performance Network (TPN) compresses, optimizes and benchmarks LLM models for developers and research teams: buyers who skip conferences and never show up in a LinkedIn filter. The first campaign in May got 12 replies on 2,919 emails. closed:in rebuilt the list around what those people had just published, replaced the pitch with a free first step, and the second campaign had 80 interested prospects within 24 hours.",
     video=("vid_cmvjj3y2500be02oq9qbb9m42", "Mikel Palokaj, True Performance Network", "/assets/img/stories/tpn-photo.webp"),
+    uploaded="2026-10-22T12:40:00+00:00",  # Tella createdAt (UTC); Search Console 27-10: uploadDate needs a time zone
     stats=[("7,128", "Prospects since 16 Sept 2026"), ("762", "Replies, 10.7%"), ("466", "Interested, 1 in 15"), ("24 h", "To the first 80 interested")],
     sections=[
         dict(label="The challenge", title="A technical product, buyers who sit in no database", glyphs="left", paras=[
@@ -54,6 +55,7 @@ CASES = {
     h1="Validation before scale: <b>a clear ICP</b> for Sankore Labs",
     lead="Sankore Labs connects Nigerian engineers with European teams whose vibe-coded products need a backend that holds up under real customers. A new proposition, founders from another industry, no network and no inbound. closed:in ran outbound as a discovery engine: segments, messages and tests that told the founders what stuck, what did not, and when to pivot.",
     video=("vid_cmvjey1l0003c02qh4r8584ze", "Leva Konaté, Sankore Labs", "/assets/img/stories/sankore-photo.webp"),
+    uploaded="2026-10-22T10:43:00+00:00",  # Tella createdAt (UTC); Search Console 27-10: uploadDate needs a time zone
     stats=[("New", "Proposition, no inbound yet"), ("ICP", "Sharpened before scaling"), ("A/B", "Messages tested per segment"), ("Weekly", "Decisions with the founders")],
     sections=[
         dict(label="The challenge", title="A new category, no network, no inbound", glyphs="left", paras=[
@@ -85,6 +87,7 @@ CASES = {
     h1="From loose Excel lists to <b>one HubSpot system</b> for Sustainable Motion",
     lead="Sustainable Motion has organised the Netherlands' sustainability career events for sixteen years, two fairs a year. A small team, a warm network, and no capacity to find and approach cold organisations. closed:in rebuilt their market as one database: 2,121 organisations in three tiers, 3,215 validated contacts and 252 new mobile numbers, delivered in HubSpot so their own team runs the outreach.",
     video=("vid_cmvjm3i60033a02mb3hwagt3z", "Laura Wolf, Sustainable Motion", "/assets/img/stories/sustainable-motion-photo.webp"),
+    uploaded="2026-10-22T14:03:00+00:00",  # Tella createdAt (UTC); Search Console 27-10: uploadDate needs a time zone
     stats=[("2,121", "Organisations in three tiers"), ("3,215", "Contacts, every email validated"), ("252", "New mobile numbers"), ("1", "HubSpot system instead of 8 Excel files")],
     sections=[
         dict(label="The challenge", title="Cold acquisition without a team for it", glyphs="left", paras=[
@@ -116,6 +119,7 @@ CASES = {
     h1="The outbound partner behind <b>a go-to-market consultancy</b>",
     lead="Advantive Advisory is a boutique go-to-market and B2B business development consultancy with clients in financial services, fintech and technology. When it won more clients than it could service, founder Shirin Danesh brought in closed:in as the delivery partner: list building, Clay enrichment and multi-channel campaigns inside Advantive's own infrastructure, for Advantive and for its clients.",
     video=("vid_cmvjl3x7a005x02qa1bikghj8", "Shirin Danesh, Advantive Advisory", "/assets/img/stories/advantive-photo.webp"),
+    uploaded="2026-10-22T13:36:00+00:00",  # Tella createdAt (UTC); Search Console 27-10: uploadDate needs a time zone
     stats=[("June 2026", "Partnership started, ongoing"), ("3", "Campaigns built and run"), ("2", "Channels, email and LinkedIn"), ("Weekly", "Iteration with the founder")],
     sections=[
         dict(label="The challenge", title="More clients than capacity", glyphs="left", paras=[
@@ -165,7 +169,7 @@ def head_for(c):
           "about": {{ "@type": "Organization", "name": {json_s(c["client"])}, "description": {json_s(c["about"])} }},
           "keywords": {json_s(c["keywords"])},
           "articleSection": "Case study",
-          "video": {{ "@type": "VideoObject", "name": {json_s("Client story: " + c["video"][1])}, "description": {json_s(c["client"] + " on working with closed:in, recorded for closedin.io.")}, "thumbnailUrl": "{BASE}{c['video'][2]}", "uploadDate": "{PUBLISHED}", "embedUrl": "https://www.tella.tv/video/{c['video'][0]}/embed" }}
+          "video": {{ "@type": "VideoObject", "name": {json_s("Client story: " + c["video"][1])}, "description": {json_s(c["client"] + " on working with closed:in, recorded for closedin.io.")}, "thumbnailUrl": "{BASE}{c['video'][2]}", "uploadDate": "{c['uploaded']}", "embedUrl": "https://www.tella.tv/video/{c['video'][0]}/embed" }}
         }},
         {{
           "@type": "BreadcrumbList",
