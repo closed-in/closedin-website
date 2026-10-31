@@ -28,10 +28,13 @@ const DESC = {
   pipedrive: 'Replies and booked meetings land straight in your Pipedrive.',
   close: 'Our own CRM, and the one we plug into for Close customers.',
   monday: 'Replies and booked meetings land straight in your monday.com.',
-  attio: 'Replies and booked meetings land straight in your Attio.',
+  attio: 'Attio Expert Partner. Replies and booked meetings land straight in your Attio.',
   folk: 'Replies and booked meetings land straight in your Folk.',
 };
 const CRM = [['hubspot','HubSpot','c'], ['salesforce','Salesforce','k'], ['pipedrive','Pipedrive','c'], ['close','Close','k'], ['monday','monday.com','c'], ['attio','Attio','k'], ['folk','Folk','m']];
+// partner tags under an icon (31-10: closed:in is an Attio Expert Partner; the badge itself sits in the hover tip and in the footer)
+const TAGS = { attio: 'Expert Partner' };
+const BADGES = { attio: '/assets/img/logos-web/attio-expert-partner.webp' };
 
 const $ = id => document.getElementById(id);
 const stack = $('stack'), pin = $('stack-pin'), head = $('stack-head'), snakesEl = $('stack-snakes');
@@ -70,6 +73,7 @@ const snakes = LANES.map((list, si) => {
     if (color) el.style.setProperty('--c', color);
     lanesEl.appendChild(el);
     const it = { el, hole, i, key, name, win };
+    if (TAGS[key]) { el.classList.add('part'); const tag = document.createElement('span'); tag.className = 'dock-tag'; tag.textContent = TAGS[key]; lanesEl.appendChild(tag); it.tag = tag; }
     el.addEventListener('mouseenter', () => showTip(it, si)); el.addEventListener('mouseleave', hideTip);
     return it;
   });
@@ -82,7 +86,7 @@ const tip = document.createElement('div'); tip.className = 'tip'; pin.appendChil
 function showTip(it, si) {
   if (!G || !it.el.classList.contains('in') || !DESC[it.key]) return;
   const sl = G.S[si].slots[it.i];
-  tip.innerHTML = `<b>${it.name}</b><span>${DESC[it.key]}</span>`;
+  tip.innerHTML = `<b>${it.name}</b><span>${DESC[it.key]}</span>` + (BADGES[it.key] ? `<img class="tip__badge" src="${BADGES[it.key]}" alt="${it.name} ${TAGS[it.key] || ''}" decoding="async">` : '');
   tip.style.left = (G.sx0 + sl.x - G.d / 2 - 10) + 'px'; tip.style.top = (G.sy0 + sl.y) + 'px';
   tip.classList.add('on');
 }
@@ -123,7 +127,7 @@ function layout() {
     sn.path.setAttribute('d', '');
     const slotS = slots.map(sl => sl.y - startY);
     const posAt = s_ => ({ x, y: startY + s_ });
-    sn.items.forEach((it, k) => { it.hole.style.left = slots[k].x + 'px'; it.hole.style.top = slots[k].y + 'px'; });
+    sn.items.forEach((it, k) => { it.hole.style.left = slots[k].x + 'px'; it.hole.style.top = slots[k].y + 'px'; if (it.tag) { it.tag.style.left = slots[k].x + 'px'; it.tag.style.top = (slots[k].y + d / 2 + 5) + 'px'; it.tag.classList.toggle('off', rowP - d < 24); } });   // the tag needs 24px between the rows (5px gap, 17px pill, 2px to the next icon), otherwise it stays hidden
     const o = 0;
     return { slots, slotS, posAt, gap, o, Hend: slotS[n - 1] };
   };
@@ -197,7 +201,7 @@ function frame(now) {
       if (nowOn !== it.el.classList.contains('on-now')) it.el.classList.toggle('on-now', nowOn);
       const tf = `${q.x.toFixed(1)}px ${q.y.toFixed(1)}px`;
       if (tf !== it.tf) { it.el.style.translate = tf; it.tf = tf; }
-      if (arrived !== it.el.classList.contains('in')) it.el.classList.toggle('in', arrived);
+      if (arrived !== it.el.classList.contains('in')) { it.el.classList.toggle('in', arrived); if (it.tag) it.tag.classList.toggle('in', arrived); }
       if (arrived) landed++;
     });
   });

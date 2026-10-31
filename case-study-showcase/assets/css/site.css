@@ -395,8 +395,10 @@ html.veil-hold .veil.on { animation: none; }
 .footer__badges img { height: 30px; width: auto; opacity: .8; transition: opacity .3s; }
 .footer__badges a:hover img { opacity: 1; }
 .footer__badges .award img { height: 40px; }
+.footer__badges .attio img { height: 36px; }   /* 31-10: Attio Expert Partner badge (two lines, so a little taller); no link until the partner directory page is live */
+.footer__col span { font-size: 15px; color: #a3a8b1; }   /* a partner entry without a page yet */
 @media (max-width: 480px) { .footer__badges { gap: 18px; } }
-@media (max-width: 385px) { .footer__badges { gap: 12px; } .footer__badges img { height: 27px; } .footer__badges .award img { height: 36px; } }   /* 20-10: all six badges on one row on phones (the last one wrapped alone) */
+@media (max-width: 385px) { .footer__badges { gap: 12px; } .footer__badges img { height: 27px; } .footer__badges .award img { height: 36px; } .footer__badges .attio img { height: 32px; } }   /* 20-10: all six badges on one row on phones (the last one wrapped alone) */
 .footer__ribbon { position: relative; z-index: 1; margin: 56px -30px 0; transform: rotate(-2deg); background: var(--accent); color: #0C0D0E; padding: 12px 0; overflow: hidden; }
 .footer__ribbon-track { display: flex; align-items: center; width: max-content; animation: marquee 40s linear infinite reverse; }
 .footer__ribbon:hover .footer__ribbon-track { animation-play-state: paused; }
