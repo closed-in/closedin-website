@@ -20,3 +20,6 @@ scripts/case-out/
 scripts/landing-out/
 scripts/*-out/
 research/audit-2026-10-20/*.json
+
+# the tracker env template may be committed, the real .env never
+!scripts/llm-visibility/.env.example

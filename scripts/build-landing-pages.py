@@ -28,6 +28,47 @@ OVERRIDES = {
     "cold-email-agency-amsterdam": dict(title="Cold Email Agency Amsterdam: Dutch and European B2B | closed:in"),
     "pricing": dict(title="Pricing: Outbound from EUR 4K to 8K per Month | closed:in"),
 }
+# 4-11-2026 (fix a fact, LLM-visibility plan): the commercial terms changed on 7-10-2026 (no setup fee, month to month, three months advised)
+# and the published range is EUR 4K to 8K (pricing page). Applied to the OLD page before parsing, so the visible copy and the JSON-LD FAQ change together.
+COPY_FIXES = {
+    "pricing": [
+        ("Standard engagement length is 3 months.", "Engagements run month to month; most clients plan for three months."),
+        ("Most engagements run on a 3 month standard term.", "Engagements run month to month; most clients plan for three months."),
+        ("One-time setup fee at kickoff", "Month 1 at kickoff, no setup fee"),
+        ("Domain purchase, inbox configuration, 14-21 day warmup, Clay table build and copy framework. Setup fee plus Month 1 are paid together at kickoff so the engine is live from day one.",
+         "No setup fee. Month 1 is invoiced at kickoff and covers domain purchase, inbox configuration, 14-21 day warmup, Clay table build and copy framework, so the engine is live from day one."),
+        ("Month 2 and 3 at start of month", "Every month at the start of the month"),
+        ("Standard term is 3 months. Month 2 and Month 3 are billed at the start of each month. No surprise charges, no per-meeting fees.",
+         "Each month is billed at the start of the month. No surprise charges, no per-meeting fees."),
+        ("Month 4 onward is optional", "Cancel monthly"),
+        ("Most clients continue past the initial 3 months as performance compounds. After Month 3 the engagement converts to month-to-month with 30 days notice either side.",
+         "Month to month with 30 days notice either side. We advise planning for three months: warmup takes the first two to three weeks and results compound from month two. Most clients continue well past that."),
+        ("Yes. There is a one-time setup fee at kickoff covering domain purchase, inbox configuration, 14-21 day warmup, Clay table build and copy framework. The setup fee plus the first month are paid together at kickoff. Month 2 and Month 3 are billed at the start of each month.",
+         "No. There is no setup fee. Month 1 is invoiced at kickoff and covers domain purchase, inbox configuration, 14-21 day warmup, Clay table build and copy framework. After that you pay month by month, with 30 days notice either side."),
+        ("Standard engagements run for 3 months. That is the realistic timeline to set up infrastructure, warm inboxes, build the Clay table, launch sequences, see initial reply data and optimize. Most clients see their first qualified meeting within 2-3 weeks of launch, with engagements often extending into month 4 onward as performance compounds.",
+         "There is no minimum term: engagements run month to month with 30 days notice. We do advise planning for three months. That is the realistic timeline to set up infrastructure, warm inboxes, build the Clay table, launch sequences, see initial reply data and optimize. Most clients see their first qualified meeting within 2-3 weeks of launch and continue well past month three as performance compounds."),
+    ],
+    "cold-email-agency-amsterdam": [
+        ("Most managed cold email engagements in the Netherlands run between EUR 3K and EUR 8K per month, depending on volume, languages and CRM complexity. closed:in works on a setup fee plus monthly retainer model, with engagements typically running 3 months minimum.",
+         "Most managed cold email engagements in the Netherlands run between EUR 4K and EUR 8K per month, depending on volume, languages and CRM complexity. closed:in works on a monthly retainer with no setup fee, cancellable monthly; most clients plan for three months."),
+    ],
+    "cold-email-agency-saas": [
+        ("Standard engagements run EUR 3K to EUR 8K per month plus a one-time setup fee. Engagements are 3 months minimum. Most SaaS clients see ROI within month 2 if their ACV is EUR 8K or above.",
+         "Standard engagements run EUR 4K to EUR 8K per month on a monthly retainer with no setup fee, cancellable monthly; most clients plan for three months. Most SaaS clients see ROI within month 2 if their ACV is EUR 8K or above."),
+    ],
+    "gtm-engineering-agency": [
+        ("Ongoing optimization continues over the 3-month minimum engagement, after which clients either renew or take the system in-house.",
+         "Ongoing optimization continues month to month; we advise planning for three months, after which clients either continue or take the system in-house."),
+    ],
+    "outbound-agency-us": [
+        ("Standard engagements run USD 3.5K to USD 9K per month plus a one-time setup fee, depending on volume, sequencing and CRM complexity. Engagements are 3 months minimum.",
+         "Standard engagements run USD 3.5K to USD 9K per month on a monthly retainer with no setup fee, depending on volume, sequencing and CRM complexity. Engagements are cancellable monthly; most clients plan for three months."),
+    ],
+    "outbound-agency-uk": [
+        ("Standard engagements run GBP 2.5K to GBP 7K per month plus a one-time setup fee, depending on volume, languages and CRM complexity. Engagements are 3 months minimum.",
+         "Standard engagements run GBP 2.5K to GBP 7K per month on a monthly retainer with no setup fee, depending on volume, languages and CRM complexity. Engagements are cancellable monthly; most clients plan for three months."),
+    ],
+}
 # the sister services under every landing page (hub and spokes, 22-10)
 RELATED = {"clay-agency": ["outbound-agency", "gtm-engineering-agency", "cold-email-agency-saas"], "cold-email-agency-amsterdam": ["outbound-agency", "outbound-agency-uk", "clay-agency"],
            "cold-email-agency-saas": ["outbound-agency", "clay-agency", "gtm-engineering-agency"], "gtm-engineering-agency": ["outbound-agency", "clay-agency", "cold-email-agency-saas"],
@@ -66,6 +107,8 @@ def label(n, s):
 def build(slug):
     name = f"{slug}.html"
     old = subprocess.run(["git", "-C", str(ROOT.parent), "show", f"{SRC_REV}:case-study-showcase/{name}"], capture_output=True, text=True, check=True).stdout
+    for a, b in COPY_FIXES.get(slug, []):
+        assert a in old, (slug, a[:60]); old = old.replace(a, b)
     cta_slug = re.search(r'utm_content=([a-z0-9-]+)" target="_blank" class="nav-cta"', old).group(1)
     body = old[old.index('<section class="hero">'): old.index('<section class="footer-signup">')]
     # ---- hero
