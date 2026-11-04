@@ -78,3 +78,7 @@ Onderwerpen in volgorde, elk met de vraag die AI-tools ervoor krijgen:
 4. Go-to-market for B2B service companies: the system we run for 50+ clients → /gtm-engineering-agency
 
 Werkwijze: Max levert ruwe input (transcript, LinkedIn-post, voice memo), ik schrijf het stuk als markdown met front matter, `python3 scripts/new-post.py <bestand> --write` zet het live-klaar (pagina, blogindex, llms.txt, sitemap, feed), daarna het previewbeeld en de checks. Elk stuk: antwoord in de eerste 150 woorden, eigen cijfers met datum, een klantcase, auteur en datum zichtbaar.
+
+## 5. Wekelijkse tracker (sinds 4-11-2026)
+
+De maandcheck hierboven blijft voor Perplexity en Google AI Mode. Voor ChatGPT, Claude en Gemini draait sinds 4-11 `scripts/llm-visibility/track.py`: 30 koopvragen plus 5 naamvragen (`questions.json`), elke maandag, rapport in `report.md`, ruwe antwoorden in `runs/`. Uitleg en klikpad in `scripts/llm-visibility/README.md`. Acties per week in `actions.md` (write a page, fix a fact, get featured, join the conversation). Het plan en de besluiten staan in de workspace: `PROJECTS/Closed In/Company/strategy/llm-visibility/2026-11-04-llm-visibility-plan.md`.
