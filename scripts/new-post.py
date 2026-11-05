@@ -19,6 +19,7 @@ keywords: gtm engineering, go-to-market engineering   (optional)
 Paragraphs. **bold**, *italic*, [links](https://...), `code`.
 - list items
 1. numbered items
+| col | col |  (pipe table, first row is the header, a |---| line is skipped)
 > a quote
 
 Usage: python3 scripts/new-post.py <file.md> [--write]   (without --write: prints the page to scripts/posts-out/)"""
@@ -53,6 +54,13 @@ def md_to_html(md):
         if not line: i += 1; continue
         if line.startswith("## "): out.append(f"<h2>{inline(line[3:])}</h2>"); i += 1; continue
         if line.startswith("### "): out.append(f"<h3>{inline(line[4:])}</h3>"); i += 1; continue
+        if line.startswith("|"):
+            rows = []
+            while i < len(lines) and lines[i].startswith("|"): rows.append([c.strip() for c in lines[i].strip().strip("|").split("|")]); i += 1
+            rows = [r for r in rows if not all(re.fullmatch(r":?-{2,}:?", c) for c in r)]
+            head = "".join(f"<th>{inline(c)}</th>" for c in rows[0])
+            body_rows = "\n".join("<tr>" + "".join(f"<td>{inline(c)}</td>" for c in r) + "</tr>" for r in rows[1:])
+            out.append(f'<div class="table-wrap"><table>\n<thead><tr>{head}</tr></thead>\n<tbody>\n{body_rows}\n</tbody>\n</table></div>'); continue
         if line.startswith("> "):
             q = []
             while i < len(lines) and lines[i].startswith("> "): q.append(inline(lines[i][2:])); i += 1
@@ -128,7 +136,7 @@ def build(md_path, write):
     # llms.txt
     lp = ROOT / "llms.txt"; lt = lp.read_text(encoding="utf-8")
     if url not in lt:
-        k = lt.index("Active posts include:"); k = lt.index("\n", k) + 1
+        k = lt.index("Posts include:"); k = lt.index("\n", k) + 1
         lt = lt[:k] + f'- ["{title}"]({url}): {desc}\n' + lt[k:]; lp.write_text(lt, encoding="utf-8"); print("llms.txt: line added")
     import subprocess
     for s in ("build-sitemap.py", "build-feed.py", "build-llms-full.py"): subprocess.run([sys.executable, str(pathlib.Path(__file__).parent / s)], check=True)

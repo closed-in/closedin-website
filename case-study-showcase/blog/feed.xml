@@ -6,7 +6,15 @@
   <atom:link href="https://www.closedin.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Tactics, teardowns and numbers from B2B outbound campaigns closed:in runs: cold email, Clay workflows, deliverability, GTM engineering.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 22 Oct 2026 10:52:45 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 05 Nov 2026 09:25:42 +0000</lastBuildDate>
+  <item>
+    <title>Best GTM engineering agencies in the Netherlands and Benelux (2026)</title>
+    <link>https://www.closedin.io/blog/best-gtm-engineering-agencies-netherlands</link>
+    <guid isPermaLink="true">https://www.closedin.io/blog/best-gtm-engineering-agencies-netherlands</guid>
+    <pubDate>Thu, 05 Nov 2026 09:00:00 +0000</pubDate>
+    <category>GTM engineering</category>
+    <description>Ten GTM engineering, outbound and demand agencies in the Netherlands and Belgium compared on location, Clay partner status, stack, published pricing and who they fit. Written by an Amsterdam agency, with the criteria out in the open.</description>
+  </item>
   <item>
     <title>Apple killed open rate. Most agencies still report on it.</title>
     <link>https://www.closedin.io/blog/cold-email-open-rate-vanity-metric</link>
