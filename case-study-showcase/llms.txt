@@ -102,6 +102,7 @@ closed:in operates a public resource vault at https://www.closedin.io/resources.
 ## Blog
 
 closed:in publishes tactical posts at https://www.closedin.io/blog. Each post breaks down something from a live client campaign. Posts include:
+- ["Best GTM engineering agencies in the Netherlands and Benelux (2026)"](https://www.closedin.io/blog/best-gtm-engineering-agencies-netherlands): Ten GTM engineering, outbound and demand agencies in the Netherlands and Belgium compared on location, Clay partner status, stack, published pricing and who they fit. Written by an Amsterdam agency, with the criteria out in the open.
 
 - ["Apple Killed Open Rate. Most Cold Email Agencies Still Report On It"](https://www.closedin.io/blog/cold-email-open-rate-vanity-metric): why iOS Mail Privacy Protection makes open rate unreliable and what to use instead (reply rate, OTR, bounce rate).
 - ["The Cold Email Warmup Schedule That Actually Works in 2026"](https://www.closedin.io/blog/cold-email-warmup-schedule): exact 21-day warmup schedule closed:in uses on every new client inbox, plus 4 warmup traps that wreck deliverability.
