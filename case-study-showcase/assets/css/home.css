@@ -444,7 +444,10 @@ html.js h1.hero-in { animation-name: hero-rise; }
 .hero__eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid rgba(255, 255, 255, .12); border-radius: var(--r-pill); font-size: 12.5px; color: rgba(255, 255, 255, .72); background: rgba(255, 255, 255, .03); text-decoration: none; transition: border-color .25s, color .25s; }
 .hero__eyebrow:hover { border-color: rgba(255, 255, 255, .4); color: #fff; }
 .hero__eyebrow i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
-.hero__eyebrow-ic { width: 16px; height: 16px; border-radius: 3px; display: block; }
+.hero__eyebrow-ic { width: 16px; height: 16px; border-radius: 3px; display: block; flex: none; }
+/* Max 10-11: two award pills stacked, FDI Insider on top of Acquisition International */
+.hero__awards { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.hero__awards .hero__eyebrow { max-width: 100%; line-height: 1.35; }
 .hero--dark .display { margin: 22px 0 0; max-width: none; font-size: clamp(38px, 6.2vw, 72px); line-height: 1.04; font-weight: 700; letter-spacing: -0.035em; color: #fff; text-wrap: balance; }
 .hero--dark .display b { font-weight: 700; } .hero--dark .display .lt { font-weight: 400; color: #a3a8b1; }
 .hero--dark .lead { margin: 22px 0 0; max-width: 560px; font-size: 18px; line-height: 1.55; color: #a3a8b1; }
