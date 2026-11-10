@@ -39,8 +39,8 @@ for (const p of paths) {
       title = title.replace(/\s+/g, ' ').trim();
     }
     const q = s => document.querySelector(s);
-    let eyebrow = 'GTM engineering agency', cta = 'Book a 30 min call', stats = [], tag = '';
-    if (p === '/') { eyebrow = 'Most Innovative B2B GTM Engineering Agency 2026'; tag = 'Creative GTM engineering agency in Amsterdam. Qualified B2B sales calls in 2-3 weeks.'; }
+    let eyebrow = 'GTM engineering agency', eyebrow2 = '', cta = 'Book a 30 min call', stats = [], tag = '';
+    if (p === '/') { eyebrow = 'Best B2B Outbound Infrastructure & GTM Engineering Agency 2026'; eyebrow2 = 'Most Innovative B2B GTM Engineering Agency 2026'; tag = 'Creative GTM engineering agency in Amsterdam. Qualified B2B sales calls in 2-3 weeks.'; }
     else if (p.startsWith('/case-study-')) { eyebrow = 'Case study · ' + (q('.case-logo') ? q('.case-logo').alt : ''); cta = 'Read the case'; stats = [...document.querySelectorAll('.case-stat')].slice(0, 3).map(e => [t(e.querySelector('b').textContent), t(e.querySelector('span').textContent)]); }
     else if (p.startsWith('/blog/') && p !== '/blog/') { eyebrow = 'Blog · ' + t(q('.post-tag') && q('.post-tag').textContent); cta = 'Read the post'; tag = t(q('.hero .lead') && q('.hero .lead').textContent).split('. ')[0] + '.'; }
     else if (p === '/blog/') { eyebrow = 'The closed:in blog'; cta = 'Read the blog'; tag = 'Tactics from live outbound campaigns, one post per week.'; }
@@ -51,7 +51,7 @@ for (const p of paths) {
     else if (p === '/privacy') { eyebrow = 'Privacy'; cta = 'Read the policy'; tag = 'closed:in, Jodenbreestraat 25, Amsterdam.'; }
     else if (p === '/pricing') { eyebrow = 'Pricing'; }
     else { const pill = q('.phero__pill'); if (pill) eyebrow = t(pill.textContent); stats = [...document.querySelectorAll('.case-stat')].slice(0, 3).map(e => [t(e.querySelector('b').textContent), t(e.querySelector('span').textContent)]); }
-    return { title, eyebrow, cta, stats, tag, h1: h1 ? t(h1.textContent) : '' };
+    return { title, eyebrow, eyebrow2, cta, stats, tag, h1: h1 ? t(h1.textContent) : '' };
   }, p);
   if (!d.title) { console.log('no h1', p); continue; }
   d.seed = [...p].reduce((a, c) => a + c.charCodeAt(0), 0) % 97 + 3;
