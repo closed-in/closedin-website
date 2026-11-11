@@ -6,7 +6,31 @@
   <atom:link href="https://www.closedin.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Tactics, teardowns and numbers from B2B outbound campaigns closed:in runs: cold email, Clay workflows, deliverability, GTM engineering.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 09 Nov 2026 10:19:45 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 11 Nov 2026 10:02:19 +0000</lastBuildDate>
+  <item>
+    <title>Apollo credits explained (2026): plans, what a credit buys and what a contact costs</title>
+    <link>https://www.closedin.io/blog/apollo-credits-explained</link>
+    <guid isPermaLink="true">https://www.closedin.io/blog/apollo-credits-explained</guid>
+    <pubDate>Wed, 11 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Pricing</category>
+    <description>Apollo moved to one shared credit pool. What each plan costs in November 2026, how many credits you get, what an email or mobile number costs in credits, and why unused credits are lost.</description>
+  </item>
+  <item>
+    <title>Instantly vs Smartlead pricing (2026): cost per email, limits and hidden costs</title>
+    <link>https://www.closedin.io/blog/instantly-vs-smartlead-pricing</link>
+    <guid isPermaLink="true">https://www.closedin.io/blog/instantly-vs-smartlead-pricing</guid>
+    <pubDate>Wed, 11 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Pricing</category>
+    <description>Instantly and Smartlead side by side in November 2026: plan prices, contact and email limits, cost per 1,000 emails, and the costs that are not on the pricing page.</description>
+  </item>
+  <item>
+    <title>Clay pricing explained (2026): Actions, Data Credits and what a plan really costs</title>
+    <link>https://www.closedin.io/blog/clay-pricing-explained</link>
+    <guid isPermaLink="true">https://www.closedin.io/blog/clay-pricing-explained</guid>
+    <pubDate>Wed, 11 Nov 2026 09:00:00 +0000</pubDate>
+    <category>Pricing</category>
+    <description>Clay now bills two things, Actions and Data Credits. What each plan costs in November 2026, how the two meters work, and how to pick a plan without overbuying.</description>
+  </item>
   <item>
     <title>Best GTM engineering agencies in the Netherlands and Benelux (2026)</title>
     <link>https://www.closedin.io/blog/best-gtm-engineering-agencies-netherlands</link>
