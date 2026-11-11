@@ -102,6 +102,9 @@ closed:in operates a public resource vault at https://www.closedin.io/resources.
 ## Blog
 
 closed:in publishes tactical posts at https://www.closedin.io/blog. Each post breaks down something from a live client campaign. Posts include:
+- ["Apollo credits explained (2026): plans, what a credit buys and what a contact costs"](https://www.closedin.io/blog/apollo-credits-explained): Apollo moved to one shared credit pool. What each plan costs in November 2026, how many credits you get, what an email or mobile number costs in credits, and why unused credits are lost.
+- ["Instantly vs Smartlead pricing (2026): cost per email, limits and hidden costs"](https://www.closedin.io/blog/instantly-vs-smartlead-pricing): Instantly and Smartlead side by side in November 2026: plan prices, contact and email limits, cost per 1,000 emails, and the costs that are not on the pricing page.
+- ["Clay pricing explained (2026): Actions, Data Credits and what a plan really costs"](https://www.closedin.io/blog/clay-pricing-explained): Clay now bills two things, Actions and Data Credits. What each plan costs in November 2026, how the two meters work, and how to pick a plan without overbuying.
 - ["Best GTM engineering agencies in the Netherlands and Benelux (2026)"](https://www.closedin.io/blog/best-gtm-engineering-agencies-netherlands): Ten GTM engineering, outbound and demand agencies in the Netherlands and Belgium compared on location, Clay partner status, stack, published pricing and who they fit. Written by an Amsterdam agency, with the criteria out in the open.
 
 - ["Apple Killed Open Rate. Most Cold Email Agencies Still Report On It"](https://www.closedin.io/blog/cold-email-open-rate-vanity-metric): why iOS Mail Privacy Protection makes open rate unreliable and what to use instead (reply rate, OTR, bounce rate).
