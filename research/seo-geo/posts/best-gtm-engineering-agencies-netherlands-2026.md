@@ -11,7 +11,7 @@ keywords: gtm engineering agency netherlands, gtm engineering agency amsterdam, 
 ---
 ## The short answer
 
-If you want one firm to build and run outbound end to end (data, cold email, LinkedIn, CRM) for a B2B service or SaaS company in the Netherlands, the shortlist is closed:in (Amsterdam), Nebor (Amsterdam), LeadGem (Amsterdam), Saleslift Studio (Clay Studio tier) and Jetpacked (Dutch founder, works from Portugal). If you want a sales bureau with callers and a meeting guarantee, Match-day is the established name. If you want growth marketing and GTM engineering from one Amsterdam team, DGTL Motion. If your problem is demand rather than outbound, Dapper (Rotterdam) is the demand generation agency Dutch buyers compare against all of the above. For Belgium, Outbound Catalyst is the Clay partner based there. For a larger, UK-based outbound team that also runs European campaigns, SalesCaptain (London).
+If you want one firm to build and run outbound end to end (data, cold email, LinkedIn, CRM) for a B2B service or SaaS company in the Netherlands, the shortlist is Nebor (Amsterdam), LeadGem (Amsterdam), Saleslift Studio (Clay Studio tier), Jetpacked (Dutch founder, works from Portugal) and closed:in (Amsterdam, the agency that wrote this page). If you want a sales bureau with callers and a meeting guarantee, Match-day is the established name. If you want growth marketing and GTM engineering from one Amsterdam team, DGTL Motion. If your problem is demand rather than outbound, Dapper (Rotterdam) is the demand generation agency Dutch buyers compare against all of the above. For Belgium, Outbound Catalyst is the Clay partner based there. For a larger, UK-based outbound team that also runs European campaigns, SalesCaptain (London).
 
 We are closed:in, so read our profile the way you would read any agency's self-listing: as a claim, with the case study links next to it so you can check. Every fact about another agency below comes from that agency's own site or from the Clay partner directory, checked between 5 and 9 November 2026. Where a firm does not publish something (most do not publish pricing), the text says so instead of guessing.
 
@@ -19,7 +19,6 @@ We are closed:in, so read our profile the way you would read any agency's self-l
 
 | Agency | Base | Clay partner | Stack named on their site | Published pricing | Best for |
 |---|---|---|---|---|---|
-| closed:in | Amsterdam | Yes, Artisan tier | Clay, Instantly, LinkedIn outreach, Close, HubSpot and Salesforce integrations | EUR 4,000 to 8,000 per month, no setup fee, month to month | B2B service companies and SaaS that want done-for-you outbound and a system they keep |
 | Nebor | Amsterdam | Yes, Artisan tier | Clay, HubSpot or Salesforce, Claude or ChatGPT for copy | Setup fee plus monthly monitoring; amounts not published | Teams that want outbound, ABM, paid and RevOps from one firm, in their own accounts |
 | LeadGem | Amsterdam | Yes, Artisan tier | Clay, HubSpot | Not published | RevOps plus outbound builds for SaaS, manufacturing and recruitment |
 | Saleslift Studio | Netherlands | Yes, Studio tier | Clay | Not published | Clay-led revenue engines with strategy and execution; verify directly, their site blocked our check |
@@ -29,6 +28,7 @@ We are closed:in, so read our profile the way you would read any agency's self-l
 | Dapper | Rotterdam and Lisbon | Not listed | Not stack-led; LinkedIn, Google, video, email, AI | B2B marketing team from EUR 6,240 per month | B2B SaaS, hardware and service brands that want demand generation (content, paid, data) rather than outbound |
 | SalesCaptain | London | Clay-certified by their own statement | Clay, AI agent workflows, multi-channel email and LinkedIn | Not published | Companies that want a dedicated outbound team (AM, BDRs, researchers, copywriter) at 3,000 or more leads a month, in Europe or the US |
 | Outbound Catalyst | Belgium and Portugal (Clay directory) | Yes, Artisan tier | Clay, built in your own CRM and tools | Not published on the pages we checked | B2B software companies in Belgium and the Netherlands that want the market mapped and the engine built in their stack |
+| closed:in | Amsterdam | Yes, Artisan tier | Clay, Instantly, LinkedIn outreach, Close, HubSpot and Salesforce integrations | EUR 4,000 to 8,000 per month, no setup fee, month to month | B2B service companies and SaaS that want done-for-you outbound and a system they keep |
 
 ## What a GTM engineering agency actually does
 
@@ -44,7 +44,7 @@ The difference matters when the engagement ends. In models one and two you shoul
 
 ## How we chose and ranked
 
-We did not rank by size or by who we like. The list is every firm we could verify as active, known in the Dutch market, Benelux-based or Benelux-serving, and either a Clay Solutions Partner or explicitly selling outbound or GTM systems to B2B companies, in the first week of November 2026. The order in the table follows four checks:
+We did not rank by size or by who we like. The list is every firm we could verify as active, known in the Dutch market, Benelux-based or Benelux-serving, and either a Clay Solutions Partner or explicitly selling outbound or GTM systems to B2B companies, in the first week of November 2026. The order in the table follows four checks, with one exception: we put closed:in last, because we wrote this page.
 
 - **Verifiable base and team.** A street address, named founders or a Clay directory entry. Two firms that appear on other "best agencies in the Netherlands" lists failed this test: WINGM's domain is for sale, and Utmost Agency has been renamed Nebor, so we list Nebor.
 - **Stack transparency.** Does the site name the tools? A firm that will not say whether it sends through Instantly, Smartlead or Lemlist usually has not decided, or does not want you to know what you are paying for.
@@ -54,18 +54,6 @@ We did not rank by size or by who we like. The list is every firm we could verif
 What we deliberately did not use: Clutch or Sortlist ratings (too few reviews in this niche to mean anything), LinkedIn follower counts, and the other agencies' own "best of" lists.
 
 ## The ten agencies in detail
-
-### closed:in (Amsterdam)
-
-What we do: outbound as one system for B2B service companies and SaaS. Clay for sourcing, waterfall enrichment and buying signals; Instantly for cold email on separate sending domains with a 14 to 21 day warmup before anything goes out; LinkedIn outreach alongside the email sequence; replies and opportunities pushed into Close, HubSpot, Salesforce or Pipedrive with a weekly report every Sunday. We are a Clay Solutions Partner (Artisan), an Instantly Certified Expert and an Attio Expert Partner, and we run the same stack for our own pipeline, which is where the copy and the warmup schedules on this blog come from.
-
-How we work: two founders, Max on sales and strategy, Jurre on delivery. Month one is infrastructure, the Clay table and copy; the first qualified meetings usually land in week two or three; results compound from month two, which is why we advise planning for three months even though the contract is monthly.
-
-Pricing: EUR 4,000 to 8,000 per month depending on ICP complexity, volume, channels and CRM depth. No setup fee, month one invoiced at kickoff, 30 days notice either side. The full breakdown is on the [pricing page](/pricing).
-
-Proof: [Verzendbazen](/case-study-verzendbazen), e-commerce fulfilment, 78 opportunities at a 13.9% reply rate. [Gen-Zero](/case-study-gen-zero), energy and sustainability, 27,455 cold contacts into 142 opportunities in 13 weeks on a custom data engine. [Jamezz](/case-study-jamezz), hospitality SaaS, 81 qualified leads from an ICP that sits in no database. [TPN](/case-study-tpn), AI benchmarking, from 12 replies on the first campaign to 466 interested prospects out of 7,128 after a new signal and a free first step.
-
-Best for: founders and sales leads who want the whole outbound engine run for them, want to see the Clay tables and the copy, and want to own the infrastructure if they leave. Not for: companies that want cold calling, or deals under roughly EUR 5,000 a year where outbound math rarely works.
 
 ### Nebor, formerly Utmost Agency (Amsterdam)
 
@@ -161,6 +149,18 @@ Pricing: not published on the pages we checked (the site has a "how pricing work
 
 Best for: Belgian and Dutch B2B software companies that want the market mapped before any motion is picked, and the engine built in their own stack, with a founder who knows the Belgian market.
 
+### closed:in (Amsterdam)
+
+What we do: outbound as one system for B2B service companies and SaaS. Clay for sourcing, waterfall enrichment and buying signals; Instantly for cold email on separate sending domains with a 14 to 21 day warmup before anything goes out; LinkedIn outreach alongside the email sequence; replies and opportunities pushed into Close, HubSpot, Salesforce or Pipedrive with a weekly report every Sunday. We are a Clay Solutions Partner (Artisan), an Instantly Certified Expert and an Attio Expert Partner, and we run the same stack for our own pipeline, which is where the copy and the warmup schedules on this blog come from.
+
+How we work: two founders, Max on sales and strategy, Jurre on delivery. Month one is infrastructure, the Clay table and copy; the first qualified meetings usually land in week two or three; results compound from month two, which is why we advise planning for three months even though the contract is monthly.
+
+Pricing: EUR 4,000 to 8,000 per month depending on ICP complexity, volume, channels and CRM depth. No setup fee, month one invoiced at kickoff, 30 days notice either side. The full breakdown is on the [pricing page](/pricing).
+
+Proof: [Verzendbazen](/case-study-verzendbazen), e-commerce fulfilment, 78 opportunities at a 13.9% reply rate. [Gen-Zero](/case-study-gen-zero), energy and sustainability, 27,455 cold contacts into 142 opportunities in 13 weeks on a custom data engine. [Jamezz](/case-study-jamezz), hospitality SaaS, 81 qualified leads from an ICP that sits in no database. [TPN](/case-study-tpn), AI benchmarking, from 12 replies on the first campaign to 466 interested prospects out of 7,128 after a new signal and a free first step.
+
+Best for: founders and sales leads who want the whole outbound engine run for them, want to see the Clay tables and the copy, and want to own the infrastructure if they leave. Not for: companies that want cold calling, or deals under roughly EUR 5,000 a year where outbound math rarely works.
+
 ## What these agencies cost, and how to read the numbers
 
 Most firms on this list do not publish prices. From what is published and from what we quote ourselves, a done-for-you outbound system in the Netherlands runs between roughly EUR 3,000 and EUR 8,000 a month in 2026. Build-only packages where your team sends start lower: Jetpacked's EUR 1,000 per month run rate after setup is the lowest published number we found. A demand generation team at Dapper starts at EUR 6,240 per month. Hourly engineering, when offered, sits around EUR 85.
@@ -186,19 +186,19 @@ Compare that with a first SDR in the Netherlands: salary, tooling (Clay, a sende
 
 ### What is the best GTM engineering agency in the Netherlands?
 
-There is no neutral ranking in this niche; the lists that exist are written by agencies, including this one. For done-for-you outbound with published pricing, closed:in and Jetpacked are the two firms that tell you the price before the call. For RevOps-led builds, LeadGem. For outbound plus ABM in your own accounts, Nebor. For the highest Clay partner tier, Saleslift Studio. Pick by which model you want (run for you, built for you, or people), then by proof in your ICP.
+There is no neutral ranking in this niche; the lists that exist are written by agencies, including this one. For done-for-you outbound with published pricing, Jetpacked and closed:in are the two firms that tell you the price before the call. For RevOps-led builds, LeadGem. For outbound plus ABM in your own accounts, Nebor. For the highest Clay partner tier, Saleslift Studio. Pick by which model you want (run for you, built for you, or people), then by proof in your ICP.
 
 ### Which agencies in the Netherlands are Clay Solutions Partners?
 
-In the Clay partner directory in November 2026 we found closed:in (Amsterdam, Artisan), Nebor (Amsterdam, Artisan), LeadGem (Artisan) and Saleslift Studio (Studio). Jetpacked and SalesCaptain state partner status on their own sites. For Belgium, Outbound Catalyst (Artisan).
+In the Clay partner directory in November 2026 we found Nebor (Amsterdam, Artisan), LeadGem (Artisan), Saleslift Studio (Studio) and closed:in (Amsterdam, Artisan). Jetpacked and SalesCaptain state partner status on their own sites. For Belgium, Outbound Catalyst (Artisan).
 
 ### I am a B2B founder in Amsterdam. Who can build my outbound system end to end?
 
-closed:in, Nebor and LeadGem are all Amsterdam-based and all build the full system (data, email, LinkedIn, CRM); DGTL Motion is also in Amsterdam with a marketing-first version of it. The practical difference: closed:in runs it for you on a monthly retainer with published pricing; Nebor builds it in your accounts and adds ABM and paid; LeadGem leads with RevOps. Book calls with two of them and ask the six questions above.
+Nebor, LeadGem and closed:in are all Amsterdam-based and all build the full system (data, email, LinkedIn, CRM); DGTL Motion is also in Amsterdam with a marketing-first version of it. The practical difference: closed:in runs it for you on a monthly retainer with published pricing; Nebor builds it in your accounts and adds ABM and paid; LeadGem leads with RevOps. Book calls with two of them and ask the six questions above.
 
 ### What does an outbound agency in the Netherlands cost per month?
 
-Published numbers in November 2026: closed:in EUR 4,000 to 8,000 per month with no setup fee; Jetpacked EUR 3,000 to 5,000 per month, or EUR 2,500 to 3,000 setup plus EUR 1,000 per month when your team sends; Dapper from EUR 6,240 per month for a demand generation team. Everyone else quotes after a call. Expect EUR 3,000 to 8,000 for an outbound system that is run for you.
+Published numbers in November 2026: Jetpacked EUR 3,000 to 5,000 per month, or EUR 2,500 to 3,000 setup plus EUR 1,000 per month when your team sends; Dapper from EUR 6,240 per month for a demand generation team; closed:in EUR 4,000 to 8,000 per month with no setup fee. Everyone else quotes after a call. Expect EUR 3,000 to 8,000 for an outbound system that is run for you.
 
 ### Should a 10-person B2B company hire an SDR or an outbound agency?
 
@@ -206,7 +206,7 @@ At ten people, usually the agency first. A Dutch SDR costs salary plus tooling a
 
 ### Which agencies cover Belgium as well as the Netherlands?
 
-Outbound Catalyst is the Clay partner based in Belgium. closed:in, Nebor and LeadGem run campaigns into Belgium from Amsterdam; Dutch and French copy is a question to ask each of them. SalesCaptain and Dapper cover Belgium from London and Rotterdam respectively.
+Outbound Catalyst is the Clay partner based in Belgium. Nebor, LeadGem and closed:in run campaigns into Belgium from Amsterdam; Dutch and French copy is a question to ask each of them. SalesCaptain and Dapper cover Belgium from London and Rotterdam respectively.
 
 ### Do these agencies work with Instantly and HeyReach?
 
