@@ -145,8 +145,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.closedin.io/blog/apollo-credits-explained</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
     <loc>https://www.closedin.io/blog/best-gtm-engineering-agencies-netherlands</loc>
     <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.closedin.io/blog/clay-pricing-explained</loc>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -165,6 +177,12 @@
   <url>
     <loc>https://www.closedin.io/blog/finding-prospects-not-in-apollo</loc>
     <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.closedin.io/blog/instantly-vs-smartlead-pricing</loc>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>

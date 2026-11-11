@@ -1,6 +1,6 @@
 # The closed:in GTM Stack
 
-# 24 tools, 6 categories, ~€2,750 a month, what each one is for
+# 24 tools, 6 categories, ~€2,650 a month, what each one is for
 
 ---
 
@@ -42,7 +42,7 @@ The tiers we use:
 
 ## 2. Enrichment and orchestration
 
-4 tools, about €800 a month.
+4 tools, about €700 a month.
 
 **What it has to do:** fill the gaps so the message can be specific, find the email at the lowest credit cost, and move data between sourcing, sending and CRM without a human copy-pasting CSVs.
 
@@ -50,7 +50,7 @@ The tiers we use:
 
 | Tool | Tier | Cost | Our take |
 |---|---|---|---|
-| [Clay](https://www.clay.com) | Core, Partner | €349 per month (Pro) | Our enrichment and orchestration spine. Waterfall enrichment, Claygent for AI scraping, signal aggregation. We are a Clay Solutions Partner. |
+| [Clay](https://www.clay.com) | Core, Partner | $495 per month (Growth, list price November 2026) | Our enrichment and orchestration spine. Growth is the plan you need for CRM sync, HTTP API and webhooks. Waterfall enrichment, Claygent for AI scraping, signal aggregation. We are a Clay Solutions Partner. |
 | [Findymail](https://www.findymail.com) | Waterfall | €69 per month | Validated finds inside the waterfall. Best hit rate for personal emails: small business owners, founders without a corporate setup. |
 | [Datagma](https://datagma.com) | Waterfall | €89 per month | Strong in EU markets where Apollo lags. Also does phone enrichment we sometimes use. |
 | [Hunter](https://hunter.io) | Verification | €49 per month | Verification step in the waterfall. Catches what others miss, lower false-positive rate than the alternatives. |
@@ -128,7 +128,7 @@ The full 10-provider order, run conditions and credit math are in the Clay water
 
 ## Total and what it means
 
-About €2,750 a month for a two-founder agency running six or more active clients. Per client we charge €5K to €8K a month, so the stack is roughly 5 to 8% of revenue.
+About €2,650 a month for a two-founder agency running six or more active clients, so roughly €450 per client per month. Our retainers run €4K to €8K a month.
 
 If you are starting from zero, buy in this order:
 
