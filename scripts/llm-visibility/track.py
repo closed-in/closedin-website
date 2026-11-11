@@ -4,7 +4,7 @@ ChatGPT (OpenAI), Claude (Anthropic) and Gemini (Google), each with web search o
 (Claude Haiku, no search): which agencies are named in order, where closed:in sits, which URLs are cited. Writes
 research/seo-geo/runs/<date>.json and rewrites research/seo-geo/report.md with the trend against the previous run.
 
-Keys: scripts/llm-visibility/.env (gitignored) with OPENAI_API_KEY, ANTHROPIC_API_KEY, GEMINI_API_KEY. A provider without a key is skipped.
+Keys: scripts/llm-visibility/.env (gitignored) with OPENAI_API_KEY, ANTHROPIC_API_KEY, GEMINI_API_KEY; the company .env in the workspace (CLOSEDIN_ prefix) is read as fallback. A provider without a key is skipped.
 Cost: estimated before any call and printed; the run stops when the estimate exceeds MAX_EUR_PER_RUN (default 3). Confirm the amount with Max first.
 
 Usage:
@@ -30,16 +30,21 @@ PRICES = {
 }
 CLASSIFIER = {"model": "claude-haiku-5-5", "in": 1.00, "out": 5.00}
 EUR_PER_USD = 0.92
-EST_TOKENS = {"in": 400, "out": 900}          # per answer, used only for the estimate before the run
+EST_TOKENS = {"in": 2500, "out": 900}          # per answer, used only for the estimate before the run
 EST_CLS = {"in": 1400, "out": 250}
 
 
+WORKSPACE_ENV = pathlib.Path.home() / "ClosedIn-Main-Workspace" / "PROJECTS" / "Closed In" / ".env"   # company keys, CLOSEDIN_ prefix (API-REGISTRY.md)
+
+
 def load_env():
-    env = HERE / ".env"
-    if env.exists():
-        for line in env.read_text().splitlines():
-            if "=" in line and not line.strip().startswith("#"):
-                k, v = line.split("=", 1); os.environ.setdefault(k.strip(), v.strip().strip('"'))
+    for env in (HERE / ".env", WORKSPACE_ENV):
+        if env.exists():
+            for line in env.read_text().splitlines():
+                if "=" in line and not line.strip().startswith("#"):
+                    k, v = line.split("=", 1); k = k.strip(); v = v.strip().strip('"').strip("'")
+                    os.environ.setdefault(k, v)
+                    if k.startswith("CLOSEDIN_"): os.environ.setdefault(k[len("CLOSEDIN_"):], v)   # CLOSEDIN_ANTHROPIC_API_KEY -> ANTHROPIC_API_KEY
 
 
 def post(url, body, headers, timeout=120):
@@ -139,7 +144,7 @@ def domain(u):
 
 # ---- report
 def load_runs():
-    runs = sorted(RUNS.glob("*.json"))
+    runs = sorted(r for r in RUNS.glob("*.json") if not r.stem.endswith("-dry"))
     return [json.loads(r.read_text()) for r in runs]
 
 
