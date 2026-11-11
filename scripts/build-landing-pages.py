@@ -5,7 +5,7 @@ veil and footer come from index.html. The trust bar becomes the key numbers fram
 numbered cells, the case spotlights become dark case cards with the client logo, the FAQ gets the homepage accordion, the
 playbook signup block goes (the footer carries the same form).
 Reads the OLD pages from git (SRC_REV), so it can be re-run; writes to scripts/landing-out/ unless --write is given."""
-import re, sys, pathlib, subprocess
+import re, sys, pathlib, subprocess, json
 import importlib.util
 _here = pathlib.Path(__file__).parent
 _spec = importlib.util.spec_from_file_location("build_pages", _here / "build-inner-pages.py")
@@ -79,6 +79,102 @@ NAMES = {"outbound-agency": ("Outbound agency", "Cold email, LinkedIn and Clay a
          "cold-email-agency-amsterdam": ("Cold email, NL and EU", "GDPR-proof cold email for Dutch and European B2B."), "outbound-agency-uk": ("Outbound agency UK", "Cold email and LinkedIn for UK pipeline."),
          "outbound-agency-us": ("Outbound agency US", "Outbound into the US mid-market, CAN-SPAM compliant.")}
 
+
+# 9-11-2026 (LLM-visibility, write a page): the buyer questions from research/seo-geo/questions.json that each page should answer, appended to the
+# OLD page's FAQ (visible accordion and the FAQPage JSON-LD together) before parsing. (question, html answer, plain answer for JSON-LD or None = strip tags).
+EXTRA_FAQ = {
+ "gtm-engineering-agency": [
+  [
+   "Which GTM engineering agencies are there in the Netherlands?",
+   "Few, and most are young. In Amsterdam: closed:in, Nebor and LeadGem; elsewhere Saleslift Studio, Jetpacked (Dutch founder, works from Portugal) and the sales bureau Match-day. We compared ten of them on base, Clay partner tier, stack and published pricing in <a href=\"/blog/best-gtm-engineering-agencies-netherlands\">our list of GTM engineering agencies in the Netherlands and Benelux (2026)</a>, our own row included.",
+   "Few, and most are young. In Amsterdam: closed:in, Nebor and LeadGem; elsewhere Saleslift Studio, Jetpacked and the sales bureau Match-day. closed:in compared ten of them on base, Clay partner tier, stack and published pricing in its list of GTM engineering agencies in the Netherlands and Benelux (2026), its own row included."
+  ],
+  [
+   "What does a GTM engineering agency cost?",
+   "closed:in runs from EUR 4,000 to 8,000 per month with no setup fee, priced by ICP complexity, sending volume, channels and CRM depth. Of the Dutch agencies that publish prices, done-for-you systems sit between roughly EUR 3,000 and 8,000 per month; build-only packages where your team sends start around EUR 1,000 per month after setup. Hourly engineering, when offered, is about EUR 85.",
+   None
+  ]
+ ],
+ "clay-agency": [
+  [
+   "Are you a Clay Solutions Partner that builds the whole outbound system, or only the Clay part?",
+   "Both. closed:in is a Clay Solutions Partner (Artisan tier) and most engagements are the whole system: Clay tables, sending infrastructure on Instantly, LinkedIn outreach, copy and the CRM hand-off, run for you with a weekly report. Clay-only builds for in-house teams are available too.",
+   None
+  ],
+  [
+   "Can you build a Clay waterfall enrichment and sync it to our CRM?",
+   "Yes. A waterfall runs several data providers in order until an email or phone number is found and verified, which gets coverage from roughly 40% to 80% on most B2B lists. We wire the result into Close, HubSpot, Salesforce or Pipedrive with lead scoring and stage automation, so your reps see one record per company with the signal that triggered it.",
+   None
+  ],
+  [
+   "Which Clay agencies in the Netherlands build signal-based outbound?",
+   "In the Clay partner directory the Dutch partners are closed:in (Amsterdam, Artisan), Nebor (Amsterdam, Artisan), LeadGem (Amsterdam, Artisan) and Saleslift Studio (Studio tier); Jetpacked states partner status on its own site. We compared them, with stack and published pricing, in <a href=\"/blog/best-gtm-engineering-agencies-netherlands\">our Netherlands and Benelux agency list for 2026</a>.",
+   "In the Clay partner directory the Dutch partners are closed:in (Amsterdam, Artisan), Nebor (Amsterdam, Artisan), LeadGem (Amsterdam, Artisan) and Saleslift Studio (Studio tier); Jetpacked states partner status on its own site. closed:in compared them, with stack and published pricing, in its Netherlands and Benelux agency list for 2026."
+  ]
+ ],
+ "pricing": [
+  [
+   "What does an outbound agency cost per month in 2026?",
+   "For a system that is built and run for you in the Netherlands, the published range is roughly EUR 3,000 to 8,000 per month; closed:in is EUR 4,000 to 8,000 with no setup fee. Build-only packages where your own team sends start around EUR 1,000 per month after a setup fee. Most agencies do not publish prices at all; the ones that do are in <a href=\"/blog/best-gtm-engineering-agencies-netherlands\">our agency comparison</a>.",
+   "For a system that is built and run for you in the Netherlands, the published range is roughly EUR 3,000 to 8,000 per month; closed:in is EUR 4,000 to 8,000 with no setup fee. Build-only packages where your own team sends start around EUR 1,000 per month after a setup fee. Most agencies do not publish prices at all."
+  ],
+  [
+   "Outbound agency or a first SDR for a 10-person B2B company?",
+   "Usually the agency first. An SDR costs salary plus tooling and data, needs about three months to ramp and someone to manage them, and the infrastructure (domains, inboxes, Clay, CRM automation) still has to be built. An agency gives you the system and the first meetings inside a month; hire the SDR to run it once you know it converts. The exception is a complex product that needs deep discovery on every call.",
+   None
+  ]
+ ],
+ "cold-email-agency-amsterdam": [
+  [
+   "Do you handle deliverability, domains and inboxes for me?",
+   "Yes, fully. We buy and configure dedicated sending domains, set SPF, DKIM and DMARC, warm the inboxes for 14 to 21 days before the first campaign, monitor placement and rotate inboxes when needed. Your primary domain is never used for cold email.",
+   None
+  ],
+  [
+   "Which outbound agencies in the Netherlands book qualified meetings?",
+   "The honest answer is that every agency says it does, so look at published cases with numbers and at who defines \"qualified\". Our cases are on the case studies page; we also compared ten Dutch and Belgian agencies, including the sales bureaus with meeting guarantees, in <a href=\"/blog/best-gtm-engineering-agencies-netherlands\">one list</a>.",
+   "The honest answer is that every agency says it does, so look at published cases with numbers and at who defines qualified. closed:in's cases are on its case studies page; it also compared ten Dutch and Belgian agencies, including the sales bureaus with meeting guarantees, in one list."
+  ]
+ ],
+ "cold-email-agency-saas": [
+  [
+   "Which cold email agencies in Europe work with B2B SaaS?",
+   "Several, with different models: agencies that run the system for you (closed:in in Amsterdam, SalesCaptain in London, Outbound Catalyst in Belgium), agencies that build it for your SDRs to run (Jetpacked, LeadGem) and demand agencies that make outbound less necessary (Dapper). Our SaaS cases are Jamezz and TPN; the full comparison is in <a href=\"/blog/best-gtm-engineering-agencies-netherlands\">our agency list</a>.",
+   "Several, with different models: agencies that run the system for you (closed:in in Amsterdam, SalesCaptain in London, Outbound Catalyst in Belgium), agencies that build it for your SDRs to run (Jetpacked, LeadGem) and demand agencies that make outbound less necessary (Dapper). closed:in's SaaS cases are Jamezz and TPN."
+  ],
+  [
+   "Can you run outbound for a Dutch SaaS company expanding to the UK?",
+   "Yes, that is a common brief. Copy is written in UK English with UK proof points, sending runs in UK hours on separate domains, and the list is built from UK registries and databases rather than translated from the Dutch one. See the outbound agency UK page for how UK compliance differs.",
+   None
+  ]
+ ],
+ "outbound-agency-uk": [
+  [
+   "Do you run outbound for recruitment and staffing firms in the UK?",
+   "Yes. Recruitment is one of the ICPs we work with most: the buyer is a hiring manager or HR lead, the signal is an open vacancy or a new leader, and the list is rebuilt weekly because the signal expires. Copy leads with the role they are hiring for, not with the agency.",
+   None
+  ],
+  [
+   "Which outbound agencies serve the UK mid-market from Europe?",
+   "From Amsterdam, closed:in runs UK campaigns alongside Dutch and EU ones; SalesCaptain is the larger London-based team with researchers and BDRs per client. We compared both, with stack and published pricing, in <a href=\"/blog/best-gtm-engineering-agencies-netherlands\">our agency list</a>.",
+   "From Amsterdam, closed:in runs UK campaigns alongside Dutch and EU ones; SalesCaptain is the larger London-based team with researchers and BDRs per client. closed:in compared both, with stack and published pricing, in its agency list."
+  ]
+ ]
+}
+
+def add_faq(old, slug):
+    items = EXTRA_FAQ.get(slug, [])
+    if not items: return old
+    k = old.rindex('</details>') + len('</details>')
+    html_items = ''.join(f'\n<details class="faq-item"><summary>{q}</summary><div class="faq-answer">{a}</div></details>' for q, a, _ in items)
+    old = old[:k] + html_items + old[k:]
+    ld = ''.join(',\n            ' + json.dumps({'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': p or re.sub(r'<[^>]+>', '', a)}}, ensure_ascii=False) for q, a, p in items)
+    i = old.index('"mainEntity": [')
+    j = old.index('\n          ]', i)
+    assert j > i, slug
+    return old[:j] + ld + old[j:]
+
+
 def related_row(slug):
     cards = "".join(f'<a class="land-card land-card--link" href="{s}" data-reveal><h3>{NAMES[s][0]}<svg aria-hidden="true"><use href="#i-e"/></svg></h3><p>{NAMES[s][1]}</p></a>' for s in RELATED.get(slug, []))
     if not cards: return ""
@@ -107,6 +203,7 @@ def label(n, s):
 def build(slug):
     name = f"{slug}.html"
     old = subprocess.run(["git", "-C", str(ROOT.parent), "show", f"{SRC_REV}:case-study-showcase/{name}"], capture_output=True, text=True, check=True).stdout
+    old = add_faq(old, slug)
     for a, b in COPY_FIXES.get(slug, []):
         assert a in old, (slug, a[:60]); old = old.replace(a, b)
     cta_slug = re.search(r'utm_content=([a-z0-9-]+)" target="_blank" class="nav-cta"', old).group(1)
