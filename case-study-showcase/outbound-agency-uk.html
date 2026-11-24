@@ -97,10 +97,8 @@
     <script defer src="/assets/vendor/gsap-3.15.0/ScrollTrigger.min.js"></script>
     <script defer src="/assets/vendor/lenis-1.3.26/lenis.min.js"></script>
     <script defer src="/assets/js/site.js"></script>
-    <!-- Prospect Pro – Bedrijfsherkenning -->
-    <link rel="stylesheet" href="https://css.jsapis.com/controls.css">
-    <script async src='https://cdn.prppr.nl/jq_bde1886c.js'></script>
-    <!-- Stairoids: website visitor tracking (gebruikt dezelfde stylesheet als Prospect Pro hierboven) -->
+    <!-- Stairoids: website visitor tracking. Prospect Pro removed 24-11-2026 (pixel domain gone, no import since July); the shared stylesheet now loads without blocking the first paint -->
+    <link rel="stylesheet" href="https://css.jsapis.com/controls.css" media="print" onload="this.media='all'">
     <script async src='https://y.strds.nl/jq_950354e1.js'></script>
 </head>
 <body class="land">
