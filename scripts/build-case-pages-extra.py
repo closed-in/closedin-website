@@ -14,17 +14,17 @@ PUBLISHED = "2026-10-22"
 CASES = {
 "tpn": dict(
     client="True Performance Network", short="TPN", slug="tpn",
-    title="TPN Case Study: 500+ Positive Replies from Cold Email | closed:in",
-    description="How closed:in rebuilt TPN's cold email around a free first step for AI developers: from 12 replies on the first campaign to 466 interested in four weeks.",
-    headline="TPN: 500+ positive replies from cold email after a first campaign that got 12",
+    title="TPN Case Study: 218 Signups from Cold Email in 8 Weeks | closed:in",
+    description="How closed:in got TPN 757 opportunities and 218 product signups from cold email in 8 weeks, with a free first benchmark instead of a sales call.",
+    headline="TPN: 218 product signups and 757 opportunities from cold email in 8 weeks",
     about="AI model compression and benchmarking platform for developers",
     keywords="cold email for developers, technical founders outbound, offer testing, signal-based outbound, AI tooling outbound",
     tags=["AI / LLM tooling", "Developers", "Cold email"],
-    h1="How TPN got <b>500+ positive replies</b> from cold email",
+    h1="How TPN got <b>218 product signups</b> from cold email",
     lead="True Performance Network (TPN) compresses, optimizes and benchmarks LLM models for developers and research teams: buyers who skip conferences and never show up in a LinkedIn filter. The first campaign in May got 12 replies on 2,919 emails. closed:in rebuilt the list around what those people had just published, replaced the pitch with a free first step, and the second campaign had 80 interested prospects within 24 hours.",
     video=("vid_cmvjj3y2500be02oq9qbb9m42", "Mikel Palokaj, True Performance Network", "/assets/img/stories/tpn-photo.webp"),
     uploaded="2026-10-22T12:40:00+00:00",  # Tella createdAt (UTC); Search Console 27-10: uploadDate needs a time zone
-    stats=[("7,128", "Prospects since 16 Sept 2026"), ("762", "Replies, 10.7%"), ("466", "Interested, 1 in 15"), ("24 h", "To the first 80 interested")],
+    stats=[("757", "Opportunities in 8 weeks"), ("218", "Product signups, no sales call"), ("50", "Users ran a first benchmark"), ("24 h", "To the first 80 interested")],
     sections=[
         dict(label="The challenge", title="A technical product, buyers who sit in no database", glyphs="left", paras=[
             "TPN serves developers and developer teams: people who compress, fine-tune and benchmark LLM models. As Mikel puts it, they do not go to conferences, and they do not sit in a LinkedIn title filter either. TPN knew what kind of customer it wanted. The open question was how to reach them.",
@@ -36,10 +36,11 @@ CASES = {
                    ("Four segments", "Four campaigns by what the person had published and who they are, so each segment could be read on its own instead of averaged away."),
                    ("Offer and copy", "No pitch on price. The first benchmark run for free, written as one question, in three plain-text steps."),
                    ("Infrastructure", "20 domains and 40 inboxes, warmed since April, 1,000 sends a day. Nothing new to build, everything to re-aim.")]),
-        dict(label="The results", title="80 interested in 24 hours, 466 in four weeks", glyphs="left", paras=[
+        dict(label="The results", title="80 interested in 24 hours, 757 opportunities in 8 weeks", glyphs="left", paras=[
             "The first 24 hours brought 80 interested replies. After 17 days it was 309. On 13 October, four weeks in, Instantly showed 7,128 prospects contacted, 762 replies and 466 interested: one positive answer for every 15 people emailed, against 4 interested on 2,919 in May.",
+            "Eight weeks in, Instantly published the numbers as its own case study: 757 opportunities, 218 product signups and 50 users who ran their first benchmark, without a single sales call (<a href=\"https://www.linkedin.com/posts/instantlyapp_instantly-case-study-activity-7526644937640259584-X1JU\" target=\"_blank\" rel=\"noopener\">Instantly case study, 12 November 2026</a>).",
             "For TPN the replies were more than pipeline. Mikel counts over 500 positive responses, each one a data point: wish lists, feedback on the business model, input on the platform. Real users uploaded models and requested benchmarks, which stress-tested the product and surfaced bugs the team would not have found without the outreach."],
-            results=[("466", "Interested prospects out of 7,128"), ("1 in 15", "Positive reply per prospect emailed"), ("80", "Interested in the first 24 hours"), ("500+", "Positive replies as product feedback")]),
+            results=[("757", "Opportunities in 8 weeks"), ("218", "Product signups without a sales call"), ("50", "Users ran their first benchmark"), ("80", "Interested in the first 24 hours")]),
     ],
     quote=("I really like your hands-on approach. Digging in, trying to really understand the business and then finding creative ways to reach customers.", "Mikel Palokaj, Co-founder, True Performance Network"),
     cta=("Want results<br>like these?", "Book a free strategy call and discover how we can build a predictable outbound pipeline for your business.", "Book a 30 min call", "https://meeting.closedin.io/discovery-call?utm_source=closedin.io&amp;utm_medium=cta&amp;utm_content=case-study-tpn"),

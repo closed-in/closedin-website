@@ -157,7 +157,7 @@ How we work: two founders, Max on sales and strategy, Jurre on delivery. Month o
 
 Pricing: EUR 4,000 to 8,000 per month depending on ICP complexity, volume, channels and CRM depth. No setup fee, month one invoiced at kickoff, 30 days notice either side. The full breakdown is on the [pricing page](/pricing).
 
-Proof: [Verzendbazen](/case-study-verzendbazen), e-commerce fulfilment, 78 opportunities at a 13.9% reply rate. [Gen-Zero](/case-study-gen-zero), energy and sustainability, 27,455 cold contacts into 142 opportunities in 13 weeks on a custom data engine. [Jamezz](/case-study-jamezz), hospitality SaaS, 81 qualified leads from an ICP that sits in no database. [TPN](/case-study-tpn), AI benchmarking, from 12 replies on the first campaign to 466 interested prospects out of 7,128 after a new signal and a free first step.
+Proof: [Verzendbazen](/case-study-verzendbazen), e-commerce fulfilment, 78 opportunities at a 13.9% reply rate. [Gen-Zero](/case-study-gen-zero), energy and sustainability, 27,455 cold contacts into 142 opportunities in 13 weeks on a custom data engine. [Jamezz](/case-study-jamezz), hospitality SaaS, 81 qualified leads from an ICP that sits in no database. [TPN](/case-study-tpn), AI benchmarking, from 12 replies on the first campaign to 757 opportunities and 218 product signups in 8 weeks after a new signal and a free first step.
 
 Best for: founders and sales leads who want the whole outbound engine run for them, want to see the Clay tables and the copy, and want to own the infrastructure if they leave. Not for: companies that want cold calling, or deals under roughly EUR 5,000 a year where outbound math rarely works.
 

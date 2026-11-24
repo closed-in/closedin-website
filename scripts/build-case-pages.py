@@ -14,7 +14,7 @@ SRC_REV = "fada808"
 SLUGS = ["endresz", "gen-zero", "jamezz", "mistertafel", "redfox", "verzendbazen", "wetaxus", "zano"]
 NEXT_ORDER = ["gen-zero", "zano", "verzendbazen", "jamezz", "mistertafel", "endresz", "tpn", "sankore", "sustainable-motion", "advantive", "redfox", "wetaxus"]   # the written cases in the order of the Cases page, then the ones with a video (22-10: plus the four new video cases); the last points back to the first
 # 22-10: the four cases written from the video testimonials (build-case-pages-extra.py) are not in git's old pages; their titles and logos live here so Next case can point at them
-EXTRA_TITLES = {"tpn": "How TPN got <b>500+ positive replies</b> from cold email", "sankore": "Validation before scale: <b>a clear ICP</b> for Sankore Labs",
+EXTRA_TITLES = {"tpn": "How TPN got <b>218 product signups</b> from cold email", "sankore": "Validation before scale: <b>a clear ICP</b> for Sankore Labs",
                 "sustainable-motion": "From loose Excel lists to <b>one HubSpot system</b> for Sustainable Motion", "advantive": "The outbound partner behind <b>a go-to-market consultancy</b>"}
 EXTRA_LOGOS = {"tpn": ("/assets/img/logos-web/tpn-sm-v3.webp", "TPN", "315", "120"), "sankore": ("/assets/img/logos-web/sankore-sm.webp", "Sankore Labs", "400", "49"),
                "sustainable-motion": ("/assets/img/logos-web/sustainable-motion-sm.webp", "Sustainable Motion", "339", "120"), "advantive": ("/assets/img/logos-web/advantive-sm-v2.webp", "Advantive Advisory", "363", "143")}
