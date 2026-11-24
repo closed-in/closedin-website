@@ -15,7 +15,7 @@ CASES = {
 "tpn": dict(
     client="True Performance Network", short="TPN", slug="tpn",
     title="TPN Case Study: 500+ Positive Replies from Cold Email | closed:in",
-    description="Case study: how closed:in rebuilt TPN's cold email around a free first step for AI developers, from 12 replies on the first campaign to 466 interested prospects out of 7,128 in four weeks.",
+    description="How closed:in rebuilt TPN's cold email around a free first step for AI developers: from 12 replies on the first campaign to 466 interested in four weeks.",
     headline="TPN: 500+ positive replies from cold email after a first campaign that got 12",
     about="AI model compression and benchmarking platform for developers",
     keywords="cold email for developers, technical founders outbound, offer testing, signal-based outbound, AI tooling outbound",
@@ -47,7 +47,7 @@ CASES = {
 "sankore": dict(
     client="Sankore Labs", short="Sankore Labs", slug="sankore",
     title="Sankore Labs Case Study: Clarity on ICP in the Discovery Phase | closed:in",
-    description="Case study: how closed:in ran outbound as a discovery engine for Sankore Labs, a new developer matchmaking service, so the founders could validate the ICP and the offer before spending months on it.",
+    description="How closed:in used outbound as a discovery engine for Sankore Labs, so the founders could validate their ICP and offer before building further.",
     headline="Sankore Labs: validation before scale for a new developer matchmaking service",
     about="Developer matchmaking: Nigerian engineering talent for European product teams",
     keywords="go-to-market validation, ICP validation, early-stage outbound, recruitment outbound, developer matchmaking",
@@ -79,7 +79,7 @@ CASES = {
 "sustainable-motion": dict(
     client="Sustainable Motion", short="Sustainable Motion", slug="sustainable-motion",
     title="Sustainable Motion Case Study: 3,215 Contacts in One HubSpot System | closed:in",
-    description="Case study: how closed:in turned Sustainable Motion's loose Excel lists into one HubSpot system with 2,121 organisations, 3,215 validated contacts and 252 new mobile numbers, ready for their own outreach.",
+    description="How closed:in turned Sustainable Motion's Excel lists into one HubSpot system: 2,121 organisations, 3,215 validated contacts and 252 new mobile numbers.",
     headline="Sustainable Motion: from loose Excel lists to one HubSpot system with 3,215 contacts",
     about="Organiser of the Netherlands' sustainability career events",
     keywords="TAM build, list building, Clay enrichment, HubSpot setup, data project, career events",
@@ -111,7 +111,7 @@ CASES = {
 "advantive": dict(
     client="Advantive Advisory", short="Advantive Advisory", slug="advantive",
     title="Advantive Advisory Case Study: Outbound Partner to a GTM Consultancy | closed:in",
-    description="Case study: how closed:in became the outbound delivery partner of Advantive Advisory, running list building, Clay enrichment and multi-channel campaigns for the consultancy and its clients in financial services, fintech and tech.",
+    description="How closed:in became the outbound delivery partner of Advantive Advisory: list building, Clay enrichment and campaigns in financial services and fintech.",
     headline="Advantive Advisory: the outbound partner behind a go-to-market consultancy",
     about="Boutique go-to-market and B2B business development consultancy serving financial services, fintech and technology",
     keywords="outbound partner, white-label outbound, consultancy outbound, financial services outbound, multi-channel campaigns",

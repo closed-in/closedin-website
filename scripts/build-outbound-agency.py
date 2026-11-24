@@ -10,7 +10,7 @@ bp = bc.bp; ROOT = bp.ROOT; BASE = "https://www.closedin.io"
 SLUG = "outbound-agency"; URL = f"{BASE}/{SLUG}"
 BOOK = "https://meeting.closedin.io/discovery-call?utm_source=closedin.io&amp;utm_medium=cta&amp;utm_content=outbound-agency"
 TITLE = "Outbound Agency for B2B | Cold Email, LinkedIn and Clay as One System | closed:in"
-DESC = "closed:in is an outbound agency in Amsterdam for B2B companies in Europe, the UK and the US: cold email, LinkedIn and Clay enrichment run as one system inside your CRM, with qualified meetings in 2-3 weeks."
+DESC = "Outbound agency in Amsterdam for B2B companies in Europe, the UK and the US: cold email, LinkedIn and Clay run as one system. First meetings in 2-3 weeks."
 esc = lambda s: html.escape(s, quote=True)
 j = lambda s: json.dumps(s, ensure_ascii=False)
 

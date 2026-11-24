@@ -2,7 +2,7 @@
 title: Instantly vs Smartlead pricing (2026): cost per email, limits and hidden costs
 slug: instantly-vs-smartlead-pricing
 tag: Pricing
-description: Instantly and Smartlead side by side in November 2026: plan prices, contact and email limits, cost per 1,000 emails, and the costs that are not on the pricing page.
+description: Instantly vs Smartlead in November 2026: plan prices, contact and email limits, cost per 1,000 emails and the costs not on the pricing page.
 lead: Both tools let you connect unlimited email accounts, so the plan price is really a price for volume. Smartlead is cheaper at the entry level ($39 against $47 a month), Instantly is cheaper per email in the middle tiers, and at 500,000 emails a month they are about $20 apart.
 date: 2026-11-11
 author: Max
