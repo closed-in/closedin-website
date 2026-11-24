@@ -2,7 +2,7 @@
 title: Apollo credits explained (2026): plans, what a credit buys and what a contact costs
 slug: apollo-credits-explained
 tag: Pricing
-description: Apollo moved to one shared credit pool. What each plan costs in November 2026, how many credits you get, what an email or mobile number costs in credits, and why unused credits are lost.
+description: Apollo's shared credit pool explained: what each plan costs in November 2026, how many credits you get and what an email or mobile number costs.
 lead: Apollo now gives every plan one pool of credits, shared by the whole team and reset every billing cycle. On every paid plan a credit works out at about 2 US cents, so a found email costs roughly $0.02 and a mobile number roughly $0.18. The plan you pick mostly changes features and how many credits you get, not the price per credit.
 date: 2026-11-11
 author: Max

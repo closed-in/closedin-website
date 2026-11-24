@@ -15,7 +15,7 @@ Client stories
 ## Founders on what changed after closed:in
 Founders and marketers who run their outbound through us, on video and in writing. Their words, their numbers.
 > I really like your hands-on approach. Digging in, trying to really understand the business and then finding creative ways to reach customers.
-4% positive reply rate and 500+ positive replies to refine the offer
+757 opportunities and 218 product signups in 8 weeks
 Mikel Palokaj Co-founder, True Performance Network
 > The first week we already had amazing results. Reply rate went through the roof.
 Ronne van Rijn Marketing, Endresz
@@ -187,6 +187,8 @@ All eight written cases and six client videos are on the case studies page .
 **Q:** Outbound agency or hiring SDRs?
 **Q:** Which channels does closed:in run?
 **Q:** How fast do you deliver results?
+**Q:** Which outbound agencies serve B2B service companies in the Benelux?
+**Q:** Do you use buying signals instead of generic lists?
 **Q:** Where do you run outbound?
 ## Ready to run outbound as a system?
 Book a 30 minute discovery call. We will walk through your ICP, your channels and your CRM, and tell you whether closed:in is a fit.
@@ -231,6 +233,8 @@ Week 4 onwards. Live campaigns. Weekly reporting. Iteration on copy, lists and s
 **Q:** Which tools do GTM engineering agencies typically use?
 **Q:** How long does a GTM engineering engagement take?
 **Q:** Do you train my team or do everything for us?
+**Q:** Which GTM engineering agencies are there in the Netherlands?
+**Q:** What does a GTM engineering agency cost?
 + Also from closed:in
 ## Related services.
 ### Outbound agency
@@ -283,6 +287,9 @@ Clay tables wired into Close, HubSpot, Salesforce or Pipedrive. Enriched data fl
 **Q:** How much does a Clay engagement cost?
 **Q:** Which CRMs do you integrate Clay with?
 **Q:** How long does a Clay project take?
+**Q:** Are you a Clay Solutions Partner that builds the whole outbound system, or only the Clay part?
+**Q:** Can you build a Clay waterfall enrichment and sync it to our CRM?
+**Q:** Which Clay agencies in the Netherlands build signal-based outbound?
 + Also from closed:in
 ## Related services.
 ### Outbound agency
@@ -335,6 +342,8 @@ Replies wired straight into Close, HubSpot or Salesforce. Weekly client reports 
 **Q:** Is cold email still legal under GDPR?
 **Q:** Do you also handle LinkedIn outreach, or only cold email?
 **Q:** Which industries do you typically work with?
+**Q:** Do you handle deliverability, domains and inboxes for me?
+**Q:** Which outbound agencies in the Netherlands book qualified meetings?
 + Also from closed:in
 ## Related services.
 ### Outbound agency
@@ -386,6 +395,8 @@ Weekly reports on demos booked, ICP fit per booking, no-show rate, and pipeline 
 **Q:** How is cold email for SaaS priced?
 **Q:** How fast do SaaS clients see qualified demos?
 **Q:** Do you integrate with our CRM and demo booking tool?
+**Q:** Which cold email agencies in Europe work with B2B SaaS?
+**Q:** Can you run outbound for a Dutch SaaS company expanding to the UK?
 + Also from closed:in
 ## Related services.
 ### Outbound agency
@@ -436,6 +447,8 @@ Replies wired into Close, HubSpot, Salesforce or Pipedrive. Weekly reports on re
 **Q:** Can you run multi-market campaigns that include the UK?
 **Q:** Do I need to be GDPR-compliant for UK outbound?
 **Q:** How much does outbound for a UK company cost?
+**Q:** Do you run outbound for recruitment and staffing firms in the UK?
+**Q:** Which outbound agencies serve the UK mid-market from Europe?
 + Also from closed:in
 ## Related services.
 ### Outbound agency
@@ -566,6 +579,8 @@ Month to month with 30 days notice either side. We advise planning for three mon
 **Q:** What is the minimum engagement length?
 **Q:** Do you offer Clay-only or consulting engagements?
 **Q:** Do you offer performance-based pricing?
+**Q:** What does an outbound agency cost per month in 2026?
+**Q:** Outbound agency or a first SDR for a 10-person B2B company?
 + Also from closed:in
 ## Related services.
 ### Outbound agency
@@ -590,7 +605,7 @@ Client stories
 ## Founders on what changed after closed:in
 Founders and marketers who run their outbound through us, on video and in writing. Their words, their numbers.
 > I really like your hands-on approach. Digging in, trying to really understand the business and then finding creative ways to reach customers.
-4% positive reply rate and 500+ positive replies to refine the offer
+757 opportunities and 218 product signups in 8 weeks
 Mikel Palokaj Co-founder, True Performance Network
 > The first week we already had amazing results. Reply rate went through the roof.
 Ronne van Rijn Marketing, Endresz

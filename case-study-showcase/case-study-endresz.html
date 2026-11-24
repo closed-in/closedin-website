@@ -90,10 +90,8 @@
     <script defer src="/assets/vendor/gsap-3.15.0/ScrollTrigger.min.js"></script>
     <script defer src="/assets/vendor/lenis-1.3.26/lenis.min.js"></script>
     <script defer src="/assets/js/site.js"></script>
-    <!-- Prospect Pro – Bedrijfsherkenning -->
-    <link rel="stylesheet" href="https://css.jsapis.com/controls.css">
-    <script async src='https://cdn.prppr.nl/jq_bde1886c.js'></script>
-    <!-- Stairoids: website visitor tracking (gebruikt dezelfde stylesheet als Prospect Pro hierboven) -->
+    <!-- Stairoids: website visitor tracking. Prospect Pro removed 24-11-2026 (pixel domain gone, no import since July); the shared stylesheet now loads without blocking the first paint -->
+    <link rel="stylesheet" href="https://css.jsapis.com/controls.css" media="print" onload="this.media='all'">
     <script async src='https://y.strds.nl/jq_950354e1.js'></script>
 </head>
 <body class="case">
@@ -220,7 +218,7 @@
 </section>
 <section class="psec case-next" aria-label="Next case">
     <div class="container">
-        <a class="case-next__card" href="/case-study-tpn" data-reveal><span class="case-next__top"><span class="case-next__label">Next case</span><img class="case-next__logo" src="/assets/img/logos-web/tpn-sm-v3.webp" alt="TPN" width="315" height="120" loading="lazy" decoding="async"></span><span class="case-next__title">How TPN got <b>500+ positive replies</b> from cold email</span><span class="case-next__go">Read the case<svg aria-hidden="true"><use href="#i-e"/></svg></span></a>
+        <a class="case-next__card" href="/case-study-tpn" data-reveal><span class="case-next__top"><span class="case-next__label">Next case</span><img class="case-next__logo" src="/assets/img/logos-web/tpn-sm-v3.webp" alt="TPN" width="315" height="120" loading="lazy" decoding="async"></span><span class="case-next__title">How TPN got <b>218 product signups</b> from cold email</span><span class="case-next__go">Read the case<svg aria-hidden="true"><use href="#i-e"/></svg></span></a>
         <p class="case-next__links"><a class="case-next__all" href="/case-studies">All case studies</a><span class="case-next__sep" aria-hidden="true">&middot;</span><span class="case-next__svc">Service: <a class="case-next__all" href="/outbound-agency">Outbound agency</a></span></p>
     </div>
 </section>

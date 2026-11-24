@@ -2,7 +2,7 @@
 title: Best GTM engineering agencies in the Netherlands and Benelux (2026)
 slug: best-gtm-engineering-agencies-netherlands
 tag: GTM engineering
-description: Ten GTM engineering, outbound and demand agencies in the Netherlands and Belgium compared on location, Clay partner status, stack, published pricing and who they fit. Written by an Amsterdam agency, with the criteria out in the open.
+description: Ten GTM engineering and outbound agencies in the Netherlands and Belgium compared on location, Clay partner tier, stack and published pricing (2026).
 lead: A GTM engineering agency builds the system that finds your buyers, enriches them, writes to them and feeds the replies into your CRM, instead of renting you a caller. In the Netherlands that market is small and young. This page profiles the ten firms we would put on a shortlist in November 2026, with the facts taken from their own websites and the Clay partner directory between 5 and 9 November, our own numbers included.
 date: 2026-11-09
 author: Max
@@ -157,7 +157,7 @@ How we work: two founders, Max on sales and strategy, Jurre on delivery. Month o
 
 Pricing: EUR 4,000 to 8,000 per month depending on ICP complexity, volume, channels and CRM depth. No setup fee, month one invoiced at kickoff, 30 days notice either side. The full breakdown is on the [pricing page](/pricing).
 
-Proof: [Verzendbazen](/case-study-verzendbazen), e-commerce fulfilment, 78 opportunities at a 13.9% reply rate. [Gen-Zero](/case-study-gen-zero), energy and sustainability, 27,455 cold contacts into 142 opportunities in 13 weeks on a custom data engine. [Jamezz](/case-study-jamezz), hospitality SaaS, 81 qualified leads from an ICP that sits in no database. [TPN](/case-study-tpn), AI benchmarking, from 12 replies on the first campaign to 466 interested prospects out of 7,128 after a new signal and a free first step.
+Proof: [Verzendbazen](/case-study-verzendbazen), e-commerce fulfilment, 78 opportunities at a 13.9% reply rate. [Gen-Zero](/case-study-gen-zero), energy and sustainability, 27,455 cold contacts into 142 opportunities in 13 weeks on a custom data engine. [Jamezz](/case-study-jamezz), hospitality SaaS, 81 qualified leads from an ICP that sits in no database. [TPN](/case-study-tpn), AI benchmarking, from 12 replies on the first campaign to 757 opportunities and 218 product signups in 8 weeks after a new signal and a free first step.
 
 Best for: founders and sales leads who want the whole outbound engine run for them, want to see the Clay tables and the copy, and want to own the infrastructure if they leave. Not for: companies that want cold calling, or deals under roughly EUR 5,000 a year where outbound math rarely works.
 
