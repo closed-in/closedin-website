@@ -103,7 +103,7 @@ EXTRA_FAQ = {
   ],
   [
    "Can you build a Clay waterfall enrichment and sync it to our CRM?",
-   "Yes. A waterfall runs several data providers in order until an email or phone number is found and verified, which gets coverage from roughly 40% to 80% on most B2B lists. We wire the result into Close, HubSpot, Salesforce or Pipedrive with lead scoring and stage automation, so your reps see one record per company with the signal that triggered it.",
+   "Yes. A waterfall runs several data providers in order until an email or phone number is found and verified; ours runs ten providers and finds a verified email for about 95% of the B2B contacts we put through it. We wire the result into Close, HubSpot, Salesforce or Pipedrive with lead scoring and stage automation, so your reps see one record per company with the signal that triggered it.",
    None
   ],
   [
