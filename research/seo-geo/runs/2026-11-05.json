@@ -1,0 +1,1318 @@
+{
+ "date": "2026-11-05",
+ "providers": [
+  "anthropic"
+ ],
+ "models": {
+  "anthropic": "claude-haiku-5-5"
+ },
+ "cost_eur": 1.43,
+ "dry_run": false,
+ "results": [
+  {
+   "id": "q01",
+   "group": "gtm",
+   "provider": "anthropic",
+   "question": "What is a GTM engineering agency and which ones are good in Europe?",
+   "answer": "A GTM engineering agency is a firm that builds a company's go-to-market system rather than just running outreach. Its work usually covers defining the ideal customer and buying signals, wiring up data enrichment and automation, and connecting the result to the CRM. \nIt defines an ICP and buying signals, then wires up data enrichment and orchestration, almost always in tools like Clay.\n The discipline itself is about applying software-engineering habits to sales, marketing and customer success. \nWhere RevOps manages and improves what already exists, GTM engineering builds what's missing.\n Some agencies are essentially rebranded SDR shops, so it's worth checking whether they can show real build work. \nClay depth is the fastest way to separate a real one from a rebranded SDR shop.\n\n\n**European agencies that appear in the sources**\n\nThese are drawn from vendor-published lists, so treat them as candidates to vet rather than verified rankings.\n\n- **ColdIQ** (Germany/Europe): \nA GTM engineering agency founded in 2021 and led by Michel Lieben, host of \"The GTM Engineer.\"\n It runs signal-based outbound on Clay.\n- **Vanderbuild** (Poland): Its founder, Mateusz Sekta, \nfinished second in the world at the inaugural Clay Cup in 2025\n, which makes him the highest-placed European in that competition.\n- **Peakora** (Switzerland): Positioned for \nSwiss and European teams comparing premium GTM design and engineering partners.\n\n- **LeadGem** (Netherlands): \nGTM engineering and growth marketing, with Clay-powered outbound and RevOps workflows.\n\n- **Jetpacked.io** (Netherlands): A \nClay and GTM engineering shop for scale-ups that want certified Clay experts.\n\n- **FounderGrowthOS** (Amsterdam): \nA growth engineering studio for European B2B founders that builds signal-based acquisition inside your own CRM and inbox, on fixed-price projects from EUR 6,000.\n\n- **GrowthToday** (London): \nA London-based GTM automation agency building outbound and RevOps with Clay and AI.\n\n- **DevCommX**: Covers Europe among other regions, with listed cities including \nVienna, Brussels, Antwerp, Ghent, Sofia and Zagreb.\n\n- **Authbound**: A \nGTM agency specializing in cold outreach systems\n, per its own listing.\n\nUnderstory Agency, one of the most-cited B2B SaaS picks, is US-based and so is less relevant if you need European coverage.\n\n**How to choose**\n\n- Ask to see the Clay or automation workflows they've built, not just case-study slides.\n- Check whether the agency's structure matches your needs. Some are project-based (for example, fixed-price builds), while others are retainers.\n- Confirm who will do the hands-on work, and whether your CRM and data stack are a fit.\n- Be wary of the directories themselves. The devlo page, for example,",
+   "cited": [
+    "https://www.understoryagency.com/blog/best-gtm-engineering-agencies",
+    "https://pipeline.zoominfo.com/sales/what-is-gtm-engineering",
+    "https://www.understoryagency.com/blog/best-gtm-engineering-agencies",
+    "https://www.understoryagency.com/blog/best-gtm-engineering-agencies",
+    "https://www.vanderbuild.co/blog/what-is-gtm-engineering",
+    "https://devlo.ch/en/best-gtm-engineering-agencies-europe",
+    "https://devlo.ch/en/best-gtm-engineering-agencies-europe",
+    "https://devlo.ch/en/best-gtm-engineering-agencies-europe",
+    "https://getaob.com/gtm-engineering-agencies",
+    "https://getaob.com/gtm-engineering-agencies",
+    "https://www.devcommx.com/gtm-engineering",
+    "https://www.gtmehq.com/experts"
+   ],
+   "vendors": [
+    "ColdIQ",
+    "Vanderbuild",
+    "Peakora",
+    "LeadGem",
+    "Jetpacked.io",
+    "FounderGrowthOS",
+    "GrowthToday",
+    "DevCommX",
+    "Authbound",
+    "Understory Agency"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "understoryagency.com",
+    "pipeline.zoominfo.com",
+    "vanderbuild.co",
+    "devlo.ch",
+    "getaob.com",
+    "devcommx.com",
+    "gtmehq.com"
+   ]
+  },
+  {
+   "id": "q02",
+   "group": "gtm",
+   "provider": "anthropic",
+   "question": "Best GTM engineering agency in the Netherlands",
+   "answer": "There's no single consensus \"best\" GTM engineering agency in the Netherlands. The rankings I found are mostly published by vendors or directories, so treat them as shortlists to vet rather than verdicts.\n\n**Names that come up most often:**\n\n- **LeadGem (Amsterdam):** This is the most frequently named option. One guide describes it as an Amsterdam growth and RevOps firm with over five years in B2B growth marketing, and says it is one of the first two Clay-certified agencies in the Netherlands. It also serves Benelux, Nordic, and wider EMEA clients. Its pricing is listed at roughly $5,000 per month, though another listing shows pricing as unpublished.\n- **Utmost Agency (Amsterdam):** A founder-led outbound systems agency, founded in 2023, that focuses on Clay-powered automation for startups and scale-ups.\n- **Saleslift Studio (Amsterdam):** An outsourced SDR agency with its own prospecting software, and a team of more than 35 people according to one list.\n- **Jetpacked.io:** Listed as a Netherlands-linked Clay and GTM engineering specialist for B2B scale-ups.\n- **GTM AI (Rhenen):** A one-person, freelance-style GTM engineering practice for B2B tech startups and scale-ups in the Netherlands, rather than a full agency.\n- **DevCommX:** A multi-country GTM engineering firm that lists Amsterdam, Rotterdam, Utrecht, The Hague, and Eindhoven among its Dutch locations.\n\n**Caveats:**\n\n- A 2026 market overview says the Benelux still lacks one dominant agency for GTM engineering, so no single firm clearly leads.\n- Much of the ranking material comes from the firms themselves or from sites that list them. For example, the LeadGem ranking is hosted on LeadGem's own site.\n\n**How I'd choose:**\n\n1. Ask for named client case studies and measurable pipeline results, not testimonials alone.\n2. Check whether they build on your existing CRM (HubSpot, Salesforce) and whether they can explain their enrichment and data sources.\n3. Confirm GDPR compliance for outbound data, since this is a Dutch and EU requirement.\n4. Compare the cost of an agency against hiring an in-house GTM engineer or a freelancer, depending on your scale.\n\nIf you tell me your company size, target markets, and budget, I can narrow this to two or three firms that fit.",
+   "cited": [],
+   "vendors": [
+    "LeadGem",
+    "Utmost Agency",
+    "Saleslift Studio",
+    "Jetpacked.io",
+    "GTM AI",
+    "DevCommX"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": []
+  },
+  {
+   "id": "q03",
+   "group": "gtm",
+   "provider": "anthropic",
+   "question": "Which GTM engineering agencies in Europe work with Clay, Instantly and HeyReach?",
+   "answer": "The clearest match I found is **Ventus**, an Amsterdam agency. The other European agencies below appear in Clay-focused lists, but the sources don't confirm they use Instantly and HeyReach, so check those directly.\n\n**Confirmed to use all three (Clay, Instantly, HeyReach)**\n- **Ventus (Amsterdam, Netherlands):** A job listing describes a nine-person agency running Clay, HubSpot, n8n, HeyReach, Instantly and Apify across client GTM engines, covering email, LinkedIn, direct mail and phone. \nA nine-person Amsterdam agency running Clay, Claude Code, HubSpot, n8n, HeyReach, Instantly and Apify across multiple client GTM engines\n is the source for this.\n\n**European agencies that work with Clay (Instantly/HeyReach use not confirmed)**\n- **Vanderbuild (CEE and DACH):** Its Clay record is strong. \nThe team finished as Clay Cup Vice Champions, ranked second globally and first in Europe.\n\n- **Scalantec (Berlin, DACH):** \nScalantec is a Berlin-based GTM engineering agency focused on the DACH region.\n\n- **Peakora (Switzerland):** \nPeakora: Switzerland-based GTM engineering agency and DACH Clay Enterprise partner.\n\n- **GTM Studios (UK):** \nGTM Studios bills itself as the UK's first GTM engineering agency and holds a Clay First 100 partner badge.\n\n- **MGSH (UK/EMEA):** \nA female-led boutique agency based in the UK specializing in EMEA markets.\n\n- **Growth Today (London):** \nLondon-based GTM automation agency building outbound and RevOps with Clay and AI.\n\n- **LeadGem (Netherlands)** and **Jetpacked.io (Netherlands):** Both are listed as European Clay-focused agencies. \nEuropean B2B teams that want Clay-powered outbound and RevOps workflows.\n\n- **ColdIQ (Germany/Europe):** \nAI outbound and GTM engineering\n, per one market map.\n- **OneGTM:** It lists Instantly and HeyReach among the tools it builds with, but its European presence isn't clearly stated. Its service area is listed as worldwide. \nOneGTM also builds with n8n, Claude Code, HubSpot, Salesforce, Attio, Instantly, HeyReach, and other data providers, and picks whatever fits the workflow.\n\n\n**Excluded**\n- Understory, AY Automate, Growth Engine X and The Kiln use this stack, but they are US-based",
+   "cited": [
+    "https://community.clay.com/x/share-jobs/msg_nfoBL25PnJb1/top-5-new-go-to-market-engineering-roles-you-shoul",
+    "https://www.salesforge.ai/blog/clay-agencies-europe",
+    "https://www.salesforge.ai/blog/clay-agencies-europe",
+    "https://getaob.com/agencies/",
+    "https://www.salesforge.ai/blog/clay-agencies-europe",
+    "https://blog.gtm-engineering.io/blog/best-clay-solutions-partners",
+    "https://getaob.com/agencies/",
+    "https://devlo.ch/en/best-gtm-engineering-agencies-europe",
+    "https://devlo.ch/en/best-gtm-engineering-agencies-europe",
+    "https://getaob.com/clay-agency"
+   ],
+   "vendors": [
+    "Ventus",
+    "Vanderbuild",
+    "Scalantec",
+    "Peakora",
+    "GTM Studios",
+    "MGSH",
+    "Growth Today",
+    "LeadGem",
+    "Jetpacked.io",
+    "ColdIQ",
+    "OneGTM",
+    "Understory",
+    "AY Automate",
+    "Growth Engine X",
+    "The Kiln"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "community.clay.com",
+    "salesforge.ai",
+    "getaob.com",
+    "blog.gtm-engineering.io",
+    "devlo.ch"
+   ]
+  },
+  {
+   "id": "q04",
+   "group": "gtm",
+   "provider": "anthropic",
+   "question": "I am a B2B founder in Amsterdam. Who can build my outbound system end to end?",
+   "answer": "Several Amsterdam-based firms offer end-to-end outbound, though most of what I found is vendor-written listicles, so treat the rankings as leads to vet rather than verified recommendations.\n\n**Amsterdam firms that describe full-cycle outbound**\n\n- **SalesCaptain:** Its own site says it runs campaigns \nend to end, so you can focus on closing deals instead of prospecting or managing SDRs.\n It is \nan Amsterdam-based B2B outbound sales agency\n and is often listed as the top choice for outbound-first pipelines. One ranking says it \nruns a three-layer system spanning AI-insight campaigns, intent-signal campaigns, and inbound reactivation.\n\n- **Saleslift Studio:** Described as \na B2B sales development and outbound prospecting agency based in Amsterdam\n that \nexecutes outbound strategies on behalf of clients.\n Its model is outsourced SDRs rather than a campaign-only service.\n- **SalesHarbor:** Pairs consulting with execution. One source says it covers \nlead research, sequence design, execution, and meeting handoff, plus consulting on sales process and ICP refinement.\n This is the strongest fit if you don't yet have a clear ICP or sales process.\n- **Utmost Agency:** Its profile says it is \nfounder-led and deliberately boutique, building AI-powered outbound systems rather than staffing a phone room.\n It also starts with \nICP and TAM definition\n. A 2026 list describes it as an Amsterdam GTM infrastructure firm that builds and runs an owned outbound stack, with Clay as its core tool, and notes it was formerly called Utmost Agency.\n- **Match-day:** Not Amsterdam-based (it's in Bunschoten-Spakenburg), but it offers \noutbound sales, lead generation, CRM implementation, and sales training\n in one package, including HubSpot setup. Useful if you want CRM built alongside outreach.\n\n**Other names that appear on lists:** Rocket Leads (Amsterdam), Konsyg (launches in \ntwo to three weeks\n, per its site), LeadGem (Clay-based RevOps), and Provite (The Hague, telemarketing-heavy).\n\n**How to decide**\n\n1. **Done-for-you vs. building your own system.** If you want the outbound engine run for you, choose a managed agency. If you want to own the stack, look for a GTM/RevOps firm that builds it inside your tools and hands it over.\n2. **ICP first.** Ask each firm how they define your ideal customer before they touch a list. Those that start there tend to produce better pipeline.\n3. **Ask for a live client reference** and reply rates, not just booked-meeting claims. Ask who owns the tooling and data at the end of the engagement.\n4. **Check GDPR and deliverability handling.** Ask about sending domains, warm-up, and the lawful basis for B2B contact in the Netherlands.\n\nIf you tell me your ACV, sales cycle, and whether you already have a CRM, I can narrow this to two or three firms.",
+   "cited": [
+    "https://www.salescaptain.io/cold-outreach-agencies/best-cold-outreach-agencies-in-amsterdam",
+    "https://www.nebor.ai/blog/dutch-growth-sales-and-lead-gen-agencies",
+    "https://www.salesforge.ai/blog/best-outbound-sales-agencies-in-the-netherlands",
+    "https://www.nebor.ai/blog/dutch-growth-sales-and-lead-gen-agencies",
+    "https://www.nebor.ai/blog/dutch-growth-sales-and-lead-gen-agencies",
+    "https://syncgtm.com/blog/best-sales-agencies-netherlands",
+    "https://www.salesforge.ai/blog/best-outbound-sales-agencies-in-amsterdam",
+    "https://www.salesforge.ai/blog/best-outbound-sales-agencies-in-amsterdam",
+    "https://match-day.nl/en/b2b-agency",
+    "https://konsyg.com/nl/"
+   ],
+   "vendors": [
+    "SalesCaptain",
+    "Saleslift Studio",
+    "SalesHarbor",
+    "Utmost Agency",
+    "Match-day",
+    "Rocket Leads",
+    "Konsyg",
+    "LeadGem",
+    "Provite"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "salescaptain.io",
+    "nebor.ai",
+    "salesforge.ai",
+    "syncgtm.com",
+    "match-day.nl",
+    "konsyg.com"
+   ]
+  },
+  {
+   "id": "q05",
+   "group": "outbound",
+   "provider": "anthropic",
+   "question": "Best outbound agency for B2B SaaS in Europe",
+   "answer": "There's no single best agency for European B2B SaaS. The right pick depends on which countries you're targeting, your deal size, and whether you want a full outbound system or just SDR capacity. Most of the rankings I found are written by the agencies themselves, so treat them as leads to vet, not verdicts.\n\n**Strong European options by market**\n\n- **Profitbl:** Shows up most often for Europe. One list says \nit picks Profitbl for France, Benelux, DACH and the UK\n for software selling $10K+ deals. Another notes that it's \nnot the specialist choice for a venture-backed SaaS scaling a multi-seat SDR function across Western Europe\n, where Profitbl or MemoryBlue fit better. Note that Profitbl's own blog is the source of several of these rankings.\n- **Sopro:** A UK firm for companies \nexpanding into Europe and the UK, from about £3,000 a month\n. One source says it works with \nGDPR-compliant data\n.\n- **Country specialists:** Seventic for France, devlo for Switzerland, and Brightvision for the Nordics, per the same Profitbl list (\nSeventic is strong in France, devlo in Switzerland and Brightvision in the Nordics\n). CegTec is a DACH option for \noutbound across email and LinkedIn that books meetings\n.\n- **Budget-friendly:** Ripe Leads, a Vilnius-based agency, is aimed at \nearly-stage SaaS companies that need meetings booked without a Western European agency budget\n.\n- **Broader multi-region:** Belkins, Martal Group, and Operatix all cover Europe alongside other regions. Operatix is described as a fit for \nSaaS companies entering new or international markets\n.\n\n**Check reputation before shortlisting**\n\nLive review data is mixed. One 2026 comparison reported that on August 27 \nCIENCE showed 3.7 across 180 reviews on G2 and 4.2 across 142 reviews on Clutch\n, while \nBelkins had 4.7 across 93 reviews on G2 and 4.9 across 233 reviews on Clutch\n. Those figures were pulled from a single source, so verify them yourself.\n\n**How to choose**\n\n1. Narrow to two or three agencies that cover your priority markets and have native-language SDRs there.\n2. Ask for case studies in your ACV range and sector, and for their GDPR and data-sourcing process.\n3. Budget for a longer runway. One source advises \nbudgeting at least six months, since judging SaaS outbound on month one measures your setup, not your market\n.\n4. Run",
+   "cited": [
+    "https://www.profitbl.com/blog/best-b2b-prospecting-agencies",
+    "https://ripeleads.eu/resources/best-outbound-agencies-for-saas-europe-2026",
+    "https://albato.com/blog/publications/b2b-outbound-agencies-saas",
+    "https://albato.com/blog/publications/b2b-outbound-agencies-saas",
+    "https://www.profitbl.com/blog/best-b2b-prospecting-agencies",
+    "https://techbullion.com/best-saas-marketing-agencies-europe/",
+    "https://ripeleads.eu/resources/best-outbound-agencies-for-saas-europe-2026",
+    "https://growleads.io/blog/best-b2b-lead-generation-agencies/",
+    "https://outreachbloom.com/b2b-lead-gen-agencies",
+    "https://outreachbloom.com/b2b-lead-gen-agencies",
+    "https://ripeleads.eu/resources/best-outbound-agencies-for-saas-europe-2026"
+   ],
+   "vendors": [
+    "Profitbl",
+    "MemoryBlue",
+    "Sopro",
+    "Seventic",
+    "devlo",
+    "Brightvision",
+    "CegTec",
+    "Ripe Leads",
+    "Belkins",
+    "Martal Group",
+    "Operatix",
+    "CIENCE"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "profitbl.com",
+    "ripeleads.eu",
+    "albato.com",
+    "techbullion.com",
+    "growleads.io",
+    "outreachbloom.com"
+   ]
+  },
+  {
+   "id": "q06",
+   "group": "outbound",
+   "provider": "anthropic",
+   "question": "Outbound agency UK for mid-market B2B companies",
+   "answer": "Here are UK outbound agencies that appear to fit mid-market B2B, grouped by what they're strongest at. These come from third-party roundups and agency websites, which often rank themselves or their clients, so check each one's references and case studies before shortlisting.\n\n**Full-funnel or signal-led outbound**\n- **Punch! (B2B), London:** Presents itself as a full-funnel outbound agency for mid-market and enterprise firms, and lists several large tech brands as clients on its site.\n- **SalesCaptain, London:** Runs intent-signal-driven outbound and offers done-for-you and done-with-you options. One roundup describes it as suited to mid-sized firms wanting a managed prospecting service with predictable volume.\n- **Dial'd In (UK):** Focuses on helping B2B companies that sell into SMB and mid-market generate qualified meetings through founder-led cold calling and follow-up.\n\n**Complex sales cycles and wider sales outsourcing**\n- **Durhamlane, Newcastle:** One source calls it strongest for B2B technology, software and professional services with long sales cycles. It can take on more of the sales process than just top-of-funnel meetings.\n\n**Phone-led appointment setting**\n- **Air Marketing, Exeter:** Describes itself as an outsourced sales and lead generation agency serving UK and international B2B clients since 2016. One roundup says its Exeter base keeps costs below London agencies, and that its team suits mid-market campaigns.\n- **The Lead Generation Company (offices in London, Glasgow and Manchester):** Specialises in B2B appointment setting and telemarketing, with BANT-based qualification.\n- **Profitbl:** Positioned for B2B software firms",
+   "cited": [],
+   "vendors": [
+    "Punch! (B2B)",
+    "SalesCaptain",
+    "Dial'd In",
+    "Durhamlane",
+    "Air Marketing",
+    "The Lead Generation Company",
+    "Profitbl"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": []
+  },
+  {
+   "id": "q07",
+   "group": "outbound",
+   "provider": "anthropic",
+   "question": "Recommend an outbound sales agency in the Netherlands that books qualified meetings",
+   "answer": "**Top pick: Convins**, a Dutch B2B telemarketing and appointment-setting firm. It shows up across several independent rankings, and it works on a no-cure, no-pay basis, so you pay for meetings delivered. \nConvins is one of the Netherlands' largest B2B telemarketing agencies, with 16 years of experience and 85+ specialists dedicated to appointment setting on a no-cure, no-pay basis.\n It also has \noffices in Utrecht, Apeldoorn, and Deventer\n.\n\n**Alternatives, depending on your needs:**\n\n- **Match-Day** if you want meetings qualified against a set standard. One ranking calls it \nbest for BANT-qualified meetings\n, and it is \na dedicated lead generation and outbound sales partner based in Bunschoten-Spakenburg\n.\n- **Konsyg** if you want a Benelux focus and a managed outsourced SDR team. It runs \nICP definition, list building, multichannel sequences (email + LinkedIn + phone), and appointment setting\n. One review puts \nappointment-setting-only packages start around €1,500–€2,500/month\n, though I'd verify that with them.\n- **Saleshelden** if you want a no-cure, no-pay model with a different provider. Its service is \nno-cure, no-pay - you only pay for meetings delivered.\n\n- **SalesCaptain** if you want intent-signal-driven outbound. It \nuses a three-layer system spanning AI-insight campaigns, intent-signal campaigns, and inbound reactivation\n.\n\n**Caveats:**\n\n- Most of these rankings are published by the vendors themselves or by competitors (Salesforge, Pearl Lemon Leads, SalesCaptain, Nebor), so treat them as leads, not endorsements.\n- Pricing figures in the sources are approximate and unverified. One source says \nappointment-setting services often add a per-meeting fee of €200-600 per qualified appointment.\n\n- Before you sign, ask for written acceptance criteria for a \"qualified\" meeting, a sample of real reply chains or booked meetings, and their GDPR and telemarketing compliance approach. Running a short pilot with a defined meeting target is the most reliable way to compare them.",
+   "cited": [
+    "https://www.salesforge.ai/blog/lead-generation-agencies-netherlands",
+    "https://www.nebor.ai/blog/dutch-growth-sales-and-lead-gen-agencies",
+    "https://www.salesforge.ai/blog/best-outbound-sales-agencies-in-amsterdam",
+    "https://www.salesforge.ai/blog/best-outbound-sales-agencies-in-the-netherlands",
+    "https://syncgtm.com/blog/best-sales-agencies-netherlands",
+    "https://syncgtm.com/blog/best-sales-agencies-netherlands",
+    "https://www.salesforge.ai/blog/lead-generation-agencies-netherlands",
+    "https://www.salesforge.ai/blog/best-outbound-sales-agencies-in-the-netherlands",
+    "https://www.salesforge.ai/blog/lead-generation-agencies-netherlands"
+   ],
+   "vendors": [
+    "Convins",
+    "Match-Day",
+    "Konsyg",
+    "Saleshelden",
+    "SalesCaptain"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "salesforge.ai",
+    "nebor.ai",
+    "syncgtm.com"
+   ]
+  },
+  {
+   "id": "q08",
+   "group": "outbound",
+   "provider": "anthropic",
+   "question": "Best outbound agencies for B2B service companies in Benelux",
+   "answer": "Here's a shortlist, filtered for B2B service companies (consultancies, professional services, agencies) rather than SaaS. Most of the sources are agency-published rankings, so treat the rankings as leads to vet, not verdicts.\n\n**Best fit for service firms**\n\n- **Match-day (Netherlands):** This one is closest to your profile. \nIt lists professional services and consulting\n among its areas, and \nit combines outbound sales, lead generation, CRM implementation, and sales training into a complete solution.\n\n- **Skondras (Belgium/Netherlands):** Good if you need Dutch and French coverage. One source says \nthey operate across the Netherlands, Belgium, Germany, and Spain — with multilingual native agents covering Dutch, French, English, German, Italian, and Spanish.\n Another describes it as \na Belgian sales outsourcing agency with 11,000+ completed projects across 50+ sectors in NL and FR regions\n, which suggests sector breadth.\n- **WinPeo (Brussels):** Suited to outsourcing a full sales team. One list says \nit is a Brussels partner for B2B sales consulting and sales outsourcing, from lead generation to closing. Best for companies that want to outsource a complete sales team.\n\n- **Provite (Netherlands):** Has a long track record. \nIt is one of the longest-running Dutch names in outbound sales, with roots in B2B telemarketing dating back to 1977.\n\n- **Team for Target (The Hague):** \nIt works as a full commercial operations partner, helping businesses book meetings, qualify leads, and support the broader sales team.\n\n\n**Strong outbound specialists (check sector fit)**\n\n- **SalesCaptain:** Frequently ranked first in Benelux lists. It is \nbest for B2B SaaS teams wanting outreach triggered by real buying signals, not static lists.\n Its focus is SaaS, so ask for service-sector case studies.\n- **Saleslift Studio (Amsterdam):** \nBest for Dutch B2B companies that want an experienced sales development partner to handle outbound prospecting with strong strategic input and a collaborative, workshop-driven approach.\n\n- **Konsyg:** Useful if GDPR compliance is a priority. It is described as \na managed SDR and outbound sales agency for Benelux market entry with GDPR-compliant multichannel prospecting\n.\n- **LeadHQ:** Positioned around verified data. It is described as \nB2B lead research, enrichment, and appointment setting with 72-hour verified contact delivery\n.\n\n**Largely SaaS-focused (likely weaker fit for service firms)**\n\n- **Profitbl:** \nWorks with B2B SaaS companies in Europe and the BENELUX region through senior-led, multichannel outbound execution\n.\n- **WINGM (Amsterdam):** Offers",
+   "cited": [
+    "https://match-day.nl/en/b2b-agency",
+    "https://match-day.nl/en/b2b-agency",
+    "https://syncgtm.com/blog/best-sales-agencies-in-belgium",
+    "https://www.salescaptain.io/outbound-agencies/best-outbound-marketing-agencies-in-europe",
+    "https://www.customerimpact.be/en/blog/best-b2b-lead-generation-agency-belgium/",
+    "https://www.salesforge.ai/blog/best-outbound-sales-agencies-in-the-netherlands",
+    "https://www.salesforge.ai/blog/best-outbound-sales-agencies-in-the-netherlands",
+    "https://www.salesforge.ai/blog/best-outbound-sales-agencies-in-amsterdam",
+    "https://www.nebor.ai/blog/dutch-growth-sales-and-lead-gen-agencies",
+    "https://syncgtm.com/blog/best-sales-agencies-netherlands",
+    "https://syncgtm.com/blog/best-sales-agencies-netherlands",
+    "https://www.linkedist.com/blog/best-b2b-lead-generation-agencies"
+   ],
+   "vendors": [
+    "Match-day",
+    "Skondras",
+    "WinPeo",
+    "Provite",
+    "Team for Target",
+    "SalesCaptain",
+    "Saleslift Studio",
+    "Konsyg",
+    "LeadHQ",
+    "Profitbl",
+    "WINGM"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "match-day.nl",
+    "syncgtm.com",
+    "www.salescaptain.io",
+    "www.customerimpact.be",
+    "www.salesforge.ai",
+    "www.nebor.ai",
+    "www.linkedist.com"
+   ]
+  },
+  {
+   "id": "q09",
+   "group": "outbound",
+   "provider": "anthropic",
+   "question": "Which outbound agency should I hire instead of a first SDR?",
+   "answer": "There's no single right answer. The sources mostly agree that the choice depends on whether your outbound motion is already proven. If it isn't, an agency is usually the better first step.\n\n**When an agency fits better**\n- Speed: \nAn SDR hire takes 30-60 days to recruit, onboard, and ramp\n, while an agency with existing infrastructure can start sooner.\n- Unproven messaging: one guide advises that \na lead generation agency makes sense when you need the system built and operated before adding headcount.\n\n- Cost predictability: a managed agency is a fixed monthly fee, and one estimate puts retainers at \n~$1.5k–$10k/month with first meetings in 2–4 weeks.\n Vendor-published figures vary a lot, so treat these as rough.\n\n**Caveats**\n- Ownership: agencies can lock you in. One source warns that \nlock-in on domains, data and sequences\n is a main risk, so confirm you own the domains, lists, and sequences before signing.\n- Structure it as a pilot: \nscope it as a pilot with clear exit terms.\n\n- Sequence: a common path is to \nuse an outbound agency to prove the sequence converts, then hire SDRs to own the system the agency validated.\n\n\n**Agencies that come up repeatedly in 2026 roundups**\n- **Belkins**: appointment setting across cold email, LinkedIn, and calling; one list describes it as \nparticularly strong in driving booked meetings from cold outbound.\n\n- **Callbox**: \na 20-year-old agency running multichannel outbound and ABM across 60+ countries.\n Better for larger or global targets.\n- **SalesRoads**: one roundup lists it as \nbest for phone-first US appointment setting.\n\n- **Martal Group**: aimed at \nB2B tech and SaaS, pairing outbound reps with an AI SDR platform.\n\n- **Leadium**: \none of the few agencies that publishes budget bands up front.\n\n- **OutreachBloom**: one roundup calls it \nthe best overall B2B lead gen agency for 2026 for done-for-you cold email, at $2,400 per month with published pricing.\n\n\n**My recommendation:** If you're a B2B SaaS company selling to US mid-market accounts, shortlist Belkins, Martal, and Leadium. Then run a 60–90 day pilot with a clear meeting target and exit terms. Before committing, ask each vendor for references in your ICP, who owns the data and domains, and what the reply-to-",
+   "cited": [
+    "https://www.astragtm.io/compare/outbound-agency-vs-in-house-sdr",
+    "https://moderninbound.com/blog/cost-of-hiring-sdr-vs-agency",
+    "https://division50.com/blog/outbound-agency-vs-sdr-2026-cost-comparison",
+    "https://resources.rework.com/libraries/outbound-prospecting/building-an-outbound-team",
+    "https://resources.rework.com/libraries/outbound-prospecting/building-an-outbound-team",
+    "https://www.stackmatix.com/blog/startup-outbound-agency",
+    "https://www.callboxinc.com/lead-generation/top-outbound-lead-generation-companies/",
+    "https://expandi.io/blog/lead-generation-companies/",
+    "https://outreachbloom.com/b2b-lead-gen-agencies",
+    "https://expandi.io/blog/lead-generation-companies/",
+    "https://expandi.io/blog/lead-generation-companies/",
+    "https://outreachbloom.com/b2b-lead-gen-agencies"
+   ],
+   "vendors": [
+    "Belkins",
+    "Callbox",
+    "SalesRoads",
+    "Martal Group",
+    "Leadium",
+    "OutreachBloom"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "astragtm.io",
+    "moderninbound.com",
+    "division50.com",
+    "resources.rework.com",
+    "stackmatix.com",
+    "callboxinc.com",
+    "expandi.io",
+    "outreachbloom.com"
+   ]
+  },
+  {
+   "id": "q10",
+   "group": "outbound",
+   "provider": "anthropic",
+   "question": "Outbound agency that uses buying signals and intent data instead of generic lists",
+   "answer": "I read your message as a description of a service model, so I'll treat it that way. Your phrasing is a bit ambiguous, though. Tell me if you wanted something else, like a list of agencies or landing-page copy.\n\n**What the model is:** Signal-based outbound starts from observable buyer activity rather than a purchased contact list. One source describes it as using buying signals to decide who to contact, when to reach out, and what to say. \nInstead of blasting large contact lists with generic messaging, it prioritizes accounts and contacts showing measurable indicators of purchase readiness.\n\n\n**Signals an agency would typically track:** Common categories include hiring surges, funding rounds, tech stack changes, leadership changes in the target persona, content engagement, and strategic disclosures like earnings calls. \nThe most valuable buying signals fall into six categories: job postings and hiring surges, funding rounds and M&A activity, technology stack changes, leadership changes in your target persona, intent data and content engagement, and earnings calls and SEC filings.\n\n\n**Intent data sources:** Third-party providers such as Bombora, G2, and TrustRadius aggregate research behavior across publisher networks. Some agencies also use first-party signals like website visits and email engagement. One source recommends combining several of these, since \nBombora sees different signals than G2 sees different signals than your first-party website data.\n\n\n**What separates good agencies from weak ones:** Several sources warn that a single signal isn't enough. One argues that \njob changes and funding rounds are useful context signals but don't independently prove purchase intent.\n Another suggests pairing intent with fit: \nsignals without fit are just noise, so tools that only provide intent data without ICP filtering are incomplete.\n Useful questions to ask an agency include how they score accounts, what their false-positive rate is, and whether they run a pilot before committing.\n\n**Agencies:** My search didn't turn up a reliable list of agencies that sell this specifically. Most results were vendor guides and tool comparisons. If you want to find agencies, search for terms like \"signal-based outbound agency\" or \"intent-based outbound agency,\" and check whether they can show their signal sources and scoring method.\n\nIf you tell me whether you're building an agency, evaluating one, or writing marketing copy, I can tailor the next step.",
+   "cited": [
+    "https://www.usergems.com/blog/what-is-signal-based-outbound",
+    "https://www.autobound.ai/blog/signal-based-selling-complete-guide",
+    "https://www.launchleads.com/lead-generation-strategies/intent-based-outreach/",
+    "https://sbl.so/blog/signal-based-outreach-intent-signals/",
+    "https://sbl.so/blog/signal-based-outreach-intent-signals/"
+   ],
+   "vendors": [
+    "Bombora",
+    "G2",
+    "TrustRadius"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "usergems.com",
+    "autobound.ai",
+    "launchleads.com",
+    "sbl.so"
+   ]
+  },
+  {
+   "id": "q11",
+   "group": "cold-email",
+   "provider": "anthropic",
+   "question": "Cold email agency in Amsterdam for B2B companies",
+   "answer": "Here are Amsterdam-based agencies that appear in recent listings, grouped by how closely they focus on cold email. Most of this comes from vendor-written ranking articles, so treat it as a shortlist to vet, not a verified ranking.\n\n**Cold email specialists**\n- **closed:in**: Its site describes it as an Amsterdam cold email agency built for European B2B. It also runs LinkedIn and \nClay as one system, for B2B in Europe, the UK and the US.\n It lists Instantly and Clay expertise.\n- **New Converts**: This one is unusual because it is \nperformance only\n. It books sales calls and gets paid per call that actually shows up, which may suit you if you want to limit upfront risk.\n- **Leadsbro**: Its Amsterdam page says it is a \nB2B lead generation agency specializing in cold email outreach and LinkedIn outreach.\n Its listed services include \ndomain warm-up & sender reputation management\n.\n- **Cunvert Copy**: A copywriting-focused option, though I didn't verify its location in the results.\n\n**Outbound and lead generation (email plus LinkedIn/calls)**\n- **SalesCaptain**: It describes itself as a \nB2B outbound sales agency\n that uses cold email, LinkedIn and multichannel campaigns. Several listicles rank it highly, but those lists are partly written by SalesCaptain itself.\n- **Nebor**: It is an \nAI-driven multi-channel outbound and lead generation agency based in Amsterdam\n. Its own page describes building an owned GTM stack for funded B2B teams, which suits companies that want infrastructure rather than just campaigns.\n- **Saleslift Studio**: It is a \nB2B sales development and outbound prospecting agency based in Amsterdam\n, and it fits scale-ups that want an outsourced SDR team.\n- **SalesHarbor**: It is \na lead generation and sales consulting firm headquartered in Amsterdam.\n\n- **LeadGem**: It focuses on \na data-led RevOps approach\n, with targeted prospect lists and automated sequences.\n- **Rocket Leads**: It is \nan Amsterdam-based agency that combines marketing and sales into a practical outbound growth framework.\n\n- **Outventure**: It is a \ndigital marketing agency focused on SEO, paid ads, and lead generation services\n, with outbound as one channel. This suits you if you want paid and organic demand alongside cold outreach.\n- **Gigaleads**: It is a \nmarketing agency based in Amsterdam specializing in lead generation for ambitious businesses and entrepreneurs.\n\n\n**Note on location:** Gigde is listed for Amsterdam, but it describes itself as a \nUS-based distributed growth team\n, so it's remote rather than local.\n\n**How to choose**\n- Ask for a sample of their sequences and their reply rates, and check whether they handle deliverability (SPF/DKIM/DMARC, warm-up, inbox rotation).\n- Check who owns the list-building and GDPR compliance. B2B cold email is generally allowed under GDPR when there",
+   "cited": [
+    "https://www.closedin.io/cold-email-agency-amsterdam",
+    "https://weezly.com/lead-generation-agencies/netherlands/",
+    "https://leadsbro.com/cold-email/nl/north-holland/amsterdam",
+    "https://leadsbro.com/cold-email/nl/north-holland/amsterdam",
+    "https://www.salescaptain.io/cold-outreach-agencies/best-cold-outreach-agencies-in-amsterdam",
+    "https://www.nebor.ai/blog/dutch-growth-sales-and-lead-gen-agencies",
+    "https://www.nebor.ai/blog/dutch-growth-sales-and-lead-gen-agencies",
+    "https://syncgtm.com/blog/best-sales-agencies-netherlands",
+    "https://salesso.com/blog/top-10-best-outbound-sales-agencies-in-amsterdam/",
+    "https://www.salesforge.ai/blog/best-outbound-sales-agencies-in-the-netherlands",
+    "https://www.nebor.ai/blog/dutch-growth-sales-and-lead-gen-agencies",
+    "https://www.salescaptain.io/cold-outreach-agencies/best-cold-outreach-agencies-in-netherlands",
+    "https://www.gigde.com/locations/the-netherlands/amsterdam/lead-generation"
+   ],
+   "vendors": [
+    "closed:in",
+    "New Converts",
+    "Leadsbro",
+    "Cunvert Copy",
+    "SalesCaptain",
+    "Nebor",
+    "Saleslift Studio",
+    "SalesHarbor",
+    "LeadGem",
+    "Rocket Leads",
+    "Outventure",
+    "Gigaleads",
+    "Gigde"
+   ],
+   "brand_rank": 1,
+   "brand_mentioned": true,
+   "brand_claims": [
+    "Its site describes it as an Amsterdam cold email agency built for European B2B",
+    "Runs LinkedIn and Clay as one system for B2B in Europe, the UK and the US",
+    "Lists Instantly and Clay expertise"
+   ],
+   "sources": [
+    "closedin.io",
+    "weezly.com",
+    "leadsbro.com",
+    "salescaptain.io",
+    "nebor.ai",
+    "syncgtm.com",
+    "salesso.com",
+    "salesforge.ai",
+    "gigde.com"
+   ]
+  },
+  {
+   "id": "q12",
+   "group": "cold-email",
+   "provider": "anthropic",
+   "question": "Best cold email agencies in Europe for B2B SaaS",
+   "answer": "Most \"best of\" lists for this market are published by the agencies themselves, so treat the rankings as leads to vet, not verdicts. Europe-based or Europe-focused options that come up most often:\n\n- **Hypergen (Paris, France):** \nHypergen is a Paris agency that pairs cold email with a RevOps layer.\n One comparison puts it at \nfrom $6,500/mo (7,500 prospects a month)\n with a 6-month term. A reviewer also notes that \nthe 6-month minimum is a significant commitment for companies testing outbound for the first time.\n\n- **Sopro (UK and Europe):** Listed as \nmanaged outreach, replies go to your team\n, with pricing \nfrom about £3,000/mo, no minimum contract\n. It is a good fit if you want a lower-commitment European option.\n- **InStream Group:** \nOne of the most experienced B2B lead generation agencies in Europe.\n Its \ncore strength lies in a proprietary cold email outreach service\n. Its lists are often cited, but I found no SaaS-specific case studies in my search.\n- **Pearl Lemon Leads (UK):** \nBased in the UK but works globally. They've got a strong focus on lead generation through multiple channels, including email, phone, and SEO.\n\n- **Pipeful:** \nFocuses heavily on cold email for SaaS companies. They do full-service campaigns and are known for clean data, smart writing, and solid reporting.\n I could not confirm its headquarters from these sources.\n- **Addlium:** Described as \nbest for European companies focused on LinkedIn outreach.\n\n- **Cunvert Copy:** \nFounder-led by Marc, and it builds and runs B2B cold email systems on a done-with-you basis.\n Good if copy quality is your main gap. I could not confirm its location.\n- **Growleady:** \nBuilt for companies that want cold email infrastructure handled for them.\n I could not confirm its location or pricing.\n\nSeveral widely listed agencies are US-based but serve European companies, including Belkins, CIENCE, Martal Group, and SalesHive. Some also run European teams, such as CIENCE, which is \nin the US, Europe and APAC.\n If your buyers are in Europe, check whether the agency sends from European infrastructure and handles G",
+   "cited": [
+    "https://www.salesforge.ai/blog/cold-email-agencies-europe",
+    "https://oneaway.io/blog/best-cold-email-agencies-2026",
+    "https://www.salesforge.ai/blog/cold-email-agencies",
+    "https://albato.com/blog/publications/b2b-outbound-agencies-saas",
+    "https://albato.com/blog/publications/b2b-outbound-agencies-saas",
+    "https://www.sequenzy.com/blog/best-cold-email-outreach-agencies",
+    "https://www.sequenzy.com/blog/best-cold-email-outreach-agencies",
+    "https://www.salescaptain.io/cold-outreach-agencies",
+    "https://www.salescaptain.io/cold-outreach-agencies",
+    "https://www.salescaptain.io/cold-outreach-agencies",
+    "https://www.salesforge.ai/blog/cold-email-agencies-europe",
+    "https://www.salesforge.ai/blog/cold-email-agencies-europe",
+    "https://albato.com/blog/publications/b2b-outbound-agencies-saas"
+   ],
+   "vendors": [
+    "Hypergen",
+    "Sopro",
+    "InStream Group",
+    "Pearl Lemon Leads",
+    "Pipeful",
+    "Addlium",
+    "Cunvert Copy",
+    "Growleady",
+    "Belkins",
+    "CIENCE",
+    "Martal Group",
+    "SalesHive"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "salesforge.ai",
+    "oneaway.io",
+    "albato.com",
+    "sequenzy.com",
+    "salescaptain.io"
+   ]
+  },
+  {
+   "id": "q13",
+   "group": "cold-email",
+   "provider": "anthropic",
+   "question": "Cold email agency that handles deliverability, domains and inboxes for me",
+   "answer": "Here are agencies that cover domains, inboxes, and deliverability, plus infrastructure-only providers if you'd rather run the campaigns yourself. Most of the claims below come from vendors' own marketing, so verify them before you sign.\n\n**Managed agencies**\n- **LeadHaste**: Runs cold email as a managed system, with domains registered in your name. Pricing starts at \n$2,500 a month\n, plus infrastructure billed at cost. Its appeal is that you own the domains, inboxes, and data if you leave.\n- **CFE Marketing Services**: Provides \ndedicated sending domains, mailboxes, DNS records (SPF, DKIM, DMARC), and warmup, all managed by us.\n Its tiers are organized by domain and mailbox count.\n- **Belkins**: A large B2B agency that \nsends a limited number of emails daily to build trust with email providers\n before ramping up. It also runs a daily domain-health check.\n- **Myntmore**: A done-for-you option that covers \nsending domains and inboxes, DNS setup and warm-up, a targeted lead list, copywriting, follow-ups and reporting.\n\n\n**Infrastructure only (you keep control of the sending)**\n- **Primeforge**: One reviewer names it \nthe best cold email infrastructure provider overall.\n It is built on Google and Microsoft mailboxes.\n- **Mailforge / Infraforge** (same company family): Mailforge is the cheaper shared-IP option. Infraforge gives you \nyour own IPs, bulk DNS management, sender rotation, and pre-warmed infrastructure\n, which suits agencies and high-volume senders.\n- **Winnr**: Lowest per-mailbox cost in one comparison, at \n$1.38\n per mailbox, and it includes an API.\n- **Inframail**: Offers unlimited Microsoft-backed inboxes at a flat rate. Warm-up is not included, and one comparison says \nblacklist monitoring is a paid add-on\n.\n- **ScaledMail**: Provisions Google Workspace, Microsoft 365, and SMTP inboxes \non isolated tenant infrastructure.\n\n\n**What to check before you pick one**\n- Your main domain should not send cold email. Good providers use separate sending domains, which protects your primary domain's reputation.\n- Ask about warm-up length. Sources commonly cite about 2 to 3 weeks before live outreach.\n- Ask how they monitor inbox placement and blacklists, and whether you own the domains and mailboxes if you leave.\n- Expect reply rates to be modest even when deliverability is right. One source puts well-targeted cold email at \n1–4% reply rates.\n\n\nIf you tell me your budget, how many emails you send per month, your industry, and whether you want a managed agency or self-run infrastructure, I can narrow this to two or three options.",
+   "cited": [
+    "https://leadhaste.com/services/cold-email-agency",
+    "https://cfemarketingservices.com/services/cold-email-agency",
+    "https://belkins.io/cold-email-services",
+    "https://www.myntmore.com/services/cold-email",
+    "https://www.primeforge.ai/blog/cold-email-infrastructure-tools",
+    "https://www.mailforge.ai/blog/cold-email-infrastructure-tools",
+    "https://winnr.app/blog/best-cold-email-infrastructure-2026.html",
+    "https://www.missioninbox.com/blog/10-best-cold-email-infrastructure-providers",
+    "https://www.scaledmail.com/blogs/best-cold-email-infrastructure-providers",
+    "https://www.launchleads.com/buyers-guides/how-to-choose-cold-email-agency/"
+   ],
+   "vendors": [
+    "LeadHaste",
+    "CFE Marketing Services",
+    "Belkins",
+    "Myntmore",
+    "Primeforge",
+    "Mailforge",
+    "Infraforge",
+    "Winnr",
+    "Inframail",
+    "ScaledMail"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "leadhaste.com",
+    "cfemarketingservices.com",
+    "belkins.io",
+    "myntmore.com",
+    "primeforge.ai",
+    "mailforge.ai",
+    "winnr.app",
+    "missioninbox.com",
+    "scaledmail.com",
+    "launchleads.com"
+   ]
+  },
+  {
+   "id": "q14",
+   "group": "cold-email",
+   "provider": "anthropic",
+   "question": "GDPR compliant cold email agency for the Dutch and German market",
+   "answer": "Here are agencies that market GDPR-compliant outreach for the Netherlands and Germany. Before you shortlist any of them, know that the legal picture differs sharply between the two markets, and most of the agency claims below are self-reported.\n\n**Legal reality by market**\n\n- **Netherlands:** Rules are more permissive, but not uniformly. Some sources say \nthe Netherlands requires consent unless the company published the address for receiving commercial messages.\n Others describe B2B cold email to published corporate addresses as \npermitted without prior consent.\n Ask any agency which reading they follow and how they document it.\n- **Germany:** This is the hard one. \nUnder UWG § 7, advertising email without the addressee's prior express consent is always an unreasonable nuisance; presumed consent covers only business phone calls.\n \nA cold email to a company you have never sold to is not permitted, not even to info@.\n Any agency promising German cold email at scale without consent is a red flag. Legitimate options are opt-in lists, warm signals, or phone outreach under presumed consent.\n\n**Agencies to look at**\n\n- **closed:in (Amsterdam):** Focused on NL and Belgium, and says it \nbuilds compliant infrastructure as standard and only targets verified B2B contacts.\n Good fit if your core market is the Netherlands.\n- **Asphia:** Operates a B2B cold email agency in the UK and Netherlands and says \nGermany and Austria get tighter rules and warmer signals. The Netherlands and France run standard legitimate interest.\n Its country-segmented approach is the kind you want.\n- **SalesCaptain:** Offers a Germany-specific service and \nemphasizes GDPR compliance and segments lists by industry, role, and buyer intent.\n Check how it handles the consent issue in Germany specifically.\n- **UltraGrowth Media:** Publishes a 2026 ranking of German cold email agencies and advises that you \nask every agency how they handle compliance, where they source lead data, and how they document legitimate interest.\n\n\n**Data and tooling providers (if you want to run outreach in-house)**\n\n- **Cognism:** One guide recommends it as a \npurpose-built for GDPR-compliant European prospecting\n data source.\n- **LeadGenius:** Positions itself around German consent models, offering \na consent-collected model where prospects opt in before their data is sold\n.\n- **Quarvio:** Provides only verified business addresses, not personal ones.\n\n**Questions to put to every agency**\n\n1. Where does the contact data come from, and is there a documented legitimate interest assessment (LIA)?\n2. How do you treat German prospects differently, and do you send cold email there at all?\n3. Will you sign a data processing agreement (DPA), and",
+   "cited": [
+    "https://sellsuccessfully.io/blog/cold-email-gdpr-europe/",
+    "https://overloop.com/blog/cold-email-illegal",
+    "https://itsalesaas.com/blog/is-cold-email-legal-in-europe",
+    "https://bizzy.ai/blog/b2b-cold-calling-germany",
+    "https://www.closedin.io/cold-email-agency-amsterdam",
+    "https://asphia.consulting/blog/cold-email-gdpr-europe-2026/",
+    "https://ultragrowthmedia.com/best-cold-email-agencies-germany/",
+    "https://ultragrowthmedia.com/best-cold-email-agencies-germany/",
+    "https://grouglobal.com/blog/gdpr-cold-email-the-operator-playbook-for-b2b-teams",
+    "https://www.leadgenius.com/resources/best-b2b-data-provider-for-germany-gdpr-uwg-and-how-to-stay-out-of-court"
+   ],
+   "vendors": [
+    "closed:in",
+    "Asphia",
+    "SalesCaptain",
+    "UltraGrowth Media",
+    "Cognism",
+    "LeadGenius",
+    "Quarvio"
+   ],
+   "brand_rank": 1,
+   "brand_mentioned": true,
+   "brand_claims": [
+    "Located in Amsterdam",
+    "Focused on the Netherlands and Belgium",
+    "Builds compliant infrastructure as standard",
+    "Only targets verified B2B contacts"
+   ],
+   "sources": [
+    "sellsuccessfully.io",
+    "overloop.com",
+    "itsalesaas.com",
+    "bizzy.ai",
+    "closedin.io",
+    "asphia.consulting",
+    "ultragrowthmedia.com",
+    "grouglobal.com",
+    "leadgenius.com"
+   ]
+  },
+  {
+   "id": "q15",
+   "group": "cold-email",
+   "provider": "anthropic",
+   "question": "Who are the top Instantly certified experts or partner agencies in Europe?",
+   "answer": "There's no official ranking of \"top\" Instantly experts in Europe. Instantly runs a public directory you can filter by region, and the best way to shortlist is to check it directly at instantly.ai/experts. Based on what I found, these are the Europe-linked names that come up most often:\n\n**Agencies and partners**\n- **The Demand Department (TDD):** Described as an \nofficial Instantly partner\n, with a listing in Instantly's experts directory under founder Jack Bricknell.\n- **Newlead:** A recommended option for \nB2B companies selling into Sweden and the rest of Europe\n. Its listing is also in the directory.\n- **ColdIQ:** A well-known outbound agency, and its founder, Michel Lieben, is listed as a \nCertified Expert\n in the directory. Crunchbase also lists him that way.\n- **Litehouse:** A \nUK based agency\n that builds automated lead generation systems. Its co-founder appears in the directory.\n- **Nordic Nexuz:** Co-founded by Kasper Hallberg, who says he has \npersonally helped more than 50 B2B companies\n with cold email. The sources don't state its location beyond the \"Nordic\" name.\n- **closed:in and Master Closers:** Both appear in the directory with founders who describe outbound lead-generation work. The sources don't clearly state their European base.\n\n**Other names I found, with less European detail:** frontBrick, Growth Engine X, and Frontal AI.\n\n**Caveats**\n- Placement in the directory depends on partner tier. Per Instantly's partner page, \nStarter is a standard listing, Growth gets an enhanced profile, Premier is featured, and Elite takes hero placement\n. So a prominent listing reflects a paid tier, not necessarily better performance.\n- Some sources are third-party blogs with unverified claims. Check the individual agencies' own results, pricing, and references before choosing.\n- Don't confuse Instantly's program with similar-sounding ones. Stairoids runs its own \n50+ certified agencies across Europe\n program, which is separate from Instantly.\n\nTo narrow the list, filter the directory at instantly.ai/experts by region and specialty (for example, lead generation or deliverability), then compare a few candidates on client references and case studies.",
+   "cited": [
+    "https://demanddept.com/blog/best-instantly-agencies-2026",
+    "https://demanddept.com/blog/best-instantly-agencies-2026",
+    "https://demanddept.com/blog/best-instantly-agencies-2026",
+    "https://instantly.ai/experts?515d8512_page=19",
+    "https://instantly.ai/new-pages/experts",
+    "https://instantly.ai/solution-partners",
+    "https://www.stairoids.com/Ecosystem/Agency-Partner-Program"
+   ],
+   "vendors": [
+    "The Demand Department (TDD)",
+    "Newlead",
+    "ColdIQ",
+    "Litehouse",
+    "Nordic Nexuz",
+    "closed:in",
+    "Master Closers",
+    "frontBrick",
+    "Growth Engine X",
+    "Frontal AI",
+    "Stairoids"
+   ],
+   "brand_rank": 6,
+   "brand_mentioned": true,
+   "brand_claims": [
+    "Appears in the Instantly experts directory with founders who describe outbound lead-generation work",
+    "Sources do not clearly state its European base"
+   ],
+   "sources": [
+    "demanddept.com",
+    "instantly.ai",
+    "stairoids.com"
+   ]
+  },
+  {
+   "id": "q16",
+   "group": "clay",
+   "provider": "anthropic",
+   "question": "Clay Solutions Partner agency that builds outbound systems",
+   "answer": "Clay is a go-to-market data and automation platform, and Clay Solutions Partners are certified agencies that build outbound systems on it. Clay's official directory at clay.com/experts is the best place to verify any firm. Several agencies are commonly recommended for outbound builds:\n\n- **Reachflow** (Spain and LATAM): \nReachflow is the only cold email agency in Spain & LATAM certified by Clay & Smartlead.\n It designs outbound engines using Clay, Smartlead, and Make, and its process starts with an ICP definition and market mapping.\n- **Partner UP** (Washington state): It is listed as \na Clay Advanced Artisan Partner and currently the only Clay Solutions Partner based in Washington state.\n Its outbound build covers \ndomain acquisition, mailbox setup, warmup, deliverability configuration, sequence architecture, stage-by-stage copy, and personalization logic tied to your ICP.\n\n- **SalesCaptain**: It describes itself as \na certified Clay partner helping B2B companies scale outbound sales with automation, AI, and multi-channel workflows.\n Its own site claims a \"#1 Enterprise Clay Partner\" title, which a third-party review notes is not how the directory categorizes it, so treat that claim cautiously.\n- **OneGTM**: It calls itself \na Clay agency and Clay Artisan Solutions Partner (2025).\n It builds enrichment, scoring, and signal-based outbound systems.\n- **Avalanche Outbound**: It is \none of the few Clay.com Certified outbound partners and treats deliverability as a first-class part of the engagement\n.\n- **The Kiln**: Its founders are former Clay staff, and it is \na Clay Elite Studio partner.\n Pricing reported by third parties is high, roughly $10k+ per month.\n- **ColdIQ / Frontal AI**: It is widely regarded as one of the most visible Clay-focused outbound shops. Its directory entry now appears under the name Frontal AI, and it is an Elite Studio partner.\n- **RevPartners**: It is a Clay Elite Studio partner that focuses on HubSpot and Clay RevOps, so it fits best if your CRM is HubSpot.\n\nSome caveats:\n- Clay's directory lists its tiers as Artisan, Advanced Artisan, Studio, and Elite Studio, from lowest to highest. Tier is a useful signal, but it does not guarantee results.\n- Most ranking lists are published by agencies or by competitors, and they sometimes disagree on tiers and prices. Verify those claims in the directory.\n- Pricing varies widely. Reported floors range from about $5k to $15k+ per month, and some firms offer fixed-price sprints.\n\nIf you tell me your budget, company size, CRM (HubSpot, Salesforce, Attio), and location, I can narrow this to a shortlist.",
+   "cited": [
+    "https://www.clay.com/en/experts/partner/reachflow",
+    "https://www.clay.com/en/experts/partner/partner-up",
+    "https://www.clay.com/en/experts/partner/partner-up",
+    "https://www.salescaptain.io/clay-agency",
+    "https://getaob.com/clay-agency",
+    "https://www.nebor.ai/blog/clay-sales-automation-agencies",
+    "https://kiin.co/best-clay-agencies"
+   ],
+   "vendors": [
+    "Reachflow",
+    "Partner UP",
+    "SalesCaptain",
+    "OneGTM",
+    "Avalanche Outbound",
+    "The Kiln",
+    "ColdIQ / Frontal AI",
+    "RevPartners"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "clay.com",
+    "salescaptain.io",
+    "getaob.com",
+    "nebor.ai",
+    "kiin.co"
+   ]
+  },
+  {
+   "id": "q17",
+   "group": "clay",
+   "provider": "anthropic",
+   "question": "Best Clay agencies in Europe",
+   "answer": "Here are the European Clay agencies that come up most often in 2026 roundups, grouped by use case. I haven't verified each claim, and many of these lists are published by agencies or Clay partners, so treat the rankings with some caution.\n\n**Best overall or strongest Clay engineering**\n- **Vanderbuild** (Central Europe, serves DACH too): \nA GTM engineering agency founded by Mateusz Sekta\n. \nThey finished as Clay Cup Vice-Champions, ranked second in the world and first in Europe.\n\n- **Peakora** (Switzerland, DACH): \nIt presents itself as the first Clay Enterprise partner in Europe and holds HubSpot Gold status.\n Its Clay tier is listed as Studio on one directory and Enterprise on another, so check the current tier.\n\n**Best if you want to own the system afterward**\n- **B2B Boosted** (UK): \nListed for building a one-off Clay build that you own, with a focus on automation handover.\n\n- **Peakora** again: \nIt is described as the strongest European Clay pick when you want to own the system afterward.\n\n\n**Best for outbound and appointment setting**\n- **Nebor** (Amster",
+   "cited": [
+    "https://www.salesforge.ai/blog/clay-agencies",
+    "https://www.salesforge.ai/blog/clay-agencies",
+    "https://www.salesforge.ai/blog/clay-agencies-europe",
+    "https://www.salesforge.ai/blog/clay-agencies",
+    "https://www.realgoodgtm.com/best-lead-generation-agencies/clay"
+   ],
+   "vendors": [
+    "Vanderbuild",
+    "Peakora",
+    "B2B Boosted",
+    "Nebor"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "salesforge.ai",
+    "realgoodgtm.com"
+   ]
+  },
+  {
+   "id": "q18",
+   "group": "clay",
+   "provider": "anthropic",
+   "question": "Who can build a Clay waterfall enrichment and CRM sync for my sales team?",
+   "answer": "You have three main options: a certified Clay partner, a specialized agency, or an in-house or freelance GTM engineer.\n\n**1. Start with Clay's official partner directory.** Clay lists its approved partners at clay.com/experts, grouped into four tiers from highest to lowest: Elite Studio, Studio, Advanced Artisan, and Artisan. You can filter by focus area, such as CRM integration. Some agencies describe their status in marketing language that doesn't match the directory. One review found that SalesCaptain and Understory call themselves \"Enterprise\" partners, but the directory lists both under Advanced Artisan, which has no Enterprise tier. So check the tier in the directory itself, not on the agency's website.\n\n**2. Agencies that build waterfalls and CRM syncs.** Several listed firms explicitly offer this work:\n- **RevenueHoop** builds enrichment waterfalls, intent signals, and CRM writeback, and says it documents its builds so your team can maintain them afterward.\n- **AY Automate** builds the Clay tables, including waterfall enrichment and scoring, then connects them to your CRM and outreach tools.\n- **The Kiln**, which is reportedly staffed by former Clay employees, builds waterfall enrichment tables from the ground up.\n- **SalesCaptain** is a certified partner focused on outbound campaigns, though it's more of a full outbound agency.\n- **RevPartners** lists an Elite Studio tier and offers HubSpot integrations and waterfall enrichment.\n\n**3. Freelancers or a hire.** \"Clay expert\" is a looser term that covers both listed partners and independent consultants. If you'd rather own the skill internally, you can hire a GTM engineer to build and maintain the tables. Specialist staffing services also exist, starting from about $2,000 a month, per one provider's listing.\n\n**Before you hire, keep these points in mind:**\n- **Plan cost:** CRM auto-sync requires Clay's Growth plan, listed at $495/month ($446/month billed annually). Confirm the consultant's build assumes that plan.\n- **Credit waste:** A provider that returns a wrong email still bills before validation rejects it, so ask how they'll order the waterfall and track cost per record.\n- **Maintainability:** Ask whether you'll get documentation and a workspace under your own account, so the build survives after the engagement ends.\n- **Scope:** If your CRM data is messy, some firms sell a fixed-scope cleanup sprint first, such as Sculpted's four-week offering.",
+   "cited": [],
+   "vendors": [
+    "SalesCaptain",
+    "Understory",
+    "RevenueHoop",
+    "AY Automate",
+    "The Kiln",
+    "RevPartners",
+    "Sculpted"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "clay.com"
+   ]
+  },
+  {
+   "id": "q19",
+   "group": "clay",
+   "provider": "anthropic",
+   "question": "Agency that builds Clay tables and signal-based outbound for B2B companies in the Netherlands",
+   "answer": "The strongest matches are Amsterdam-based agencies that list Clay work explicitly. Most of the evidence comes from Clay's partner directory, the agencies' own sites, or comparison listicles, so verify before shortlisting.\n\n**Clear fits**\n\n- **Leapforce (Amsterdam):** A HubSpot Diamond Partner and RevOps agency that lists Clay-powered ABM, enrichment and outbound for Dutch B2B companies. \nEvery engagement starts with a four-week Clay Kickstart.\n Its listed pricing starts at \n$5k+ a month\n.\n- **Nebor (Amsterdam):** A GTM agency that builds revenue infrastructure with Clay at the center. Its signal-based outbound \nwatches for buying signals like job changes, funding rounds, and website visits, then triggers outreach at the right moment.\n It works in English and Dutch, and its Clay partner profile says \nyour team owns everything it builds.\n One source notes it was \nformerly Utmost\n.\n- **LeadGem (Amsterdam):** Described as \none of the strongest Clay-certified partners for B2B outbound and GTM engineering.\n It is a small team that works across the Benelux, Nordics, US and Australia, though that description comes from a competitor's blog.\n- **Saleslift Studio (Netherlands):** An official Clay partner that \npairs Clay builds with hands-on outbound, RevOps and account-based marketing.\n It works in English, Dutch and German.\n- **tech-stack.nl (Amsterdam):** Offers Clay implementation covering \njob changes, funding and intent as triggers, timing over volume\n, with CRM writeback. It is a consultancy-style setup that can be a fit if you want to own the build.\n\n**Other Dutch options to check**\n\n- **SalesCaptain (Amsterdam):** Focused on B2B outbound that \nuses data to trigger outreach when real buyer signals appear, not from static lists.\n It is a stronger fit if you want managed multichannel outbound rather than a Clay build.\n- **GenFlows (Netherlands):** Positioned for teams that want \nbooked meetings without running any Clay tables themselves.\n\n- **Revenanas (Netherlands):** Listed for \nClay Data Foundations\n and CRM enrichment with signals.\n\n**How to choose**\n\nIf you want to keep the tables yourself, prioritise agencies that hand over documentation and workflows (Nebor and tech-stack.nl both emphasise this). If you want meetings delivered, look at the managed options (SalesCaptain, GenFlows). Ask each agency for a reference client and a sample Clay table before signing, since most of the rankings above are self-published.",
+   "cited": [
+    "https://www.clay.com/en/experts/partner/leapforce",
+    "https://www.clay.com/en/experts/partner/leapforce",
+    "https://www.clay.com/en/experts/partner/nebor",
+    "https://www.clay.com/en/experts/partner/nebor",
+    "https://frontal.so/blog/best-clay-automation-agencies",
+    "https://www.leadgem.nl/resources/clay-agency",
+    "https://www.salesforge.ai/blog/clay-agencies-europe",
+    "https://tech-stack.nl/en/clay/",
+    "https://www.salesforge.ai/blog/cold-email-agencies-netherlands",
+    "https://www.salesforge.ai/blog/clay-agencies-the-netherlands",
+    "https://www.salesforge.ai/blog/clay-agencies-the-netherlands"
+   ],
+   "vendors": [
+    "Leapforce",
+    "Nebor",
+    "LeadGem",
+    "Saleslift Studio",
+    "tech-stack.nl",
+    "SalesCaptain",
+    "GenFlows",
+    "Revenanas"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "clay.com",
+    "frontal.so",
+    "leadgem.nl",
+    "salesforge.ai",
+    "tech-stack.nl"
+   ]
+  },
+  {
+   "id": "q20",
+   "group": "pricing",
+   "provider": "anthropic",
+   "question": "What does an outbound agency cost per month?",
+   "answer": "Most outbound agencies charge roughly **$3,000 to $15,000 per month**, though the range runs from about $2,000 at the low end to $25,000 or more for enterprise programs. The exact price depends on scope and model.\n\n**Typical tiers:**\n- **Entry level:** One guide puts \nentry level at $3,000-$5,000 per month\n, covering a single channel with limited personalization.\n- **Mid-market:** Many sources cluster here. One says \nmost credible outbound programs cluster between $5,000 and $12,000 a month.\n\n- **Enterprise:** Costs climb to \n$12,000-$25,000+ per month, with multiple operators, custom playbooks, ABM campaigns, regional coverage.\n\n\n**Other pricing models:**\n- **Per meeting:** Pay-per-meeting pricing is common. One source cites \nabout $200 to $600 a meeting\n, while another gives \n$150–$800 per booked meeting\n.\n- **Hybrid:** \nA $3,000 base plus $200 per meeting is the most common shape in mid-market outbound\n, according to one source.\n- **Low-cost LinkedIn-only:** Some providers are much cheaper. One lists \n$397 to $997 a month\n for LinkedIn-only service.\n\n**Extra costs to check:**\n- **Setup fees:** These vary. One source says \nsetup fees at about $5,000 to $15,000 on some retainers.\n Another reports \nsetup fees run $1,500 to $5,000 at many lead generation agencies\n.\n- **Add-ons:** The same source notes that \nadd-ons (extra sending domains, data credits, third-party lead generation tools) can add 30 to 50% on top of a base retainer.\n\n- **Contract length:** \nMost agencies require 3-6 month minimums.\n Some offer month-to-month terms.\n\nMost of these figures come from agencies or agency-affiliated blogs, so treat them as directional. Get written quotes that list setup fees, add-ons, minimum terms, and what counts as a qualified meeting.",
+   "cited": [
+    "https://www.builtforb2b.com/blog/best-outbound-sales-agencies-2026",
+    "https://thinkablegroup.com/insights/lead-generation-agency-cost/",
+    "https://www.builtforb2b.com/blog/best-outbound-sales-agencies-2026",
+    "https://bavlio.com/outbound-agency-cost",
+    "https://tomba.io/blog/lead-generation-pricing",
+    "https://tomba.io/blog/lead-generation-service-pricing",
+    "https://bavlio.com/outbound-agency-cost",
+    "https://bavlio.com/outbound-agency-cost",
+    "https://www.leadium.com/blog/lead-generation-services",
+    "https://www.leadium.com/blog/lead-generation-services",
+    "https://www.miniloop.ai/blog/best-outbound-sales-agencies"
+   ],
+   "vendors": [],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "builtforb2b.com",
+    "thinkablegroup.com",
+    "bavlio.com",
+    "tomba.io",
+    "leadium.com",
+    "miniloop.ai"
+   ]
+  },
+  {
+   "id": "q21",
+   "group": "pricing",
+   "provider": "anthropic",
+   "question": "How much does a cold email agency charge in Europe in 2026?",
+   "answer": "I couldn't find pricing data specific to European agencies for 2026. The sources I found are mostly US-focused vendor blogs quoting in dollars, so treat these as a global benchmark rather than a European price list.\n\n**Monthly retainers (the most common model)**\n- Estimates cluster around \n$2,500 to $10,000 per month on retainer in 2026, with most B2B programs landing between $3,000 and $7,000.\n\n- Entry-level offers sit lower. One guide puts \nentry-level retainers at $1,500 to $2,500/month\n, though it describes that tier as \noften just template-based sends with minimal strategy.\n\n- Premium, enterprise-level work runs higher. One source reports \nenterprise engagements start at $10,000/mo and include dedicated infrastructure and an account manager.\n\n\n**Performance-based models**\n- Per-meeting pricing is often quoted at \n$200 to $700 per meeting\n.\n- Per-lead pricing is usually lower, at \n$50 to $150 per lead\n.\n\n**Extra costs to check**\n- Setup fees are common. One guide cites \nsetup fees of $1,000-$3,000 and infrastructure adding $500-$2,000 monthly.\n\n- Some quotes exclude sending infrastructure. Ask whether domains, mailboxes, and data are included, because one source notes that a \n$3,000 retainer with $1,500 in passed-through infrastructure isn't cheaper than a $4,200 all-in quote\n.\n\n**Europe-specific data**\nOne planning guide for launching a cold email agency in Europe lists euro tiers of \nMicro: €199-299/month, Standard: €599-899/month, Premium: €1,499-2,499/month\n. These are suggested prices for a new agency, not measured market rates, so I wouldn't rely on them as a benchmark.\n\nFor a realistic European quote, request proposals from several agencies and ask for the full all-in monthly cost, including infrastructure and data. Prices also depend heavily on volume, number of channels (email only versus LinkedIn too), and whether the agency is US-, UK-, or EU-based.",
+   "cited": [
+    "https://www.smartlead.ai/blog/cold-email-agency-pricing",
+    "https://outboundsystem.com/blog/how-much-does-a-cold-email-agency-cost",
+    "https://outboundsystem.com/blog/how-much-does-a-cold-email-agency-cost",
+    "https://puzzleinbox.com/cold-email-agency/",
+    "https://www.smartlead.ai/blog/cold-email-agency-pricing",
+    "https://www.smartlead.ai/blog/cold-email-agency-pricing",
+    "https://outreachbloom.com/cold-email-agency-vs-in-house",
+    "https://outreachbloom.com/cold-email-agency-vs-in-house",
+    "https://imisofts.com/blog/start-cold-email-agency-europe/"
+   ],
+   "vendors": [],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "smartlead.ai",
+    "outboundsystem.com",
+    "puzzleinbox.com",
+    "outreachbloom.com",
+    "imisofts.com"
+   ]
+  },
+  {
+   "id": "q22",
+   "group": "pricing",
+   "provider": "anthropic",
+   "question": "GTM engineering agency pricing: what should I expect to pay?",
+   "answer": "**Typical range: about $5k–$8k per month for a retainer, with wide variation.** A survey-based guide puts the median at \n$5K-$8K per month on a retainer basis\n, and the full range runs \nfrom $1K to $33K per month, depending on scope, specialization, and client size.\n\n\n**Rough tiers by scope**\n\n- **Freelancers and small operators:** \nAt the $1K-$3K end, you'll find freelancers and offshore operators handling basic Clay table builds and data enrichment tasks.\n\n- **Mid-market:** One agency's tiers list $5,000–$10,000 for a \nfull GTM engineering stack.\n\n- **Full-stack or embedded:** One guide gives \n$10K-$20K/mo\n for full-stack GTM, where you own the entire outbound infrastructure. Embedded forward-deployed engineers \nrange from $10,000 to $25,000 per month.\n\n- **Projects instead of retainers:** \nOne-time projects can range from $5k–$40k+, while audit and strategy sprints usually cost $2k–$10k.\n In Europe, one source lists \n€5,000-25,000\n for a build-and-handover project, where \nthe agency builds, your team takes over.\n\n\n**Published price examples (these change, so verify)**\n- The GTM Engineering Company is one of the few with public prices. Sources disagree: one lists \nStarter at $5k a month, Growth at $7k a month and Enterprise at custom scope\n, while another cites \na fixed monthly retainer from $2,500 a month\n. Check their site directly.\n- GTM Walnut is listed \nfrom $2,500/mo; most $2,500 to $6,000\n.\n- Understory's \nFrom $12,000/mo\n, and demandDrive \nFrom ~$7,000/mo\n.\n\n**Costs beyond the retainer**\n- Tools are often billed separately. One guide estimates \n$1,550 to $11,500\n per month in total tool costs across enrichment, sending, CRM, and similar. A narrower estimate is \n$500 to $3,000 a month\n for tooling and data.\n- Some agencies add markup on tools. One source advises you to \nask for tool costs to be separated",
+   "cited": [
+    "https://gtmepulse.com/salary/agency-fees/",
+    "https://gtmepulse.com/salary/agency-fees/",
+    "https://gtmepulse.com/salary/agency-fees/",
+    "https://formanorden.com/blog/gtm-engineering-cost/",
+    "https://gtmepulse.com/careers/agency-pricing/",
+    "https://www.advancedclient.io/articles/forward-deployed-gtm-engineer-cost",
+    "https://www.factors.ai/blog/gtm-engineering-agency",
+    "https://www.cegtec.net/en/knowledge/gtm-engineering-agentur/",
+    "https://www.cegtec.net/en/knowledge/gtm-engineering-agentur/",
+    "https://artemisgtm.ai/resources/gtm-engineering-agencies/",
+    "https://www.joinvalley.co/blog/best-gtm-engineering-agencies-2026",
+    "https://www.joinvalley.co/blog/best-gtm-engineering-agencies-2026",
+    "https://www.advancedclient.io/articles/best-gtm-engineering-agencies",
+    "https://www.advancedclient.io/articles/best-gtm-engineering-agencies",
+    "https://www.advancedclient.io/articles/forward-deployed-gtm-engineer-cost",
+    "https://www.realgoodgtm.com/best-lead-generation-agencies/gtm-engineering",
+    "https://formanorden.com/blog/gtm-engineering-cost/"
+   ],
+   "vendors": [
+    "The GTM Engineering Company",
+    "GTM Walnut",
+    "Understory",
+    "demandDrive"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "gtmepulse.com",
+    "formanorden.com",
+    "advancedclient.io",
+    "factors.ai",
+    "cegtec.net",
+    "artemisgtm.ai",
+    "joinvalley.co",
+    "realgoodgtm.com"
+   ]
+  },
+  {
+   "id": "q23",
+   "group": "pricing",
+   "provider": "anthropic",
+   "question": "Outbound agency vs hiring an SDR: which is cheaper for a 10 person B2B company?",
+   "answer": "**Short answer:** For a 10-person company, an outbound agency is usually cheaper in year one. A mid-tier agency retainer typically costs about half of what one fully loaded in-house SDR does. The in-house hire becomes competitive only if you run sustained, high-volume outbound and can keep the person for a while.\n\n**In-house SDR**\n- Fully loaded cost is commonly estimated at \n1.7 to 2.5x their base salary\n. One estimate puts the typical \nUS-based SDR at $80,000–$100,000+ per year in total employer costs\n, while others land higher, around \n$115,000-$165,000\n including tools and ramp losses.\n- Ramp adds cost. One source notes you pay \nfull salary during ramp (3-4 months)\n before the rep contributes much.\n- Turnover is a real risk. One benchmark cited \nmedian attrition is 40% a year, per the Bridge Group\n, so a replacement cost is likely in your budget.\n\n**Outbound agency**\n- Pricing varies by scope. Single-channel outbound \ntypically runs $2,500 to $8,000",
+   "cited": [
+    "https://salespipe.co/blog/cost-of-hiring-an-sdr-team-true-cost-breakdown",
+    "https://remotegrowthpartners.com/blog/what-does-a-sales-development-representative-actually-do-in-2026-and-why-offshore-sdrs-are-now-doing-it-better",
+    "https://stealthagents.com/research/cost-of-hiring-an-sdr-2026",
+    "https://stealthagents.com/research/cost-of-hiring-an-sdr-2026",
+    "https://www.dooza.ai/blog/cost-of-hiring-an-sdr",
+    "https://yourgrowthpartner.io/blog/b2b-lead-generation-agency-pricing/"
+   ],
+   "vendors": [],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "salespipe.co",
+    "remotegrowthpartners.com",
+    "stealthagents.com",
+    "dooza.ai",
+    "yourgrowthpartner.io"
+   ]
+  },
+  {
+   "id": "q24",
+   "group": "niche",
+   "provider": "anthropic",
+   "question": "Outbound lead generation agency for M&A advisory firms in Europe",
+   "answer": "This looks like a market or business-idea topic, so here is a short overview based on what I found. Most of the sources are agency marketing pages, so treat their claims as self-reported.\n\n**Competitive landscape**\n- Several agencies already target this niche. Danish Lead Co., based in Aarhus, \nis a fully managed lead generation service for M&A advisory firms and boutique investment banks\n, and it \npublishes pricing at $3,000 to $6,000 per month\n.\n- Generalist agencies also serve the space. One comparison lists Belkins and Martal Group as having \nonly moderate PE/M&A specialization, with general B2B compliance\n. That gap is a possible wedge for a specialist.\n- Regional players include A-Sales in Stockholm, which \nleads with cold calling\n, and Focus One in Waterford, whose \ncampaigns focus on Ireland and the UK\n.\n\n**Compliance is central to the model**\n- GDPR applies to B2B outreach. One source notes \nthere are no B2B exemptions written into the regulation\n, though some national laws, such as Germany's UWG and the UK's PECR, give \na bit more room for electronic marketing to corporate subscribers\n.\n- Most outbound teams rely on legitimate interests, and that \nrequires a documented Legitimate Interests Assessment\n.\n- Cross-border data flows matter. For US-based tooling, the platform should \nbe DPF-certified or covered by Standard Contractual Clauses\n.\n\n**Positioning considerations**\n- Discretion is the selling point with M&A clients. Sellers and buyers are sensitive about reputation, so a sloppy outreach campaign can damage the advisory firm. One source warns that \ngeneric B2B approaches risk reputation and fail to deliver proprietary deal flow\n.\n- Multi-language, country-specific capability is a differentiator. One guide advises checking \nwhich countries and languages you need, then who has native speakers for each one\n.\n- Outcome-based pricing and a clear \"when outbound is not a fit\" discussion can build trust with advisors who are wary of cold outreach.\n\n**Next steps I'd suggest**\n1. Pick a focus: sell-side advisory for owner-led SMEs, PE deal sourcing, or cross-border buyer outreach.\n2. Pick target countries and languages. Germany, the Nordics, the UK, and the Benelux are common starting points, but I haven't verified their market sizes.\n3. Build a documented GDPR and LIA framework before the first campaign.\n4. Validate pricing against the $3k–6k/month benchmark and any retainer or success-fee models.\n\nTell me which of these you'd like to go deeper on, such as a go-to-market plan, a pricing model, a competitor teardown, or a compliance checklist. I can also",
+   "cited": [
+    "https://danishleadco.io/lead-generation-for-m-and-a-advisory-firms",
+    "https://danishleadco.io/blog/10-best-outbound-sales-agencies-for-b2b-lead-generation",
+    "https://danishleadco.io/blog/top-outbound-agencies-for-private-equity-and-ma-firms",
+    "https://www.salesforge.ai/blog/outbound-sales-agencies-europe",
+    "https://www.salesforge.ai/blog/outbound-sales-agencies-europe",
+    "https://leadcompliant.com/articles/consent-and-optin/b2b-lead-generation-platforms-gdpr-compliance",
+    "https://leadcompliant.com/articles/consent-and-optin/b2b-lead-generation-platforms-gdpr-compliance",
+    "https://leadcompliant.com/articles/consent-and-optin/b2b-lead-generation-platforms-gdpr-compliance",
+    "https://leadcompliant.com/articles/consent-and-optin/b2b-lead-generation-platforms-gdpr-compliance",
+    "https://danishleadco.io/blog/top-outbound-agencies-for-private-equity-and-ma-firms",
+    "https://www.salesforge.ai/blog/outbound-sales-agencies-europe"
+   ],
+   "vendors": [
+    "Danish Lead Co.",
+    "Belkins",
+    "Martal Group",
+    "A-Sales",
+    "Focus One"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "danishleadco.io",
+    "www.salesforge.ai",
+    "leadcompliant.com"
+   ]
+  },
+  {
+   "id": "q25",
+   "group": "niche",
+   "provider": "anthropic",
+   "question": "Lead generation agency for logistics and fulfilment companies in the Netherlands",
+   "answer": "**Verdict:** It's a viable niche, but it needs a sharper angle. \"Logistics leads in the Netherlands\" is broad, and the buyers are fragmented.\n\n**Why the market looks promising**\n- Demand is growing. One forecast puts the Dutch logistics market at about USD 116 billion in 2026, growing at about 4.8% a year, though estimates vary widely. \nOne Mordor Intelligence estimate values the Netherlands freight and logistics market at USD 56.49 billion in 2026, growing at a 4.30% CAGR.\n Treat the exact figures as directional.\n- E-commerce is a strong driver. \nCourier, express and parcel is projected to grow at about 4.8% a year, with e-commerce as the dominant end user.\n Dutch fulfilment providers serve webshops, and that's where demand for new clients comes from.\n- The Netherlands is a regional hub. \nInternational parcels are expected to grow faster, reflecting the country's role as a regional hub for cross-border fulfilment.\n\n- Fulfilment providers are a large, active group. Directories list many 3PLs, from small operators like Fulfilnetic and MKB-Fulfilment to larger players like Bergen Logistics and Monta, so there are many potential clients.\n\n**Risks**\n- **Fragmented buyers:** Many small 3PLs have little budget for outbound sales and may prefer referrals or marketplace listings.\n- **Crowded space:** Lead gen agencies, directories and freight marketplaces already target this audience. You need a clear edge.\n- **Long sales cycles:** Warehouse contracts involve site visits, RFQs and long commitments, so the value of a \"lead\" depends on how qualified it is.\n- **Compliance:** Cold outreach to Dutch businesses has to respect GDPR and the ePrivacy rules. Check the current guidance from the Dutch Data Protection Authority before you build outbound sequences.\n\n**Ways to sharpen the model**\n1. **Pick a niche:** For example, 3PLs serving fashion or beauty webshops, cross-border fulfilment into Germany or Belgium, cold-chain or bonded warehousing, or returns processing.\n2. **Choose the buyer:** Sell to 3PLs (they pay for client acquisition), or sell to brands looking for a 3PL (they're the demand side). Both are possible, but they need different pricing and lead sources.\n3. **Pricing options:** Pay per qualified meeting, a monthly retainer, or a success fee per signed contract. Per-meeting pricing is the easiest to sell first.\n4. **Qualification criteria:** Define what counts as a lead, such as warehouse size, order volume, SKU count, certifications, or current 3PL contract expiry dates. Contract timing is a strong signal.\n5. **Proof:** Run a 60–90 day pilot with 3–5 fulfilment providers and track meetings booked, meeting-to-proposal rate and close rate.\n\n**Suggested next steps**\n- Interview 10–15 fulfilment operators to find out what they pay for today and what they consider a good lead.\n- Build a list of target companies using KvK (Chamber of Commerce) data and L",
+   "cited": [
+    "https://www.mordorintelligence.com/industry-reports/netherlands-freight-logistics-market-study",
+    "https://www.waredock.com/magazine/logistics-market-in-the-netherlands/",
+    "https://www.waredock.com/magazine/logistics-market-in-the-netherlands/"
+   ],
+   "vendors": [
+    "Fulfilnetic",
+    "MKB-Fulfilment",
+    "Bergen Logistics",
+    "Monta"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "mordorintelligence.com",
+    "waredock.com"
+   ]
+  },
+  {
+   "id": "q26",
+   "group": "niche",
+   "provider": "anthropic",
+   "question": "Outbound agency for recruitment and staffing firms in the UK",
+   "answer": "Here are UK outbound agencies that either specialise in recruitment and staffing or are general UK outbound firms with staffing clients. Most of the details below come from vendor websites and comparison blogs, so check them directly before shortlisting.\n\n**Specialists for recruitment and staffing**\n- **Sopro** (Brighton): Runs email and outbound programmes built for recruiters. It says it works with agencies ranging from temp specialists to executive search firms. \nWe work with recruitment agencies of every type, from fast-moving temp specialists to retained executive search firms.\n\n- **Sales Hype**: Offers managed outbound for recruitment, staffing and specialist talent firms, covering the UK and GCC. Its listed price is £1,800. \nSales Hype builds managed outbound for recruitment and staffing firms that want more conversations with employers, hiring managers, founders, operations leaders and department heads.\n\n- **The Lead Generation Agency**: UK-run, and it lists staffing and recruitment among its specialisms. It says it agrees the definition of a qualified lead in writing before launch. \nUK-run B2B outbound that delivers qualified, criteria-matched conversations with decision-makers, with the definition of a qualified lead agreed in writing before launch.\n\n- **Leadee**: Focuses on employer-side lead generation for recruitment firms, including qualification and pipeline tracking rather than raw lists. \nLeadee is a B2B recruitment lead generation company focused on targeting, outreach, qualification, follow-up and pipeline tracking, not just raw contact lists.\n\n- **Rev-Empire**: Runs outbound aimed at getting staffing firms into vendor-approval conversations with HR, talent acquisition and procurement teams.\n- **Cleverly**: Ranked first in a staffing-focused comparison, running LinkedIn, cold email and cold calling together for staffing firms.\n\n**General UK outbound agencies that work with staffing firms**\n- **Outcend**: UK-based, offers outsourced SDRs, cold calling and appointment setting. \nOur UK-based team manages buyer targeting, prospect research, outreach, qualification and follow-up to create relevant sales conversations and book qualified meetings for your sales team.\n\n- **Air Marketing**: Outsourced sales and lead generation for B2B firms in the UK since 2016.\n- **Pearl Lemon Leads** (London): Multi-channel outbound via email, LinkedIn and phone.\n- **MarketMakers** (Portsmouth): One of the larger UK outbound sales development firms, better suited to high-volume programmes.\n- **Callbox, Punch B2B and Konsyg**: Broader UK outbound and appointment-setting providers that appear in UK comparison lists.\n\n**Choosing between them**\n- Ask for references from other recruitment or staffing clients. A sector-specific agency will understand contingency versus retained models and the difference between a client and a candidate conversation.\n- Agree the definition of a qualified lead (for example, a hiring brief versus a general conversation) before you sign.\n- Check data sourcing and UK GDPR compliance, especially for cold email and calling.\n- Compare pricing models: some charge a monthly retainer, others pay per meeting or lead.\n\nIf you tell me your niche (for example, temp, contract IT, or executive search), your target clients, and your budget, I can narrow this to two or three options.",
+   "cited": [
+    "https://sopro.io/solutions/lead-generation-for-staffing-and-recruitment-agencies/",
+    "https://www.saleshype.co.uk/lead-generation-for-recruitment-agencies",
+    "https://theleadgenerationagency.uk/services/lead-generation-for-recruitment-agencies",
+    "https://leadee.co/industries/recruitment-agencies",
+    "https://www.outcend.com/"
+   ],
+   "vendors": [
+    "Sopro",
+    "Sales Hype",
+    "The Lead Generation Agency",
+    "Leadee",
+    "Rev-Empire",
+    "Cleverly",
+    "Outcend",
+    "Air Marketing",
+    "Pearl Lemon Leads",
+    "MarketMakers",
+    "Callbox",
+    "Punch B2B",
+    "Konsyg"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "sopro.io",
+    "saleshype.co.uk",
+    "theleadgenerationagency.uk",
+    "leadee.co",
+    "outcend.com"
+   ]
+  },
+  {
+   "id": "q27",
+   "group": "niche",
+   "provider": "anthropic",
+   "question": "Who runs outbound for B2B SaaS companies expanding from the Netherlands to the UK?",
+   "answer": "There isn't one person or firm that owns this niche. Outbound for Dutch-to-UK SaaS expansion is handled by a range of agencies, and most of what I found comes from vendor-written \"best of\" lists, so treat their rankings as marketing rather than independent verdicts.\n\n**Agencies that explicitly target B2B SaaS expanding into the UK from the Benelux:**\n- **WINGM** is the clearest match. It describes itself as an outbound sales agency for B2B SaaS and AI companies, and it lists Benelux and UK & Ireland among its specialist regions. \nIt specializes in working with B2B SaaS companies looking to expand into key European markets, including Benelux, Scandinavia, DACH, and the UK.\n Its site also includes a testimonial about Benelux and UK pipeline.\n- **Profitbl** is described as \ncombining go-to-market strategy with senior-SDR multichannel execution across France, BENELUX, DACH and the UK, built specifically for SaaS and tech.\n\n- **SalesCaptain** is an Amsterdam-based outbound agency. One list places it in London and Europe and notes that \nB2B SaaS companies are typically the strongest fit.\n\n- **Utmost Agency** is an Amsterdam boutique, \nfocused on B2B SaaS and AI firms scaling across Benelux, DACH and the UK.\n\n\n**Other options with UK or multi-market coverage:**\n- **Martal Group** and **Belkins** are broader firms, with Belkins described as \nbroad, SaaS among many verticals\n, covering the EU globally.\n- **Konsyg** describes itself as a Dutch market-entry partner, though its own site frames the service around the Netherlands.\n- **LeadWarmr** is a Bilthoven agency focused on SaaS cold email and LinkedIn. One review says its \nprimary markets are the US, UK, Canada, and Australia, but they serve Dutch companies as well.\n\n\n**Practical next steps:** Shortlist two or three agencies, then ask each for UK case studies, its UK ICP and data sources, whether it uses UK-based SDRs or reps, and how it handles UK GDPR and PECR for cold B2B email. Those points matter more than the rankings. The Dutch and UK agency lists I found were largely self-published, so verify claims directly with the firms.",
+   "cited": [
+    "https://wingm.io/",
+    "https://ripeleads.eu/resources/best-outbound-agencies-for-saas-europe-2026",
+    "https://www.salesforge.ai/blog/best-outbound-sales-agencies-in-amsterdam",
+    "https://www.salesforge.ai/blog/best-outbound-sales-agencies-in-amsterdam",
+    "https://ripeleads.eu/resources/best-outbound-agencies-for-saas-europe-2026",
+    "https://www.nebor.ai/blog/dutch-growth-sales-and-lead-gen-agencies"
+   ],
+   "vendors": [
+    "WINGM",
+    "Profitbl",
+    "SalesCaptain",
+    "Utmost Agency",
+    "Martal Group",
+    "Belkins",
+    "Konsyg",
+    "LeadWarmr"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "wingm.io",
+    "ripeleads.eu",
+    "salesforge.ai",
+    "nebor.ai"
+   ]
+  },
+  {
+   "id": "q28",
+   "group": "stack",
+   "provider": "anthropic",
+   "question": "Best GTM tech stack for outbound in 2026 with pricing",
+   "answer": "**Short answer:** For most outbound teams in 2026, the stack that comes up most often is Apollo (data and sequencing) + Clay (enrichment and signals) + Instantly or Smartlead (cold email sending) + HeyReach (LinkedIn), with a CRM underneath. ZoomInfo fits larger enterprise budgets. Pricing below comes from third-party comparison sites, not vendor pages, and the figures often disagree, so confirm on each vendor's pricing page before buying.\n\n**Recommended stacks by budget**\n\n**1. Lean (roughly $100–200/mo plus seats)**\n- **Apollo** for prospecting and basic sequences. Apollo publishes self-serve plans \nfrom $49 to $99/user/month and a free forever tier.\n Its \nfree plan includes 60 credits per month\n, and one source says a \n$0 plan with 900 credits a year\n is available.\n- **Instantly** for email sending. Its entry tier is cheap, and \nthe Growth plan is $30 per month\n per one guide, though others list $37–47 depending on billing. Both Instantly and Smartlead \nlist unlimited connected email accounts and unlimited warmup on every tier\n.\n- **HubSpot** free or starter CRM. Paid Marketing and Sales Hub tiers \nrun from $45 to $800+ per month\n.\n\n**2. Mid-market / scaling (roughly $700–1,000+/mo)**\n- **Apollo Professional** for data and sequencing.\n- **Clay** for waterfall enrichment and research. Clay \nstarts Launch at $185 a month, or $167 on annual billing, with unlimited seats, and meters actions and data credits.\n Expect the real bill to be higher; one source notes Clay \nstarts at $185/mo but effectively $495/mo once you need CRM sync.\n Clay's pricing has changed, so check current tiers.\n- **Instantly Hypergrowth** (about $97/mo) or **Smartlead Pro** (about $94/mo). The two are nearly identical at this tier. Per one comparison, \npricing converges, deliverability diverges\n, and the reported differences are in deliverability and add-ons.\n- **HeyReach** for LinkedIn outreach, at \n~$79/month\n per one source. Smartlead is cold-email-only, so LinkedIn needs a separate tool like HeyReach. \nMultichannel campaigns (LinkedIn → email → LinkedIn) require pairing with Closely, Heyreach, or SalesRobot.\n\n\n**3. Enterprise**\n- **ZoomInfo** is the deepest database, with better phone data and intent sign",
+   "cited": [
+    "https://www.uplead.com/apollo-vs-zoominfo/",
+    "https://mailsfinder.com/compare/clay-vs-apollo-vs-zoominfo",
+    "https://www.cleanlist.ai/blog/2026-03-07-apollo-vs-zoominfo",
+    "https://puzzleinbox.com/blog/instantly-pricing-guide/",
+    "https://gigradar.io/blog/smartlead-vs-instantly",
+    "https://www.linkedotter.com/articles/how-to-build-gtm-engineer-tech-stack-2026",
+    "https://www.revenueflow.com/blog/clay-vs-apollo-vs-zoominfo",
+    "https://www.cleanlist.ai/blog/2026-07-24-clay-vs-apollo-vs-zoominfo",
+    "https://gigradar.io/blog/smartlead-vs-instantly",
+    "https://www.lemlist.com/blog/instantly-vs-smartlead",
+    "https://derrick-app.com/tools/smartlead-review"
+   ],
+   "vendors": [
+    "Apollo",
+    "Clay",
+    "Instantly",
+    "Smartlead",
+    "HeyReach",
+    "HubSpot",
+    "ZoomInfo",
+    "Closely",
+    "SalesRobot"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "uplead.com",
+    "mailsfinder.com",
+    "cleanlist.ai",
+    "puzzleinbox.com",
+    "gigradar.io",
+    "linkedotter.com",
+    "revenueflow.com",
+    "lemlist.com",
+    "derrick-app.com"
+   ]
+  },
+  {
+   "id": "q29",
+   "group": "stack",
+   "provider": "anthropic",
+   "question": "Which tools do outbound agencies use for enrichment, sending and CRM?",
+   "answer": "Most outbound agencies build a stack from three layers: a data provider for enrichment, a sending platform, and a CRM. The tools below come from 2026 vendor roundups, so treat the rankings as directional. Several of the sources are sellers of the tools they rank.\n\n**Enrichment (contact and company data)**\n- **Apollo.io** is the most common budget pick. One source describes it as \na 275M+ contact database with 96M verified emails\n, and it bundles sequencing and a basic CRM, which suits small teams.\n- **ZoomInfo** is the enterprise option. One roundup calls it \nthe enterprise standard for B2B contact and company data\n, and it is strongest on org charts and intent data. Its cost is the main drawback. One comparison lists \n$14,995 per year for 5000 credits\n.\n- **Clay** is used for layered, multi-provider enrichment. It \nprovides waterfall enrichment across 100+ providers but requires manual export and burns credits per step.\n\n- **Cognism** is used for phone-verified European numbers, and **Lusha**, **Kaspr**, and **LeadIQ** are common for LinkedIn-based lookups and Chrome-extension workflows.\n- **Hunter.io** and **Snov.io** cover email-finding and verification on lower budgets.\n- **Clearbit** is now tied to HubSpot. One source notes \nClearbit (now HubSpot's data enrichment)\n.\n- For context fields such as tech stack and funding, one guide suggests adding \ntech stack from BuiltWith, funding data from Crunchbase, recent job changes from LinkedIn.\n\n\n**Sending and sequencing**\n- **Instantly, Smartlead, Outreach, and lemlist** are named as sending and orchestration tools. They \nrun sequences, manage mailboxes, and protect deliverability\n.\n- **Salesloft** and **Reply.io** appear as alternatives for multichannel cadences.\n- Several all-in-one platforms combine data and sending, including Apollo, Amplemarket, and Saleshandy. Sources also note that \nredundant enrichment subscriptions (Kaspr + Lusha + Apollo simultaneously) add cost without coverage gains.\n\n- Deliverability setup is part of sending. One guide advises that you \nset up SPF, DKIM, and DMARC records for every sending domain.\n\n\n**CRM**\n- **HubSpot** is the most frequently recommended default. Crono's guide lists \nHubSpot CRM — Default CRM at this stage; integrates natively\n.\n- **Salesforce** is the choice when a client already uses it.\n- **Pipedrive** is a common pick when you want sending built in. One source calls it \na fair alternative if you want email sending and document automation built into the CRM itself.\n\n- **Fluid CRM** is an agency-built option with \nunlimited pipelines on the base plan, custom fields per pipeline, API integrations and flat per-seat pricing.\n Its author built it after running an outbound agency. Treat that as a vendor claim.\n\n**Common stack patterns**\n- Apollo alone, for a lean team that needs data, sending, and a light CRM in one tool.\n- Clay for enrichment, Apollo or ZoomInfo for contacts, Instantly or Smartlead for sending, and HubSpot or Sal",
+   "cited": [
+    "https://fluidcrm.io/blog/best-crm-for-outbound-agencies/",
+    "https://www.saleshandy.com/blog/data-enrichment-tools/",
+    "https://www.bookyourdata.com/blog/data-enrichment-tools",
+    "https://www.amplemarket.com/blog/best-b2b-data-enrichment-tools",
+    "https://salesmotion.io/blog/data-enrichment-tools-comparison",
+    "https://origami.chat/blog/best-sales-tools-for-email-outbound",
+    "https://www.devcommx.com/blogs/best-ai-outbound-revops-automation-tools",
+    "https://lagrowthmachine.com/tech-stack-outbound-sales-teams/",
+    "https://www.outreachark.com/blog/outbound-sales-tech-stack-2025",
+    "https://www.crono.one/academy/the-ultimate-outbound-sales-tech-stack-for-mid-market-teams-2026-guide/",
+    "https://fluidcrm.io/blog/best-crm-for-outbound-agencies/",
+    "https://fluidcrm.io/blog/best-crm-for-outbound-agencies/"
+   ],
+   "vendors": [
+    "Apollo.io",
+    "ZoomInfo",
+    "Clay",
+    "Cognism",
+    "Lusha",
+    "Kaspr",
+    "LeadIQ",
+    "Hunter.io",
+    "Snov.io",
+    "Clearbit",
+    "BuiltWith",
+    "Crunchbase",
+    "LinkedIn",
+    "Instantly",
+    "Smartlead"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": false,
+   "brand_claims": [],
+   "sources": [
+    "fluidcrm.io",
+    "saleshandy.com",
+    "bookyourdata.com",
+    "amplemarket.com",
+    "salesmotion.io",
+    "origami.chat",
+    "devcommx.com",
+    "lagrowthmachine.com",
+    "outreachark.com",
+    "crono.one"
+   ]
+  },
+  {
+   "id": "q30",
+   "group": "stack",
+   "provider": "anthropic",
+   "question": "Agency that can set up Instantly, Clay and Close CRM together",
+   "answer": "I didn't find a single agency that explicitly advertises setting up all three (Instantly, Clay, and Close) together. The closest matches are below, and you may need to contact one to confirm it covers all three.\n\n**Options**\n\n- **closed:in** is the strongest lead for the Clay and Close part. It \nis an official Clay Solutions Partner\n and handles \nwaterfall enrichment setup, Claygent prompt engineering, signal-based scoring, CRM synchronization, and ongoing maintenance of Clay tables.\n Its listed CRM targets include \nClose, HubSpot, Salesforce and Pipedrive.\n Its pages I found don't mention Instantly, so ask them about that.\n- **Supered** is a useful reference for the Instantly-Clay link. Its guide covers the \nAdd Lead to Campaign action that sends each enriched row of a Clay table into an Instantly campaign\n. It also argues that the CRM can be left out of that flow, which is the gap you'd want covered. I couldn't confirm from the results whether Supered sells setup services.\n- **Close's own ecosystem** may help. Close lists a Clay integration, and its Clay connection \nis included in Growth+\n plans.\n\n**Plan requirements to check before hiring**\n\n- Clay's native CRM features are gated. One review notes that \nnative CRM sync, HTTP API integrations, and webhooks unlock on Growth.\n\n- Instantly's connection needs an API key. The Clay-to-Instantly setup \nrequires your Instantly API v2 key inside Clay's integration settings.\n\n\n**Suggested next step:** Search for \"Clay Solutions Partner\" or \"Close partner\" agencies and ask whether they have built Clay → Instantly → Close flows. Specifically ask how they prevent duplicate leads across Instantly and the CRM, since a native Instantly check doesn't cover CRM records.",
+   "cited": [
+    "https://www.closedin.io/clay-agency",
+    "https://www.closedin.io/clay-agency",
+    "https://www.closedin.io/clay-agency",
+    "https://www.supered.io/blog/instantly-clay-integration/",
+    "https://www.clay.com/integrations/data-provider/close",
+    "https://syncgtm.com/blog/clay-review",
+    "https://instantly.ai/blog/ai-sales-agents-data-integration-crm/"
+   ],
+   "vendors": [
+    "closed:in",
+    "Supered",
+    "Close",
+    "Clay",
+    "Instantly"
+   ],
+   "brand_rank": 1,
+   "brand_mentioned": true,
+   "brand_claims": [
+    "Is an official Clay Solutions Partner",
+    "Handles waterfall enrichment setup, Claygent prompt engineering, signal-based scoring, CRM synchronization, and ongoing maintenance of Clay tables",
+    "Listed CRM targets include Close, HubSpot, Salesforce and Pipedrive",
+    "Pages found do not mention Instantly"
+   ],
+   "sources": [
+    "closedin.io",
+    "supered.io",
+    "clay.com",
+    "syncgtm.com",
+    "instantly.ai"
+   ]
+  },
+  {
+   "id": "n01",
+   "group": "name",
+   "provider": "anthropic",
+   "question": "What is closed:in (closedin.io)?",
+   "answer": "**closed:in** is a B2B outbound sales agency, based in Amsterdam, that builds lead-generation systems for other companies. Its website is closedin.io.\n\n- **What it does:** The company works as a go-to-market engineering firm that sets up outbound systems on top of a client's CRM. \nclosed:in is a GTM engineering agency, meaning we build a full outbound system on top of your CRM.\n Its stated aim is to \nbuild outbound sales systems for B2B service companies that want more qualified meetings within 2-3 weeks.\n\n- **Where it is:** Its office is on Jodenbreestraat in Amsterdam, and it is listed as serving \nGTM engineers based in Amsterdam\n.\n- **Who runs it:** The company was \nfounded by Max Münstermann and Jurre Groot\n. Münstermann handles the data infrastructure and Clay workflows, while Groot leads strategy, client delivery, and operations.\n- **Resources:** The site offers free material such as \na free 1-page infrastructure checklist on signup\n, plus a weekly newsletter and templates.\n\nThe GitHub repository for the website (github.com/closed-in/closedin-website) is the company's own project for building and maintaining the site.",
+   "cited": [
+    "https://www.closedin.io/",
+    "https://www.closedin.io/",
+    "https://www.closedin.io/team",
+    "https://www.closedin.io/team",
+    "https://www.closedin.io/contact"
+   ],
+   "vendors": [
+    "closed:in",
+    "Clay",
+    "GitHub"
+   ],
+   "brand_rank": 1,
+   "brand_mentioned": true,
+   "brand_claims": [
+    "Is a B2B outbound sales agency based in Amsterdam that builds lead-generation systems for other companies",
+    "Works as a go-to-market (GTM) engineering agency that builds a full outbound system on top of a client's CRM",
+    "Aims to build outbound sales systems for B2B service companies that want more qualified meetings within 2-3 weeks",
+    "Office is on Jodenbreestraat in Amsterdam",
+    "Founded by Max Münstermann and Jurre Groot",
+    "Münstermann handles data infrastructure and Clay workflows; Groot leads strategy, client delivery, and operations",
+    "Offers a free 1-page infrastructure checklist on signup, plus a weekly newsletter and templates",
+    "Its website GitHub repository (github.com/closed-in/closedin-website) is the company's own project for building and maintaining the site"
+   ],
+   "sources": [
+    "closedin.io",
+    "github.com"
+   ]
+  },
+  {
+   "id": "n02",
+   "group": "name",
+   "provider": "anthropic",
+   "question": "Is closed:in a good outbound agency? What do clients say?",
+   "answer": "**Short answer:** closed:in looks credible and has strong testimonials, but nearly all the praise comes from its own website, and I couldn't find independent reviews to check it against.\n\n**What it is:** closed:in describes itself as \na GTM engineering agency, meaning we build a full outbound system on top of your CRM.\n It also positions itself as \na cold-email specialist and Clay/Instantly partner building hyper-personalized outbound systems that book meetings and generate pipeline.\n It's based in Amsterdam and works with UK clients too. \nEngagements are 3 months minimum.\n\n\n**What clients say:**\n- Its site shows a 4.9 rating from 12 reviews. Two of those reviews are quoted in the structured data: one from Nick Verhulsdonck, co-owner of WeTaxus, who wrote that \nclosed:in delivered exactly what they promised.\n Another is from Zen Alex, founder of Red Fox Agency, who called the work \n\"Absolute game changer for our agency.\"\n\n- Red Fox's founder said that \n\"We tried outbound ourselves for months with minimal results. closed:in came in, rebuilt everything from scratch, and within 4 weeks we had qualified meetings on the calendar.\"\n\n- Another client said closed:in \ncracked the part of our market we couldn't reach on our own: physical retail stores.\n\n\n**Reported results (from closed:in's own case studies):**\n- A campaign for Verzendbazen reportedly \ndelivered 78 opportunities at a 13.9% reply rate\n, with €1.56M in pipeline in 8 weeks.\n- For Endresz, a fashion-focused creative agency, closed:in ran campaigns across the Netherlands, France, Poland and London, \nproducing 247 boutique conversations and USD 128K+ pipeline at a 12% reply rate in 6 weeks.\n\n\n**Caveats:**\n- The reviews and case studies are curated and self-published. I found no independent G2, Clutch or Trustpilot profile for closed:in in my searches, so the 12-review sample is small.\n- Case study numbers are the agency's own claims. Ask for the client's CRM data or a reference call before committing.\n- Before signing, check who owns the sending domains, mailboxes, sequences and contact data if you leave. One guide notes that \nthis is the single most overlooked question in outbound agency selection.\n Also be wary of agencies that lead with reply rates and open rates rather than meetings booked and pipeline; one guide argues that \nthe only metrics that matter: qualified meetings booked, pipeline generated, and revenue closed.\n\n\n**Bottom line:** closed:in is a serious, specialized shop with good-looking results, but the evidence so far comes mainly from the company itself. Treat it as a strong candidate to shortlist and verify with references, not as a proven choice yet.",
+   "cited": [
+    "https://www.closedin.io/",
+    "https://www.salesforge.ai/directory/agencies/outbound-buddy",
+    "https://closedin.io/outbound-agency-uk",
+    "https://www.closedin.io/",
+    "https://www.closedin.io/",
+    "https://www.closedin.io/",
+    "https://www.closedin.io/",
+    "https://www.closedin.io/",
+    "https://closedin.io/outbound-agency-uk",
+    "https://www.advancedclient.io/articles/best-b2b-outbound-agencies",
+    "https://www.advancedclient.io/articles/best-b2b-outbound-agencies"
+   ],
+   "vendors": [
+    "closed:in",
+    "Clay",
+    "Instantly"
+   ],
+   "brand_rank": 1,
+   "brand_mentioned": true,
+   "brand_claims": [
+    "Describes itself as a GTM engineering agency that builds a full outbound system on top of the client's CRM",
+    "Positions itself as a cold-email specialist and Clay/Instantly partner",
+    "Builds hyper-personalized outbound systems that book meetings and generate pipeline",
+    "Based in Amsterdam and works with UK clients",
+    "Engagements require a 3-month minimum",
+    "Website shows a 4.9 rating from 12 reviews",
+    "Red Fox Agency founder says closed:in rebuilt outbound from scratch and delivered qualified meetings within 4 weeks",
+    "Client reports closed:in opened physical retail stores as a market segment",
+    "Verzendbazen campaign reportedly delivered 78 opportunities at a 13.9% reply rate and €1.56M pipeline in 8 weeks",
+    "Endresz campaigns across the Netherlands, France, Poland and London produced 247 boutique conversations and USD 128K+ pipeline at a 12% reply rate in 6 weeks"
+   ],
+   "sources": [
+    "closedin.io",
+    "salesforge.ai",
+    "advancedclient.io"
+   ]
+  },
+  {
+   "id": "n03",
+   "group": "name",
+   "provider": "anthropic",
+   "question": "How much does closed:in cost and what are the terms?",
+   "answer": "I couldn't find any pricing or terms for a product called \"closed:in.\" My searches returned nothing that matches that name, so I can't tell you its cost or contract terms without guessing.\n\nSome similarly named products did come up, which may be what you mean:\n\n- **Close (close.com)**, a sales CRM. Pricing sources disagree. One G2 page says \nClose pricing in 2026 starts at $9.00 and can reach $139.00 depending on the selected plan.\n Another source lists \nSolo: $9/user/month (billed annually).\n and \nScale: $139/user/month (billed annually).\n A third cites higher figures, such as \nStartup: ~$59/user/month, basic CRM + calling\n. Because of these differences, check close.com/pricing directly.\n- **CloseDaily**, a real estate agent platform, which says it offers a \n7-day free trial\n and lists a \nCRM Agent ... $49/mo\n plan billed monthly.\n- **CLOSED Direct** (closedtitle.com), a closing platform for attorneys and title agents, which doesn't list software prices in the results I saw.\n\nIf you can share the website, the company's name, or what the product does (for example, real estate, sales, or legal), I can search again with that information. You could also check the vendor's pricing page or ask their sales team for a written quote, including contract length, renewal, and cancellation terms.",
+   "cited": [
+    "https://www.g2.com/products/close/pricing",
+    "https://pricingnow.com/question/close-io-pricing/",
+    "https://pricingnow.com/question/close-io-pricing/",
+    "https://getstationcrm.com/blog/close-crm-for-commercial-real-estate",
+    "https://closedaily.com/",
+    "https://closedaily.com/"
+   ],
+   "vendors": [
+    "Close",
+    "CloseDaily",
+    "CLOSED Direct"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": true,
+   "brand_claims": [],
+   "sources": [
+    "g2.com",
+    "pricingnow.com",
+    "getstationcrm.com",
+    "closedaily.com",
+    "closedtitle.com",
+    "close.com"
+   ]
+  },
+  {
+   "id": "n04",
+   "group": "name",
+   "provider": "anthropic",
+   "question": "Who are the founders of closed:in in Amsterdam?",
+   "answer": "closed:in, a Amsterdam-based go-to-market firm, was founded by Max Münstermann and Jurre Groot. Their team page describes both as GTM engineers working from Amsterdam \nFounded by Max Münstermann and Jurre Groot, GTM engineers based in Amsterdam.\n\n\nRoles listed on the site:\n- **Max Münstermann** is listed as Founder & Sales Lead, and also as a Data Perfectionist.\n- **Jurre Groot** is listed as Operations & Campaign Execution, and also as a marketing-focused co-founder.\n\nThe company's stated focus is B2B outbound pipeline generation across Europe.",
+   "cited": [
+    "https://www.closedin.io/team"
+   ],
+   "vendors": [
+    "closed:in"
+   ],
+   "brand_rank": 1,
+   "brand_mentioned": true,
+   "brand_claims": [
+    "Founded by Max Münstermann and Jurre Groot",
+    "Based in Amsterdam",
+    "Described as a go-to-market (GTM) firm and its founders as GTM engineers",
+    "Max Münstermann is listed as Founder & Sales Lead and Data Perfectionist",
+    "Jurre Groot is listed as Operations & Campaign Execution and a marketing-focused co-founder",
+    "Focus is B2B outbound pipeline generation across Europe"
+   ],
+   "sources": [
+    "closedin.io"
+   ]
+  },
+  {
+   "id": "n05",
+   "group": "name",
+   "provider": "anthropic",
+   "question": "Which clients and case studies does closed:in have?",
+   "answer": "closed:in's case study page names eight clients, though the page gives only a headline result for each and no full write-ups. The listed clients and results are:\n\n- **Verzendbazen:** 78 opportunities with a 13.9% reply rate.\n- **Jamezz:** 81 qualified leads from a hard-to-reach target market within 60 days.\n- **Endresz:** 247 boutique conversations across Europe.\n- **Mistertafel:** 96 retail opportunities in under 30 days.\n- **Gen-Zero:** 142 opportunities from a custom-built data engine over 13 weeks.\n- **Zano:** 2,253 verified buyers drawn from a universe of 17,213 domains.\n- **Redfox:** 33 partnership conversations from an audience found through social media.\n- **Wetaxus:** a two-channel outbound and web-intent program for an accountancy firm.\n\nThe page also describes a few unnamed projects. One involved a data pipeline that produced a ready-to-use list of crypto operators, and another sourced photographers through Instagram and ran a referral campaign with an 8.47% reply rate. The page claims \n1,000+ campaigns launched\n and \n50+ trusted B2B clients\n.\n\nThese figures are closed:in's own marketing claims, and I couldn't independently verify them. If you need full details on any client, the case study page at closedin.io is the place to look.",
+   "cited": [
+    "https://www.closedin.io/case-studies",
+    "https://www.closedin.io/case-studies"
+   ],
+   "vendors": [
+    "Verzendbazen",
+    "Jamezz",
+    "Endresz",
+    "Mistertafel",
+    "Gen-Zero",
+    "Zano",
+    "Redfox",
+    "Wetaxus"
+   ],
+   "brand_rank": null,
+   "brand_mentioned": true,
+   "brand_claims": [
+    "The case study page names eight clients",
+    "Verzendbazen: 78 opportunities with a 13.9% reply rate",
+    "Jamezz: 81 qualified leads from a hard-to-reach target market within 60 days",
+    "Endresz: 247 boutique conversations across Europe",
+    "Mistertafel: 96 retail opportunities in under 30 days",
+    "Gen-Zero: 142 opportunities from a custom-built data engine over 13 weeks",
+    "Zano: 2,253 verified buyers drawn from a universe of 17,213 domains",
+    "Redfox: 33 partnership conversations from an audience found through social media",
+    "Wetaxus: two-channel outbound and web-intent program for an accountancy firm",
+    "Unnamed project produced a ready-to-use list of crypto operators from a data pipeline",
+    "Unnamed project sourced photographers through Instagram and ran a referral campaign with an 8.47% reply rate",
+    "Claims 1,000+ campaigns launched",
+    "Claims 50+ trusted B2B clients"
+   ],
+   "sources": [
+    "closedin.io"
+   ]
+  }
+ ]
+}
