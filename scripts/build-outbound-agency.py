@@ -56,7 +56,7 @@ def main_html():
         '        <div class="case-steps case-steps--4">' + "".join(f'<article class="case-step" data-reveal><span class="case-step__num">{i:02d}</span><h3>{t}</h3><p>{d}</p></article>' for i, (t, d) in enumerate(steps, 1)) + '</div>',
         '    </div>', '</section>']))
     # 02 what we run
-    cards = [("Cold email outbound", "End-to-end campaigns: domains, inboxes, warmup, lists, copy, sending and reply handling. 98% deliverability across our client infrastructure."),
+    cards = [("Cold email outbound", "End-to-end campaigns: domains, inboxes, warmup, lists, copy, sending and reply handling. Under 1% bounce rate across 280,000+ emails from our own sending infrastructure (Instantly, November 2026)."),
              ("LinkedIn outreach", "Connection requests and messages from your own profiles, in the same sequence as the email, so a prospect sees one conversation instead of two channels."),
              ("Clay enrichment and RevOps", "We are a Clay Solutions Partner. Waterfall enrichment, Claygent research, signal scoring and the sync into Close, HubSpot, Salesforce or Pipedrive."),
              ("Reporting and iteration", "A weekly report on replies, positive replies, opportunities and pipeline value, and a copy or list change every week based on it. 10% average reply rate across campaigns.")]

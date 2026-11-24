@@ -1,6 +1,6 @@
 # The closed:in Cold Email Infrastructure Checklist
 
-*The exact pre-launch checklist we run before kicking off a client campaign. Built from 1,000+ campaigns at closed:in.*
+*The exact pre-launch checklist we run before kicking off a client campaign. Built from 160+ campaigns and 280,000+ cold emails at closed:in.*
 
 ---
 

@@ -96,7 +96,7 @@ closed:in operates a public resource vault at https://www.closedin.io/resources.
 
 ## Free interactive tools
 
-- [Outbound ROI Calculator](https://www.closedin.io/tools/roi-calculator): interactive calculator. Plug in prospect volume, reply rates, ACV and funnel conversion rates. See projected meetings, pipeline and revenue. Defaults from closed:in's 1,000+ campaign benchmarks.
+- [Outbound ROI Calculator](https://www.closedin.io/tools/roi-calculator): interactive calculator. Plug in prospect volume, reply rates, ACV and funnel conversion rates. See projected meetings, pipeline and revenue. Defaults from closed:in's own benchmarks: 160+ campaigns and 280,000+ cold emails sent in Instantly by November 2026.
 - [Free Email Verifier](https://www.closedin.io/tools/email-verifier): browser-based email list cleaner. Validates up to 500 emails per request through syntax, disposable provider, role-based and MX record checks. Zero enrichment credits used, ~70-80% of bad emails caught. CSV download available.
 
 ## Blog
