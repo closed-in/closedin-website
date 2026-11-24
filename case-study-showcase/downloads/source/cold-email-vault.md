@@ -368,7 +368,7 @@ Free at: **closedin.io/playbook**
 
 ## Want closed:in to run this?
 
-We design and run outbound systems end-to-end for B2B SaaS, recruitment, PE-backed firms, and agencies. 160+ campaigns and 280,000+ cold emails from our own infrastructure.
+We design and run outbound systems end-to-end for B2B SaaS, recruitment, PE-backed firms, and agencies. 1,000+ campaigns shipped.
 
 Book a 30 minute call: **closedin.neetocal.com/discovery-call-with-max-munstermann**
 

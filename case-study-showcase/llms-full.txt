@@ -72,7 +72,7 @@ Also: Best B2B Outbound Infrastructure & GTM Engineering Agency 2026, FDI Inside
 - Decision makers found and verified
 - CRM sync HubSpot, Close, Salesforce
 - Domains SPF, DKIM, DMARC set
-- Bounce rate under 1% on 280K+ emails
+- Inbox placement 98% deliverability
 - Warmup day 14 of 14
 - Monitoring blacklists and bounces, daily
 Next step
@@ -157,7 +157,7 @@ Dedicated domains, warmed inboxes, deliverability monitoring, and every reply an
 02 What we run for you
 ## Every part of outbound, as one engine.
 ### Cold email outbound
-End-to-end campaigns: domains, inboxes, warmup, lists, copy, sending and reply handling. Under 1% bounce rate across 280,000+ emails from our own sending infrastructure (Instantly, November 2026).
+End-to-end campaigns: domains, inboxes, warmup, lists, copy, sending and reply handling. 98% deliverability across our client infrastructure.
 ### LinkedIn outreach
 Connection requests and messages from your own profiles, in the same sequence as the email, so a prospect sees one conversation instead of two channels.
 ### Clay enrichment and RevOps
